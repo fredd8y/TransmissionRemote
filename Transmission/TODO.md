@@ -7,5 +7,4 @@ Improvement
 TODO
 
 -	Save credentials
--	Implement polling
 -	Parametric baseURL

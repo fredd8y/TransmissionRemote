@@ -31,8 +31,8 @@ final class TorrentsPresenterTests: XCTestCase {
 		)
 		
 		XCTAssertEqual(viewModel.title, title)
-		XCTAssertEqual(viewModel.downloadSpeed, "1,24 MB/s")
-		XCTAssertEqual(viewModel.uploadSpeed, "1,24 MB/s")
+		XCTAssertEqual(viewModel.downloadSpeed, "1,23 MB/s")
+		XCTAssertEqual(viewModel.uploadSpeed, "1,23 MB/s")
 		XCTAssertEqual(viewModel.torrents, [
 			TorrentPresenter.map(torrent1),
 			TorrentPresenter.map(torrent2)
