@@ -62,10 +62,43 @@ final class TransmissionHTTPClient {
 			
 	}
 	
+	static func makeLinkAddPublisher(
+		server: Server,
+		startWhenAdded: Bool,
+		link: String
+	) -> AnyPublisher<String, Error> {
+		return httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: SessionBodies.get.data(using: .utf8)!,
+				additionalHeader: headers(server)
+			)
+			.tryMap(TransmissionHTTPClient.log)
+			.tryMap(SessionGetMapper.map)
+			.tryMap { $0.downloadDir }
+			.flatMap { downloadDir in
+				Future { promise in
+					do {
+						httpClient.post(
+							APIsEndpoint.post.url(baseURL: server.baseURL),
+							body: try TorrentBodies.add(startWhenAdded: startWhenAdded, downloadDir: downloadDir, torrentFilePath: nil, filename: link),
+							additionalHeader: headers(server)
+						) { result in
+							promise(result)
+						}
+					} catch {
+						promise(.failure(error))
+					}
+				}
+			}
+			.tryMap(TransmissionHTTPClient.log)
+			.tryMap(TorrentAddMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
 	static func makeTorrentAddPublisher(
 		server: Server,
 		startWhenAdded: Bool,
-		downloadDir: String,
 		torrentFilePath: String
 	) -> AnyPublisher<String, Error> {
 		return httpClient
@@ -82,7 +115,7 @@ final class TransmissionHTTPClient {
 					do {
 						httpClient.post(
 							APIsEndpoint.post.url(baseURL: server.baseURL),
-							body: try TorrentBodies.add(startWhenAdded: startWhenAdded, downloadDir: downloadDir, torrentFilePath: torrentFilePath),
+							body: try TorrentBodies.add(startWhenAdded: startWhenAdded, downloadDir: downloadDir, torrentFilePath: torrentFilePath, filename: nil),
 							additionalHeader: headers(server)
 						) { result in
 							promise(result)

@@ -33,24 +33,44 @@ extension TorrentBodiesTests {
 
 extension TorrentBodiesTests {
 	
-	func test_torrentAdd_doesNotThrowOnCorrectInput() {
+	func test_torrentAddFile_doesNotThrowOnCorrectInput() {
 		let (fileUrl, _) = fileUrl()
 		
-		XCTAssertNoThrow(try TorrentBodies.add(startWhenAdded: true, downloadDir: anyDownloadDir(), torrentFilePath: fileUrl))
+		XCTAssertNoThrow(try TorrentBodies.add(startWhenAdded: true, downloadDir: anyDownloadDir(), torrentFilePath: fileUrl, filename: nil))
 	}
 	
-	func test_torrentAdd_throwsOnBadFileURL() {
-		XCTAssertThrowsError(try TorrentBodies.add(startWhenAdded: true, downloadDir: anyDownloadDir(), torrentFilePath: "bad url"))
+	func test_torrentAddFile_throwsOnBadFileURL() {
+		XCTAssertThrowsError(try TorrentBodies.add(startWhenAdded: true, downloadDir: anyDownloadDir(), torrentFilePath: "bad url", filename: nil))
 	}
 	
-	func test_torrentAdd_httpBody() {
+	func test_torrentAddLink_doesNotThrowOnCorrectInput() {
+		XCTAssertNoThrow(try TorrentBodies.add(startWhenAdded: true, downloadDir: anyDownloadDir(), torrentFilePath: nil, filename: "a link"))
+	}
+	
+	func test_torrentAdd_throwsWhenMissingSource() {
+		XCTAssertThrowsError(try TorrentBodies.add(startWhenAdded: true, downloadDir: anyDownloadDir(), torrentFilePath: nil, filename: nil))
+	}
+	
+	func test_torrentAddFile_httpBody() {
 		let (fileUrl, base64EncodedContent) = fileUrl()
 		
 		let downloadUrl = anyDownloadDir()
 		
 		let expectedBody = #"{"method":"torrent-add","arguments":{"paused":false,"download-dir":"\#(downloadUrl)","metainfo":"\#(base64EncodedContent)"}}"#.data(using: .utf8)
 		
-		let httpBody = try! TorrentBodies.add(startWhenAdded: true, downloadDir: anyDownloadDir(), torrentFilePath: fileUrl)
+		let httpBody = try! TorrentBodies.add(startWhenAdded: true, downloadDir: anyDownloadDir(), torrentFilePath: fileUrl, filename: nil)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
+	func test_torrentAddLink_httpBody() {
+		let downloadUrl = anyDownloadDir()
+		
+		let fileName = "a file name"
+				
+		let expectedBody = #"{"method":"torrent-add","arguments":{"paused":false,"download-dir":"\#(downloadUrl)","filename":"\#(fileName)"}}"#.data(using: .utf8)
+		
+		let httpBody = try! TorrentBodies.add(startWhenAdded: true, downloadDir: anyDownloadDir(), torrentFilePath: nil, filename: fileName)
 		
 		XCTAssertEqual(expectedBody, httpBody)
 	}

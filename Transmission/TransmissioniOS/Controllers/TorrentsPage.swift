@@ -17,23 +17,31 @@ public struct TorrentsPage: View {
 	
 	@ObservedObject var viewModel: TorrentsPageViewModel
 	
-	@State public var alertPresented: Bool = false
+	@State private var alertPresented: Bool = false
 	
-	@State public var fileImporterPresented: Bool = false
+	@State private var fileImporterPresented: Bool = false
 	
-	@State public var torrentRemoveAlertPresented: Bool = false
+	@State private var linkAlertPresented: Bool = false
+	
+	@State private var torrentTypeDialogPresented: Bool = false
+	
+	@State private var torrentRemoveAlertPresented: Bool = false
+	
+	@State private var deletingTorrentId: Int = -1
+	
+	@State private var link: String = ""
 	
 	public var loadData: (() -> Void)?
-	
-	public var selectedFile: ((URL) -> Void)?
 	
 	public var stop: ((Int) -> Void)?
 	
 	public var start: ((Int) -> Void)?
 	
-	public var delete: ((_ id: Int, _ deleteLocalData: Bool) -> Void)?
+	public var selectedLink: ((String) -> Void)?
 	
-	@State private var deletingTorrentId: Int = -1
+	public var selectedFile: ((URL) -> Void)?
+	
+	public var delete: ((_ id: Int, _ deleteLocalData: Bool) -> Void)?
 	
     public var body: some View {
 		NavigationStack {
@@ -108,7 +116,7 @@ public struct TorrentsPage: View {
 			.toolbar {
 				ToolbarItemGroup(placement: .navigationBarTrailing) {
 					Button {
-						fileImporterPresented.toggle()
+						torrentTypeDialogPresented.toggle()
 					} label: {
 						Image(systemName: "plus")
 							.foregroundColor(.primary)
@@ -147,6 +155,43 @@ public struct TorrentsPage: View {
 					case let .success(url):
 						selectedFile?(url)
 					}
+				}
+			)
+			.confirmationDialog("",
+				isPresented: $torrentTypeDialogPresented,
+				actions: {
+					Button {
+						fileImporterPresented.toggle()
+					} label: {
+						Text(TorrentsPagePresenter.torrent)
+					}
+					Button {
+						linkAlertPresented.toggle()
+					} label: {
+						Text(TorrentsPagePresenter.link)
+					}
+				}
+			)
+			.alert(
+				TorrentsPagePresenter.linkTitle,
+				isPresented: $linkAlertPresented,
+				actions: {
+					TextField(TorrentsPagePresenter.linkPlaceholder, text: $link)
+					Button(action: {
+						selectedLink?(link)
+						link = ""
+					}, label: {
+						Text(TorrentsPagePresenter.ok)
+					})
+					Button(role: .cancel, action: {
+						link = ""
+					}, label: {
+						Text(TorrentsPagePresenter.cancel)
+					})
+					
+				},
+				message: {
+					Text(TorrentsPagePresenter.linkInsertDescription)
 				}
 			)
 			.alert(

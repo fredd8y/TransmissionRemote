@@ -6,11 +6,11 @@ Improvement
 
 TODO
 
--	Handle magnet link
+-	Handle link
+-	Handle failure in all APIs
 -	Comment public functions
 -	Crypt password before saving it in userDefaults
 -	Torrent Detail
--	Pausing Torrent
 -	Quick action button to perform action on all torrents
 
 FIX

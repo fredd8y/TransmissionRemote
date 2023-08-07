@@ -10,6 +10,7 @@
 "TORRENT_ITEM_OF_PREPOSITION" = "of";
 "TORRENTS" = "Torrents";
 "TORRENT" = "Torrent";
+"LINK" = "Link";
 "USERNAME" = "Username";
 "PASSWORD" = "Password";
 "CREDENTIAL_NEEDED_TITLE" = "Wrong or missing credential, add it to server configuration in settings tab";
@@ -36,3 +37,6 @@
 "UNKNOWN_STATUS" = "Unknown";
 "STOP" = "Stop";
 "START" = "Start";
+"LINK_TITLE" = "Link";
+"LINK_PLACEHOLDER" = "Torrent link";
+"LINK_INSERT_DESCRIPTION" = "Insert here torrent link";

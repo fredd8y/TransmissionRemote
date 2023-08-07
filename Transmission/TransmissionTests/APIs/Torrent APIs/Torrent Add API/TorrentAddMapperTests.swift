@@ -60,6 +60,22 @@ class TorrentAddMapperTests: XCTestCase {
 		)
 	}
 	
+	func test_map_throwsErrorOnResponseWithoutSuccessResult() throws {
+		let (json, apiError) = makeResponseWithFailure()
+		
+		let jsonData = makeJSON(fromDictionary: json)
+		
+		do {
+			_ = try TorrentAddMapper.map(jsonData, from: HTTPURLResponse(statusCode: 200))
+		} catch {
+			if case let TorrentAddMapper.Error.failed(explanation) = error {
+				XCTAssertEqual(explanation, apiError)
+			} else {
+				XCTFail("Expected TorrentAddMapper.Error.failed, got \(error) instead")
+			}
+		}
+	}
+	
 	func test_map_succeedsOnResponseWithAddedTorrent() throws {
 		let (expectedTorrentName, json) = makeResponseWithAddedTorrent()
 		let jsonData = makeJSON(fromDictionary: json)
@@ -105,9 +121,20 @@ class TorrentAddMapperTests: XCTestCase {
 	
 	private func makeResponseWithoutTorrent() -> [String: Any] {
 		let json: [String: Any] = [
-			"arguments": [],
+			"arguments": [:],
 			"result": "success"
 		]
 		return json
 	}
+	
+	private func makeResponseWithFailure() -> (json: [String: Any], error: String) {
+		let error = "failed for some reason"
+		
+		let json: [String: Any] = [
+			"arguments": [:],
+			"result": error
+		]
+		return (json, error)
+	}
+	
 }

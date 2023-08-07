@@ -168,6 +168,38 @@ public final class TorrentsPagePresenter {
 			comment: "Error to show when the cause is unknown")
 	}
 	
+	public static var linkTitle: String {
+		NSLocalizedString(
+			"LINK_TITLE",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Title to be shown on link alert popup")
+	}
+	
+	public static var link: String {
+		NSLocalizedString(
+			"LINK",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Link word")
+	}
+	
+	public static var linkPlaceholder: String {
+		NSLocalizedString(
+			"LINK_PLACEHOLDER",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Placeholder to be shown on link alert popup")
+	}
+	
+	public static var linkInsertDescription: String {
+		NSLocalizedString(
+			"LINK_INSERT_DESCRIPTION",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Description to be shown on link alert popup")
+	}
+	
 	public static func map(
 		title: String,
 		error: String?,

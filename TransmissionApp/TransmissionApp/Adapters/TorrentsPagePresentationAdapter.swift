@@ -105,6 +105,44 @@ final class TorrentsPagePresentationAdapter {
 		).store(in: &stopTorrentCancellable)
 	}
 	
+	func selectedLink(_ link: String) {
+		guard let server = UserDefaultsHandler.shared.currentServer else {
+			torrentsPageViewModel.alertMessage = TorrentsPagePresenter.missingServerError
+			torrentsPageViewModel.alertMessageVisible = true
+			return
+		}
+		TransmissionHTTPClient.makeLinkAddPublisher(
+			server: server,
+			startWhenAdded: true,
+			link: link
+		)
+		.dispatchOnMainQueue()
+		.sink(
+			receiveCompletion: { [weak self] completion in
+				switch completion {
+				case .finished: break
+				case .failure(let error):
+					if let _error = error as? TorrentAddMapper.Error {
+						switch _error {
+						case .failed(let explanation):
+							self?.torrentsPageViewModel.alertMessage = explanation
+							self?.torrentsPageViewModel.alertMessageVisible = true
+						case .torrentDuplicate(let name):
+							self?.torrentsPageViewModel.alertMessage = "\(name) \(TorrentsPagePresenter.itemAlreadyAdded)"
+							self?.torrentsPageViewModel.alertMessageVisible = true
+						case .invalidData:
+							self?.torrentsPageViewModel.alertMessage = TorrentsPagePresenter.genericError
+							self?.torrentsPageViewModel.alertMessageVisible = true
+						}
+					}
+				}
+			},
+			receiveValue: { [weak self] _ in
+				self?.loadData(server: server)
+			}
+		).store(in: &addTorrentCancellable)
+	}
+	
 	func selectedFile(_ url: URL) {
 		guard let server = UserDefaultsHandler.shared.currentServer else {
 			torrentsPageViewModel.alertMessage = TorrentsPagePresenter.missingServerError
@@ -119,7 +157,6 @@ final class TorrentsPagePresentationAdapter {
 		TransmissionHTTPClient.makeTorrentAddPublisher(
 			server: server,
 			startWhenAdded: true,
-			downloadDir: "",
 			torrentFilePath: url.absoluteString
 		)
 		.dispatchOnMainQueue()
@@ -132,6 +169,9 @@ final class TorrentsPagePresentationAdapter {
 					url.stopAccessingSecurityScopedResource()
 					if let _error = error as? TorrentAddMapper.Error {
 						switch _error {
+						case .failed(let explanation):
+							self?.torrentsPageViewModel.alertMessage = explanation
+							self?.torrentsPageViewModel.alertMessageVisible = true
 						case .torrentDuplicate(let name):
 							self?.torrentsPageViewModel.alertMessage = "\(name) \(TorrentsPagePresenter.itemAlreadyAdded)"
 							self?.torrentsPageViewModel.alertMessageVisible = true

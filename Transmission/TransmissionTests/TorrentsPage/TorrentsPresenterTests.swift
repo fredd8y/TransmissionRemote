@@ -80,6 +80,22 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentsPagePresenter.stop, localized("STOP", table: table))
 	}
 	
+	func test_linkTitle_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.linkTitle, localized("LINK_TITLE", table: table))
+	}
+	
+	func test_linkPlaceholder_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.linkPlaceholder, localized("LINK_PLACEHOLDER", table: table))
+	}
+	
+	func test_linkInsertDescription_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.linkInsertDescription, localized("LINK_INSERT_DESCRIPTION", table: table))
+	}
+	
+	func test_link_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.link, localized("LINK", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Title"
 		let error = "a error"

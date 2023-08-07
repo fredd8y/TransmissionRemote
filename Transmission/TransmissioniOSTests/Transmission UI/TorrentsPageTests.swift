@@ -99,7 +99,8 @@ class TorrentsPageTests: XCTestCase {
 				completionPercentage: anyPercentage,
 				completionPercentageString: anyPercentageString,
 				downloaded: anyDownloaded,
-				downloadSpeed: anyDownloadSpeed
+				downloadSpeed: anyDownloadSpeed,
+				status: .running
 			),
 			TorrentViewModel(
 				id: 2,
@@ -108,7 +109,8 @@ class TorrentsPageTests: XCTestCase {
 				completionPercentage: anyPercentage,
 				completionPercentageString: anyPercentageString,
 				downloaded: anyDownloaded,
-				downloadSpeed: anyDownloadSpeed
+				downloadSpeed: anyDownloadSpeed,
+				status: .running
 			)
 		]
 	}
@@ -123,7 +125,8 @@ class TorrentsPageTests: XCTestCase {
 				completionPercentage: anyPercentage,
 				completionPercentageString: anyPercentageString,
 				downloaded: anyDownloaded,
-				downloadSpeed: anyDownloadSpeed
+				downloadSpeed: anyDownloadSpeed,
+				status: .stopped
 			)
 		]
 	}

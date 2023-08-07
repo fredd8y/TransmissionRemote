@@ -11,6 +11,7 @@ public enum TorrentAddMapper {
 	
 	public enum Error: Swift.Error {
 		case invalidData
+		case failed(explanation: String)
 		case torrentDuplicate(name: String)
 	}
 	
@@ -20,17 +21,19 @@ public enum TorrentAddMapper {
 		guard response.isOK, let remoteResponse = try? JSONDecoder().decode(RemoteResponse.self, from: data) else {
 			throw Error.invalidData
 		}
-		if let torrentDuplicate = remoteResponse.arguments.torrentDuplicate {
+		if let torrentDuplicate = remoteResponse.arguments?.torrentDuplicate {
 			throw Error.torrentDuplicate(name: torrentDuplicate.name)
-		} else if let torrentAdded = remoteResponse.arguments.torrentAdded {
+		} else if let torrentAdded = remoteResponse.arguments?.torrentAdded {
 			return torrentAdded.name
+		} else if remoteResponse.result != SharedAPIsConstants.success {
+			throw Error.failed(explanation: remoteResponse.result)
 		} else {
 			throw Error.invalidData
 		}
 	}
 	
 	private struct RemoteResponse: Decodable {
-		let arguments: Arguments
+		let arguments: Arguments?
 		let result: String
 		
 		struct Arguments: Decodable {
