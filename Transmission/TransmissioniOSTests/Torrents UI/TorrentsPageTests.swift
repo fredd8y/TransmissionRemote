@@ -11,14 +11,14 @@ import TransmissioniOS
 
 class TorrentsPageTests: XCTestCase {
 	func test_emptyList() {
-		let sut = makeSUT(nil, torrents: emptyList())
+		let sut = makeSUT(torrents: emptyList())
 		
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "EMPTY_LIST_light")
 		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "EMPTY_LIST_dark")
 	}
 	
 	func test_listWithErrorMessage() {
-		let sut = makeSUT("This is a\nmulti-line\nerror message", torrents: emptyList())
+		let sut = makeSUT(torrents: emptyList(), error: "This is a\nmulti-line\nerror message")
 		
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "LIST_WITH_ERROR_MESSAGE_light")
 		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "LIST_WITH_ERROR_MESSAGE_dark")
@@ -26,7 +26,7 @@ class TorrentsPageTests: XCTestCase {
 	}
 	
 	func test_listWithContent() {
-		let sut = makeSUT(nil, torrents: listWithContent())
+		let sut = makeSUT(torrents: listWithContent())
 		
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "LIST_WITH_CONTENT_light")
 		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "LIST_WITH_CONTENT_dark")
@@ -34,7 +34,7 @@ class TorrentsPageTests: XCTestCase {
 	}
 	
 	func test_listWithItemError() {
-		let sut = makeSUT(nil, torrents: listWithItemError())
+		let sut = makeSUT(torrents: listWithItemError())
 		
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "LIST_WITH_ITEM_ERROR_light")
 		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "LIST_WITH_ITEM_ERROR_dark")
@@ -43,14 +43,18 @@ class TorrentsPageTests: XCTestCase {
 	
 	// MARK: - Helpers
 	
-	private func makeSUT(_ error: String?, torrents: [TorrentViewModel]) -> TorrentsPage {
-		TorrentsPage(model: TorrentsViewModel(
+	private func makeSUT(torrents: [TorrentViewModel], error: String? = nil) -> TorrentsPage {
+		TorrentsPage(model: viewModel(withTorrents: torrents, andError: error))
+	}
+	
+	private func viewModel(withTorrents torrents: [TorrentViewModel], andError error: String? = nil) -> TorrentsViewModel {
+		TorrentsViewModel(
 			title: "Title",
 			error: error,
 			uploadSpeed: "5,5 MB/s",
 			downloadSpeed: "5,5 MB/s",
 			torrents: torrents
-		))
+		)
 	}
 	
 	private func emptyList() -> [TorrentViewModel] {
