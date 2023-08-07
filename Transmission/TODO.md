@@ -6,7 +6,7 @@ Improvement
 
 TODO
 
--	Fix selected interval index from observedobject
+-	Implement update interval selection
 -	Settings with multiple servers
 	-	Server name
 	-	protocol (http/https)
