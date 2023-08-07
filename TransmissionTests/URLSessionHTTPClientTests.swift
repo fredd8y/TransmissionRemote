@@ -73,6 +73,19 @@ final class URLSessionHTTPClientTests: XCTestCase {
 		XCTAssertEqual(receivedValues?.response.url, response.url)
 		XCTAssertEqual(receivedValues?.response.statusCode, response.statusCode)
 	}
+	
+	// This test is for 204 no content status code, the HTTPURLResponse will return
+	// empty data (Data()) when the response has no-content
+	func test_postAtURL_succeedsWithEmptyDataOnHTTPURLResponseWithNilData() {
+		let response = anyHTTPURLResponse()
+		
+		let receivedValues = resultValuesFor((data: nil, response: response, error: nil))
+		
+		let emptyData = Data()
+		XCTAssertEqual(receivedValues?.data, emptyData)
+		XCTAssertEqual(receivedValues?.response.url, response.url)
+		XCTAssertEqual(receivedValues?.response.statusCode, response.statusCode)
+	}
 
 	// MARK: - Helpers
 	
@@ -131,8 +144,8 @@ final class URLSessionHTTPClientTests: XCTestCase {
 		let exp = expectation(description: "Wait for completion")
 		
 		var receivedResult: HTTPClient.Result!
-		// Questo taskHandler applica la funzione data in input all'URLSessionTask
-		// ritornato dalla post()
+		// This taskHandler apply the input function to the URLSessionTask
+		// returned by the post()
 		taskHandler(sut.post(anyURL(), body: anyData()) { result in
 			receivedResult = result
 			exp.fulfill()
