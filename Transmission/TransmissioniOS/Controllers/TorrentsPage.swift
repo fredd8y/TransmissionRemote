@@ -90,6 +90,9 @@ public struct TorrentsPage: View {
 		.onAppear {
 			loadData?()
 		}
+		.refreshable {
+			loadData?()
+		}
 	}
 	
 	private var torrentsDescription: String {
