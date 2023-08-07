@@ -83,7 +83,7 @@ class ServerDetailPagePresentationAdapter {
 			}
 			try ServerSetMapper.map(servers).write(to: url)
 		} catch {
-			
+			// TODO: Handle error
 		}
 		return nil
 	}
