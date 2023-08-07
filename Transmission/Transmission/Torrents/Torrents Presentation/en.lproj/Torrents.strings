@@ -17,3 +17,4 @@
 "UNDEFINED_ERROR" = "Something went wrong";
 "DOWNLOAD_COMPLETED_IN" = "Download will be completed";
 "COMPLETED" = "Completed";
+"SERVER_NOT_SET" = "Server not set, go to Settings tab to add one";

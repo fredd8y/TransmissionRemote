@@ -44,30 +44,38 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentsPresenter.undefinedError, localized("UNDEFINED_ERROR", table: table))
 	}
 	
+	func test_serverNotSet_isLocalized() {
+		XCTAssertEqual(TorrentsPresenter.serverNotSet, localized("SERVER_NOT_SET", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Title"
+		let error = "a error"
 		let uploadSpeed = 1234576
 		let downloadSpeed = 1234567
 		let torrent1 = anyTorrentWithoutError()
 		let torrent2 = anyTorrentWithError()
 		let torrents = [torrent1, torrent2]
+		let emptyMessage = "a message"
 		
 		let viewModel = TorrentsPresenter.map(
 			title: title,
-			error: nil,
+			error: error,
 			uploadSpeed: uploadSpeed,
 			downloadSpeed: downloadSpeed,
-			torrents: torrents
+			torrents: torrents,
+			emptyMessage: emptyMessage
 		)
 		
 		XCTAssertEqual(viewModel.title, title)
+		XCTAssertEqual(viewModel.error, error)
 		XCTAssertEqual(viewModel.downloadSpeed, "1,23 MB/s")
 		XCTAssertEqual(viewModel.uploadSpeed, "1,23 MB/s")
 		XCTAssertEqual(viewModel.torrents, [
 			TorrentPresenter.map(torrent1),
 			TorrentPresenter.map(torrent2)
 		])
-		
+		XCTAssertEqual(viewModel.emptyMessage, emptyMessage)
 	}
 }
 

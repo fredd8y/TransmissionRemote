@@ -15,9 +15,11 @@ final class TorrentsPagePresentationAdapter {
 
 	init(
 		torrentsPageViewModel: TorrentsViewModel,
+		server: Server?,
 		sessionIdHandler: @escaping (String) -> Void
 	) {
 		self.torrentsPageViewModel = torrentsPageViewModel
+		self.server = server
 		self.sessionIdHandler = sessionIdHandler
 		pollingRateCancellable = UserDefaultsHandler.shared.$pollingRate.sink { [weak self] newValue in
 			guard let self else { return }
@@ -38,12 +40,17 @@ final class TorrentsPagePresentationAdapter {
 	
 	private var pollingRateCancellable: Cancellable?
 	private var sessionLoaderCancellable: Cancellable?
+	private var server: Server?
 	private var sessionIdHandler: (String) -> Void
 
 	@ObservedObject var torrentsPageViewModel: TorrentsViewModel
 
 	func loadData() {
-		sessionLoaderCancellable = TransmissionHTTPClient.makeRemoteSessionLoader()
+		guard let server else {
+			torrentsPageViewModel.newValues(TorrentsViewModel.serverNotSet())
+			return
+		}
+		sessionLoaderCancellable = TransmissionHTTPClient.makeRemoteSessionLoader(server: server)
 			.dispatchOnMainQueue()
 			.sink(
 				receiveCompletion: { [weak self] completion in
@@ -71,7 +78,7 @@ final class TorrentsPagePresentationAdapter {
 					}
 				},
 				receiveValue: { [weak self] session in
-					self?.sessionLoaderCancellable = TransmissionHTTPClient.makeRemoteTorrentsLoader()
+					self?.sessionLoaderCancellable = TransmissionHTTPClient.makeRemoteTorrentsLoader(server: server)
 						.dispatchOnMainQueue()
 						.sink(
 							receiveCompletion: { completion in
@@ -87,7 +94,8 @@ final class TorrentsPagePresentationAdapter {
 									error: nil,
 									uploadSpeed: torrents.reduce(0) { $0 + $1.rateUpload },
 									downloadSpeed: torrents.reduce(0) { $0 + $1.rateDownload },
-									torrents: torrents
+									torrents: torrents,
+									emptyMessage: nil
 								)
 								self?.torrentsPageViewModel.newValues(viewModel)
 								self?.timer.fireIfInvalid()
@@ -106,6 +114,7 @@ private extension TorrentsViewModel {
 		downloadSpeed = viewModel.downloadSpeed
 		torrents = viewModel.torrents
 		showAlert = viewModel.showAlert
+		emptyMessage = viewModel.emptyMessage
 	}
 }
 

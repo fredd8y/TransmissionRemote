@@ -41,6 +41,14 @@ class TorrentsPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_light_extraExtraExtraLarge")
 	}
 	
+	func test_emptyMessage() {
+		let sut = makeSUT(torrents: emptyList(), emptyMessage: emptyMessage)
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENTS_PAGE_EMPTY_MESSAGE_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_PAGE_EMPTY_MESSAGE_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENTS_PAGE_EMPTY_MESSAGE_light_extraExtraExtraLarge")
+	}
+	
 	func test_list_fromEmptyToFilled() {
 		let sut = makeSUT(torrents: emptyList())
 		
@@ -55,18 +63,19 @@ class TorrentsPageTests: XCTestCase {
 	
 	// MARK: - Helpers
 	
-	private func makeSUT(torrents: [TorrentViewModel], error: String? = nil) -> TorrentsPage {
-		TorrentsPage(viewModel: viewModel(withTorrents: torrents, andError: error))
+	private func makeSUT(torrents: [TorrentViewModel], error: String? = nil, emptyMessage: String? = nil) -> TorrentsPage {
+		TorrentsPage(viewModel: viewModel(withTorrents: torrents, andError: error, emptyMessage: emptyMessage))
 	}
 	
-	private func viewModel(withTorrents torrents: [TorrentViewModel], andError error: String? = nil) -> TorrentsViewModel {
+	private func viewModel(withTorrents torrents: [TorrentViewModel], andError error: String? = nil, emptyMessage: String? = nil) -> TorrentsViewModel {
 		TorrentsViewModel(
 			title: "Title",
 			error: error,
 			uploadSpeed: "5,5 MB/s",
 			downloadSpeed: "5,5 MB/s",
 			torrents: torrents,
-			showAlert: false
+			showAlert: false,
+			emptyMessage: emptyMessage
 		)
 	}
 	
@@ -137,5 +146,9 @@ class TorrentsPageTests: XCTestCase {
 	
 	private var anyDownloadSpeed: String {
 		"567Kb/s"
+	}
+	
+	private var emptyMessage: String {
+		"Test empty message"
 	}
 }

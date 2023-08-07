@@ -14,27 +14,25 @@ final class TransmissionHTTPClient {
 	private init() {}
 	
 	static var sessionId: String?
-	static var username: String?
-	static var password: String?
 
-	static func makeRemoteSessionLoader() -> AnyPublisher<Session, Error> {
+	static func makeRemoteSessionLoader(server: Server) -> AnyPublisher<Session, Error> {
 		return httpClient
 			.postPublisher(
-				url: APIsEndpoint.post.url(baseURL: URL(string: "http://192.168.178.39:9091")!),
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
 				body: SessionBodies.get.data(using: .utf8)!,
-				additionalHeader: headers()
+				additionalHeader: headers(server)
 			)
 			.logResponse()
 			.tryMap(SessionGetMapper.map)
 			.eraseToAnyPublisher()
 	}
 
-	static func makeRemoteTorrentsLoader() -> AnyPublisher<[Torrent], Error> {
+	static func makeRemoteTorrentsLoader(server: Server) -> AnyPublisher<[Torrent], Error> {
 		return httpClient
 			.postPublisher(
-				url: APIsEndpoint.post.url(baseURL: URL(string: "http://192.168.178.39:9091")!),
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
 				body: TorrentBodies.get(TorrentField.minimumTorrentField),
-				additionalHeader: headers()
+				additionalHeader: headers(server)
 			)
 			.logResponse()
 			.tryMap(TorrentGetMapper.map)
@@ -45,9 +43,9 @@ final class TransmissionHTTPClient {
 
 	private static let httpClient: HTTPClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
 
-	private static func headers() -> [String: String] {
+	private static func headers(_ server: Server) -> [String: String] {
 		var headers: [String: String] = [:]
-		if let username, let password {
+		if let username = server.username, let password = server.password {
 			headers[HeaderUtils.AUTHORIZATION_KEY] = HeaderUtils.basicAuthCredentialsString(username: username, password: password)
 		}
 		if let sessionId {
@@ -56,4 +54,10 @@ final class TransmissionHTTPClient {
 		return headers
 	}
 	
+}
+
+private extension Server {
+	var baseURL: URL {
+		return URL(string: "\(httpProtocol.rawValue)//:\(ip):\(port)")!
+	}
 }

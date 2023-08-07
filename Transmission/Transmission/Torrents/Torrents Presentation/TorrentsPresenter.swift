@@ -72,13 +72,22 @@ public final class TorrentsPresenter {
 			comment: "Generic error for invalidData")
 	}
 	
+	public static var serverNotSet: String {
+		NSLocalizedString(
+			"SERVER_NOT_SET",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPresenter.self),
+			comment: "Error shown when there's no current server set")
+	}
+	
 	public static func map(
 		title: String,
 		error: String?,
 		uploadSpeed: Int,
 		downloadSpeed: Int,
 		torrents: [Torrent],
-		showAlert: Bool = false
+		showAlert: Bool = false,
+		emptyMessage: String?
 	) -> TorrentsViewModel {
 		return TorrentsViewModel(
 			title: title,
@@ -88,7 +97,8 @@ public final class TorrentsPresenter {
 			torrents: torrents.map {
 				TorrentPresenter.map($0)
 			},
-			showAlert: showAlert
+			showAlert: showAlert,
+			emptyMessage: emptyMessage
 		)
 	}
 }

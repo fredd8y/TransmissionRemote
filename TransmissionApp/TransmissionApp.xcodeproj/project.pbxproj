@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B2324D02A75072800836B02 /* Server+SharedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2324CF2A75072800836B02 /* Server+SharedExtension.swift */; };
 		7B6CD5CB2A71050F00E81983 /* Logger+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CA2A71050F00E81983 /* Logger+.swift */; };
 		7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */; };
 		7BBF3C4B2A729554001206A8 /* SettingsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B2324CF2A75072800836B02 /* Server+SharedExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server+SharedExtension.swift"; sourceTree = "<group>"; };
 		7B6CD5CA2A71050F00E81983 /* Logger+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+.swift"; sourceTree = "<group>"; };
 		7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+MainQueueDispatcher.swift"; sourceTree = "<group>"; };
 		7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPagePresentationAdapter.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */,
 				7BC0D84B2A6EA20100B36367 /* TorrentsViewModel+Factory.swift */,
 				7BBF3C5B2A742B6E001206A8 /* SettingsViewModel+Factory.swift */,
+				7B2324CF2A75072800836B02 /* Server+SharedExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			files = (
 				7BBF3C5C2A742B6E001206A8 /* SettingsViewModel+Factory.swift in Sources */,
 				7BC0D84E2A6EA90000B36367 /* TransmissionHTTPClient.swift in Sources */,
+				7B2324D02A75072800836B02 /* Server+SharedExtension.swift in Sources */,
 				7BBF3C4B2A729554001206A8 /* SettingsPagePresentationAdapter.swift in Sources */,
 				7BC0D84C2A6EA20100B36367 /* TorrentsViewModel+Factory.swift in Sources */,
 				7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */,

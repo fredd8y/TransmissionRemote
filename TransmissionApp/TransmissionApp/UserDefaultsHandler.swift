@@ -118,13 +118,6 @@ class UserDefaultsHandler {
 }
 
 private extension Server.HTTPProtocol {
-	var rawValue: String {
-		switch self {
-		case .http: return "http"
-		case .https: return "https"
-		}
-	}
-	
 	static func httpProtocol(forValue value: String) -> Self? {
 		switch value {
 		case "http":

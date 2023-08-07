@@ -28,6 +28,7 @@ final class TransmissionComposer {
 		
 		let torrentsPagePresentationAdapter = TorrentsPagePresentationAdapter(
 			torrentsPageViewModel: viewModel,
+			server: UserDefaultsHandler.shared.currentServer,
 			sessionIdHandler: { sessionId in
 				TransmissionHTTPClient.sessionId = sessionId
 			}
@@ -36,8 +37,8 @@ final class TransmissionComposer {
 		var torrentsPage = TorrentsPage(viewModel: viewModel)
 		torrentsPage.loadData = torrentsPagePresentationAdapter.loadData
 		torrentsPage.authenticate = { username, password in
-			TransmissionHTTPClient.username = username
-			TransmissionHTTPClient.password = password
+//			TransmissionHTTPClient.username = username
+//			TransmissionHTTPClient.password = password
 		}
 		
 		return torrentsPage

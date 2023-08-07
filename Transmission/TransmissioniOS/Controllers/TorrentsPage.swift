@@ -37,26 +37,37 @@ public struct TorrentsPage: View {
 						Spacer()
 					}.background { Color.red }
 				}
-				List {
-					ForEach(viewModel.torrents) { torrent in
-						VStack(alignment: .leading) {
-							Text(torrent.name)
-								.font(.subheadline)
-							Text(torrent.downloaded)
-								.font(.caption2)
-							HStack {
-								ProgressView(value: torrent.completionPercentage)
-									.tint(torrent.error == nil ? .blue : .red)
-								Text(torrent.completionPercentageString)
+				if let message = viewModel.emptyMessage {
+					HStack {
+						Spacer()
+						Text(message)
+							.font(.subheadline)
+							.padding()
+							.multilineTextAlignment(.center)
+						Spacer()
+					}
+				} else {
+					List {
+						ForEach(viewModel.torrents) { torrent in
+							VStack(alignment: .leading) {
+								Text(torrent.name)
+									.font(.subheadline)
+								Text(torrent.downloaded)
 									.font(.caption2)
+								HStack {
+									ProgressView(value: torrent.completionPercentage)
+										.tint(torrent.error == nil ? .blue : .red)
+									Text(torrent.completionPercentageString)
+										.font(.caption2)
+								}
+								Text(torrent.error ?? torrent.eta)
+									.font(.caption2)
+									.foregroundColor(torrent.error == nil ? .primary : .red)
 							}
-							Text(torrent.error ?? torrent.eta)
-								.font(.caption2)
-								.foregroundColor(torrent.error == nil ? .primary : .red)
 						}
 					}
+					.listStyle(.plain)
 				}
-				.listStyle(.plain)
 			}
 			.navigationTitle(viewModel.title)
 			.navigationBarTitleDisplayMode(.inline)
@@ -135,7 +146,8 @@ struct TorrentsPage_Previews: PreviewProvider {
 						downloadSpeed: "5,6MB"
 					)
 				],
-				showAlert: false
+				showAlert: false,
+				emptyMessage: nil
 			)
 		)
     }
