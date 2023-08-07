@@ -14,7 +14,7 @@
 		7BC0D82F2A6C158300B36367 /* TransmissionAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D82E2A6C158300B36367 /* TransmissionAppUITests.swift */; };
 		7BC0D8312A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8302A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift */; };
 		7BC0D8432A6E3C4100B36367 /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8422A6E3C4100B36367 /* CombineHelpers.swift */; };
-		7BC0D8452A6E3FE200B36367 /* TransmissionUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8442A6E3FE200B36367 /* TransmissionUIComposer.swift */; };
+		7BC0D8452A6E3FE200B36367 /* TransmissionComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8442A6E3FE200B36367 /* TransmissionComposer.swift */; };
 		7BC0D84A2A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8492A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift */; };
 		7BC0D84C2A6EA20100B36367 /* TorrentsViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D84B2A6EA20100B36367 /* TorrentsViewModel+Factory.swift */; };
 		7BC0D84E2A6EA90000B36367 /* TransmissionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D84D2A6EA90000B36367 /* TransmissionHTTPClient.swift */; };
@@ -67,7 +67,7 @@
 		7BC0D82E2A6C158300B36367 /* TransmissionAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionAppUITests.swift; sourceTree = "<group>"; };
 		7BC0D8302A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7BC0D8422A6E3C4100B36367 /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
-		7BC0D8442A6E3FE200B36367 /* TransmissionUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionUIComposer.swift; sourceTree = "<group>"; };
+		7BC0D8442A6E3FE200B36367 /* TransmissionComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionComposer.swift; sourceTree = "<group>"; };
 		7BC0D8492A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsPagePresentationAdapter.swift; sourceTree = "<group>"; };
 		7BC0D84B2A6EA20100B36367 /* TorrentsViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorrentsViewModel+Factory.swift"; sourceTree = "<group>"; };
 		7BC0D84D2A6EA90000B36367 /* TransmissionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionHTTPClient.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 				7BC0D8462A6E614D00B36367 /* Adapters */,
 				7BC0D8412A6E3C3700B36367 /* Helpers */,
 				7BC0D8132A6C158100B36367 /* TransmissionApp.swift */,
-				7BC0D8442A6E3FE200B36367 /* TransmissionUIComposer.swift */,
+				7BC0D8442A6E3FE200B36367 /* TransmissionComposer.swift */,
 				7BC0D84D2A6EA90000B36367 /* TransmissionHTTPClient.swift */,
 				7BC0D8172A6C158300B36367 /* Assets.xcassets */,
 				7BC0D8192A6C158300B36367 /* Preview Content */,
@@ -322,7 +322,7 @@
 				7BC0D84E2A6EA90000B36367 /* TransmissionHTTPClient.swift in Sources */,
 				7BC0D84C2A6EA20100B36367 /* TorrentsViewModel+Factory.swift in Sources */,
 				7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */,
-				7BC0D8452A6E3FE200B36367 /* TransmissionUIComposer.swift in Sources */,
+				7BC0D8452A6E3FE200B36367 /* TransmissionComposer.swift in Sources */,
 				7BC0D8432A6E3C4100B36367 /* CombineHelpers.swift in Sources */,
 				7BC0D84A2A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift in Sources */,
 			);

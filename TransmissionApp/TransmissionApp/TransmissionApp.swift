@@ -13,7 +13,7 @@ import Transmission
 struct TransmissionApp: App {
     var body: some Scene {
         WindowGroup {
-			TransmissionUIComposer.torrentsPagePresentationAdapter(
+			TransmissionComposer.torrentsPagePresentationAdapter(
 				sessionLoader: TransmissionHTTPClient.makeRemoteSessionLoader(),
 				torrentLoader: TransmissionHTTPClient.makeRemoteTorrentsLoader())
 		}

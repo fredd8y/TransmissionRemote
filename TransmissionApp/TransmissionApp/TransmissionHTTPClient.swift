@@ -11,6 +11,12 @@ import Transmission
 
 final class TransmissionHTTPClient {
 	
+	private init() {}
+	
+	static var sessionId: String?
+	static var username: String?
+	static var password: String?
+	
 	private static let httpClient: HTTPClient = {
 		URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
 	}()
@@ -20,7 +26,8 @@ final class TransmissionHTTPClient {
 			return httpClient
 				.postPublisher(
 					url: APIsEndpoint.post.url(baseURL: URL(string: "http://192.168.178.39:9091")!),
-					body: SessionBodies.get.data(using: .utf8)!
+					body: SessionBodies.get.data(using: .utf8)!,
+					additionalHeader: headers()
 				)
 				.tryMap(SessionGetMapper.map)
 				.eraseToAnyPublisher()
@@ -32,11 +39,23 @@ final class TransmissionHTTPClient {
 			return httpClient
 				.postPublisher(
 					url: APIsEndpoint.post.url(baseURL: URL(string: "http://192.168.178.39:9091")!),
-					body: TorrentBodies.get.data(using: .utf8)!
+					body: TorrentBodies.get.data(using: .utf8)!,
+					additionalHeader: headers()
 				)
 				.tryMap(TorrentGetMapper.map)
 				.eraseToAnyPublisher()
 		}
+	}
+	
+	private static func headers() -> [String: String] {
+		var headers: [String: String] = [:]
+		if let username, let password {
+			headers[HeaderUtils.AUTHORIZATION_KEY] = HeaderUtils.basicAuthCredentialsString(username: username, password: password)
+		}
+		if let sessionId {
+			headers[SessionGetMapper.sessionIdKey] = sessionId
+		}
+		return headers
 	}
 	
 }

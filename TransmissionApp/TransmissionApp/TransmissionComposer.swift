@@ -1,5 +1,5 @@
 //
-//  TransmissionUIComposer.swift
+//  TransmissionComposer.swift
 //  TransmissionApp
 //
 //  Created by Federico Arvat on 24/07/23.
@@ -10,7 +10,7 @@ import Transmission
 import TransmissioniOS
 
 
-final class TransmissionUIComposer {
+final class TransmissionComposer {
 	private init() {}
 	
 	public static func torrentsPagePresentationAdapter(
@@ -22,10 +22,17 @@ final class TransmissionUIComposer {
 		let torrentsPagePresentationAdapter = TorrentsPagePresentationAdapter(
 			torrentsPage: torrentsPage,
 			sessionLoader: sessionLoader,
-			torrentLoader: torrentLoader
+			torrentLoader: torrentLoader,
+			sessionIdHandler: { sessionId in
+				TransmissionHTTPClient.sessionId = sessionId
+			}
 		)
 		
 		torrentsPage.loadData = torrentsPagePresentationAdapter.loadData
+		torrentsPage.authenticate = { username, password in
+			TransmissionHTTPClient.username = username
+			TransmissionHTTPClient.password = password
+		}
 		
 		return torrentsPage
 	}

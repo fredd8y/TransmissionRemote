@@ -19,7 +19,7 @@ public struct TorrentsPage: View {
 	}
 	
 	public var loadData: (() -> Void)?
-	
+		
 	public func update(withViewModel viewModel: TorrentsViewModel) {
 		title = viewModel.title
 		error = viewModel.error
@@ -28,12 +28,21 @@ public struct TorrentsPage: View {
 		torrents = viewModel.torrents
 	}
 	
+	public var authenticate: ((_ username: String, _ password: String) -> Void)? = nil
+	
+	public func askForCredentials() {
+		isCredentialAlertShown.toggle()
+	}
+	
 	@State private var title: String
 	@State private var error: String?
 	@State private var uploadSpeed: String
 	@State private var downloadSpeed: String
 	@State private var torrents: [TorrentViewModel]
+	
 	@State private var isCredentialAlertShown: Bool = false
+	@State private var username: String = ""
+	@State private var password: String = ""
 	
     public var body: some View {
 		NavigationStack {
@@ -86,6 +95,15 @@ public struct TorrentsPage: View {
 						.frame(width: 16, height: 16)
 						.padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
 					SubheadlineText(downloadSpeed)
+				}
+			}
+			.alert(TorrentsPresenter.credentialRequested, isPresented: $isCredentialAlertShown) {
+				TextField(TorrentsPresenter.username, text: $username)
+				TextField(TorrentsPresenter.password, text: $password)
+				Button(TorrentsPresenter.ok) {
+					authenticate?(username, password)
+					isCredentialAlertShown.toggle()
+					loadData?()
 				}
 			}
 		}.onAppear {

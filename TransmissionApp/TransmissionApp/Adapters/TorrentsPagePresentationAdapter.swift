@@ -16,28 +16,45 @@ final class TorrentsPagePresentationAdapter {
 	private let sessionLoader: () -> AnyPublisher<Session, Error>
 	private let torrentLoader: () -> AnyPublisher<[Torrent], Error>
 	private var cancellable: Cancellable?
+	private var sessionIdHandler: (String) -> Void
 	
 	init(
 		torrentsPage: TorrentsPage,
 		sessionLoader: @escaping () -> AnyPublisher<Session, Error>,
-		torrentLoader: @escaping () -> AnyPublisher<[Torrent], Error>
+		torrentLoader: @escaping () -> AnyPublisher<[Torrent], Error>,
+		sessionIdHandler: @escaping (String) -> Void
 	) {
 		self.torrentsPage = torrentsPage
 		self.sessionLoader = sessionLoader
 		self.torrentLoader = torrentLoader
+		self.sessionIdHandler = sessionIdHandler
 	}
 	
 	func loadData() {
 		cancellable = Publishers.Zip(sessionLoader(), torrentLoader())
 			.dispatchOnMainQueue()
 			.sink(
-				receiveCompletion: { completion in
+				receiveCompletion: { [weak self] completion in
 					switch completion {
 					case .finished:
 						break
 					case let .failure(error):
-						// TODO: handle error on presenter
-						break
+						guard let _error = error as? SessionGetMapper.Error else {
+							return
+						}
+						switch _error {
+						case .authenticationFailed:
+							self?.torrentsPage.askForCredentials()
+						case .missingSessionId(let sessionId):
+							guard let _sessionId = sessionId as? String else {
+								//TODO: Handle error
+								break
+							}
+							self?.sessionIdHandler(_sessionId)
+							self?.loadData()
+						default:
+							break
+						}
 					}
 				},
 				receiveValue: { [weak self] (session, torrents) in
