@@ -53,6 +53,13 @@ class TorrentAddMapperTests: XCTestCase {
 		}
 	}
 	
+	func test_map_throwsErrorOnResponseWithoutTorrent() throws {
+		let jsonData = makeJSON(fromDictionary: makeResponseWithoutTorrent())
+		XCTAssertThrowsError(
+			try TorrentAddMapper.map(jsonData, from: HTTPURLResponse(statusCode: 200))
+		)
+	}
+	
 	// MARK: - Helpers
 	
 	private func makeResponseWithDuplicateTorrent() -> (duplicateTorrentName: String, json: [String: Any]) {
@@ -68,5 +75,13 @@ class TorrentAddMapperTests: XCTestCase {
 			"result": "success"
 		]
 		return (torrentName, json)
+	}
+	
+	private func makeResponseWithoutTorrent() -> [String: Any] {
+		let json: [String: Any] = [
+			"arguments": [],
+			"result": "success"
+		]
+		return json
 	}
 }
