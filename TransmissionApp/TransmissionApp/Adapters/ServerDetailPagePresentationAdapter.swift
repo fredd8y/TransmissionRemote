@@ -28,17 +28,31 @@ class ServerDetailPagePresentationAdapter {
 	
 	func save(_ model: ServerDetailPageDataModel) -> Error? {
 		do {
+			// Name check
 			guard model.name != "" else {
 				return ServerDetailPage.ServerDetailPageError.name
 			}
+			// IP check
 			guard model.ip != "" else {
-				// TODO: Add correct IP format check
+				return ServerDetailPage.ServerDetailPageError.name
+			}
+			let ipComponents = model.ip.components(separatedBy: ".")
+			guard ipComponents.count == 4 else {
 				return ServerDetailPage.ServerDetailPageError.ip
 			}
-			guard model.port != "", let intPort = Int(model.port) else {
+			let wrongComponents = ipComponents.filter {
+				guard let number = Int($0) else { return true }
+				return number < 0 && number > 255
+			}
+			if wrongComponents.count > 0 {
 				return ServerDetailPage.ServerDetailPageError.ip
 			}
-			if (model.username != "" && model.password == "") || (model.password == "" && model.username != "") {
+			// Port check
+			guard model.port != "", let intPort = Int(model.port), intPort >= 1, intPort <= 65535 else {
+				return ServerDetailPage.ServerDetailPageError.port
+			}
+			// Username and Password check
+			if (model.username != "" && model.password == "") || (model.password != "" && model.username == "") {
 				if model.username == "" {
 					return ServerDetailPage.ServerDetailPageError.username
 				}
