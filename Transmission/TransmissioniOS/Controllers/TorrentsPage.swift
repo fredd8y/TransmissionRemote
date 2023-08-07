@@ -132,7 +132,8 @@ public struct TorrentsPage: View {
 					Text(viewModel.uploadSpeed)
 						.font(.subheadline)
 					Spacer()
-					Text(torrentsDescription)
+					Text(viewModel.freeDiskSpace)
+						.font(.caption)
 					Spacer()
 					Image(systemName: "arrow.down")
 						.resizable()
@@ -243,11 +244,6 @@ public struct TorrentsPage: View {
 		}
 	}
 	
-	private var torrentsDescription: String {
-		let description = viewModel.torrents.count == 1 ? TorrentsPagePresenter.torrent : TorrentsPagePresenter.torrents
-		return "\(viewModel.torrents.count) \(description)"
-	}
-	
 	private func progressBarColor(_ torrent: TorrentViewModel) -> Color {
 		guard torrent.error == nil else { return .red }
 		switch torrent.status {
@@ -289,6 +285,7 @@ struct TorrentsPage_Previews: PreviewProvider {
 						status: .completed
 					)
 				],
+				freeDiskSpace: "Free space 256,0 GB",
 				emptyMessage: nil,
 				alertMessage: nil,
 				alertMessageVisible: false

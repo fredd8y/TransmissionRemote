@@ -80,6 +80,7 @@ class TorrentsPageTests: XCTestCase {
 			uploadSpeed: "5,5 MB/s",
 			downloadSpeed: "5,5 MB/s",
 			torrents: torrents,
+			freeDiskSpace: "256,0 GB",
 			emptyMessage: emptyMessage,
 			alertMessage: alertMessage,
 			alertMessageVisible: alertMessageVisible

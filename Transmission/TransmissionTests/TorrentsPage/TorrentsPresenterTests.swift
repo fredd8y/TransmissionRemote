@@ -104,6 +104,7 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		let torrent1 = anyTorrentWithoutError()
 		let torrent2 = anyTorrentWithError()
 		let torrents = [torrent1, torrent2]
+		let freeDiskSpace = 1234567
 		let emptyMessage = "a message"
 		let alertMessage = "alert message"
 		let alertMessageVisibile = false
@@ -114,6 +115,7 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 			uploadSpeed: uploadSpeed,
 			downloadSpeed: downloadSpeed,
 			torrents: torrents,
+			freeDiskSpace: freeDiskSpace,
 			emptyMessage: emptyMessage,
 			alertMessage: alertMessage,
 			alertMessageVisible: alertMessageVisibile
@@ -121,12 +123,13 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		
 		XCTAssertEqual(viewModel.title, title)
 		XCTAssertEqual(viewModel.error, error)
-		XCTAssertEqual(viewModel.downloadSpeed, "1,23 MB/s")
-		XCTAssertEqual(viewModel.uploadSpeed, "1,23 MB/s")
+		XCTAssertEqual(viewModel.downloadSpeed, "1,18 MB/s")
+		XCTAssertEqual(viewModel.uploadSpeed, "1,18 MB/s")
 		XCTAssertEqual(viewModel.torrents, [
 			TorrentPresenter.map(torrent1),
 			TorrentPresenter.map(torrent2)
 		])
+		XCTAssertEqual(viewModel.freeDiskSpace, "\(TorrentsPagePresenter.freeSpace) 1,18 MB")
 		XCTAssertEqual(viewModel.emptyMessage, emptyMessage)
 		XCTAssertEqual(viewModel.alertMessage, alertMessage)
 		XCTAssertEqual(viewModel.alertMessageVisible, alertMessageVisibile)

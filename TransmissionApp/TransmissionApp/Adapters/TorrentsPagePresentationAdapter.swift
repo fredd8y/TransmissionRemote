@@ -273,13 +273,14 @@ final class TorrentsPagePresentationAdapter {
 					}
 				}
 			},
-			receiveValue: { torrents in
+			receiveValue: { (downloadDirFreeSpace, torrents) in
 				let viewModel = TorrentsPagePresenter.map(
 					title: TorrentsPagePresenter.title,
 					error: nil,
 					uploadSpeed: torrents.reduce(0) { $0 + $1.rateUpload },
 					downloadSpeed: torrents.reduce(0) { $0 + $1.rateDownload },
 					torrents: torrents,
+					freeDiskSpace: downloadDirFreeSpace,
 					emptyMessage: nil,
 					alertMessage: nil,
 					alertMessageVisible: false
@@ -297,6 +298,7 @@ private extension TorrentsPageViewModel {
 		uploadSpeed = viewModel.uploadSpeed
 		downloadSpeed = viewModel.downloadSpeed
 		torrents = viewModel.torrents
+		freeDiskSpace = viewModel.freeDiskSpace
 		emptyMessage = viewModel.emptyMessage
 	}
 }

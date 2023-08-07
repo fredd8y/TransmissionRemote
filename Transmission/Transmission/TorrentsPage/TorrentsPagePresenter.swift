@@ -200,12 +200,21 @@ public final class TorrentsPagePresenter {
 			comment: "Description to be shown on link alert popup")
 	}
 	
+	public static var freeSpace: String {
+		NSLocalizedString(
+			"FREE_SPACE",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Description of free space to be shown in torrents page")
+	}
+	
 	public static func map(
 		title: String,
 		error: String?,
 		uploadSpeed: Int,
 		downloadSpeed: Int,
 		torrents: [Torrent],
+		freeDiskSpace: Int?,
 		emptyMessage: String?,
 		alertMessage: String?,
 		alertMessageVisible: Bool
@@ -218,6 +227,7 @@ public final class TorrentsPagePresenter {
 			torrents: torrents.map {
 				TorrentPresenter.map($0)
 			},
+			freeDiskSpace: "\(TorrentsPagePresenter.freeSpace) \(freeDiskSpace?.byteSize ?? "-")",
 			emptyMessage: emptyMessage,
 			alertMessage: alertMessage,
 			alertMessageVisible: alertMessageVisible
