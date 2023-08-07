@@ -10,18 +10,20 @@ import Transmission
 
 public struct ServerDetailPage: View {
 	
+	@Environment(\.dismiss) var dismiss
+	
 	public init(viewModel: ServerDetailPageViewModel) {
 		self.viewModel = viewModel
 		
 		_title = State(initialValue: viewModel.title)
-		model = ServerDetailPageDataModel(
+		_dataModel = State(initialValue: ServerDetailPageDataModel(
 			name: viewModel.name ?? "",
 			httpProtocol: viewModel.httpProtocol ?? .http,
 			ip: viewModel.ip ?? "",
 			port: viewModel.port ?? "",
 			username: viewModel.username ?? "",
 			password: viewModel.password ?? ""
-		)
+		))
 	}
 	
 	public var save: ((ServerDetailPageDataModel) -> Error?)?
@@ -29,15 +31,15 @@ public struct ServerDetailPage: View {
 	private var viewModel: ServerDetailPageViewModel
 	
 	@State private var title: String
-	@State private var model: ServerDetailPageDataModel
+	@State private var dataModel: ServerDetailPageDataModel
 	@State private var error: Error?
 	
 	public var body: some View {
 		NavigationStack {
 			List {
 				Section(viewModel.serverSectionHeader) {
-					TextField(viewModel.namePlaceholder, text: $model.name)
-					Picker(viewModel.protocolPlaceholder, selection: $model.httpProtocol) {
+					TextField(viewModel.namePlaceholder, text: $dataModel.name)
+					Picker(viewModel.protocolPlaceholder, selection: $dataModel.httpProtocol) {
 						ForEach(HTTPProtocol.allCases, id: \.self) {
 							switch $0 {
 							case .http:
@@ -47,12 +49,12 @@ public struct ServerDetailPage: View {
 							}
 						}
 					}
-					TextField(viewModel.ipPlaceholder, text: $model.ip)
-					TextField(viewModel.portPlaceholder, text: $model.port)
+					TextField(viewModel.ipPlaceholder, text: $dataModel.ip)
+					TextField(viewModel.portPlaceholder, text: $dataModel.port)
 				}
 				Section(viewModel.authenticationSectionHeader) {
-					TextField(viewModel.usernamePlaceholder, text: $model.username)
-					TextField(viewModel.passwordPlaceholder, text: $model.password)
+					TextField(viewModel.usernamePlaceholder, text: $dataModel.username)
+					TextField(viewModel.passwordPlaceholder, text: $dataModel.password)
 				}
 			}.listStyle(.plain)
 			.navigationTitle(viewModel.title)
@@ -60,7 +62,10 @@ public struct ServerDetailPage: View {
 			.toolbar {
 				ToolbarItem {
 					Button {
-						error = save?(model)
+						error = save?(dataModel)
+						if error == nil {
+							dismiss()
+						}
 					} label: {
 						Text(viewModel.saveButtonTitle)
 					}.foregroundColor(.primary)

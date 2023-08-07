@@ -36,7 +36,7 @@ public struct ServerPage: View {
 					NavigationLink {
 						selectedServer?(server.id)
 					} label: {
-						Text("EOEO")
+						Text(viewModel.editItemActionTitle)
 					}
 				}
 			}
