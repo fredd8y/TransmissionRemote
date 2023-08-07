@@ -6,10 +6,13 @@ Improvement
 
 TODO
 
--	Save credentials
+-	Settings with multiple servers
+	-	Server name
+	-	protocol (http/https)
+	-	IP
+	-	port
+	-	Authentication (not mandatory)
 -	Parametric baseURL
 -	Parametric polling rate
 
 FIX
-
--	Wrong torrents number

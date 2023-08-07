@@ -13,7 +13,7 @@ import Transmission
 struct TransmissionApp: App {
     var body: some Scene {
         WindowGroup {
-			TransmissionComposer.torrentsPagePresentationAdapter()
+			TransmissionComposer.containerView()
 		}
 	}
 }

@@ -16,7 +16,14 @@ final class TransmissionComposer {
 	
 	private static var cancellable: Cancellable?
 	
-	public static func torrentsPagePresentationAdapter() -> TorrentsPage {
+	public static func containerView() -> ContainerView {
+		let torrentsPage = torrentsPage()
+		let settingsPage = SettingsPage()
+		
+		return ContainerView(torrentsPage: torrentsPage, settingsPage: settingsPage)
+	}
+	
+	private static func torrentsPage() -> TorrentsPage {
 		let viewModel = TorrentsViewModel.empty()
 		
 		let torrentsPagePresentationAdapter = TorrentsPagePresentationAdapter(

@@ -14,6 +14,34 @@ final class TorrentsPresenterTests: XCTestCase {
 		XCTAssertEqual(TorrentsPresenter.title, localized("TORRENTS_VIEW_TITLE"))
 	}
 	
+	func test_torrents_isLocalized() {
+		XCTAssertEqual(TorrentsPresenter.torrents, localized("TORRENTS"))
+	}
+	
+	func test_torrent_isLocalized() {
+		XCTAssertEqual(TorrentsPresenter.torrent, localized("TORRENT"))
+	}
+	
+	func test_username_isLocalized() {
+		XCTAssertEqual(TorrentsPresenter.username, localized("USERNAME"))
+	}
+	
+	func test_password_isLocalized() {
+		XCTAssertEqual(TorrentsPresenter.password, localized("PASSWORD"))
+	}
+	
+	func test_credentialRequested_isLocalized() {
+		XCTAssertEqual(TorrentsPresenter.credentialRequested, localized("CREDENTIAL_NEEDED_TITLE"))
+	}
+	
+	func test_ok_isLocalized() {
+		XCTAssertEqual(TorrentsPresenter.ok, localized("OK"))
+	}
+	
+	func test_undefinedError_isLocalized() {
+		XCTAssertEqual(TorrentsPresenter.undefinedError, localized("UNDEFINED_ERROR"))
+	}
+	
 	func test_map_createsViewModelWithNoError() {
 		let title = "Title"
 		let uploadSpeed = 1234576
