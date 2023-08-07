@@ -58,7 +58,7 @@ class SettingsPagePresentationAdapter {
 						pollingRateList: pollingRateList,
 						currentSelectedPollingRate: pollingRateList.firstIndex(of: currentPollingRate) ?? 0,
 						serversTitle: SettingsPresenter.serverTitle,
-						currentServerName: servers.first(where: { $0.selected })?.name ?? SettingsPresenter.serverNotAvailable
+						currentServerName: UserDefaultsHandler.shared.currentServer?.name ?? SettingsPresenter.serverNotAvailable
 					)
 					self?.settingsViewModel.newValues(viewModel)
 				}

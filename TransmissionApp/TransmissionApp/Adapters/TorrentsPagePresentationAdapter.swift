@@ -15,11 +15,9 @@ final class TorrentsPagePresentationAdapter {
 
 	init(
 		torrentsPageViewModel: TorrentsViewModel,
-		server: Server?,
 		sessionIdHandler: @escaping (String) -> Void
 	) {
 		self.torrentsPageViewModel = torrentsPageViewModel
-		self.server = server
 		self.sessionIdHandler = sessionIdHandler
 		pollingRateCancellable = UserDefaultsHandler.shared.$pollingRate.sink { [weak self] newValue in
 			guard let self else { return }
@@ -40,13 +38,12 @@ final class TorrentsPagePresentationAdapter {
 	
 	private var pollingRateCancellable: Cancellable?
 	private var sessionLoaderCancellable: Cancellable?
-	private var server: Server?
 	private var sessionIdHandler: (String) -> Void
 
 	@ObservedObject var torrentsPageViewModel: TorrentsViewModel
 
 	func loadData() {
-		guard let server else {
+		guard let server = UserDefaultsHandler.shared.currentServer else {
 			torrentsPageViewModel.newValues(TorrentsViewModel.serverNotSet())
 			return
 		}

@@ -28,7 +28,6 @@ final class TransmissionComposer {
 		
 		let torrentsPagePresentationAdapter = TorrentsPagePresentationAdapter(
 			torrentsPageViewModel: viewModel,
-			server: UserDefaultsHandler.shared.currentServer,
 			sessionIdHandler: { sessionId in
 				TransmissionHTTPClient.sessionId = sessionId
 			}
