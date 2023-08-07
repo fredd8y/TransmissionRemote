@@ -8,14 +8,14 @@
 import SwiftUI
 import Transmission
 
-struct ServerDetailPage: View {
+public struct ServerDetailPage: View {
 	
 	private enum HTTPProtocol: String, CaseIterable {
 		case http
 		case https
 	}
 	
-	init(viewModel: ServerDetailPageViewModel) {
+	public init(viewModel: ServerDetailPageViewModel) {
 		self.viewModel = viewModel
 		
 		_title = State(initialValue: viewModel.title)
@@ -39,9 +39,9 @@ struct ServerDetailPage: View {
 	@State private var username: String
 	@State private var password: String
 	
-	var body: some View {
+	public var body: some View {
 		NavigationStack {
-			Form {
+			List {
 				Section(viewModel.serverSectionHeader) {
 					TextField(viewModel.namePlaceholder, text: $name)
 					Picker(viewModel.protocolPlaceholder, selection: $httpProtocol) {
@@ -56,7 +56,7 @@ struct ServerDetailPage: View {
 					TextField(viewModel.usernamePlaceholder, text: $username)
 					TextField(viewModel.passwordPlaceholder, text: $password)
 				}
-			}
+			}.listStyle(.plain)
 			.navigationTitle(viewModel.title)
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
@@ -76,8 +76,8 @@ struct ServerDetailPage_Previews: PreviewProvider {
     static var previews: some View {
 		ServerDetailPage(
 			viewModel: ServerDetailPageViewModel(
-				serverSectionHeader: "Server detail",
-				authenticationSectionHeader: "Authentication detail",
+				serverSectionHeader: "SERVER DETAIL",
+				authenticationSectionHeader: "AUTHENTICATION DETAIL",
 				title: "Server",
 				saveButtonTitle: "Save",
 				namePlaceholder: "Name",
