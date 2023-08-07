@@ -27,6 +27,7 @@ class SettingsPageTests: XCTestCase {
 				viewModel: ServerPageViewModel(
 					title: ServerPagePresenter.title,
 					servers: [],
+					editItemActionTitle: "Edit",
 					currentSelectedServerId: nil
 				)
 			)

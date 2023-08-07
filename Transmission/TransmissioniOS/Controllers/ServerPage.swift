@@ -23,18 +23,20 @@ public struct ServerPage: View {
 	public var selectedServer: ((UUID) -> ServerDetailPage?)?
 	
 	public var newServer: (() -> ServerDetailPage)?
-	
+		
     public var body: some View {
 		NavigationStack {
 			List(viewModel.servers, selection: $selection) { server in
-				NavigationLink {
-					selectedServer?(server.id)
-				} label: {
-					VStack(alignment: .leading, spacing: 8) {
-						Text(server.title)
-							.font(.subheadline)
-						Text(server.url)
-							.font(.caption2)
+				VStack(alignment: .leading, spacing: 8) {
+					Text(server.title)
+						.font(.subheadline)
+					Text(server.url)
+						.font(.caption2)
+				}.contextMenu {
+					NavigationLink {
+						selectedServer?(server.id)
+					} label: {
+						Text("EOEO")
 					}
 				}
 			}
@@ -74,6 +76,7 @@ struct ServerPage_Previews: PreviewProvider {
 						id: UUID()
 					)
 				],
+				editItemActionTitle: "Edit",
 				currentSelectedServerId: selectedId
 			)
 		)

@@ -16,6 +16,10 @@ final class ServerPagePresenterTests: XCServerTestCase {
 		XCTAssertEqual(ServerPagePresenter.title, localized("SERVERS_VIEW_TITLE", table: table))
 	}
 	
+	func test_editItemActionTitle_isLocalized() {
+		XCTAssertEqual(ServerPagePresenter.editItemActionTitle, localized("SERVER_PAGE_ITEM_EDIT_ACTION", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let currentSelectedServerId = UUID()
 		let title = "Servers"

@@ -73,7 +73,7 @@ final class ServerDetailPagePresenterTests: XCServerTestCase {
 			saveButtonTitle: saveButtonTitle,
 			name: server.name,
 			namePlaceholder: namePlaceholder,
-			httpProtocol: server.httpProtocol.rawValue,
+			httpProtocol: server.httpProtocol,
 			protocolPlaceholder: protocolPlaceholder,
 			ip: server.ip,
 			ipPlaceholder: ipPlaceholder,
@@ -91,7 +91,7 @@ final class ServerDetailPagePresenterTests: XCServerTestCase {
 		XCTAssertEqual(viewModel.name, server.name)
 		XCTAssertEqual(viewModel.saveButtonTitle, saveButtonTitle)
 		XCTAssertEqual(viewModel.namePlaceholder, namePlaceholder)
-		XCTAssertEqual(viewModel.httpProtocol, server.httpProtocol.rawValue)
+		XCTAssertEqual(viewModel.httpProtocol, server.httpProtocol)
 		XCTAssertEqual(viewModel.protocolPlaceholder, protocolPlaceholder)
 		XCTAssertEqual(viewModel.ip, server.ip)
 		XCTAssertEqual(viewModel.ipPlaceholder, ipPlaceholder)

@@ -44,7 +44,12 @@ class ServerPageTests: XCTestCase {
 	}
 	
 	private func viewModel(servers: [ServerViewModel], currentSelectedServerId: UUID? = nil) -> ServerPageViewModel {
-		ServerPageViewModel(title: ServerPagePresenter.title, servers: servers, currentSelectedServerId: currentSelectedServerId)
+		ServerPageViewModel(
+			title: ServerPagePresenter.title,
+			servers: servers,
+			editItemActionTitle: "Edit",
+			currentSelectedServerId: currentSelectedServerId
+		)
 	}
 	
 	private func emptyList() -> [ServerViewModel] {

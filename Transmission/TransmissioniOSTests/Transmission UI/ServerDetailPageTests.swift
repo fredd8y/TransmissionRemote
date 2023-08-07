@@ -56,7 +56,7 @@ class ServerDetailPageTests: XCTestCase {
 			saveButtonTitle: ServerDetailPagePresenter.saveButtonTitle,
 			name: "Name",
 			namePlaceholder: ServerDetailPagePresenter.namePlaceholder,
-			httpProtocol: "http",
+			httpProtocol: .http,
 			protocolPlaceholder: ServerDetailPagePresenter.protocolPlaceholder,
 			ip: "192.168.1.1",
 			ipPlaceholder: ServerDetailPagePresenter.ipPlaceholder,

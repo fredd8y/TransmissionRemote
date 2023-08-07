@@ -72,6 +72,7 @@ struct SettingsPage_Previews: PreviewProvider {
 			viewModel: ServerPageViewModel(
 				title: "Title",
 				servers: [],
+				editItemActionTitle: "Edit",
 				currentSelectedServerId: nil)
 			)
 		)

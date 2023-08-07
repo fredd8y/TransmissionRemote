@@ -21,12 +21,3 @@ class XCServerTestCase: XCTestCase {
 		)
 	}
 }
-
-extension Server.HTTPProtocol {
-	var rawValue: String {
-		switch self {
-		case .http: return "http"
-		case .https: return "https"
-		}
-	}
-}
