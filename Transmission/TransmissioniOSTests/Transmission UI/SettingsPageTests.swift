@@ -15,6 +15,7 @@ class SettingsPageTests: XCTestCase {
 		
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "SETTINGS_PAGE_light")
 		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "SETTINGS_PAGE_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "SETTINGS_PAGE_light_extraExtraExtraLarge")
 	}
 	
 	// MARK: - Helpers
