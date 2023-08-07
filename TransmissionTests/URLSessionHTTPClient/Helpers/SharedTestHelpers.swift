@@ -18,3 +18,17 @@ func anyData() -> Data {
 func anyNSError() -> NSError {
 	return NSError(domain: "any error", code: 0)
 }
+
+func anySessionId() -> String {
+	return "session id"
+}
+
+func anyString() -> String {
+	return "any string"
+}
+
+extension HTTPURLResponse {
+	convenience init(statusCode: Int, headerFields: [String: String]? = nil) {
+		self.init(url: anyURL(), statusCode: statusCode, httpVersion: nil, headerFields: headerFields)!
+	}
+}
