@@ -32,6 +32,10 @@ final class TorrentBodiesTests: XCTestCase {
 		XCTAssertNoThrow(try TorrentBodies.add(startWhenAdded: true, downloadDir: anyDownloadDir(), torrentFilePath: fileUrl))
 	}
 	
+	func test_torrentAdd_throwsOnBadFileURL() {
+		XCTAssertThrowsError(try TorrentBodies.add(startWhenAdded: true, downloadDir: anyDownloadDir(), torrentFilePath: "bad url"))
+	}
+	
 	func test_torrentAdd_httpBody() {
 		let (fileUrl, base64EncodedContent) = fileUrl()
 		
