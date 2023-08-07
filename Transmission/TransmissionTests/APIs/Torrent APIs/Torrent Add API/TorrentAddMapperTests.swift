@@ -34,4 +34,39 @@ class TorrentAddMapperTests: XCTestCase {
 			try TorrentAddMapper.map(Data(), from: HTTPURLResponse(statusCode: 200))
 		)
 	}
+	
+	func test_map_throwsErrorOnResponseWithDuplicateTorrent() throws {
+		let (duplicateTorrentName, json) = makeResponseWithDuplicateTorrent()
+		let jsonData = makeJSON(fromDictionary: json)
+		do {
+			_ = try TorrentAddMapper.map(jsonData, from: HTTPURLResponse(statusCode: 200))
+		} catch {
+			guard let _error = error as? TorrentAddMapper.Error else {
+				XCTFail("Expected error of type TorrentAddMapper.Error got \(error.self) instead")
+				return
+			}
+			guard case let TorrentAddMapper.Error.torrentDuplicate(name) = _error else {
+				XCTFail("Expected torrentDuplicate error got \(_error) instead")
+				return
+			}
+			XCTAssertEqual(name, duplicateTorrentName)
+		}
+	}
+	
+	// MARK: - Helpers
+	
+	private func makeResponseWithDuplicateTorrent() -> (duplicateTorrentName: String, json: [String: Any]) {
+		let torrentName = "a torrent name"
+		let json: [String: Any] = [
+			"arguments": [
+				"torrent-duplicate": [
+					"hashString": "e5f941ef7d5493c151f34bfdb799079c70f9929a",
+					"id": 1,
+					"name": torrentName
+				]
+			],
+			"result": "success"
+		]
+		return (torrentName, json)
+	}
 }
