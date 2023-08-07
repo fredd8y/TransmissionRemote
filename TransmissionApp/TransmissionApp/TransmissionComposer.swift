@@ -17,12 +17,12 @@ final class TransmissionComposer {
 	
 	private static var cancellable: Cancellable?
 	
-	public static func containerView() -> ContainerView {
+	public static func containerView() -> TabContainer {
 		let torrentsPage = torrentsPage()
 		let serverPage = serverPage()
 		let settingsPage = settingsPage(serverPage: serverPage)
 		
-		return ContainerView(torrentsPage: torrentsPage, settingsPage: settingsPage)
+		return TabContainer(torrentsPage: torrentsPage, settingsPage: settingsPage)
 	}
 	
 	private static func torrentsPage() -> TorrentsPage {

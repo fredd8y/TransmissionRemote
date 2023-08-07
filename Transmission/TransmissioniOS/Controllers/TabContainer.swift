@@ -1,5 +1,5 @@
 //
-//  ContainerView.swift
+//  TabContainer.swift
 //  TransmissioniOS
 //
 //  Created by Federico Arvat on 27/07/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Transmission
 
-public struct ContainerView: View {
+public struct TabContainer: View {
 	
 	public init(torrentsPage: TorrentsPage, settingsPage: SettingsPage) {
 		self.torrentsPage = torrentsPage
@@ -25,13 +25,14 @@ public struct ContainerView: View {
 			TabView(selection: $selectedTab) {
 				torrentsPage
 					.tabItem {
-						Label("TORRENT", systemImage: "square.and.arrow.down")
+						Label(TabContainerPresenter.torrent, systemImage: "square.and.arrow.down")
 					}.tag(0)
 				settingsPage
 					.tabItem {
-						Label("SETTINGS", systemImage: "gear")
+						Label(TabContainerPresenter.settings, systemImage: "gear")
 					}.tag(1)
 			}
 		}
     }
+	
 }
