@@ -43,6 +43,14 @@ final class URLSessionHTTPClientTests: XCTestCase {
 		XCTAssertEqual(receivedError?.code, URLError.cancelled.rawValue)
 	}
 	
+	func test_postAtURL_failsOnRequestError() {
+		let requestError = anyNSError()
+		
+		let receivedError = resultErrorFor((data: nil, response: nil, error: requestError))
+		
+		XCTAssertNotNil(receivedError)
+	}
+	
 	// MARK: - Helpers
 	
 	private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> HTTPClient {
@@ -84,6 +92,8 @@ final class URLSessionHTTPClientTests: XCTestCase {
 		let exp = expectation(description: "Wait for completion")
 		
 		var receivedResult: HTTPClient.Result!
+		// Questo taskHandler applica la funzione data in input all'URLSessionTask
+		// ritornato dalla post()
 		taskHandler(sut.post(anyURL(), body: anyData()) { result in
 			receivedResult = result
 			exp.fulfill()
