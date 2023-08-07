@@ -8,7 +8,7 @@
 import XCTest
 import Transmission
 
-final class TorrentsPresenterTests: XCTestCase {
+final class TorrentsPresenterTests: XCTorrentTestCase {
 	
 	private let table = "Torrents"
 	

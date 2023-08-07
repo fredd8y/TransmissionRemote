@@ -14,7 +14,7 @@ public struct TorrentsPage: View {
 		self.viewModel = viewModel
 	}
 	
-	@ObservedObject private var viewModel: TorrentsViewModel
+	@ObservedObject var viewModel: TorrentsViewModel
 	
 	public var loadData: (() -> Void)?
 	

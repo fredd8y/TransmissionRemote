@@ -6,51 +6,51 @@
 //
 
 import XCTest
-import TransmissioniOS
 @testable import Transmission
+@testable import TransmissioniOS
 
 class TorrentsPageTests: XCTestCase {
 	func test_emptyList() {
 		let sut = makeSUT(torrents: emptyList())
 		
-		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "EMPTY_LIST_light")
-		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "EMPTY_LIST_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENTS_PAGE_EMPTY_LIST_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_PAGE_EMPTY_LIST_dark")
 	}
 	
 	func test_listWithErrorMessage() {
 		let sut = makeSUT(torrents: emptyList(), error: "This is a\nmulti-line\nerror message")
-		
-		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "LIST_WITH_ERROR_MESSAGE_light")
-		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "LIST_WITH_ERROR_MESSAGE_dark")
-		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "LIST_WITH_ERROR_MESSAGE_light_extraExtraExtraLarge")
+		 
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENTS_PAGE_LIST_WITH_ERROR_MESSAGE_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_PAGE_LIST_WITH_ERROR_MESSAGE_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENTS_PAGE_LIST_WITH_ERROR_MESSAGE_light_extraExtraExtraLarge")
 	}
 	
 	func test_listWithContent() {
 		let sut = makeSUT(torrents: listWithContent())
 		
-		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "LIST_WITH_CONTENT_light")
-		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "LIST_WITH_CONTENT_dark")
-		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "LIST_WITH_CONTENT_light_extraExtraExtraLarge")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENTS_PAGE_LIST_WITH_CONTENT_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_PAGE_LIST_WITH_CONTENT_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENTS_PAGE_LIST_WITH_CONTENT_light_extraExtraExtraLarge")
 	}
 	
 	func test_listWithItemError() {
 		let sut = makeSUT(torrents: listWithItemError())
 		
-		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "LIST_WITH_ITEM_ERROR_light")
-		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "LIST_WITH_ITEM_ERROR_dark")
-		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "LIST_WITH_ITEM_ERROR_light_extraExtraExtraLarge")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_light_extraExtraExtraLarge")
 	}
 	
 	func test_list_fromEmptyToFilled() {
 		let sut = makeSUT(torrents: emptyList())
 		
-		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "EMPTY_LIST_light")
-		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "EMPTY_LIST_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENTS_PAGE_EMPTY_LIST_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_PAGE_EMPTY_LIST_dark")
 		
 		sut.viewModel.torrents = listWithContent()
 		
-		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "LIST_WITH_CONTENT_light")
-		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "LIST_WITH_CONTENT_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENTS_PAGE_LIST_WITH_CONTENT_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_PAGE_LIST_WITH_CONTENT_dark")
 	}
 	
 	// MARK: - Helpers
