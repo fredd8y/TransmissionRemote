@@ -6,7 +6,6 @@ Improvement
 
 TODO
 
--	Try to fix UserDefaultsFailing test
 -	Handle error in server adapter when save throws
 -	Comment public functions
 -	Torrent Detail

@@ -84,6 +84,7 @@ public struct ServerDetailPage: View {
 						Text(ServerDetailPagePresenter.usernamePlaceholder)
 							.font(.caption)
 						TextField(ServerDetailPagePresenter.usernamePlaceholder, text: $dataModel.username)
+							.textInputAutocapitalization(.never)
 						if viewModel.error == .username {
 							Text(ServerDetailPagePresenter.usernameError)
 								.foregroundColor(.red)
