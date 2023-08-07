@@ -25,6 +25,14 @@ public final class ServerPagePresenter {
 			comment: "Title for server edit action")
 	}
 	
+	public static var deleteItemActionTitle: String {
+		NSLocalizedString(
+			"SERVER_PAGE_ITEM_DELETE_ACTION",
+			tableName: "Servers",
+			bundle: Bundle(for: ServerPagePresenter.self),
+			comment: "Title for server delete action")
+	}
+	
 	public static func map(
 		title: String,
 		servers: [Server],
@@ -34,6 +42,7 @@ public final class ServerPagePresenter {
 			title: title,
 			servers: servers.map(ServerPresenter.map),
 			editItemActionTitle: editItemActionTitle,
+			deleteItemActionTitle: deleteItemActionTitle,
 			currentSelectedServerId: currentSelectedServer?.id
 		)
 	}

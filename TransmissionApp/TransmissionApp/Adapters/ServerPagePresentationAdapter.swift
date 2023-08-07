@@ -18,15 +18,35 @@ class ServerPagePresentationAdapter {
 	private let serversViewModel: ServerPageViewModel
 	
 	private var cancellable: Cancellable?
-	
+	private var deleteCancellable: Cancellable?
 	private var selectionCancellable: Cancellable?
 	
 	private let serverFileName = "servers.json"
-	
-	private lazy var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appending(component: serverFileName)
+		
+	func delete(_ id: UUID) {
+		guard let url = ServerFile.url else { return }
+		deleteCancellable = ServerPublishers.makeServerGetLoader(atUrl: url)
+			.dispatchOnMainQueue()
+			.sink(
+				receiveCompletion: { _ in },
+				receiveValue: { [weak self] servers in
+					do {
+						var _servers = servers
+						_servers.removeAll(where: { $0.id == id })
+						try ServerSetMapper.map(_servers).write(to: url)
+						if UserDefaultsHandler.shared.currentServer?.id == id {
+							UserDefaultsHandler.shared.currentServer = nil
+						}
+						self?.loadData()
+					} catch {
+						// TODO: show error alert
+					}
+				}
+			)
+	}
 	
 	func selectServer(_ id: UUID) {
-		guard let url else { return }
+		guard let url = ServerFile.url else { return }
 		selectionCancellable = ServerPublishers.makeServerGetLoader(atUrl: url)
 			.dispatchOnMainQueue()
 			.sink(
@@ -39,7 +59,7 @@ class ServerPagePresentationAdapter {
 	}
 	
 	func loadData() {
-		guard let url else { return }
+		guard let url = ServerFile.url else { return }
 		cancellable = ServerPublishers.makeServerGetLoader(atUrl: url)
 			.dispatchOnMainQueue()
 			.sink(

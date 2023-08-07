@@ -73,6 +73,7 @@ struct SettingsPage_Previews: PreviewProvider {
 				title: "Title",
 				servers: [],
 				editItemActionTitle: "Edit",
+				deleteItemActionTitle: "Delete",
 				currentSelectedServerId: nil)
 			)
 		)

@@ -22,6 +22,8 @@ public struct ServerPage: View {
 	
 	public var selectServer: ((UUID) -> Void)?
 	
+	public var deleteServer: ((UUID) -> Void)?
+	
 	public var newServer: (() -> ServerDetailPage)?
 		
     public var body: some View {
@@ -38,6 +40,12 @@ public struct ServerPage: View {
 					} label: {
 						Text(viewModel.editItemActionTitle)
 					}
+					Button(role: .destructive) {
+						deleteServer?(server.id)
+					} label: {
+						Text(viewModel.deleteItemActionTitle)
+					}
+
 				}
 			}
 			.listStyle(.plain)
@@ -81,6 +89,7 @@ struct ServerPage_Previews: PreviewProvider {
 					)
 				],
 				editItemActionTitle: "Edit",
+				deleteItemActionTitle: "Delete",
 				currentSelectedServerId: selectedId
 			)
 		)

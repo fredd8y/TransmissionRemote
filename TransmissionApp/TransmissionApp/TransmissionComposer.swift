@@ -74,6 +74,7 @@ final class TransmissionComposer {
 		
 		serverPage.selectServer = serverPagePresentationAdapter.selectServer
 		serverPage.loadData = serverPagePresentationAdapter.loadData
+		serverPage.deleteServer = serverPagePresentationAdapter.delete
 		
 		serverPage.showServerDetail = serverDetailPresentationAdapter.showServerDetail
 		serverPage.newServer = serverDetailPresentationAdapter.newServer

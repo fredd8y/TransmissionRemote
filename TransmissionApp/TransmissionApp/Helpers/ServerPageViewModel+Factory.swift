@@ -13,6 +13,7 @@ extension ServerPageViewModel {
 			title: ServerPagePresenter.title,
 			servers: [],
 			editItemActionTitle: ServerPagePresenter.editItemActionTitle,
+			deleteItemActionTitle: ServerPagePresenter.deleteItemActionTitle,
 			currentSelectedServerId: nil
 		)
 	}

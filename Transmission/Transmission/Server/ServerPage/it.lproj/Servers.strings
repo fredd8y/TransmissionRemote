@@ -8,3 +8,4 @@
 
 "SERVERS_VIEW_TITLE" = "Servers";
 "SERVER_PAGE_ITEM_EDIT_ACTION" = "Modifica";
+"SERVER_PAGE_ITEM_DELETE_ACTION" = "Elimina";
