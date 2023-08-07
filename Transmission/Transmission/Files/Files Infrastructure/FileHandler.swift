@@ -9,6 +9,8 @@ import Foundation
 
 public protocol FileHandler {
 			
-	static func getContent<T>(_ url: URL) throws -> T? where T : Decodable, T : Encodable
+	static func getContent<T>(_ url: URL) throws -> T? where T : Decodable
+	
+	static func setContent<T>(_ url: URL, content: T) throws  where T : Encodable
 	
 }

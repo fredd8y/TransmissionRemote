@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 import Transmission
 
 class SettingsPagePresentationAdapter {
@@ -17,20 +18,36 @@ class SettingsPagePresentationAdapter {
 	private var settingsViewModel: SettingsViewModel
 	
 	private var cancellable: Cancellable?
+	
+	private let serverFileName = "servers.json"
 		
 	func loadData() {
+		guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathExtension(serverFileName) else {
+			// TODO: Handle error on SettingsPage
+			return
+		}
 		cancellable = Publishers.Zip3(
-			ServerHandler.makeServerLoader(),
+			ServerHandler.makeServerLoader(atUrl: url),
 			UpdateIntervalHandler.makeUpdateIntervalListLoader(),
 			UpdateIntervalHandler.makeCurrentUpdateIntervalLoader()
 		)
 			.dispatchOnMainQueue()
 			.sink(
-				receiveCompletion: { completion in
+				receiveCompletion: { [weak self] completion in
 					switch completion {
 					case .finished: break
-					case .failure:
-						// TODO: handle error in settings view
+					case .failure(let error):
+						// The only error that we can receive here is on file opening,
+						// that means the the file is non-existing
+						// we create an empty server file and we relaunch loadData()
+						if error is ServerHandler.Error {
+							do {
+								try TransmissionFileHandler.setContent(url, content: [Server]())
+								self?.loadData()
+							} catch {
+								// TODO: Handle error on SettingsPage
+							}
+						}
 						break
 					}
 				},
@@ -39,7 +56,7 @@ class SettingsPagePresentationAdapter {
 						title: SettingsPresenter.title,
 						updateIntervalTitle: SettingsPresenter.updateIntervalTitle,
 						updateIntervalList: updateIntervals,
-						currentSelectedIntervalIndex: currentUpdateInterval,
+						currentSelectedIntervalIndex: updateIntervals.firstIndex(of: currentUpdateInterval) ?? 0,
 						serversTitle: SettingsPresenter.serverTitle,
 						currentServerName: servers.first(where: { $0.selected })?.name ?? SettingsPresenter.serverNotAvailable
 					)

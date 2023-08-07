@@ -13,19 +13,21 @@ final class ServerHandler {
 	
 	private init() {}
 	
-	static func makeServerLoader() -> AnyPublisher<[Server], Error> {
+	enum Error: Swift.Error {
+		case openingError
+	}
 		
-		let serverFileURL = URL(string: "http://www.google.it")!
-		
+	static func makeServerLoader(atUrl url: URL) -> AnyPublisher<[Server], Swift.Error> {
 		return Deferred {
 			Future { completion in
 				do {
-					completion(.success(try TransmissionFileHandler.getContent(serverFileURL)))
+					completion(.success(try TransmissionFileHandler.getContent(url)))
 				} catch {
-					completion(.failure(error))
+					completion(.failure(Error.openingError))
 				}
 			}
-		}.eraseToAnyPublisher()
+		}
+		.eraseToAnyPublisher()
 	}
 	
 }
