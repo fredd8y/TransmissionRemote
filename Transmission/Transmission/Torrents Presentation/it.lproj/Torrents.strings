@@ -13,3 +13,5 @@
 "TORRENT" = "Torrent";
 "USERNAME" = "Username";
 "PASSWORD" = "Password";
+"CREDENTIAL_NEEDED_TITLE" = "Credenziali richieste";
+"OK" = "Ok";

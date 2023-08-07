@@ -48,6 +48,22 @@ public final class TorrentsPresenter {
 			comment: "Credential alert password placeholer")
 	}
 	
+	public static var credentialRequested: String {
+		NSLocalizedString(
+			"CREDENTIAL_NEEDED_TITLE",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPresenter.self),
+			comment: "Title when credential are required")
+	}
+	
+	public static var ok: String {
+		NSLocalizedString(
+			"OK",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPresenter.self),
+			comment: "Ok string")
+	}
+	
 	public static func map(
 		title: String,
 		error: String?,
