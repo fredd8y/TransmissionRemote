@@ -24,8 +24,8 @@ class SettingsPageTests: XCTestCase {
 		SettingsPage(
 			viewModel: viewModel,
 			serverPage: ServerPage(
-				viewModel: ServersViewModel(
-					title: ServersPresenter.title,
+				viewModel: ServerPageViewModel(
+					title: ServerPagePresenter.title,
 					servers: [],
 					currentSelectedServer: nil
 				)
@@ -33,8 +33,8 @@ class SettingsPageTests: XCTestCase {
 		)
 	}
 	
-	private var viewModel: SettingsViewModel {
-		SettingsViewModel(
+	private var viewModel: SettingsPageViewModel {
+		SettingsPageViewModel(
 			title: "Settings",
 			pollingRateTitle: "Update interval",
 			pollingRateList: ["2 seconds", "5 seconds", "10 seconds", "30 seconds"],

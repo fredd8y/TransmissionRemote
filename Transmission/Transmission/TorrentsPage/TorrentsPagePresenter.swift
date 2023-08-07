@@ -1,5 +1,5 @@
 //
-//  TorrentsPresenter.swift
+//  TorrentsPagePresenter.swift
 //  Transmission
 //
 //  Created by Federico Arvat on 18/07/23.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-public final class TorrentsPresenter {
+public final class TorrentsPagePresenter {
 	public static var title: String {
 		NSLocalizedString(
 			"TORRENTS_VIEW_TITLE",
 			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPresenter.self),
+			bundle: Bundle(for: TorrentsPagePresenter.self),
 			comment: "Title for the torrents view")
 	}
 	
@@ -20,7 +20,7 @@ public final class TorrentsPresenter {
 		NSLocalizedString(
 			"TORRENTS",
 			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPresenter.self),
+			bundle: Bundle(for: TorrentsPagePresenter.self),
 			comment: "Plural of torrent")
 	}
 	
@@ -28,7 +28,7 @@ public final class TorrentsPresenter {
 		NSLocalizedString(
 			"TORRENT",
 			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPresenter.self),
+			bundle: Bundle(for: TorrentsPagePresenter.self),
 			comment: "Singular of torrent")
 	}
 	
@@ -36,7 +36,7 @@ public final class TorrentsPresenter {
 		NSLocalizedString(
 			"USERNAME",
 			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPresenter.self),
+			bundle: Bundle(for: TorrentsPagePresenter.self),
 			comment: "Credential alert username placeholer")
 	}
 	
@@ -44,7 +44,7 @@ public final class TorrentsPresenter {
 		NSLocalizedString(
 			"PASSWORD",
 			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPresenter.self),
+			bundle: Bundle(for: TorrentsPagePresenter.self),
 			comment: "Credential alert password placeholer")
 	}
 	
@@ -52,7 +52,7 @@ public final class TorrentsPresenter {
 		NSLocalizedString(
 			"CREDENTIAL_NEEDED_TITLE",
 			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPresenter.self),
+			bundle: Bundle(for: TorrentsPagePresenter.self),
 			comment: "Title when credential are required")
 	}
 	
@@ -60,7 +60,7 @@ public final class TorrentsPresenter {
 		NSLocalizedString(
 			"OK",
 			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPresenter.self),
+			bundle: Bundle(for: TorrentsPagePresenter.self),
 			comment: "Ok string")
 	}
 	
@@ -68,7 +68,7 @@ public final class TorrentsPresenter {
 		NSLocalizedString(
 			"UNDEFINED_ERROR",
 			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPresenter.self),
+			bundle: Bundle(for: TorrentsPagePresenter.self),
 			comment: "Generic error for invalidData")
 	}
 	
@@ -76,7 +76,7 @@ public final class TorrentsPresenter {
 		NSLocalizedString(
 			"SERVER_NOT_SET",
 			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPresenter.self),
+			bundle: Bundle(for: TorrentsPagePresenter.self),
 			comment: "Error shown when there's no current server set")
 	}
 	
@@ -88,8 +88,8 @@ public final class TorrentsPresenter {
 		torrents: [Torrent],
 		showAlert: Bool = false,
 		emptyMessage: String?
-	) -> TorrentsViewModel {
-		return TorrentsViewModel(
+	) -> TorrentsPageViewModel {
+		return TorrentsPageViewModel(
 			title: title,
 			error: error,
 			uploadSpeed: uploadSpeed.speed,

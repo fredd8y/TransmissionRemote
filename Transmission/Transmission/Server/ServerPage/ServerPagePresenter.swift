@@ -1,5 +1,5 @@
 //
-//  ServersPresenter.swift
+//  ServerPagePresenter.swift
 //  Transmission
 //
 //  Created by Federico Arvat on 29/07/23.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-public final class ServersPresenter {
+public final class ServerPagePresenter {
 	public static var title: String {
 		NSLocalizedString(
 			"SERVERS_VIEW_TITLE",
 			tableName: "Servers",
-			bundle: Bundle(for: ServersPresenter.self),
+			bundle: Bundle(for: ServerPagePresenter.self),
 			comment: "Title for the servers view")
 	}
 	
@@ -20,8 +20,8 @@ public final class ServersPresenter {
 		title: String,
 		servers: [Server],
 		currentSelectedServer: Server?
-	) -> ServersViewModel {
-		return ServersViewModel(
+	) -> ServerPageViewModel {
+		return ServerPageViewModel(
 			title: title,
 			servers: servers.map(ServerPresenter.map),
 			currentSelectedServer: currentSelectedServer?.id

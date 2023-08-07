@@ -10,11 +10,11 @@ import Transmission
 
 public struct SettingsPage: View {
 	
-	@ObservedObject var viewModel: SettingsViewModel
+	@ObservedObject var viewModel: SettingsPageViewModel
 	
 	private var serverPage: ServerPage
 	
-	public init(viewModel: SettingsViewModel, serverPage: ServerPage) {
+	public init(viewModel: SettingsPageViewModel, serverPage: ServerPage) {
 		self.viewModel = viewModel
 		self.serverPage = serverPage
 	}
@@ -61,7 +61,7 @@ public struct SettingsPage: View {
 
 struct SettingsPage_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsPage(viewModel: SettingsViewModel(
+        SettingsPage(viewModel: SettingsPageViewModel(
 			title: "Settings",
 			pollingRateTitle: "Update interval",
 			pollingRateList: ["2 seconds", "5 seconds", "10 seconds", "30 seconds"],
@@ -69,7 +69,7 @@ struct SettingsPage_Previews: PreviewProvider {
 			serversTitle: "Server",
 			currentServerName: "Raspberry"
 		), serverPage: ServerPage(
-			viewModel: ServersViewModel(
+			viewModel: ServerPageViewModel(
 				title: "Title",
 				servers: [],
 				currentSelectedServer: nil)

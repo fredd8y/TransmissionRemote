@@ -14,7 +14,7 @@ final class TorrentsPagePresentationAdapter {
 	// MARK: Lifecycle
 
 	init(
-		torrentsPageViewModel: TorrentsViewModel,
+		torrentsPageViewModel: TorrentsPageViewModel,
 		sessionIdHandler: @escaping (String) -> Void
 	) {
 		self.torrentsPageViewModel = torrentsPageViewModel
@@ -40,11 +40,11 @@ final class TorrentsPagePresentationAdapter {
 	private var sessionLoaderCancellable: Cancellable?
 	private var sessionIdHandler: (String) -> Void
 
-	@ObservedObject var torrentsPageViewModel: TorrentsViewModel
+	@ObservedObject var torrentsPageViewModel: TorrentsPageViewModel
 
 	func loadData() {
 		guard let server = UserDefaultsHandler.shared.currentServer else {
-			torrentsPageViewModel.newValues(TorrentsViewModel.serverNotSet())
+			torrentsPageViewModel.newValues(TorrentsPageViewModel.serverNotSet())
 			return
 		}
 		sessionLoaderCancellable = TransmissionHTTPClient.makeRemoteSessionLoader(server: server)
@@ -56,7 +56,7 @@ final class TorrentsPagePresentationAdapter {
 						break
 					case let .failure(error):
 						guard let _error = error as? SessionGetMapper.Error else {
-							self?.torrentsPageViewModel.newValues(TorrentsViewModel.error())
+							self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.error())
 							return
 						}
 						switch _error {
@@ -70,7 +70,7 @@ final class TorrentsPagePresentationAdapter {
 							self?.sessionIdHandler(_sessionId)
 							self?.loadData()
 						case .invalidData:
-							self?.torrentsPageViewModel.newValues(TorrentsViewModel.error())
+							self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.error())
 						}
 					}
 				},
@@ -82,12 +82,12 @@ final class TorrentsPagePresentationAdapter {
 								switch completion {
 								case .finished: break
 								case .failure:
-									self?.torrentsPageViewModel.newValues(TorrentsViewModel.error())
+									self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.error())
 								}
 							},
 							receiveValue: { torrents in
-								let viewModel = TorrentsPresenter.map(
-									title: TorrentsPresenter.title,
+								let viewModel = TorrentsPagePresenter.map(
+									title: TorrentsPagePresenter.title,
 									error: nil,
 									uploadSpeed: torrents.reduce(0) { $0 + $1.rateUpload },
 									downloadSpeed: torrents.reduce(0) { $0 + $1.rateDownload },
@@ -103,8 +103,8 @@ final class TorrentsPagePresentationAdapter {
 	}
 }
 
-private extension TorrentsViewModel {
-	func newValues(_ viewModel: TorrentsViewModel) {
+private extension TorrentsPageViewModel {
+	func newValues(_ viewModel: TorrentsPageViewModel) {
 		title = viewModel.title
 		error = viewModel.error
 		uploadSpeed = viewModel.uploadSpeed

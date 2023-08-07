@@ -1,5 +1,5 @@
 //
-//  TorrentsViewModel.swift
+//  TorrentsPageViewModel.swift
 //  Transmission
 //
 //  Created by Federico Arvat on 20/07/23.
@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-public class TorrentsViewModel: ObservableObject {
+public class TorrentsPageViewModel: ObservableObject {
 	public init(
 		title: String,
 		error: String?,

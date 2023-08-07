@@ -9,12 +9,12 @@ import SwiftUI
 import Transmission
 
 public struct ServerPage: View {
-	public init(viewModel: ServersViewModel) {
+	public init(viewModel: ServerPageViewModel) {
 		self.viewModel = viewModel
 		_selection = State(initialValue: viewModel.currentSelectedServer)
 	}
 	
-	@ObservedObject var viewModel: ServersViewModel
+	@ObservedObject var viewModel: ServerPageViewModel
 		
 	@State private var selection: UUID?
 	
@@ -58,7 +58,7 @@ struct ServerPage_Previews: PreviewProvider {
     static var previews: some View {
 		let selectedId = UUID()
         ServerPage(
-			viewModel: ServersViewModel(
+			viewModel: ServerPageViewModel(
 				title: "Servers",
 				servers: [
 					ServerViewModel(

@@ -10,11 +10,11 @@ import Transmission
 
 public struct TorrentsPage: View {
 	
-	public init(viewModel: TorrentsViewModel) {
+	public init(viewModel: TorrentsPageViewModel) {
 		self.viewModel = viewModel
 	}
 	
-	@ObservedObject var viewModel: TorrentsViewModel
+	@ObservedObject var viewModel: TorrentsPageViewModel
 	
 	public var loadData: (() -> Void)?
 	
@@ -94,11 +94,11 @@ public struct TorrentsPage: View {
 						.font(.subheadline)
 				}
 			}
-			.alert(TorrentsPresenter.credentialRequested, isPresented: $viewModel.showAlert) {
-				TextField(TorrentsPresenter.username, text: $username)
+			.alert(TorrentsPagePresenter.credentialRequested, isPresented: $viewModel.showAlert) {
+				TextField(TorrentsPagePresenter.username, text: $username)
 					.textInputAutocapitalization(.never)
-				SecureField(TorrentsPresenter.password, text: $password)
-				Button(TorrentsPresenter.ok) {
+				SecureField(TorrentsPagePresenter.password, text: $password)
+				Button(TorrentsPagePresenter.ok) {
 					authenticate?(username, password)
 					viewModel.showAlert.toggle()
 					loadData?()
@@ -114,7 +114,7 @@ public struct TorrentsPage: View {
 	}
 	
 	private var torrentsDescription: String {
-		let description = viewModel.torrents.count == 1 ? TorrentsPresenter.torrent : TorrentsPresenter.torrents
+		let description = viewModel.torrents.count == 1 ? TorrentsPagePresenter.torrent : TorrentsPagePresenter.torrents
 		return "\(viewModel.torrents.count) \(description)"
 	}
 }
@@ -122,7 +122,7 @@ public struct TorrentsPage: View {
 struct TorrentsPage_Previews: PreviewProvider {
     static var previews: some View {
 		TorrentsPage(
-			viewModel: TorrentsViewModel(
+			viewModel: TorrentsPageViewModel(
 				title: "Title",
 				error: nil,
 				uploadSpeed: "5,5 Mb/s",

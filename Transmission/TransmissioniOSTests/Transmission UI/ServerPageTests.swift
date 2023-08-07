@@ -43,8 +43,8 @@ class ServerPageTests: XCTestCase {
 		ServerPage(viewModel: viewModel(servers: servers, currentSelectedServer: currentSelectedServer))
 	}
 	
-	private func viewModel(servers: [ServerViewModel], currentSelectedServer: UUID? = nil) -> ServersViewModel {
-		ServersViewModel(title: ServersPresenter.title, servers: servers, currentSelectedServer: currentSelectedServer)
+	private func viewModel(servers: [ServerViewModel], currentSelectedServer: UUID? = nil) -> ServerPageViewModel {
+		ServerPageViewModel(title: ServerPagePresenter.title, servers: servers, currentSelectedServer: currentSelectedServer)
 	}
 	
 	private func emptyList() -> [ServerViewModel] {

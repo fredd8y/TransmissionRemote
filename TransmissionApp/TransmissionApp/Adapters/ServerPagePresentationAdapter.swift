@@ -11,11 +11,11 @@ import Transmission
 
 class ServerPagePresentationAdapter {
 	
-	init(serversViewModel: ServersViewModel) {
+	init(serversViewModel: ServerPageViewModel) {
 		self.serversViewModel = serversViewModel
 	}
 	
-	private let serversViewModel: ServersViewModel
+	private let serversViewModel: ServerPageViewModel
 	
 	private var cancellable: Cancellable?
 	
@@ -50,8 +50,8 @@ class ServerPagePresentationAdapter {
 					}
 				},
 				receiveValue: { [weak self] servers in
-					let viewModel = ServersPresenter.map(
-						title: ServersPresenter.title,
+					let viewModel = ServerPagePresenter.map(
+						title: ServerPagePresenter.title,
 						servers: servers,
 						currentSelectedServer: UserDefaultsHandler.shared.currentServer
 					)
@@ -62,8 +62,8 @@ class ServerPagePresentationAdapter {
 	
 }
 
-private extension ServersViewModel {
-	func newValues(_ viewModel: ServersViewModel) {
+private extension ServerPageViewModel {
+	func newValues(_ viewModel: ServerPageViewModel) {
 		title = viewModel.title
 		servers = viewModel.servers
 		currentSelectedServer = viewModel.currentSelectedServer

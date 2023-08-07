@@ -67,8 +67,8 @@ class TorrentsPageTests: XCTestCase {
 		TorrentsPage(viewModel: viewModel(withTorrents: torrents, andError: error, emptyMessage: emptyMessage))
 	}
 	
-	private func viewModel(withTorrents torrents: [TorrentViewModel], andError error: String? = nil, emptyMessage: String? = nil) -> TorrentsViewModel {
-		TorrentsViewModel(
+	private func viewModel(withTorrents torrents: [TorrentViewModel], andError error: String? = nil, emptyMessage: String? = nil) -> TorrentsPageViewModel {
+		TorrentsPageViewModel(
 			title: "Title",
 			error: error,
 			uploadSpeed: "5,5 MB/s",

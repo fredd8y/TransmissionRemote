@@ -1,5 +1,5 @@
 //
-//  TorrentsViewModel+Factory.swift
+//  TorrentsPageViewModel+Factory.swift
 //  TransmissionApp
 //
 //  Created by Federico Arvat on 24/07/23.
@@ -7,10 +7,10 @@
 
 import Transmission
 
-extension TorrentsViewModel {
-	static func empty() -> TorrentsViewModel {
-		TorrentsPresenter.map(
-			title: TorrentsPresenter.title,
+extension TorrentsPageViewModel {
+	static func empty() -> TorrentsPageViewModel {
+		TorrentsPagePresenter.map(
+			title: TorrentsPagePresenter.title,
 			error: nil,
 			uploadSpeed: 0,
 			downloadSpeed: 0,
@@ -19,10 +19,10 @@ extension TorrentsViewModel {
 		)
 	}
 	
-	static func error() -> TorrentsViewModel {
-		TorrentsPresenter.map(
-			title: TorrentsPresenter.title,
-			error: TorrentsPresenter.undefinedError,
+	static func error() -> TorrentsPageViewModel {
+		TorrentsPagePresenter.map(
+			title: TorrentsPagePresenter.title,
+			error: TorrentsPagePresenter.undefinedError,
 			uploadSpeed: 0,
 			downloadSpeed: 0,
 			torrents: [],
@@ -30,14 +30,14 @@ extension TorrentsViewModel {
 		)
 	}
 	
-	static func serverNotSet() -> TorrentsViewModel {
-		TorrentsPresenter.map(
-			title: TorrentsPresenter.title,
+	static func serverNotSet() -> TorrentsPageViewModel {
+		TorrentsPagePresenter.map(
+			title: TorrentsPagePresenter.title,
 			error: nil,
 			uploadSpeed: 0,
 			downloadSpeed: 0,
 			torrents: [],
-			emptyMessage: TorrentsPresenter.serverNotSet
+			emptyMessage: TorrentsPagePresenter.serverNotSet
 		)
 	}
 }

@@ -13,39 +13,39 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 	private let table = "Torrents"
 	
 	func test_title_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.title, localized("TORRENTS_VIEW_TITLE", table: table))
+		XCTAssertEqual(TorrentsPagePresenter.title, localized("TORRENTS_VIEW_TITLE", table: table))
 	}
 	
 	func test_torrents_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.torrents, localized("TORRENTS", table: table))
+		XCTAssertEqual(TorrentsPagePresenter.torrents, localized("TORRENTS", table: table))
 	}
 	
 	func test_torrent_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.torrent, localized("TORRENT", table: table))
+		XCTAssertEqual(TorrentsPagePresenter.torrent, localized("TORRENT", table: table))
 	}
 	
 	func test_username_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.username, localized("USERNAME", table: table))
+		XCTAssertEqual(TorrentsPagePresenter.username, localized("USERNAME", table: table))
 	}
 	
 	func test_password_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.password, localized("PASSWORD", table: table))
+		XCTAssertEqual(TorrentsPagePresenter.password, localized("PASSWORD", table: table))
 	}
 	
 	func test_credentialRequested_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.credentialRequested, localized("CREDENTIAL_NEEDED_TITLE", table: table))
+		XCTAssertEqual(TorrentsPagePresenter.credentialRequested, localized("CREDENTIAL_NEEDED_TITLE", table: table))
 	}
 	
 	func test_ok_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.ok, localized("OK", table: table))
+		XCTAssertEqual(TorrentsPagePresenter.ok, localized("OK", table: table))
 	}
 	
 	func test_undefinedError_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.undefinedError, localized("UNDEFINED_ERROR", table: table))
+		XCTAssertEqual(TorrentsPagePresenter.undefinedError, localized("UNDEFINED_ERROR", table: table))
 	}
 	
 	func test_serverNotSet_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.serverNotSet, localized("SERVER_NOT_SET", table: table))
+		XCTAssertEqual(TorrentsPagePresenter.serverNotSet, localized("SERVER_NOT_SET", table: table))
 	}
 	
 	func test_map_createsViewModel() {
@@ -58,7 +58,7 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		let torrents = [torrent1, torrent2]
 		let emptyMessage = "a message"
 		
-		let viewModel = TorrentsPresenter.map(
+		let viewModel = TorrentsPagePresenter.map(
 			title: title,
 			error: error,
 			uploadSpeed: uploadSpeed,

@@ -12,7 +12,7 @@ final class SettingsLocalizationTests: XCTestCase {
 
 	func test_localizedStrings_haveKeysAndValuesForAllSupportedLocalizations() {
 		let table = "Settings"
-		let bundle = Bundle(for: SettingsPresenter.self)
+		let bundle = Bundle(for: SettingsPagePresenter.self)
 		
 		assertLocalizedKeyAndValuesExist(in: bundle, table)
 	}

@@ -1,5 +1,5 @@
 //
-//  ServersViewModel.swift
+//  ServerPageViewModel.swift
 //  Transmission
 //
 //  Created by Federico Arvat on 29/07/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class ServersViewModel: ObservableObject {
+public class ServerPageViewModel: ObservableObject {
 	public init(
 		title: String,
 		servers: [ServerViewModel],

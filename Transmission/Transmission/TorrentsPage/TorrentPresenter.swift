@@ -12,7 +12,7 @@ public final class TorrentPresenter {
 		NSLocalizedString(
 			"TORRENT_ITEM_OF_PREPOSITION",
 			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPresenter.self),
+			bundle: Bundle(for: TorrentsPagePresenter.self),
 			comment: #"Downloaded "of" preposition"#)
 	}
 	
@@ -20,7 +20,7 @@ public final class TorrentPresenter {
 		NSLocalizedString(
 			"DOWNLOAD_COMPLETED_IN",
 			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPresenter.self),
+			bundle: Bundle(for: TorrentsPagePresenter.self),
 			comment: "Prefix of relative time to download completion")
 	}
 	
@@ -28,7 +28,7 @@ public final class TorrentPresenter {
 		NSLocalizedString(
 			"COMPLETED",
 			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPresenter.self),
+			bundle: Bundle(for: TorrentsPagePresenter.self),
 			comment: "Completed word")
 	}
 	

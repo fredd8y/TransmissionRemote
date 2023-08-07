@@ -13,23 +13,23 @@ final class SettingsPresenterTests: XCTestCase {
 	private let table = "Settings"
 	
 	func test_title_isLocalized() {
-		XCTAssertEqual(SettingsPresenter.title, localized("SETTINGS_PAGE_TITLE", table: table))
+		XCTAssertEqual(SettingsPagePresenter.title, localized("SETTINGS_PAGE_TITLE", table: table))
 	}
 
 	func test_seconds_isLocalized() {
-		XCTAssertEqual(SettingsPresenter.seconds, localized("SECONDS", table: table))
+		XCTAssertEqual(SettingsPagePresenter.seconds, localized("SECONDS", table: table))
 	}
 	
 	func test_pollingRateTitle_isLocalized() {
-		XCTAssertEqual(SettingsPresenter.pollingRateTitle, localized("POLLING_RATE_TITLE", table: table))
+		XCTAssertEqual(SettingsPagePresenter.pollingRateTitle, localized("POLLING_RATE_TITLE", table: table))
 	}
 
 	func test_serverTitle_isLocalized() {
-		XCTAssertEqual(SettingsPresenter.serverTitle, localized("SERVER_TITLE", table: table))
+		XCTAssertEqual(SettingsPagePresenter.serverTitle, localized("SERVER_TITLE", table: table))
 	}
 	
 	func test_serverNotAvailable_isLocalized() {
-		XCTAssertEqual(SettingsPresenter.serverNotAvailable, localized("SERVER_NOT_AVAILABLE", table: table))
+		XCTAssertEqual(SettingsPagePresenter.serverNotAvailable, localized("SERVER_NOT_AVAILABLE", table: table))
 	}
 	
 	func test_map_createsViewModel() {
@@ -40,7 +40,7 @@ final class SettingsPresenterTests: XCTestCase {
 		let serversTitle = "Server"
 		let currentServerName = "A server"
 		
-		let viewModel = SettingsPresenter.map(
+		let viewModel = SettingsPagePresenter.map(
 			title: title,
 			pollingRateTitle: pollingRateTitle,
 			pollingRateList: pollingRateList,
@@ -51,8 +51,8 @@ final class SettingsPresenterTests: XCTestCase {
 		
 		XCTAssertEqual(viewModel.title, title)
 		XCTAssertEqual(viewModel.pollingRateTitle, pollingRateTitle)
-		XCTAssertEqual(viewModel.pollingRateList, pollingRateList.map { "\($0) \(SettingsPresenter.seconds)" })
-		XCTAssertEqual(viewModel.currentSelectedPollingRate, "\(pollingRateList[currentSelectedPollingRate]) \(SettingsPresenter.seconds)")
+		XCTAssertEqual(viewModel.pollingRateList, pollingRateList.map { "\($0) \(SettingsPagePresenter.seconds)" })
+		XCTAssertEqual(viewModel.currentSelectedPollingRate, "\(pollingRateList[currentSelectedPollingRate]) \(SettingsPagePresenter.seconds)")
 		XCTAssertEqual(viewModel.serversTitle, serversTitle)
 		XCTAssertEqual(viewModel.currentServerName, currentServerName)
 	}

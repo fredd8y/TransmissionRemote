@@ -1,5 +1,5 @@
 //
-//  SettingsViewModel+Factory.swift
+//  SettingsPageViewModel+Factory.swift
 //  TransmissionApp
 //
 //  Created by Federico Arvat on 28/07/23.
@@ -7,14 +7,14 @@
 
 import Transmission
 
-extension SettingsViewModel {
-	static func empty() -> SettingsViewModel {
-		SettingsViewModel(
-			title: SettingsPresenter.title,
-			pollingRateTitle: SettingsPresenter.pollingRateTitle,
+extension SettingsPageViewModel {
+	static func empty() -> SettingsPageViewModel {
+		SettingsPageViewModel(
+			title: SettingsPagePresenter.title,
+			pollingRateTitle: SettingsPagePresenter.pollingRateTitle,
 			pollingRateList: ["-"],
 			currentSelectedPollingRate: "-",
-			serversTitle: SettingsPresenter.serverTitle,
+			serversTitle: SettingsPagePresenter.serverTitle,
 			currentServerName: "-"
 		)
 	}

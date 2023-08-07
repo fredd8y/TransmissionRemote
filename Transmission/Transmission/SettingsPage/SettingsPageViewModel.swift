@@ -1,5 +1,5 @@
 //
-//  SettingsViewModel.swift
+//  SettingsPageViewModel.swift
 //  Transmission
 //
 //  Created by Federico Arvat on 27/07/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public class SettingsViewModel: ObservableObject {
+public class SettingsPageViewModel: ObservableObject {
 	public init(
 		title: String,
 		pollingRateTitle: String,

@@ -25,7 +25,7 @@ final class TransmissionComposer {
 	}
 	
 	private static func torrentsPage() -> TorrentsPage {
-		let viewModel = TorrentsViewModel.empty()
+		let viewModel = TorrentsPageViewModel.empty()
 		
 		let torrentsPagePresentationAdapter = TorrentsPagePresentationAdapter(
 			torrentsPageViewModel: viewModel,
@@ -45,7 +45,7 @@ final class TransmissionComposer {
 	}
 	
 	private static func settingsPage(serverPage: ServerPage) -> SettingsPage {
-		let viewModel = SettingsViewModel.empty()
+		let viewModel = SettingsPageViewModel.empty()
 		
 		let settingsPagePresentationAdapter = SettingsPagePresentationAdapter(
 			settingsViewModel: viewModel
@@ -58,7 +58,7 @@ final class TransmissionComposer {
 	}
 	
 	private static func serverPage() -> ServerPage {
-		let viewModel = ServersViewModel.empty()
+		let viewModel = ServerPageViewModel.empty()
 		
 		let serverPagePresentationAdapter = ServerPagePresentationAdapter(
 			serversViewModel: viewModel

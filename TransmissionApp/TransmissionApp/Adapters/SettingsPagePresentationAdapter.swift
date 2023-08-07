@@ -11,11 +11,11 @@ import Transmission
 
 class SettingsPagePresentationAdapter {
 	
-	init(settingsViewModel: SettingsViewModel) {
+	init(settingsViewModel: SettingsPageViewModel) {
 		self.settingsViewModel = settingsViewModel
 	}
 	
-	private var settingsViewModel: SettingsViewModel
+	private var settingsViewModel: SettingsPageViewModel
 	
 	private var cancellable: Cancellable?
 		
@@ -28,13 +28,13 @@ class SettingsPagePresentationAdapter {
 			.dispatchOnMainQueue()
 			.sink(
 				receiveValue: { [weak self] (server, pollingRateList, currentPollingRate) in
-					let viewModel = SettingsPresenter.map(
-						title: SettingsPresenter.title,
-						pollingRateTitle: SettingsPresenter.pollingRateTitle,
+					let viewModel = SettingsPagePresenter.map(
+						title: SettingsPagePresenter.title,
+						pollingRateTitle: SettingsPagePresenter.pollingRateTitle,
 						pollingRateList: pollingRateList,
 						currentSelectedPollingRate: pollingRateList.firstIndex(of: currentPollingRate) ?? 0,
-						serversTitle: SettingsPresenter.serverTitle,
-						currentServerName: server?.name ?? SettingsPresenter.serverNotAvailable
+						serversTitle: SettingsPagePresenter.serverTitle,
+						currentServerName: server?.name ?? SettingsPagePresenter.serverNotAvailable
 					)
 					self?.settingsViewModel.newValues(viewModel)
 				}
@@ -48,8 +48,8 @@ class SettingsPagePresentationAdapter {
 	
 }
 
-private extension SettingsViewModel {
-	func newValues(_ viewModel: SettingsViewModel) {
+private extension SettingsPageViewModel {
+	func newValues(_ viewModel: SettingsPageViewModel) {
 		title = viewModel.title
 		pollingRateTitle = viewModel.pollingRateTitle
 		pollingRateList = viewModel.pollingRateList
