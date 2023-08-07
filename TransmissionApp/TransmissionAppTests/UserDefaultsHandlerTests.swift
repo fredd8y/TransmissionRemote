@@ -10,12 +10,12 @@ import XCTest
 
 final class UserDefaultsHandlerTests: XCTestCase {
 	
-	func test_updateInterval() {
+	func test_updatePollingRate() {
 		let testValue = Int.random(in: 0..<1000)
 		
-		UserDefaultsHandler.shared.updateInterval = testValue
+		UserDefaultsHandler.shared.pollingRate = testValue
 		
-		XCTAssertEqual(testValue, UserDefaultsHandler.shared.updateInterval)
+		XCTAssertEqual(testValue, UserDefaultsHandler.shared.pollingRate)
 	}
 
 }

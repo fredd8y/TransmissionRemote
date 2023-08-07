@@ -19,22 +19,31 @@ final class TorrentsPagePresentationAdapter {
 	) {
 		self.torrentsPageViewModel = torrentsPageViewModel
 		self.sessionIdHandler = sessionIdHandler
+		pollingRateCancellable = UserDefaultsHandler.shared.$pollingRate.sink { [weak self] newValue in
+			guard let self else { return }
+			self.timer.invalidate()
+			self.timer = self.createTimer(newValue)
+			self.timer.fire()
+		}
 	}
 	
+	private lazy var timer = createTimer(UserDefaultsHandler.shared.pollingRate)
 	
-	private lazy var timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { [weak self] _ in
-		self?.cancellable?.cancel()
-		self?.loadData()
+	private lazy var createTimer: (Int) -> Timer = { [weak self] pollingRate in
+		Timer.scheduledTimer(withTimeInterval: TimeInterval(pollingRate), repeats: true) { _ in
+			self?.sessionLoaderCancellable?.cancel()
+			self?.loadData()
+		}
 	}
 	
-	private var cancellable: Cancellable?
+	private var pollingRateCancellable: Cancellable?
+	private var sessionLoaderCancellable: Cancellable?
 	private var sessionIdHandler: (String) -> Void
-
 
 	@ObservedObject var torrentsPageViewModel: TorrentsViewModel
 
 	func loadData() {
-		cancellable = TransmissionHTTPClient.makeRemoteSessionLoader()
+		sessionLoaderCancellable = TransmissionHTTPClient.makeRemoteSessionLoader()
 			.dispatchOnMainQueue()
 			.sink(
 				receiveCompletion: { [weak self] completion in
@@ -62,7 +71,7 @@ final class TorrentsPagePresentationAdapter {
 					}
 				},
 				receiveValue: { [weak self] session in
-					self?.cancellable = TransmissionHTTPClient.makeRemoteTorrentsLoader()
+					self?.sessionLoaderCancellable = TransmissionHTTPClient.makeRemoteTorrentsLoader()
 						.dispatchOnMainQueue()
 						.sink(
 							receiveCompletion: { completion in

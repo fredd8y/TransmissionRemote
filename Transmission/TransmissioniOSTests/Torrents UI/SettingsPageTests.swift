@@ -26,9 +26,9 @@ class SettingsPageTests: XCTestCase {
 	private var viewModel: SettingsViewModel {
 		SettingsViewModel(
 			title: "Settings",
-			updateIntervalTitle: "Update interval",
-			updateIntervalList: ["2 seconds", "5 seconds", "10 seconds", "30 seconds"],
-			currentSelectedIntervalIndex: 0,
+			pollingRateTitle: "Update interval",
+			pollingRateList: ["2 seconds", "5 seconds", "10 seconds", "30 seconds"],
+			currentSelectedPollingRate: "5 seconds",
 			serversTitle: "Server",
 			currentServerName: "Raspberry"
 		)

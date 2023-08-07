@@ -8,6 +8,6 @@
 
 "SETTINGS_PAGE_TITLE" = "Settings";
 "SECONDS" = "Seconds";
-"UPDATE_INTERVAL_TITLE" = "Update interval";
+"POLLING_RATE_TITLE" = "Update interval";
 "SERVER_TITLE" = "Server";
 "SERVER_NOT_AVAILABLE" = "Not available";

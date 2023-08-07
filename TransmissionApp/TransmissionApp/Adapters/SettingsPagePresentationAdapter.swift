@@ -28,8 +28,8 @@ class SettingsPagePresentationAdapter {
 		}
 		cancellable = Publishers.Zip3(
 			ServerPublishers.makeServerGetLoader(atUrl: url),
-			UpdateIntervalHandler.makeUpdateIntervalListLoader(),
-			UpdateIntervalHandler.makeCurrentUpdateIntervalLoader()
+			PollingRateHandler.makeUpdatePollingRateLoader(),
+			PollingRateHandler.makeCurrentPollingRateLoader()
 		)
 			.dispatchOnMainQueue()
 			.sink(
@@ -65,9 +65,9 @@ class SettingsPagePresentationAdapter {
 			)
 	}
 	
-	func selectedUpdateInterval(_ updateInterval: String, fromUpdateIntervalList updateIntervalList: [String]) {
-		guard let newUpdateIntervalIndex = updateIntervalList.firstIndex(of: updateInterval) else { return }
-		UserDefaultsHandler.shared.updateInterval = UpdateIntervalHandler.updateIntervals[newUpdateIntervalIndex]
+	func selectedPollingRate(_ pollingRate: String, fromPollingRateList pollingRateList: [String]) {
+		guard let newPollingRateIndex = pollingRateList.firstIndex(of: pollingRate) else { return }
+		UserDefaultsHandler.shared.pollingRate = PollingRateHandler.pollingRateList[newPollingRateIndex]
 	}
 }
 

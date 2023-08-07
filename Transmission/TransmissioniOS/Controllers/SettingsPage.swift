@@ -18,7 +18,7 @@ public struct SettingsPage: View {
 	
 	public var loadData: (() -> Void)?
 	
-	public var updateIntervalSelected: ((_ selectedInterval: String, _ intervalList: [String]) -> Void)?
+	public var pollingRateSelected: ((_ selectedPollingRate: String, _ pollingRateList: [String]) -> Void)?
 	
     public var body: some View {
 		NavigationStack {
@@ -31,7 +31,7 @@ public struct SettingsPage: View {
 					}
 					.pickerStyle(.segmented)
 					.onChange(of: viewModel.currentSelectedPollingRate) { newValue in
-						updateIntervalSelected?(newValue, viewModel.pollingRateList)
+						pollingRateSelected?(newValue, viewModel.pollingRateList)
 					}
 				}
 				NavigationLink {

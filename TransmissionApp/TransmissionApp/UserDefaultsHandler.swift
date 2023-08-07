@@ -10,7 +10,7 @@ import Foundation
 // MARK: - UserDefaultsKeys
 
 enum UserDefaultsKeys: String {
-	case updateInterval
+	case pollingRate
 }
 
 // MARK: - UserDefaultsHandler
@@ -19,10 +19,10 @@ class UserDefaultsHandler {
 	// MARK: Lifecycle
 	
 	private init() {
-		if let value = UserDefaults.standard.value(forKey: UserDefaultsKeys.updateInterval.rawValue) as? Int {
-			updateInterval = value
+		if let value = UserDefaults.standard.value(forKey: UserDefaultsKeys.pollingRate.rawValue) as? Int {
+			pollingRate = value
 		} else {
-			updateInterval = 5
+			pollingRate = 5
 		}
 	}
 	
@@ -30,13 +30,13 @@ class UserDefaultsHandler {
 	
 	static let shared = UserDefaultsHandler()
 	
-	var updateInterval: Int {
+	@Published var pollingRate: Int {
 		didSet {
-			setUpdateInterval(updateInterval)
+			setPollingRate(pollingRate)
 		}
 	}
 	
-	private func setUpdateInterval(_ updateInterval: Int) {
-		UserDefaults.standard.setValue(updateInterval, forKey: UserDefaultsKeys.updateInterval.rawValue)
+	private func setPollingRate(_ pollingRate: Int) {
+		UserDefaults.standard.setValue(pollingRate, forKey: UserDefaultsKeys.pollingRate.rawValue)
 	}
 }

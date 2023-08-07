@@ -26,7 +26,7 @@ public class SettingsPresenter {
 	
 	public static var pollingRateTitle: String {
 		NSLocalizedString(
-			"UPDATE_INTERVAL_TITLE",
+			"POLLING_RATE_TITLE",
 			tableName: "Settings",
 			bundle: Bundle(for: SettingsPresenter.self),
 			comment: "Update interval title")

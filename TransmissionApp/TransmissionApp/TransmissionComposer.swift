@@ -52,7 +52,7 @@ final class TransmissionComposer {
 		
 		var settingsPage = SettingsPage(viewModel: viewModel)
 		settingsPage.loadData = settingsPagePresentationAdapter.loadData
-		settingsPage.updateIntervalSelected = settingsPagePresentationAdapter.selectedUpdateInterval
+		settingsPage.pollingRateSelected = settingsPagePresentationAdapter.selectedPollingRate
 		// Add to settingsPage closures to update servers
 		return settingsPage
 	}
