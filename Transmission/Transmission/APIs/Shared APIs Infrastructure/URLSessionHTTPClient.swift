@@ -24,6 +24,7 @@ public class URLSessionHTTPClient: HTTPClient {
 		var urlRequest = URLRequest(url: url)
 		urlRequest.httpMethod = "POST"
 		urlRequest.httpBody = body
+		urlRequest.timeoutInterval = 5
 		additionalHeader?.forEach { (key, value) in
 			urlRequest.addValue(value, forHTTPHeaderField: key)
 		}

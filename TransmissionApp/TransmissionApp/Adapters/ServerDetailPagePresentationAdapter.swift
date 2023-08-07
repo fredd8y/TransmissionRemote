@@ -53,8 +53,8 @@ class ServerDetailPagePresentationAdapter {
 				httpProtocol: model.httpProtocol,
 				ip: model.ip,
 				port: intPort,
-				username: model.username,
-				password: model.password,
+				username: model.username == "" ? nil : model.username,
+				password: model.password == "" ? nil : model.password,
 				id: model.id
 			)
 			guard let url else {

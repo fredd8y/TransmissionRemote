@@ -25,20 +25,3 @@ public extension HTTPClient {
 		}.eraseToAnyPublisher()
 	}
 }
-
-extension Publisher where Self == HTTPClient.Publisher {
-	func logResponse() -> HTTPClient.Publisher {
-		handleEvents(
-			receiveOutput: { (data, response) in
-				Logger.APIs.info("\nURL: \(response.url!)\nSTATUS-CODE: \(response.statusCode)\nRESPONSE: \(String(data: data, encoding: .utf8)!)")
-			},
-			receiveCompletion: { completion in
-				switch completion {
-				case .finished: break
-				case .failure(let error):
-					Logger.APIs.error("\nERROR: \(error.localizedDescription)")
-				}
-			}
-		).eraseToAnyPublisher()
-	}
-}

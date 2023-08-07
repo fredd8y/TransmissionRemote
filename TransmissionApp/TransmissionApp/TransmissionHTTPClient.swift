@@ -5,6 +5,7 @@
 //  Created by Federico Arvat on 24/07/23.
 //
 
+import OSLog
 import Combine
 import Foundation
 import Transmission
@@ -22,7 +23,8 @@ final class TransmissionHTTPClient {
 				body: SessionBodies.get.data(using: .utf8)!,
 				additionalHeader: headers(server)
 			)
-			.logResponse()
+			.tryMap(TransmissionHTTPClient.log)
+			.eraseToAnyPublisher()
 			.tryMap(SessionGetMapper.map)
 			.eraseToAnyPublisher()
 	}
@@ -34,9 +36,15 @@ final class TransmissionHTTPClient {
 				body: TorrentBodies.get(TorrentField.minimumTorrentField),
 				additionalHeader: headers(server)
 			)
-			.logResponse()
+			.tryMap(TransmissionHTTPClient.log)
+			.eraseToAnyPublisher()
 			.tryMap(TorrentGetMapper.map)
 			.eraseToAnyPublisher()
+	}
+	
+	public static func log(_ data: Data, from response: HTTPURLResponse) throws -> (data: Data, response: HTTPURLResponse) {
+		Logger.APIs.info("\nURL: \(response.url!)\nSTATUS-CODE: \(response.statusCode)\nRESPONSE: \(String(data: data, encoding: .utf8)!)")
+		return (data, response)
 	}
 
 	// MARK: Private

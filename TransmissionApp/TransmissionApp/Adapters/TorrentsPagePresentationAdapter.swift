@@ -20,27 +20,26 @@ final class TorrentsPagePresentationAdapter {
 		self.torrentsPageViewModel = torrentsPageViewModel
 		self.sessionIdHandler = sessionIdHandler
 		pollingRateCancellable = UserDefaultsHandler.shared.$pollingRate.sink { [weak self] newValue in
-			guard let self else { return }
-			self.timer.invalidate()
-			self.timer = self.createTimer(newValue)
-			self.timer.fire()
+			self?.refresh()
 		}
-	}
-	
-	private lazy var timer = createTimer(UserDefaultsHandler.shared.pollingRate)
-	
-	private lazy var createTimer: (Int) -> Timer = { [weak self] pollingRate in
-		Timer.scheduledTimer(withTimeInterval: TimeInterval(pollingRate), repeats: true) { _ in
-			self?.sessionLoaderCancellable?.cancel()
-			self?.loadData()
+		currentServerCancellable = UserDefaultsHandler.shared.$currentServer.sink { [weak self] newValue in
+			self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.error())
+			self?.refresh()
 		}
 	}
 	
 	private var pollingRateCancellable: Cancellable?
+	private var currentServerCancellable: Cancellable?
 	private var sessionLoaderCancellable: Cancellable?
+	
 	private var sessionIdHandler: (String) -> Void
 
 	@ObservedObject var torrentsPageViewModel: TorrentsPageViewModel
+	
+	private func refresh() {
+		sessionLoaderCancellable?.cancel()
+		loadData()
+	}
 
 	func loadData() {
 		guard let server = UserDefaultsHandler.shared.currentServer else {
@@ -95,7 +94,9 @@ final class TorrentsPagePresentationAdapter {
 									emptyMessage: nil
 								)
 								self?.torrentsPageViewModel.newValues(viewModel)
-								self?.timer.fireIfInvalid()
+								DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.seconds(UserDefaultsHandler.shared.pollingRate)) {
+									self?.loadData()
+								}
 							}
 						)
 				}
@@ -112,11 +113,5 @@ private extension TorrentsPageViewModel {
 		torrents = viewModel.torrents
 		showAlert = viewModel.showAlert
 		emptyMessage = viewModel.emptyMessage
-	}
-}
-
-private extension Timer {
-	func fireIfInvalid() {
-		if !isValid { fire() }
 	}
 }
