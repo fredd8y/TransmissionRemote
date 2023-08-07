@@ -18,7 +18,7 @@ final class TransmissionComposer {
 	
 	public static func containerView() -> ContainerView {
 		let torrentsPage = torrentsPage()
-		let settingsPage = SettingsPage()
+		let settingsPage = settingsPage()
 		
 		return ContainerView(torrentsPage: torrentsPage, settingsPage: settingsPage)
 	}
@@ -41,5 +41,17 @@ final class TransmissionComposer {
 		}
 		
 		return torrentsPage
+	}
+	
+	private static func settingsPage() -> SettingsPage {
+		let viewModel = SettingsViewModel.empty()
+		
+		let settingsPagePresentationAdapter = SettingsPagePresentationAdapter(
+			settingsViewModel: viewModel
+		)
+		
+		var settingsPage = SettingsPage(viewModel: viewModel)
+		// Add to settingsPage closures to load servers and update intervals
+		return settingsPage
 	}
 }

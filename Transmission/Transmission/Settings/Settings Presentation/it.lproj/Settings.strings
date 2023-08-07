@@ -8,3 +8,6 @@
 
 "SETTINGS_PAGE_TITLE" = "Impostazioni";
 "SECONDS" = "Secondi";
+"UPDATE_INTERVAL_TITLE" = "Intervallo di aggiornamento";
+"SERVER_TITLE" = "Server";
+"SERVER_NOT_AVAILABLE" = "Non disponibile";

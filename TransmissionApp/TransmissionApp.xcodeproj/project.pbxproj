@@ -9,10 +9,15 @@
 /* Begin PBXBuildFile section */
 		7B6CD5CB2A71050F00E81983 /* Logger+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CA2A71050F00E81983 /* Logger+.swift */; };
 		7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */; };
+		7BBF3C4B2A729554001206A8 /* SettingsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */; };
+		7BBF3C4D2A72A648001206A8 /* ServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C4C2A72A648001206A8 /* ServerHandler.swift */; };
+		7BBF3C5C2A742B6E001206A8 /* SettingsViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C5B2A742B6E001206A8 /* SettingsViewModel+Factory.swift */; };
+		7BBF3C5E2A742CF7001206A8 /* UpdateIntervalHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C5D2A742CF7001206A8 /* UpdateIntervalHandler.swift */; };
+		7BBF3C602A742D37001206A8 /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C5F2A742D37001206A8 /* UserDefaultsHandler.swift */; };
+		7BBF3C642A742FBC001206A8 /* UserDefaultsHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C612A742E3C001206A8 /* UserDefaultsHandlerTests.swift */; };
 		7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8132A6C158100B36367 /* TransmissionApp.swift */; };
 		7BC0D8182A6C158300B36367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC0D8172A6C158300B36367 /* Assets.xcassets */; };
 		7BC0D81B2A6C158300B36367 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC0D81A2A6C158300B36367 /* Preview Assets.xcassets */; };
-		7BC0D8252A6C158300B36367 /* TransmissionAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8242A6C158300B36367 /* TransmissionAppTests.swift */; };
 		7BC0D82F2A6C158300B36367 /* TransmissionAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D82E2A6C158300B36367 /* TransmissionAppUITests.swift */; };
 		7BC0D8312A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8302A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift */; };
 		7BC0D8432A6E3C4100B36367 /* Combine+Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8422A6E3C4100B36367 /* Combine+Publishers.swift */; };
@@ -61,12 +66,17 @@
 /* Begin PBXFileReference section */
 		7B6CD5CA2A71050F00E81983 /* Logger+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+.swift"; sourceTree = "<group>"; };
 		7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+MainQueueDispatcher.swift"; sourceTree = "<group>"; };
+		7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPagePresentationAdapter.swift; sourceTree = "<group>"; };
+		7BBF3C4C2A72A648001206A8 /* ServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHandler.swift; sourceTree = "<group>"; };
+		7BBF3C5B2A742B6E001206A8 /* SettingsViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel+Factory.swift"; sourceTree = "<group>"; };
+		7BBF3C5D2A742CF7001206A8 /* UpdateIntervalHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateIntervalHandler.swift; sourceTree = "<group>"; };
+		7BBF3C5F2A742D37001206A8 /* UserDefaultsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandler.swift; sourceTree = "<group>"; };
+		7BBF3C612A742E3C001206A8 /* UserDefaultsHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandlerTests.swift; sourceTree = "<group>"; };
 		7BC0D8102A6C158100B36367 /* TransmissionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransmissionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC0D8132A6C158100B36367 /* TransmissionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionApp.swift; sourceTree = "<group>"; };
 		7BC0D8172A6C158300B36367 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BC0D81A2A6C158300B36367 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7BC0D8202A6C158300B36367 /* TransmissionAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransmissionAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BC0D8242A6C158300B36367 /* TransmissionAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionAppTests.swift; sourceTree = "<group>"; };
 		7BC0D82A2A6C158300B36367 /* TransmissionAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransmissionAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC0D82E2A6C158300B36367 /* TransmissionAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionAppUITests.swift; sourceTree = "<group>"; };
 		7BC0D8302A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -144,6 +154,9 @@
 				7BC0D8132A6C158100B36367 /* TransmissionApp.swift */,
 				7BC0D8442A6E3FE200B36367 /* TransmissionComposer.swift */,
 				7BC0D84D2A6EA90000B36367 /* TransmissionHTTPClient.swift */,
+				7BBF3C4C2A72A648001206A8 /* ServerHandler.swift */,
+				7BBF3C5D2A742CF7001206A8 /* UpdateIntervalHandler.swift */,
+				7BBF3C5F2A742D37001206A8 /* UserDefaultsHandler.swift */,
 				7BC0D8172A6C158300B36367 /* Assets.xcassets */,
 				7BC0D8192A6C158300B36367 /* Preview Content */,
 			);
@@ -161,7 +174,7 @@
 		7BC0D8232A6C158300B36367 /* TransmissionAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				7BC0D8242A6C158300B36367 /* TransmissionAppTests.swift */,
+				7BBF3C612A742E3C001206A8 /* UserDefaultsHandlerTests.swift */,
 			);
 			path = TransmissionAppTests;
 			sourceTree = "<group>";
@@ -179,8 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				7BC0D8422A6E3C4100B36367 /* Combine+Publishers.swift */,
-				7BC0D84B2A6EA20100B36367 /* TorrentsViewModel+Factory.swift */,
 				7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */,
+				7BC0D84B2A6EA20100B36367 /* TorrentsViewModel+Factory.swift */,
+				7BBF3C5B2A742B6E001206A8 /* SettingsViewModel+Factory.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -189,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				7BC0D8492A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift */,
+				7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -274,6 +289,7 @@
 					};
 					7BC0D81F2A6C158300B36367 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 						TestTargetID = 7BC0D80F2A6C158100B36367;
 					};
 					7BC0D8292A6C158300B36367 = {
@@ -333,14 +349,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BBF3C5C2A742B6E001206A8 /* SettingsViewModel+Factory.swift in Sources */,
 				7BC0D84E2A6EA90000B36367 /* TransmissionHTTPClient.swift in Sources */,
+				7BBF3C4B2A729554001206A8 /* SettingsPagePresentationAdapter.swift in Sources */,
 				7BC0D84C2A6EA20100B36367 /* TorrentsViewModel+Factory.swift in Sources */,
 				7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */,
 				7B6CD5CB2A71050F00E81983 /* Logger+.swift in Sources */,
 				7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */,
 				7BC0D8452A6E3FE200B36367 /* TransmissionComposer.swift in Sources */,
+				7BBF3C5E2A742CF7001206A8 /* UpdateIntervalHandler.swift in Sources */,
+				7BBF3C4D2A72A648001206A8 /* ServerHandler.swift in Sources */,
 				7BC0D8432A6E3C4100B36367 /* Combine+Publishers.swift in Sources */,
 				7BC0D84A2A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift in Sources */,
+				7BBF3C602A742D37001206A8 /* UserDefaultsHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BC0D8252A6C158300B36367 /* TransmissionAppTests.swift in Sources */,
+				7BBF3C642A742FBC001206A8 /* UserDefaultsHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,15 +575,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UYXPW2Z6TM;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.transmission.test.it.TransmissionAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TransmissionApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TransmissionApp";
@@ -574,11 +602,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UYXPW2Z6TM;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.transmission.test.it.TransmissionAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

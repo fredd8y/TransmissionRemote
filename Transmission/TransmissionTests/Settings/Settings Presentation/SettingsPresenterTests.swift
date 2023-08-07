@@ -20,6 +20,18 @@ final class SettingsPresenterTests: XCTestCase {
 		XCTAssertEqual(SettingsPresenter.seconds, localized("SECONDS", table: table))
 	}
 	
+	func test_updateIntervalTitle_isLocalized() {
+		XCTAssertEqual(SettingsPresenter.updateIntervalTitle, localized("UPDATE_INTERVAL_TITLE", table: table))
+	}
+
+	func test_serverTitle_isLocalized() {
+		XCTAssertEqual(SettingsPresenter.serverTitle, localized("SERVER_TITLE", table: table))
+	}
+	
+	func test_serverNotAvailable_isLocalized() {
+		XCTAssertEqual(SettingsPresenter.serverNotAvailable, localized("SERVER_NOT_AVAILABLE", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Settings"
 		let updateIntervalTitle = "Update interval"

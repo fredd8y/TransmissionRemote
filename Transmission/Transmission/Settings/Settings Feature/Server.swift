@@ -7,6 +7,17 @@
 
 import Foundation
 
-public struct Server {
+public struct Server: Codable {
 	
+	public enum HTTPProtocol: Codable {
+		case http
+		case https
+	}
+	
+	public let name: String
+	public let httpProtocol: HTTPProtocol
+	public let port: Int
+	public let username: String?
+	public let password: String?
+	public let selected: Bool
 }
