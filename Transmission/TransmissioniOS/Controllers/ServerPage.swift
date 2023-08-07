@@ -18,6 +18,8 @@ public struct ServerPage: View {
 		
 	@State private var selection: UUID?
 	
+	@State private var showNavigationBar: Visibility = .visible
+	
 	public var loadData: (() -> Void)?
 	
     public var body: some View {
@@ -41,6 +43,11 @@ public struct ServerPage: View {
 						Image(systemName: "plus")
 					}.foregroundColor(.primary)
 				}
+			}
+			.toolbar(showNavigationBar, for: .tabBar)
+		}.onAppear {
+			withAnimation {
+				showNavigationBar = .hidden
 			}
 		}
     }
