@@ -16,10 +16,7 @@ final class TransmissionComposer {
 	
 	private static var cancellable: Cancellable?
 	
-	public static func torrentsPagePresentationAdapter(
-		sessionLoader: @escaping () -> AnyPublisher<Session, Error>,
-		torrentLoader: @escaping () -> AnyPublisher<[Torrent], Error>
-	) -> TorrentsPage {
+	public static func torrentsPagePresentationAdapter() -> TorrentsPage {
 		let viewModel = TorrentsViewModel.empty()
 		
 		var torrentsPage = TorrentsPage(viewModel: viewModel)
@@ -27,8 +24,6 @@ final class TransmissionComposer {
 		let torrentsPagePresentationAdapter = TorrentsPagePresentationAdapter(
 			torrentsPage: torrentsPage,
 			torrentsPageViewModel: viewModel,
-			sessionLoader: sessionLoader,
-			torrentLoader: torrentLoader,
 			sessionIdHandler: { sessionId in
 				TransmissionHTTPClient.sessionId = sessionId
 			}

@@ -79,6 +79,7 @@ public struct TorrentsPage: View {
 			.alert(TorrentsPresenter.credentialRequested, isPresented: $viewModel.showAlert) {
 				TextField(TorrentsPresenter.username, text: $username)
 				TextField(TorrentsPresenter.password, text: $password)
+					.textContentType(.password)
 				Button(TorrentsPresenter.ok) {
 					authenticate?(username, password)
 					viewModel.showAlert.toggle()

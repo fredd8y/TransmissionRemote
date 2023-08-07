@@ -16,27 +16,21 @@ final class TorrentsPagePresentationAdapter {
 	
 	private var torrentsPage: TorrentsPage
 	
-	private let sessionLoader: () -> AnyPublisher<Session, Error>
-	private let torrentLoader: () -> AnyPublisher<[Torrent], Error>
 	private var cancellable: Cancellable?
 	private var sessionIdHandler: (String) -> Void
 	
 	init(
 		torrentsPage: TorrentsPage,
 		torrentsPageViewModel: TorrentsViewModel,
-		sessionLoader: @escaping () -> AnyPublisher<Session, Error>,
-		torrentLoader: @escaping () -> AnyPublisher<[Torrent], Error>,
 		sessionIdHandler: @escaping (String) -> Void
 	) {
 		self.torrentsPage = torrentsPage
 		self.torrentsPageViewModel = torrentsPageViewModel
-		self.sessionLoader = sessionLoader
-		self.torrentLoader = torrentLoader
 		self.sessionIdHandler = sessionIdHandler
 	}
 	
 	func loadData() {
-		cancellable = Publishers.Zip(sessionLoader(), torrentLoader())
+		cancellable = TransmissionHTTPClient.makeRemoteSessionLoader()
 			.dispatchOnMainQueue()
 			.sink(
 				receiveCompletion: { [weak self] completion in
@@ -63,17 +57,29 @@ final class TorrentsPagePresentationAdapter {
 						}
 					}
 				},
-				receiveValue: { [weak self] (session, torrents) in
-					let viewModel = TorrentsPresenter.map(
-						title: TorrentsPresenter.title,
-						error: nil,
-						uploadSpeed: torrents.reduce(0, { $0 + $1.rateUpload }),
-						downloadSpeed: torrents.reduce(0, { $0 + $1.rateDownload }),
-						torrents: torrents)
-					self?.torrentsPageViewModel.newValues(viewModel)
+				receiveValue: { [weak self] session in
+					self?.cancellable = TransmissionHTTPClient.makeRemoteTorrentsLoader()
+						.dispatchOnMainQueue()
+						.sink(
+							receiveCompletion: { completion in
+								switch completion {
+								case .finished: break
+								case .failure:
+									self?.torrentsPageViewModel.newValues(TorrentsViewModel.error())
+								}
+							},
+							receiveValue: { torrents in
+								let viewModel = TorrentsPresenter.map(
+									title: TorrentsPresenter.title,
+									error: nil,
+									uploadSpeed: torrents.reduce(0, { $0 + $1.rateUpload }),
+									downloadSpeed: torrents.reduce(0, { $0 + $1.rateDownload }),
+									torrents: torrents)
+								self?.torrentsPageViewModel.newValues(viewModel)
+							}
+						)
 				}
 			)
-			
 	}
 	
 }
