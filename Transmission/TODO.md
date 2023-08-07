@@ -6,6 +6,8 @@ Improvement
 
 TODO
 
+-	Crypt password before saving it in userDefaults
+-	If no server has been added, application should inform the user to go into settings page to add one
 -	Settings with multiple servers
 	-	Server name
 	-	protocol (http/https)

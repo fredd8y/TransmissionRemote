@@ -7,7 +7,23 @@
 
 import Foundation
 
-public struct Server {
+public struct Server: Equatable {
+	public init(
+		name: String,
+		httpProtocol: Server.HTTPProtocol,
+		ip: String,
+		port: Int,
+		username: String? = nil,
+		password: String? = nil
+	) {
+		self.name = name
+		self.httpProtocol = httpProtocol
+		self.ip = ip
+		self.port = port
+		self.username = username
+		self.password = password
+	}
+	
 	
 	public enum HTTPProtocol {
 		case http
@@ -20,5 +36,4 @@ public struct Server {
 	public let port: Int
 	public let username: String?
 	public let password: String?
-	public let selected: Bool
 }
