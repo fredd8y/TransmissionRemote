@@ -38,6 +38,7 @@ public enum TorrentGetMapper {
 				let rateDownload: Int
 				let rateUpload: Int
 				let totalSize: Int
+				let status: Int
 			}
 		}
 		
@@ -53,7 +54,8 @@ public enum TorrentGetMapper {
 					percentDone: $0.percentDone,
 					rateDownload: $0.rateDownload,
 					rateUpload: $0.rateUpload,
-					totalSize: $0.totalSize
+					totalSize: $0.totalSize,
+					status: Torrent.Status($0.status)
 				)
 			}
 		}

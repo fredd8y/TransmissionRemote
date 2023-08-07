@@ -33,7 +33,8 @@ extension TorrentGetMapperTests {
 				percentDone: percentDone,
 				rateDownload: rateDownload,
 				rateUpload: rateUpload,
-				totalSize: totalSize
+				totalSize: totalSize,
+				status: .downloading
 			)
 		]
 		return (model: torrents, json: [
@@ -48,7 +49,8 @@ extension TorrentGetMapperTests {
 					"percentDone": percentDone,
 					"rateDownload": rateDownload,
 					"rateUpload": rateUpload,
-					"totalSize": totalSize
+					"totalSize": totalSize,
+					"status": 4
 				]]
 			],
 			"result": result

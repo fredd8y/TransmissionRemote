@@ -68,7 +68,7 @@ public struct TorrentsPage: View {
 									Text(torrent.completionPercentageString)
 										.font(.caption2)
 								}
-								Text(torrent.error ?? torrent.eta)
+								Text(torrent.error ?? torrent.description)
 									.font(.caption2)
 									.foregroundColor(torrent.error == nil ? .primary : .red)
 								// For some reason if the contextmenu is applied to the VStack the compiler
@@ -201,7 +201,7 @@ struct TorrentsPage_Previews: PreviewProvider {
 						id: 1,
 						name: "a name",
 						error: "download error",
-						eta: "-",
+						description: "-",
 						completionPercentage: 0.5,
 						completionPercentageString: "50%",
 						downloaded: "5,4GB of 7,8GB",
@@ -210,7 +210,7 @@ struct TorrentsPage_Previews: PreviewProvider {
 					TorrentViewModel(
 						id: 2,
 						name: "another name",
-						eta: "ETA: 7h 12m 12s",
+						description: "ETA: 7h 12m 12s",
 						completionPercentage: 0.75,
 						completionPercentageString: "50%",
 						downloaded: "5,4GB of 7,8GB",

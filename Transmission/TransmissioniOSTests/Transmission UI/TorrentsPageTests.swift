@@ -95,7 +95,7 @@ class TorrentsPageTests: XCTestCase {
 			TorrentViewModel(
 				id: 1,
 				name: anyName,
-				eta: anyEta,
+				description: anyEta,
 				completionPercentage: anyPercentage,
 				completionPercentageString: anyPercentageString,
 				downloaded: anyDownloaded,
@@ -104,7 +104,7 @@ class TorrentsPageTests: XCTestCase {
 			TorrentViewModel(
 				id: 2,
 				name: anyName,
-				eta: anyEta,
+				description: anyEta,
 				completionPercentage: anyPercentage,
 				completionPercentageString: anyPercentageString,
 				downloaded: anyDownloaded,
@@ -119,7 +119,7 @@ class TorrentsPageTests: XCTestCase {
 				id: 1,
 				name: anyName,
 				error: anyError,
-				eta: anyEta,
+				description: anyEta,
 				completionPercentage: anyPercentage,
 				completionPercentageString: anyPercentageString,
 				downloaded: anyDownloaded,

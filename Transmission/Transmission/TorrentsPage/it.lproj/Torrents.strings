@@ -16,7 +16,6 @@
 "OK" = "Ok";
 "UNDEFINED_ERROR" = "Something went wrong";
 "DOWNLOAD_COMPLETED_IN" = "Il download sarà completato";
-"COMPLETED" = "Completato";
 "SERVER_NOT_SET" = "Server non presente, vai nel tab impostazioni per aggiungerne uno";
 "ALERT_ERROR_TITLE" = "Errore";
 "FILE_PERMISSION_ERRROR" = "Errore permessi sul file selezionato";
@@ -28,3 +27,10 @@
 "KEEP_LOCAL_DATA" = "Mantieni dati torrent";
 "CANCEL" = "Annulla";
 "REMOVE" = "Rimuovi";
+"STOPPED" = "In pausa";
+"VERIFYING_LOCAL_DATA" = "Verifica dati";
+"QUEUED_TO_VERIFY_LOCAL_DATA" = " In coda per verifica dati";
+"QUEUED_TO_DOWNLOAD" = "In coda per il download";
+"QUEUED_TO_SEED" = "In coda per seed";
+"SEEDING" = "Seeding";
+"UNKNOWN_STATUS" = "Sconosciuto";

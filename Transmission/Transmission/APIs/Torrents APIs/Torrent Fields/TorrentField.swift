@@ -97,7 +97,8 @@ public enum TorrentField {
 			percentDone,
 			rateDownload,
 			rateUpload,
-			totalSize
+			totalSize,
+			status
 		]
 	}
 }
