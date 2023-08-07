@@ -71,3 +71,21 @@ extension TorrentBodiesTests {
 	}
 	
 }
+
+extension TorrentBodiesTests {
+	func test_torrentRemove_httpBodyDeletingLocalData() {
+		let expectedBody = #"{"method":"torrent-remove","arguments":{"ids":[1],"delete-local-data":true}}"#.data(using: .utf8)
+		
+		let httpBody = try! TorrentBodies.remove(id: 1, deleteLocalData: true)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
+	func test_torrentRemove_httpBodyPreservingLocalData() {
+		let expectedBody = #"{"method":"torrent-remove","arguments":{"ids":[1],"delete-local-data":false}}"#.data(using: .utf8)
+		
+		let httpBody = try! TorrentBodies.remove(id: 1, deleteLocalData: false)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+}

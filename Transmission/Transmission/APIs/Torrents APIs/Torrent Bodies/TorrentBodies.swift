@@ -12,6 +12,7 @@ import Foundation
 public enum TorrentBodies {}
 
 extension TorrentBodies {
+	
 	private struct TorrentGetBody: Encodable {
 		init(_ fields: [String]) {
 			arguments = Arguments(fields: fields)
@@ -32,6 +33,7 @@ extension TorrentBodies {
 }
 
 extension TorrentBodies {
+	
 	private struct TorrentAddBody: Encodable {
 		struct InvalidTorrentFilePath: Error {}
 		
@@ -59,5 +61,31 @@ extension TorrentBodies {
 	
 	public static func add(startWhenAdded: Bool, downloadDir: String, torrentFilePath: String) throws -> Data {
 		try JSONEncoder().encode(TorrentAddBody(startWhenAdded, downloadDir, torrentFilePath))
+	}
+	
+}
+
+extension TorrentBodies {
+	private struct TorrentRemoveBody: Encodable {
+		init(id: Int, deleteLocalData: Bool) {
+			arguments = Arguments(ids: [id], deleteLocalData: deleteLocalData)
+		}
+		
+		let method: String = "torrent-remove"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let ids: [Int]
+			let deleteLocalData: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case ids
+				case deleteLocalData = "delete-local-data"
+			}
+		}
+	}
+	
+	public static func remove(id: Int, deleteLocalData: Bool) throws -> Data {
+		try JSONEncoder().encode(TorrentRemoveBody(id: id, deleteLocalData: deleteLocalData))
 	}
 }

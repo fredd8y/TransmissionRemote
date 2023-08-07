@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B1E4B452A7C0139002CA270 /* TorrentRemoveMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1E4B442A7C0139002CA270 /* TorrentRemoveMapper.swift */; };
 		7B2324D42A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B2324D12A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light.png */; };
 		7B2324D52A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B2324D22A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_dark.png */; };
 		7B2324D62A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B2324D32A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light_extraExtraExtraLarge.png */; };
@@ -171,6 +172,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B1E4B442A7C0139002CA270 /* TorrentRemoveMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentRemoveMapper.swift; sourceTree = "<group>"; };
 		7B2324D12A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_MESSAGE_light.png; sourceTree = "<group>"; };
 		7B2324D22A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_MESSAGE_dark.png; sourceTree = "<group>"; };
 		7B2324D32A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_MESSAGE_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
@@ -359,6 +361,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B1E4B432A7C0125002CA270 /* Torrent Delete API */ = {
+			isa = PBXGroup;
+			children = (
+				7B1E4B442A7C0139002CA270 /* TorrentRemoveMapper.swift */,
+			);
+			path = "Torrent Delete API";
+			sourceTree = "<group>";
+		};
 		7B2324DB2A753E0700836B02 /* ServerPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -667,6 +677,7 @@
 				7BC960DD2A12D1B20030B5E0 /* Torrent Bodies */,
 				7BC960E02A12D2250030B5E0 /* Torrent Get API */,
 				7BD81BA52A7B7B660039877F /* Torrent Add API */,
+				7B1E4B432A7C0125002CA270 /* Torrent Delete API */,
 			);
 			path = "Torrents APIs";
 			sourceTree = "<group>";
@@ -1276,6 +1287,7 @@
 				7B3690F42A69DC0C000E130B /* TorrentsPageViewModel.swift in Sources */,
 				7BC960E32A135E6D0030B5E0 /* TorrentGetMapper.swift in Sources */,
 				7B9B8F7A2A74556E00A30771 /* ServerSetMapper.swift in Sources */,
+				7B1E4B452A7C0139002CA270 /* TorrentRemoveMapper.swift in Sources */,
 				7B83383A2A1016C20052F7EC /* SessionGetMapper.swift in Sources */,
 				7BD9A1F62A630D5200B6380A /* SessionStatsMapper.swift in Sources */,
 				7B9B8F722A7450C200A30771 /* ServerGetMapper.swift in Sources */,
