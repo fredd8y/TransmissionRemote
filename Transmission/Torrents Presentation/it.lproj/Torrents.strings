@@ -1,0 +1,11 @@
+/* 
+  Torrents.strings
+  Transmission
+
+  Created by Federico Arvat on 18/07/23.
+  
+*/
+
+"TORRENTS_VIEW_TITLE" = "Torrents";
+"TORRENT_ITEM_OF_PREPOSITION" = "di";
+"TORRENT_ITEM_ETA" = "ETA";

@@ -16,7 +16,7 @@ public final class TorrentsPresenter {
 			comment: "Title for the torrents view")
 	}
 	
-	private static var eta: String {
+	public static var eta: String {
 		NSLocalizedString(
 			"TORRENT_ITEM_ETA",
 			tableName: "Torrents",
@@ -24,7 +24,7 @@ public final class TorrentsPresenter {
 			comment: "Torrent ETA")
 	}
 	
-	private static var of: String {
+	public static var of: String {
 		NSLocalizedString(
 			"TORRENT_ITEM_OF_PREPOSITION",
 			tableName: "Torrents",
