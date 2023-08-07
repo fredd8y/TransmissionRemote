@@ -28,6 +28,12 @@ class TorrentGetMapperTests: XCTestCase {
 		)
 	}
 	
+	func test_map_throwsErrorOn200HTTPResponseWithEmptyJSON() throws {
+		XCTAssertThrowsError(
+			try TorrentGetMapper.map(Data(), from: HTTPURLResponse(statusCode: 200))
+		)
+	}
+	
 	// MARK: - Helpers
 
 	private func makeJSON(fromDictionary dictionary: [String: Any]) -> Data {
