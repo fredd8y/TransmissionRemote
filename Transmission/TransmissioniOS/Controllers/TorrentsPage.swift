@@ -78,8 +78,8 @@ public struct TorrentsPage: View {
 			}
 			.alert(TorrentsPresenter.credentialRequested, isPresented: $viewModel.showAlert) {
 				TextField(TorrentsPresenter.username, text: $username)
-				TextField(TorrentsPresenter.password, text: $password)
-					.textContentType(.password)
+					.textInputAutocapitalization(.never)
+				SecureField(TorrentsPresenter.password, text: $password)
 				Button(TorrentsPresenter.ok) {
 					authenticate?(username, password)
 					viewModel.showAlert.toggle()
@@ -125,7 +125,7 @@ struct TorrentsPage_Previews: PreviewProvider {
 						downloadSpeed: "5,6MB"
 					)
 				],
-				showAlert: false
+				showAlert: true
 			)
 		)
     }
