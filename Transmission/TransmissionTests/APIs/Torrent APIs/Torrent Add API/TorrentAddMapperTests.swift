@@ -60,6 +60,17 @@ class TorrentAddMapperTests: XCTestCase {
 		)
 	}
 	
+	func test_map_succeedsOnResponseWithAddedTorrent() throws {
+		let (expectedTorrentName, json) = makeResponseWithAddedTorrent()
+		let jsonData = makeJSON(fromDictionary: json)
+		do {
+			let receivedTorrentName = try TorrentAddMapper.map(jsonData, from: HTTPURLResponse(statusCode: 200))
+			XCTAssertEqual(expectedTorrentName, receivedTorrentName, "Expected that received torrent name to be equal of expected one, got \(receivedTorrentName) instead")
+		} catch {
+			XCTFail("Expected success, got \(error) instead")
+		}
+	}
+	
 	// MARK: - Helpers
 	
 	private func makeResponseWithDuplicateTorrent() -> (duplicateTorrentName: String, json: [String: Any]) {
@@ -67,6 +78,21 @@ class TorrentAddMapperTests: XCTestCase {
 		let json: [String: Any] = [
 			"arguments": [
 				"torrent-duplicate": [
+					"hashString": "e5f941ef7d5493c151f34bfdb799079c70f9929a",
+					"id": 1,
+					"name": torrentName
+				]
+			],
+			"result": "success"
+		]
+		return (torrentName, json)
+	}
+	
+	private func makeResponseWithAddedTorrent() -> (addedTorrentName: String, json: [String: Any]) {
+		let torrentName = "a torrent name"
+		let json: [String: Any] = [
+			"arguments": [
+				"torrent-added": [
 					"hashString": "e5f941ef7d5493c151f34bfdb799079c70f9929a",
 					"id": 1,
 					"name": torrentName
