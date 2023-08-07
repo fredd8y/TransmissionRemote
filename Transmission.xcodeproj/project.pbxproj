@@ -32,6 +32,7 @@
 		7BC960E32A135E6D0030B5E0 /* TorrentGetMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC960E22A135E6D0030B5E0 /* TorrentGetMapper.swift */; };
 		7BC960E52A135E7A0030B5E0 /* TorrentGetMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC960E42A135E7A0030B5E0 /* TorrentGetMapperTests.swift */; };
 		7BCC4D032A0D41BC004A8297 /* Transmission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCC4CFA2A0D41BC004A8297 /* Transmission.framework */; };
+		7BD6BB692A635D380065DD42 /* Transmission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCC4CFA2A0D41BC004A8297 /* Transmission.framework */; };
 		7BD9A1F12A630C9100B6380A /* SessionStatsMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A1F02A630C9100B6380A /* SessionStatsMapperTests.swift */; };
 		7BD9A1F62A630D5200B6380A /* SessionStatsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A1F52A630D5200B6380A /* SessionStatsMapper.swift */; };
 		7BD9A1F82A630D8800B6380A /* SessionStatsMapperTests+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A1F72A630D8800B6380A /* SessionStatsMapperTests+Stub.swift */; };
@@ -44,6 +45,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		7BCC4D042A0D41BC004A8297 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BCC4CF12A0D41BC004A8297 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7BCC4CF92A0D41BC004A8297;
+			remoteInfo = Transmission;
+		};
+		7BD6BB662A635D2A0065DD42 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7BCC4CF12A0D41BC004A8297 /* Project object */;
 			proxyType = 1;
@@ -111,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BD6BB692A635D380065DD42 /* Transmission.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +346,7 @@
 				7BCC4D062A0D41BC004A8297 /* TransmissionTests */,
 				7BD9A2052A631C8E00B6380A /* TransmissionAPIEndToEndTests */,
 				7BCC4CFB2A0D41BC004A8297 /* Products */,
+				7BD6BB682A635D380065DD42 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -369,6 +379,13 @@
 				7B9305B02A0F998B005EBE56 /* URLSessionHTTPClient */,
 			);
 			path = TransmissionTests;
+			sourceTree = "<group>";
+		};
+		7BD6BB682A635D380065DD42 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7BD9A1EE2A630C6900B6380A /* Session Stats API */ = {
@@ -483,6 +500,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7BD6BB672A635D2A0065DD42 /* PBXTargetDependency */,
 			);
 			name = TransmissionAPIEndToEndTests;
 			productName = TransmissionAPIEndToEndTests;
@@ -617,6 +635,11 @@
 			isa = PBXTargetDependency;
 			target = 7BCC4CF92A0D41BC004A8297 /* Transmission */;
 			targetProxy = 7BCC4D042A0D41BC004A8297 /* PBXContainerItemProxy */;
+		};
+		7BD6BB672A635D2A0065DD42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7BCC4CF92A0D41BC004A8297 /* Transmission */;
+			targetProxy = 7BD6BB662A635D2A0065DD42 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -859,7 +882,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.federicoarvat.it.TransmissionAPIEndToEndTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -879,7 +902,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.federicoarvat.it.TransmissionAPIEndToEndTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

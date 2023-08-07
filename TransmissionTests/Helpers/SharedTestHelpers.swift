@@ -11,6 +11,14 @@ func anyURL() -> URL {
 	return URL(string: "http://any-url.com")!
 }
 
+func anyUsername() -> String {
+	return "username"
+}
+
+func anyPassword() -> String {
+	return "password"
+}
+
 func anyData() -> Data {
 	return Data("any data".utf8)
 }

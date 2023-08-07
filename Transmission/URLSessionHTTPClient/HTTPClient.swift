@@ -19,6 +19,7 @@ public protocol HTTPClient {
 		body: Data,
 		username: String,
 		password: String,
+		sessionId: String?,
 		completion: @escaping (Result) -> Void
 	) -> URLSessionTask
 }

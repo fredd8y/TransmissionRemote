@@ -17,7 +17,7 @@ public enum APIsEndpoint {
 			components.scheme = baseURL.scheme
 			components.host = baseURL.host
 			components.port = baseURL.port
-			components.path = baseURL.path + "/transmission/rp"
+			components.path = baseURL.path + "/transmission/rpc"
 			return components.url!
 		}
 	}

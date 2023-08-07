@@ -18,7 +18,7 @@ final class APIsEndpointTests: XCTestCase {
 		XCTAssertEqual(received.scheme, "http", "scheme")
 		XCTAssertEqual(received.host, "base-url.com", "host")
 		XCTAssertEqual(received.port, 9091, "port")
-		XCTAssertEqual(received.path, "/transmission/rp", "path")
+		XCTAssertEqual(received.path, "/transmission/rpc", "path")
 	}
 	
 }
