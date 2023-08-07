@@ -9,7 +9,7 @@ import Foundation
 
 public class URLSessionHTTPClientRetrierDecorator: URLSessionHTTPClient {
 	
-	private static var sessionIdKey: String {
+	public static var sessionIdKey: String {
 		return "X-Transmission-Session-Id"
 	}
 	

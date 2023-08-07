@@ -35,7 +35,7 @@ public class URLSessionHTTPClient: HTTPClient {
 			forHTTPHeaderField: AUTHORIZATION
 		)
 		if let sessionId {
-			urlRequest.addValue(sessionId, forHTTPHeaderField: SessionGetMapper.sessionIdKey)
+			urlRequest.addValue(sessionId, forHTTPHeaderField: URLSessionHTTPClientRetrierDecorator.sessionIdKey)
 		}
 		
 		let task = session.dataTask(with: urlRequest) { data, response, error in

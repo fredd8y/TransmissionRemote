@@ -9,10 +9,6 @@ import Foundation
 
 public final class SessionGetMapper {
 	
-	public static var sessionIdKey: String {
-		return "X-Transmission-Session-Id"
-	}
-	
 	public enum Error: Swift.Error, Equatable {
 		case invalidData
 		case authenticationFailed
