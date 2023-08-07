@@ -21,3 +21,5 @@
 "PORT_ERROR" = "Porta non corretta o mancante";
 "USERNAME_ERROR" = "Username mancante";
 "PASSWORD_ERROR" = "Password mancante";
+"OK" = "Ok";
+"ALERT_ERROR_TITLE" = "Errore";

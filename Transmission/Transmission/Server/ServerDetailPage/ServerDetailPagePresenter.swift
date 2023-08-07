@@ -129,9 +129,28 @@ public final class ServerDetailPagePresenter {
 			comment: "Error when missing or wrong password")
 	}
 	
+	public static var ok: String {
+		NSLocalizedString(
+			"OK",
+			tableName: "ServerDetails",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Ok string")
+	}
+	
+	
+	public static var alertErrorTitle: String {
+		NSLocalizedString(
+			"ALERT_ERROR_TITLE",
+			tableName: "ServerDetails",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Title for server detail alert error")
+	}
+	
 	public static func map(
 		title: String,
-		server: Server
+		server: Server,
+		alertMessage: String? = nil,
+		alertMessageVisible: Bool = false
 	) -> ServerDetailPageViewModel {
 		ServerDetailPageViewModel(
 			title: title,
@@ -141,7 +160,9 @@ public final class ServerDetailPagePresenter {
 			port: server.port.description,
 			username: server.username,
 			password: server.password,
-			serverId: server.id
+			serverId: server.id,
+			alertMessage: alertMessage,
+			alertMessageVisible: alertMessageVisible
 		)
 	}
 }

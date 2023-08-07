@@ -28,7 +28,7 @@ public struct ServerDetailPage: View {
 	
 	public var save: ((ServerDetailPageDataModel) -> Error?)?
 		
-	private var viewModel: ServerDetailPageViewModel
+	@ObservedObject private var viewModel: ServerDetailPageViewModel
 	
 	@State private var title: String
 	
@@ -118,6 +118,20 @@ public struct ServerDetailPage: View {
 				}
 			}
 			.toolbar(.hidden, for: .tabBar)
+			.alert(
+				ServerDetailPagePresenter.alertErrorTitle,
+				isPresented: $viewModel.alertMessageVisible,
+				actions: {
+					Button(action: {
+						viewModel.alertMessage = nil
+					}, label: {
+						Text(ServerDetailPagePresenter.ok)
+					})
+				},
+				message: {
+					Text(viewModel.alertMessage ?? "")
+				}
+			)
 		}
 	}
 }
@@ -127,7 +141,9 @@ struct ServerDetailPage_Previews: PreviewProvider {
 		ServerDetailPage(
 			viewModel: ServerDetailPageViewModel(
 				title: "Server",
-				serverId: UUID()
+				serverId: UUID(),
+				alertMessage: nil,
+				alertMessageVisible: false
 			)
 		)
     }

@@ -72,6 +72,14 @@ final class ServerDetailPagePresenterTests: XCServerTestCase {
 		XCTAssertEqual(ServerDetailPagePresenter.passwordError, localized("PASSWORD_ERROR", table: table))
 	}
 	
+	func test_ok_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.ok, localized("OK", table: table))
+	}
+	
+	func test_alertErrorTitle_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.alertErrorTitle, localized("ALERT_ERROR_TITLE", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Server detail"
 		let server = server()

@@ -28,7 +28,9 @@ public class ServerDetailPageViewModel: ObservableObject {
 		username: String? = nil,
 		password: String? = nil,
 		error: ServerDetailPageError? = nil,
-		serverId: UUID
+		serverId: UUID,
+		alertMessage: String? = nil,
+		alertMessageVisible: Bool = false
 	) {
 		self.title = title
 		self.name = name
@@ -39,6 +41,8 @@ public class ServerDetailPageViewModel: ObservableObject {
 		self.password = password
 		self.error = error
 		self.serverId = serverId
+		self.alertMessage = alertMessage
+		self.alertMessageVisible = alertMessageVisible
 	}
 	
 	public var title: String
@@ -50,4 +54,6 @@ public class ServerDetailPageViewModel: ObservableObject {
 	public var password: String?
 	@Published public var error: ServerDetailPageError?
 	public var serverId: UUID
+	public var alertMessage: String?
+	@Published public var alertMessageVisible: Bool
 }

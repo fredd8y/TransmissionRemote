@@ -21,3 +21,5 @@
 "PORT_ERROR" = "Missing or wrong port";
 "USERNAME_ERROR" = "Missing username";
 "PASSWORD_ERROR" = "Missing password";
+"OK" = "Ok";
+"ALERT_ERROR_TITLE" = "Error";
