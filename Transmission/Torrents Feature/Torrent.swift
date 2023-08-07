@@ -9,14 +9,17 @@ import Foundation
 
 public struct Torrent: Equatable {
 	public init(
+		name: String,
 		error: Int,
 		errorString: String,
 		eta: Int,
 		id: Int,
 		isFinished: Bool,
 		percentDone: Double,
-		rateDownload: Int
+		rateDownload: Int,
+		totalSize: Int
 	) {
+		self.name = name
 		self.error = error
 		self.errorString = errorString
 		self.eta = eta
@@ -24,8 +27,10 @@ public struct Torrent: Equatable {
 		self.isFinished = isFinished
 		self.percentDone = percentDone
 		self.rateDownload = rateDownload
+		self.totalSize = totalSize
 	}
 
+	let name: String
 	let error: Int
 	let errorString: String
 	let eta: Int
@@ -33,4 +38,5 @@ public struct Torrent: Equatable {
 	let isFinished: Bool
 	let percentDone: Double
 	let rateDownload: Int
+	let totalSize: Int
 }

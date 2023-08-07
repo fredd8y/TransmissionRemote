@@ -52,6 +52,7 @@ class TorrentGetMapperTests: XCTestCase {
 
 	private func makeTorrents() -> (model: [Torrent], json: [String: Any]) {
 		return makeRemoteTorrents(
+			name: "a name",
 			error: 0,
 			errorString: "",
 			eta: 2222,
@@ -59,6 +60,7 @@ class TorrentGetMapperTests: XCTestCase {
 			isFinished: false,
 			percentDone: 0.76,
 			rateDownload: 2733000,
+			totalSize: 8765432,
 			result: "success"
 		)
 	}

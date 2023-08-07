@@ -7,3 +7,5 @@
 */
 
 "TORRENTS_VIEW_TITLE" = "Torrents";
+"TORRENT_ITEM_OF_PREPOSITION" = "of";
+"TORRENT_ITEM_ETA" = "ETA";

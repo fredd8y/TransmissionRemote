@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B4599B22A66DD2600189C16 /* Transmission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCC4CFA2A0D41BC004A8297 /* Transmission.framework */; };
+		7B4599B72A67C0B200189C16 /* Text+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4599B62A67C0B200189C16 /* Text+.swift */; };
 		7B4DFB712A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DFB702A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift */; };
 		7B4DFB732A15394F007E9C63 /* Torrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DFB722A15394F007E9C63 /* Torrent.swift */; };
 		7B6587552A0D845000317EBE /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6587532A0D845000317EBE /* URLSessionHTTPClient.swift */; };
@@ -30,6 +32,8 @@
 		7B8CB81B2A66C111001A4D90 /* TorrentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8CB81A2A66C111001A4D90 /* TorrentsPresenter.swift */; };
 		7B8CB81D2A66C155001A4D90 /* Torrents.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B8CB81C2A66C155001A4D90 /* Torrents.strings */; };
 		7B8CB81F2A66C19E001A4D90 /* TorrentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8CB81E2A66C19E001A4D90 /* TorrentViewModel.swift */; };
+		7B8CB8302A66C868001A4D90 /* TransmissioniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8CB8282A66C867001A4D90 /* TransmissioniOS.framework */; };
+		7B8CB8432A66CAE2001A4D90 /* TorrentsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8CB8422A66CAE2001A4D90 /* TorrentsPage.swift */; };
 		7B9305AF2A0F997B005EBE56 /* APIsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9305AE2A0F997B005EBE56 /* APIsEndpoint.swift */; };
 		7B9305B42A0F99CB005EBE56 /* APIsEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9305B32A0F99CB005EBE56 /* APIsEndpointTests.swift */; };
 		7BC960D42A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC960D32A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift */; };
@@ -48,6 +52,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7B8CB8312A66C868001A4D90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BCC4CF12A0D41BC004A8297 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B8CB8272A66C867001A4D90;
+			remoteInfo = TransmissioniOS;
+		};
 		7BCC4D042A0D41BC004A8297 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7BCC4CF12A0D41BC004A8297 /* Project object */;
@@ -65,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B4599B62A67C0B200189C16 /* Text+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+.swift"; sourceTree = "<group>"; };
 		7B4907B62A6524CB00C75819 /* EndToEndTestConfigurations.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = EndToEndTestConfigurations.xcconfig; sourceTree = "<group>"; };
 		7B4DFB702A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorrentGetMapperTests+Stub.swift"; sourceTree = "<group>"; };
 		7B4DFB722A15394F007E9C63 /* Torrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Torrent.swift; sourceTree = "<group>"; };
@@ -88,6 +100,9 @@
 		7B8CB81A2A66C111001A4D90 /* TorrentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsPresenter.swift; sourceTree = "<group>"; };
 		7B8CB81C2A66C155001A4D90 /* Torrents.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Torrents.strings; sourceTree = "<group>"; };
 		7B8CB81E2A66C19E001A4D90 /* TorrentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentViewModel.swift; sourceTree = "<group>"; };
+		7B8CB8282A66C867001A4D90 /* TransmissioniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TransmissioniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B8CB82F2A66C868001A4D90 /* TransmissioniOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransmissioniOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B8CB8422A66CAE2001A4D90 /* TorrentsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsPage.swift; sourceTree = "<group>"; };
 		7B9305AE2A0F997B005EBE56 /* APIsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIsEndpoint.swift; sourceTree = "<group>"; };
 		7B9305B32A0F99CB005EBE56 /* APIsEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIsEndpointTests.swift; sourceTree = "<group>"; };
 		7BC960D32A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionGetMapperTests+Stub.swift"; sourceTree = "<group>"; };
@@ -108,6 +123,22 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7B8CB8252A66C867001A4D90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B4599B22A66DD2600189C16 /* Transmission.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B8CB82C2A66C868001A4D90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B8CB8302A66C868001A4D90 /* TransmissioniOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7BCC4CF72A0D41BC004A8297 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -134,6 +165,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B4599B52A67C0A000189C16 /* Shared Views */ = {
+			isa = PBXGroup;
+			children = (
+				7B4599B62A67C0B200189C16 /* Text+.swift */,
+			);
+			path = "Shared Views";
+			sourceTree = "<group>";
+		};
 		7B4DFB6F2A1538D3007E9C63 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +304,46 @@
 			path = "Shared APIs Infrastructure";
 			sourceTree = "<group>";
 		};
+		7B8CB8292A66C867001A4D90 /* TransmissioniOS */ = {
+			isa = PBXGroup;
+			children = (
+				7B4599B52A67C0A000189C16 /* Shared Views */,
+				7B8CB83D2A66C8B4001A4D90 /* Torrents UI */,
+			);
+			path = TransmissioniOS;
+			sourceTree = "<group>";
+		};
+		7B8CB8332A66C868001A4D90 /* TransmissioniOSTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TransmissioniOSTests;
+			sourceTree = "<group>";
+		};
+		7B8CB83D2A66C8B4001A4D90 /* Torrents UI */ = {
+			isa = PBXGroup;
+			children = (
+				7B8CB83E2A66C8CE001A4D90 /* Controllers */,
+				7B8CB83F2A66C8DA001A4D90 /* Views */,
+			);
+			path = "Torrents UI";
+			sourceTree = "<group>";
+		};
+		7B8CB83E2A66C8CE001A4D90 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7B8CB8422A66CAE2001A4D90 /* TorrentsPage.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7B8CB83F2A66C8DA001A4D90 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7B9305B02A0F998B005EBE56 /* URLSessionHTTPClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +438,8 @@
 				7BCC4CFC2A0D41BC004A8297 /* Transmission */,
 				7BCC4D062A0D41BC004A8297 /* TransmissionTests */,
 				7BD9A2052A631C8E00B6380A /* TransmissionAPIEndToEndTests */,
+				7B8CB8292A66C867001A4D90 /* TransmissioniOS */,
+				7B8CB8332A66C868001A4D90 /* TransmissioniOSTests */,
 				7BCC4CFB2A0D41BC004A8297 /* Products */,
 				7BD6BB682A635D380065DD42 /* Frameworks */,
 			);
@@ -370,6 +451,8 @@
 				7BCC4CFA2A0D41BC004A8297 /* Transmission.framework */,
 				7BCC4D022A0D41BC004A8297 /* TransmissionTests.xctest */,
 				7BD9A2042A631C8E00B6380A /* TransmissionAPIEndToEndTests.xctest */,
+				7B8CB8282A66C867001A4D90 /* TransmissioniOS.framework */,
+				7B8CB82F2A66C868001A4D90 /* TransmissioniOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -455,6 +538,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		7B8CB8232A66C867001A4D90 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7BCC4CF52A0D41BC004A8297 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -465,6 +555,42 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		7B8CB8272A66C867001A4D90 /* TransmissioniOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B8CB8372A66C868001A4D90 /* Build configuration list for PBXNativeTarget "TransmissioniOS" */;
+			buildPhases = (
+				7B8CB8232A66C867001A4D90 /* Headers */,
+				7B8CB8242A66C867001A4D90 /* Sources */,
+				7B8CB8252A66C867001A4D90 /* Frameworks */,
+				7B8CB8262A66C867001A4D90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TransmissioniOS;
+			productName = TransmissioniOS;
+			productReference = 7B8CB8282A66C867001A4D90 /* TransmissioniOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7B8CB82E2A66C868001A4D90 /* TransmissioniOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B8CB83A2A66C868001A4D90 /* Build configuration list for PBXNativeTarget "TransmissioniOSTests" */;
+			buildPhases = (
+				7B8CB82B2A66C868001A4D90 /* Sources */,
+				7B8CB82C2A66C868001A4D90 /* Frameworks */,
+				7B8CB82D2A66C868001A4D90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B8CB8322A66C868001A4D90 /* PBXTargetDependency */,
+			);
+			name = TransmissioniOSTests;
+			productName = TransmissioniOSTests;
+			productReference = 7B8CB82F2A66C868001A4D90 /* TransmissioniOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7BCC4CF92A0D41BC004A8297 /* Transmission */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7BCC4D0C2A0D41BC004A8297 /* Build configuration list for PBXNativeTarget "Transmission" */;
@@ -529,6 +655,13 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					7B8CB8272A66C867001A4D90 = {
+						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
+					};
+					7B8CB82E2A66C868001A4D90 = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					7BCC4CF92A0D41BC004A8297 = {
 						CreatedOnToolsVersion = 14.2;
 						LastSwiftMigration = 1420;
@@ -558,11 +691,27 @@
 				7BCC4CF92A0D41BC004A8297 /* Transmission */,
 				7BCC4D012A0D41BC004A8297 /* TransmissionTests */,
 				7BD9A2032A631C8E00B6380A /* TransmissionAPIEndToEndTests */,
+				7B8CB8272A66C867001A4D90 /* TransmissioniOS */,
+				7B8CB82E2A66C868001A4D90 /* TransmissioniOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7B8CB8262A66C867001A4D90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B8CB82D2A66C868001A4D90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7BCC4CF82A0D41BC004A8297 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -590,6 +739,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7B8CB8242A66C867001A4D90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B4599B72A67C0B200189C16 /* Text+.swift in Sources */,
+				7B8CB8432A66CAE2001A4D90 /* TorrentsPage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B8CB82B2A66C868001A4D90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7BCC4CF62A0D41BC004A8297 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -647,6 +812,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7B8CB8322A66C868001A4D90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B8CB8272A66C867001A4D90 /* TransmissioniOS */;
+			targetProxy = 7B8CB8312A66C868001A4D90 /* PBXContainerItemProxy */;
+		};
 		7BCC4D052A0D41BC004A8297 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7BCC4CF92A0D41BC004A8297 /* Transmission */;
@@ -660,6 +830,113 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		7B8CB8382A66C868001A4D90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UYXPW2Z6TM;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.transmission.test.it.TransmissioniOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7B8CB8392A66C868001A4D90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UYXPW2Z6TM;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.transmission.test.it.TransmissioniOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B8CB83B2A66C868001A4D90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UYXPW2Z6TM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.transmission.test.it.TransmissioniOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7B8CB83C2A66C868001A4D90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UYXPW2Z6TM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.transmission.test.it.TransmissioniOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		7BCC4D0A2A0D41BC004A8297 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -795,6 +1072,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -804,6 +1082,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.federicoarvat.it.Transmission;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -826,6 +1105,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -835,6 +1115,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.federicoarvat.it.Transmission;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -936,6 +1217,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7B8CB8372A66C868001A4D90 /* Build configuration list for PBXNativeTarget "TransmissioniOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B8CB8382A66C868001A4D90 /* Debug */,
+				7B8CB8392A66C868001A4D90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B8CB83A2A66C868001A4D90 /* Build configuration list for PBXNativeTarget "TransmissioniOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B8CB83B2A66C868001A4D90 /* Debug */,
+				7B8CB83C2A66C868001A4D90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7BCC4CF42A0D41BC004A8297 /* Build configuration list for PBXProject "Transmission" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

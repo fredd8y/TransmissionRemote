@@ -28,6 +28,7 @@ public final class TorrentGetMapper {
 			let torrents: [RemoteTorrent]
 			
 			struct RemoteTorrent: Decodable {
+				let name: String
 				let error: Int
 				let errorString: String
 				let eta: Int
@@ -35,19 +36,22 @@ public final class TorrentGetMapper {
 				let isFinished: Bool
 				let percentDone: Double
 				let rateDownload: Int
+				let totalSize: Int
 			}
 		}
 		
 		var torrents: [Torrent] {
 			arguments.torrents.map {
 				Torrent(
+					name: $0.name,
 					error: $0.error,
 					errorString: $0.errorString,
 					eta: $0.eta,
 					id: $0.id,
 					isFinished: $0.isFinished,
 					percentDone: $0.percentDone,
-					rateDownload: $0.rateDownload
+					rateDownload: $0.rateDownload,
+					totalSize: $0.totalSize
 				)
 			}
 		}
