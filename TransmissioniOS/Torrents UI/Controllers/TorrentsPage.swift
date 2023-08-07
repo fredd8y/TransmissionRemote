@@ -66,6 +66,8 @@ public struct TorrentsPage: View {
 						.padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
 					SubheadlineText("5,5MB")
 					Spacer()
+					SubheadlineText(torrentsDescription)
+					Spacer()
 					Image(systemName: "arrow.down")
 						.resizable()
 						.scaledToFit()
@@ -77,6 +79,11 @@ public struct TorrentsPage: View {
 			}
 		}
     }
+	
+	private var torrentsDescription: String {
+		let description = torrents.count == 1 ? "torrent" : "torrents"
+		return "\(torrents.count) \(description)"
+	}
 }
 
 struct TorrentsPage_Previews: PreviewProvider {
