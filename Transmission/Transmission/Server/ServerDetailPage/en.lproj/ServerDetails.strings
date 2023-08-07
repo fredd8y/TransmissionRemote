@@ -15,3 +15,4 @@
 "SERVER_SECTION_HEADER" = "Server details";
 "AUTHENTICATION_SECTION_HEADER" = "Authentication details";
 "PROTOCOL_PLACEHOLDER" = "Protocol";
+"SAVE_BUTTON_TITLE" = "Save";

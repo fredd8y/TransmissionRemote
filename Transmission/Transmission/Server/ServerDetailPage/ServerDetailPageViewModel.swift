@@ -12,6 +12,7 @@ public class ServerDetailPageViewModel: ObservableObject {
 		serverSectionHeader: String,
 		authenticationSectionHeader: String,
 		title: String,
+		saveButtonTitle: String,
 		name: String? = nil,
 		namePlaceholder: String,
 		httpProtocol: String? = nil,
@@ -28,6 +29,7 @@ public class ServerDetailPageViewModel: ObservableObject {
 		self.serverSectionHeader = serverSectionHeader
 		self.authenticationSectionHeader = authenticationSectionHeader
 		self.title = title
+		self.saveButtonTitle = saveButtonTitle
 		self.name = name
 		self.protocolPlaceholder = protocolPlaceholder
 		self.namePlaceholder = namePlaceholder
@@ -45,6 +47,7 @@ public class ServerDetailPageViewModel: ObservableObject {
 	@Published public var serverSectionHeader: String
 	@Published public var authenticationSectionHeader: String
 	@Published public var title: String
+	@Published public var saveButtonTitle: String
 	@Published public var name: String?
 	@Published public var namePlaceholder: String
 	@Published public var httpProtocol: String?

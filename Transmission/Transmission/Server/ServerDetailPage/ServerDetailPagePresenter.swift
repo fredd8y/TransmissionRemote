@@ -81,6 +81,14 @@ public final class ServerDetailPagePresenter {
 			comment: "Placeholder for password field")
 	}
 	
+	public static var saveButtonTitle: String {
+		NSLocalizedString(
+			"SAVE_BUTTON_TITLE",
+			tableName: "ServerDetails",
+			bundle: Bundle(for: ServerDetailPagePresenter.self),
+			comment: "Save button title")
+	}
+	
 	public static func map(
 		title: String,
 		server: Server
@@ -89,6 +97,7 @@ public final class ServerDetailPagePresenter {
 			serverSectionHeader: serverSectionHeader,
 			authenticationSectionHeader: authenticationSectionHeader,
 			title: title,
+			saveButtonTitle: saveButtonTitle,
 			name: server.name,
 			namePlaceholder: namePlaceholder,
 			httpProtocol: server.httpProtocol.rawValue,

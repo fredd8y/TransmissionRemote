@@ -59,6 +59,15 @@ struct ServerDetailPage: View {
 			}
 			.navigationTitle(viewModel.title)
 			.navigationBarTitleDisplayMode(.inline)
+			.toolbar {
+				ToolbarItem {
+					Button {
+						// TODO
+					} label: {
+						Text(viewModel.saveButtonTitle)
+					}.foregroundColor(.primary)
+				}
+			}
 		}
 	}
 }
@@ -70,6 +79,7 @@ struct ServerDetailPage_Previews: PreviewProvider {
 				serverSectionHeader: "Server detail",
 				authenticationSectionHeader: "Authentication detail",
 				title: "Server",
+				saveButtonTitle: "Save",
 				namePlaceholder: "Name",
 				protocolPlaceholder: "Protocol",
 				ipPlaceholder: "IP",

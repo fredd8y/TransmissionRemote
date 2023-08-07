@@ -48,12 +48,17 @@ final class ServerDetailPagePresenterTests: XCServerTestCase {
 		XCTAssertEqual(ServerDetailPagePresenter.passwordPlaceholder, localized("PASSWORD_PLACEHOLDER", table: table))
 	}
 	
+	func test_saveButtonTitle_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.saveButtonTitle, localized("SAVE_BUTTON_TITLE", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Server detail"
 		let server = server()
 		let serverSectionHeader = "Server"
 		let authenticationSectionHeader = "Authentication"
 		let namePlaceholder = "Name"
+		let saveButtonTitle = "Save"
 		let protocolPlaceholder = "Protocol"
 		let ipPlaceholder = "IP"
 		let portPlaceholder = "Port"
@@ -65,6 +70,7 @@ final class ServerDetailPagePresenterTests: XCServerTestCase {
 			serverSectionHeader: serverSectionHeader,
 			authenticationSectionHeader: authenticationSectionHeader,
 			title: title,
+			saveButtonTitle: saveButtonTitle,
 			name: server.name,
 			namePlaceholder: namePlaceholder,
 			httpProtocol: server.httpProtocol.rawValue,
@@ -83,6 +89,7 @@ final class ServerDetailPagePresenterTests: XCServerTestCase {
 		XCTAssertEqual(viewModel.authenticationSectionHeader, authenticationSectionHeader)
 		XCTAssertEqual(viewModel.title, title)
 		XCTAssertEqual(viewModel.name, server.name)
+		XCTAssertEqual(viewModel.saveButtonTitle, saveButtonTitle)
 		XCTAssertEqual(viewModel.namePlaceholder, namePlaceholder)
 		XCTAssertEqual(viewModel.httpProtocol, server.httpProtocol.rawValue)
 		XCTAssertEqual(viewModel.protocolPlaceholder, protocolPlaceholder)
