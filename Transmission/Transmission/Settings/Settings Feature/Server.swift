@@ -16,6 +16,7 @@ public struct Server: Codable {
 	
 	public let name: String
 	public let httpProtocol: HTTPProtocol
+	public let ip: String
 	public let port: Int
 	public let username: String?
 	public let password: String?
