@@ -1,5 +1,5 @@
 //
-//  SessionItem.swift
+//  Session.swift
 //  Transmission
 //
 //  Created by Federico Arvat on 14/05/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SessionItem: Equatable {
+public struct Session: Equatable {
 	public init(
 		altSpeedDown: Int,
 		altSpeedEnabled: Bool,

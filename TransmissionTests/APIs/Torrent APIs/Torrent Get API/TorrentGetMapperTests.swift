@@ -50,11 +50,6 @@ class TorrentGetMapperTests: XCTestCase {
 	
 	// MARK: - Helpers
 
-	private func makeJSON(fromDictionary dictionary: [String: Any]) -> Data {
-		return try! JSONSerialization.data(withJSONObject: dictionary)
-	}
-	
-	
 	private func makeTorrents() -> (model: [Torrent], json: [String: Any]) {
 		return makeRemoteTorrents(
 			error: 0,

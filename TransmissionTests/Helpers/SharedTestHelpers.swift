@@ -27,6 +27,10 @@ func anyString() -> String {
 	return "any string"
 }
 
+func makeJSON(fromDictionary dictionary: [String: Any]) -> Data {
+	return try! JSONSerialization.data(withJSONObject: dictionary)
+}
+
 extension HTTPURLResponse {
 	convenience init(statusCode: Int, headerFields: [String: String]? = nil) {
 		self.init(url: anyURL(), statusCode: statusCode, httpVersion: nil, headerFields: headerFields)!

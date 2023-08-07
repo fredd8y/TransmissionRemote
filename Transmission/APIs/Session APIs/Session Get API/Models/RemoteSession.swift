@@ -1,5 +1,5 @@
 //
-//  RemoteSessionItem.swift
+//  RemoteSession.swift
 //  Transmission
 //
 //  Created by Federico Arvat on 15/05/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RemoteSessionItem: Decodable {
+struct RemoteSession: Decodable {
 		
 	let arguments: Arguments
 	let result: String
@@ -136,8 +136,8 @@ struct RemoteSessionItem: Decodable {
 		}
 	}
 	
-	var sessionItem: SessionItem {
-		return SessionItem(
+	var sessionItem: Session {
+		return Session(
 			altSpeedDown: arguments.altSpeedDown,
 			altSpeedEnabled: arguments.altSpeedEnabled,
 			altSpeedTimeBegin: arguments.altSpeedTimeBegin,

@@ -18,8 +18,8 @@ public final class SessionGetMapper {
 		case missingSessionId(sessionIdValue: Any?)
 	}
 	
-	public static func map(_ data: Data, from response: HTTPURLResponse) throws -> SessionItem {
-		guard response.isOK, let remoteSessionItem = try? JSONDecoder().decode(RemoteSessionItem.self, from: data) else {
+	public static func map(_ data: Data, from response: HTTPURLResponse) throws -> Session {
+		guard response.isOK, let remoteSessionItem = try? JSONDecoder().decode(RemoteSession.self, from: data) else {
 			if response.isMissingSessionId {
 				throw Error.missingSessionId(sessionIdValue: response.allHeaderFields[sessionIdKey])
 			}

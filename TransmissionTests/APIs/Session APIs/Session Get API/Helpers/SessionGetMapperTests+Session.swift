@@ -1,5 +1,5 @@
 //
-//  SessionGetMapperTests+Arguments.swift
+//  SessionGetMapperTests+Session.swift
 //  TransmissionTests
 //
 //  Created by Federico Arvat on 15/05/23.
@@ -66,9 +66,9 @@ extension SessionGetMapperTest {
 		utpEnabled: Bool,
 		version: String,
 		result: String
-	) -> (model: SessionItem, json: [String: Any]) {
+	) -> (model: Session, json: [String: Any]) {
 		
-		let sessionItem = SessionItem(
+		let sessionItem = Session(
 			altSpeedDown: altSpeedDown,
 			altSpeedEnabled: altSpeedEnabled,
 			altSpeedTimeBegin: altSpeedTimeBegin,

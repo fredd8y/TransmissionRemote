@@ -78,11 +78,7 @@ class SessionGetMapperTest: XCTestCase {
 	
 	// MARK: - Helpers
 	
-	private func makeJSON(fromDictionary dictionary: [String: Any]) -> Data {
-		return try! JSONSerialization.data(withJSONObject: dictionary)
-	}
-	
-	private func makeSessionItem() -> (model: SessionItem, json: [String: Any]) {
+	private func makeSessionItem() -> (model: Session, json: [String: Any]) {
 		return makeSessionItem(
 			altSpeedDown: Int.random(in: 50..<5000),
 			altSpeedEnabled: Bool.random(),

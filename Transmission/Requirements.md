@@ -9,8 +9,10 @@ Features
 	-	Percentage of completion
 	-	Download speed
 	-	Size of the torrent and the already downloaded part
-2.	Add a torrent
-3.	Delete a torrent
+2.	Total download speed
+3.	Total number of active torrent
+4.	Add a torrent
+5.	Delete a torrent
 
 API for every feature
 
