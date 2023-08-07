@@ -13,8 +13,8 @@ public final class SessionStatsMapper {
 		case invalidData
 	}
 	
-	public static func map(from response: HTTPURLResponse) throws {
-		guard response.isOK else {
+	public static func map(json: Data, from response: HTTPURLResponse) throws {
+		guard response.isOK, let _ = try? JSONDecoder().decode(RemoteStats.self, from: json) else {
 			throw Error.invalidData
 		}
 	}

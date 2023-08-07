@@ -1,5 +1,5 @@
 //
-//  SessionGetMapperTests+Session.swift
+//  SessionGetMapperTests+Stub.swift
 //  TransmissionTests
 //
 //  Created by Federico Arvat on 15/05/23.

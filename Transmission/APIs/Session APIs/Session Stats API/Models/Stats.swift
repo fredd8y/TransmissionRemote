@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Stats {
+public struct Stats {
 	let activeTorrentCount: Int
 	let downloadSpeed: Int
 }

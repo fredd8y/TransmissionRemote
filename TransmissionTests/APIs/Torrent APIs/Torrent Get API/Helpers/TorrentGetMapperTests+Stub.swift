@@ -1,5 +1,5 @@
 //
-//  TorrentGetMapperTests+RemoteTorrents.swift
+//  TorrentGetMapperTests+Stub.swift
 //  TransmissionTests
 //
 //  Created by Federico Arvat on 17/05/23.

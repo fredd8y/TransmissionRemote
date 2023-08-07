@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B4DFB712A1538EB007E9C63 /* TorrentGetMapperTests+RemoteTorrents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DFB702A1538EB007E9C63 /* TorrentGetMapperTests+RemoteTorrents.swift */; };
+		7B4DFB712A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DFB702A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift */; };
 		7B4DFB732A15394F007E9C63 /* Torrents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DFB722A15394F007E9C63 /* Torrents.swift */; };
 		7B6587552A0D845000317EBE /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6587532A0D845000317EBE /* URLSessionHTTPClient.swift */; };
 		7B6587562A0D845000317EBE /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6587542A0D845000317EBE /* HTTPClient.swift */; };
@@ -26,7 +26,7 @@
 		7B9305B42A0F99CB005EBE56 /* APIsEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9305B32A0F99CB005EBE56 /* APIsEndpointTests.swift */; };
 		7BA38C172A14B1B900A44C36 /* RemoteTorrents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA38C152A14B16300A44C36 /* RemoteTorrents.swift */; };
 		7BC960D12A1295B10030B5E0 /* RemoteSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC960D02A1295B10030B5E0 /* RemoteSession.swift */; };
-		7BC960D42A129A3E0030B5E0 /* SessionGetMapperTests+Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC960D32A129A3E0030B5E0 /* SessionGetMapperTests+Session.swift */; };
+		7BC960D42A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC960D32A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift */; };
 		7BC960DC2A12D1AF0030B5E0 /* TorrentBodiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC960DB2A12D1AF0030B5E0 /* TorrentBodiesTests.swift */; };
 		7BC960DF2A12D1BB0030B5E0 /* TorrentBodies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC960DE2A12D1BB0030B5E0 /* TorrentBodies.swift */; };
 		7BC960E32A135E6D0030B5E0 /* TorrentGetMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC960E22A135E6D0030B5E0 /* TorrentGetMapper.swift */; };
@@ -34,8 +34,9 @@
 		7BCC4D032A0D41BC004A8297 /* Transmission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCC4CFA2A0D41BC004A8297 /* Transmission.framework */; };
 		7BD9A1F12A630C9100B6380A /* SessionStatsMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A1F02A630C9100B6380A /* SessionStatsMapperTests.swift */; };
 		7BD9A1F62A630D5200B6380A /* SessionStatsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A1F52A630D5200B6380A /* SessionStatsMapper.swift */; };
-		7BD9A1F82A630D8800B6380A /* SessionStatsMapperTests+Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A1F72A630D8800B6380A /* SessionStatsMapperTests+Stats.swift */; };
+		7BD9A1F82A630D8800B6380A /* SessionStatsMapperTests+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A1F72A630D8800B6380A /* SessionStatsMapperTests+Stub.swift */; };
 		7BD9A1FD2A6311F600B6380A /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A1FC2A6311F600B6380A /* Stats.swift */; };
+		7BD9A1FF2A6314D600B6380A /* RemoteStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A1FE2A6314D600B6380A /* RemoteStats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7B4DFB702A1538EB007E9C63 /* TorrentGetMapperTests+RemoteTorrents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorrentGetMapperTests+RemoteTorrents.swift"; sourceTree = "<group>"; };
+		7B4DFB702A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorrentGetMapperTests+Stub.swift"; sourceTree = "<group>"; };
 		7B4DFB722A15394F007E9C63 /* Torrents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Torrents.swift; sourceTree = "<group>"; };
 		7B6587532A0D845000317EBE /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		7B6587542A0D845000317EBE /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -68,7 +69,7 @@
 		7B9305B32A0F99CB005EBE56 /* APIsEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIsEndpointTests.swift; sourceTree = "<group>"; };
 		7BA38C152A14B16300A44C36 /* RemoteTorrents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTorrents.swift; sourceTree = "<group>"; };
 		7BC960D02A1295B10030B5E0 /* RemoteSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSession.swift; sourceTree = "<group>"; };
-		7BC960D32A129A3E0030B5E0 /* SessionGetMapperTests+Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionGetMapperTests+Session.swift"; sourceTree = "<group>"; };
+		7BC960D32A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionGetMapperTests+Stub.swift"; sourceTree = "<group>"; };
 		7BC960DB2A12D1AF0030B5E0 /* TorrentBodiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentBodiesTests.swift; sourceTree = "<group>"; };
 		7BC960DE2A12D1BB0030B5E0 /* TorrentBodies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentBodies.swift; sourceTree = "<group>"; };
 		7BC960E22A135E6D0030B5E0 /* TorrentGetMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentGetMapper.swift; sourceTree = "<group>"; };
@@ -78,8 +79,9 @@
 		7BD9A1ED2A6300E600B6380A /* Requirements.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Requirements.md; sourceTree = "<group>"; };
 		7BD9A1F02A630C9100B6380A /* SessionStatsMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStatsMapperTests.swift; sourceTree = "<group>"; };
 		7BD9A1F52A630D5200B6380A /* SessionStatsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStatsMapper.swift; sourceTree = "<group>"; };
-		7BD9A1F72A630D8800B6380A /* SessionStatsMapperTests+Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionStatsMapperTests+Stats.swift"; sourceTree = "<group>"; };
+		7BD9A1F72A630D8800B6380A /* SessionStatsMapperTests+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionStatsMapperTests+Stub.swift"; sourceTree = "<group>"; };
 		7BD9A1FC2A6311F600B6380A /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		7BD9A1FE2A6314D600B6380A /* RemoteStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteStats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +106,7 @@
 		7B4DFB6F2A1538D3007E9C63 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				7B4DFB702A1538EB007E9C63 /* TorrentGetMapperTests+RemoteTorrents.swift */,
+				7B4DFB702A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -236,7 +238,7 @@
 		7BC960D22A129A2A0030B5E0 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				7BC960D32A129A3E0030B5E0 /* SessionGetMapperTests+Session.swift */,
+				7BC960D32A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -364,7 +366,7 @@
 		7BD9A1EF2A630C7700B6380A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				7BD9A1F72A630D8800B6380A /* SessionStatsMapperTests+Stats.swift */,
+				7BD9A1F72A630D8800B6380A /* SessionStatsMapperTests+Stub.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -382,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				7BD9A1FC2A6311F600B6380A /* Stats.swift */,
+				7BD9A1FE2A6314D600B6380A /* RemoteStats.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				7BC960DF2A12D1BB0030B5E0 /* TorrentBodies.swift in Sources */,
 				7B6587552A0D845000317EBE /* URLSessionHTTPClient.swift in Sources */,
 				7B4DFB732A15394F007E9C63 /* Torrents.swift in Sources */,
+				7BD9A1FF2A6314D600B6380A /* RemoteStats.swift in Sources */,
 				7BA38C172A14B1B900A44C36 /* RemoteTorrents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,19 +522,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B83382B2A0FA1E60052F7EC /* SessionBodiesTests.swift in Sources */,
-				7BD9A1F82A630D8800B6380A /* SessionStatsMapperTests+Stats.swift in Sources */,
+				7BD9A1F82A630D8800B6380A /* SessionStatsMapperTests+Stub.swift in Sources */,
 				7B65875D2A0D846500317EBE /* SharedTestHelpers.swift in Sources */,
 				7BC960DC2A12D1AF0030B5E0 /* TorrentBodiesTests.swift in Sources */,
 				7B65875E2A0D846500317EBE /* URLProtocolStub.swift in Sources */,
 				7B9305B42A0F99CB005EBE56 /* APIsEndpointTests.swift in Sources */,
 				7B6587612A0D846500317EBE /* URLSessionHTTPClientTests.swift in Sources */,
 				7B65875F2A0D846500317EBE /* XCTestCase+MemoryLeakTracking.swift in Sources */,
-				7B4DFB712A1538EB007E9C63 /* TorrentGetMapperTests+RemoteTorrents.swift in Sources */,
+				7B4DFB712A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift in Sources */,
 				7BC960E52A135E7A0030B5E0 /* TorrentGetMapperTests.swift in Sources */,
 				7BD9A1F12A630C9100B6380A /* SessionStatsMapperTests.swift in Sources */,
 				7B83383D2A1120B20052F7EC /* SessionGetMapperTests.swift in Sources */,
 				7B6587602A0D846500317EBE /* URLRequest+BodyStream.swift in Sources */,
-				7BC960D42A129A3E0030B5E0 /* SessionGetMapperTests+Session.swift in Sources */,
+				7BC960D42A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
