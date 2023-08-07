@@ -9,5 +9,8 @@ TODO
 
 -	Improve server selection UI
 -	Crypt password before saving it in userDefaults
+-	Torrent Add
+-	Torrent Delete
+-	Torrent Detail
 
 FIX
