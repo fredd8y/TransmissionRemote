@@ -10,4 +10,3 @@ FUTURE RELEASE
 NEXT RELEASE
 
 -	Remove log from production
--	Add loader to TorrentsPage

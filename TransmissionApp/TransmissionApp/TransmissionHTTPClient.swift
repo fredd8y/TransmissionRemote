@@ -26,7 +26,7 @@ final class TransmissionHTTPClient {
 				body: TorrentBodies.start(id: id),
 				additionalHeader: headers(server.credentials)
 			)
-			.tryMap(TransmissionHTTPClient.log)
+			.tryMap(Logger.log)
 			.tryMap(TorrentStartMapper.map)
 			.eraseToAnyPublisher()
 	}
@@ -40,7 +40,7 @@ final class TransmissionHTTPClient {
 				body: TorrentBodies.stop(id: id),
 				additionalHeader: headers(server.credentials)
 			)
-			.tryMap(TransmissionHTTPClient.log)
+			.tryMap(Logger.log)
 			.tryMap(TorrentStopMapper.map)
 			.eraseToAnyPublisher()
 	}
@@ -56,7 +56,7 @@ final class TransmissionHTTPClient {
 				body: TorrentBodies.remove(id: id, deleteLocalData: deleteLocalData),
 				additionalHeader: headers(server.credentials)
 			)
-			.tryMap(TransmissionHTTPClient.log)
+			.tryMap(Logger.log)
 			.tryMap(TorrentRemoveMapper.map)
 			.eraseToAnyPublisher()
 			
@@ -73,7 +73,7 @@ final class TransmissionHTTPClient {
 				body: SessionBodies.get.data(using: .utf8)!,
 				additionalHeader: headers(server.credentials)
 			)
-			.tryMap(TransmissionHTTPClient.log)
+			.tryMap(Logger.log)
 			.tryMap(SessionGetMapper.map)
 			.tryMap { $0.downloadDir }
 			.flatMap { downloadDir in
@@ -91,7 +91,7 @@ final class TransmissionHTTPClient {
 					}
 				}
 			}
-			.tryMap(TransmissionHTTPClient.log)
+			.tryMap(Logger.log)
 			.tryMap(TorrentAddMapper.map)
 			.eraseToAnyPublisher()
 	}
@@ -107,7 +107,7 @@ final class TransmissionHTTPClient {
 				body: SessionBodies.get.data(using: .utf8)!,
 				additionalHeader: headers(server.credentials)
 			)
-			.tryMap(TransmissionHTTPClient.log)
+			.tryMap(Logger.log)
 			.tryMap(SessionGetMapper.map)
 			.tryMap { $0.downloadDir }
 			.flatMap { downloadDir in
@@ -125,7 +125,7 @@ final class TransmissionHTTPClient {
 					}
 				}
 			}
-			.tryMap(TransmissionHTTPClient.log)
+			.tryMap(Logger.log)
 			.tryMap(TorrentAddMapper.map)
 			.eraseToAnyPublisher()
 	}
@@ -139,7 +139,7 @@ final class TransmissionHTTPClient {
 				additionalHeader: headers(server.credentials)
 			)
 			.mapError(TransmissionHTTPClient.handleError)
-			.tryMap(TransmissionHTTPClient.log)
+			.tryMap(Logger.log)
 			.tryMap(SessionGetMapper.map)
 			.flatMap { session in
 				Future { promise in
@@ -153,7 +153,7 @@ final class TransmissionHTTPClient {
 					}
 				}
 			}
-			.tryMap(TransmissionHTTPClient.log)
+			.tryMap(Logger.log)
 			.tryMap(TorrentGetMapper.map)
 			.flatMap { torrents in
 				Just((freeDiskSpace, torrents)).setFailureType(to: Error.self)
@@ -166,11 +166,6 @@ final class TransmissionHTTPClient {
 			return SessionGetMapper.Error.invalidData
 		}
 		return SessionGetMapper.Error.serverTimeout
-	}
-	
-	static func log(_ data: Data, from response: HTTPURLResponse) throws -> (data: Data, response: HTTPURLResponse) {
-		Logger.APIs.info("\nURL: \(response.url!)\nSTATUS-CODE: \(response.statusCode)\nRESPONSE: \(String(data: data, encoding: .utf8)!)")
-		return (data, response)
 	}
 
 	// MARK: Private
