@@ -275,14 +275,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		7B4599CD2A68108A00189C16 /* Torrents UI */ = {
+		7B4599CD2A68108A00189C16 /* Transmission UI */ = {
 			isa = PBXGroup;
 			children = (
 				7B4599CE2A68109900189C16 /* TorrentsPageTests.swift */,
 				7B80FC8E2A72624200A6DAB6 /* SettingsPageTests.swift */,
 				7B4599D72A6819EC00189C16 /* snapshots */,
 			);
-			path = "Torrents UI";
+			path = "Transmission UI";
 			sourceTree = "<group>";
 		};
 		7B4599D02A6816F500189C16 /* Helpers */ = {
@@ -527,7 +527,7 @@
 			isa = PBXGroup;
 			children = (
 				7B4599D02A6816F500189C16 /* Helpers */,
-				7B4599CD2A68108A00189C16 /* Torrents UI */,
+				7B4599CD2A68108A00189C16 /* Transmission UI */,
 			);
 			path = TransmissioniOSTests;
 			sourceTree = "<group>";

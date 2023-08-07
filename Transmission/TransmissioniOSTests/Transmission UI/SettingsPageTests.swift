@@ -28,7 +28,7 @@ class SettingsPageTests: XCTestCase {
 			title: "Settings",
 			pollingRateTitle: "Update interval",
 			pollingRateList: ["2 seconds", "5 seconds", "10 seconds", "30 seconds"],
-			currentSelectedPollingRate: "5 seconds",
+			currentSelectedPollingRate: "2 seconds",
 			serversTitle: "Server",
 			currentServerName: "Raspberry"
 		)
