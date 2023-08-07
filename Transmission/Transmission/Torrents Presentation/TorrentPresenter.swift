@@ -8,14 +8,6 @@
 import Foundation
 
 public final class TorrentPresenter {
-	public static var eta: String {
-		NSLocalizedString(
-			"TORRENT_ITEM_ETA",
-			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPresenter.self),
-			comment: "Torrent ETA")
-	}
-	
 	public static var of: String {
 		NSLocalizedString(
 			"TORRENT_ITEM_OF_PREPOSITION",
