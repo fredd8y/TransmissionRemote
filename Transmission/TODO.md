@@ -6,9 +6,8 @@ Improvement
 
 TODO
 
--	Think about moving polling rate handling outside Adapter, into Composer
+-	Implement server add
 -	Crypt password before saving it in userDefaults
--	If no server has been added, application should inform the user to go into settings page to add one
 -	Settings with multiple servers
 	-	Server name
 	-	protocol (http/https)
