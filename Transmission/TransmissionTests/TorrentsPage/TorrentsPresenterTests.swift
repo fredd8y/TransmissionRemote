@@ -24,14 +24,6 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentsPagePresenter.torrent, localized("TORRENT", table: table))
 	}
 	
-	func test_username_isLocalized() {
-		XCTAssertEqual(TorrentsPagePresenter.username, localized("USERNAME", table: table))
-	}
-	
-	func test_password_isLocalized() {
-		XCTAssertEqual(TorrentsPagePresenter.password, localized("PASSWORD", table: table))
-	}
-	
 	func test_credentialRequested_isLocalized() {
 		XCTAssertEqual(TorrentsPagePresenter.credentialRequested, localized("CREDENTIAL_NEEDED_TITLE", table: table))
 	}

@@ -44,7 +44,8 @@ class ServerDetailPageTests: XCTestCase {
 			ipPlaceholder: ServerDetailPagePresenter.ipPlaceholder,
 			portPlaceholder: ServerDetailPagePresenter.portPlaceholder,
 			usernamePlaceholder: ServerDetailPagePresenter.usernamePlaceholder,
-			passwordPlaceholder: ServerDetailPagePresenter.passwordPlaceholder
+			passwordPlaceholder: ServerDetailPagePresenter.passwordPlaceholder,
+			serverId: UUID()
 		)
 	}
 	
@@ -65,7 +66,8 @@ class ServerDetailPageTests: XCTestCase {
 			username: "a username",
 			usernamePlaceholder: ServerDetailPagePresenter.usernamePlaceholder,
 			password: "a password",
-			passwordPlaceholder: ServerDetailPagePresenter.passwordPlaceholder
+			passwordPlaceholder: ServerDetailPagePresenter.passwordPlaceholder,
+			serverId: UUID()
 		)
 	}
 }

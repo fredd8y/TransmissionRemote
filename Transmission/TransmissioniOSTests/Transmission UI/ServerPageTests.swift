@@ -48,6 +48,7 @@ class ServerPageTests: XCTestCase {
 			title: ServerPagePresenter.title,
 			servers: servers,
 			editItemActionTitle: "Edit",
+			deleteItemActionTitle: "Delete",
 			currentSelectedServerId: currentSelectedServerId
 		)
 	}

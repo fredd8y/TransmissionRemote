@@ -64,6 +64,7 @@ final class ServerDetailPagePresenterTests: XCServerTestCase {
 		let portPlaceholder = "Port"
 		let usernamePlaceholder = "Username"
 		let passwordPlaceholder = "Password"
+		let serverId = UUID()
 		
 		
 		let viewModel = ServerDetailPageViewModel(
@@ -82,7 +83,8 @@ final class ServerDetailPagePresenterTests: XCServerTestCase {
 			username: server.username,
 			usernamePlaceholder: usernamePlaceholder,
 			password: server.password,
-			passwordPlaceholder: passwordPlaceholder
+			passwordPlaceholder: passwordPlaceholder,
+			serverId: serverId
 		)
 		
 		XCTAssertEqual(viewModel.serverSectionHeader, serverSectionHeader)
@@ -101,6 +103,7 @@ final class ServerDetailPagePresenterTests: XCServerTestCase {
 		XCTAssertEqual(viewModel.usernamePlaceholder, usernamePlaceholder)
 		XCTAssertEqual(viewModel.password, server.password)
 		XCTAssertEqual(viewModel.passwordPlaceholder, passwordPlaceholder)
+		XCTAssertEqual(viewModel.serverId, serverId)
 	}
 	
 }

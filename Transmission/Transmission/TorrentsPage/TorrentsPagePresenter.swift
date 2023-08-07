@@ -32,22 +32,6 @@ public final class TorrentsPagePresenter {
 			comment: "Singular of torrent")
 	}
 	
-	public static var username: String {
-		NSLocalizedString(
-			"USERNAME",
-			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPagePresenter.self),
-			comment: "Credential alert username placeholer")
-	}
-	
-	public static var password: String {
-		NSLocalizedString(
-			"PASSWORD",
-			tableName: "Torrents",
-			bundle: Bundle(for: TorrentsPagePresenter.self),
-			comment: "Credential alert password placeholer")
-	}
-	
 	public static var credentialRequested: String {
 		NSLocalizedString(
 			"CREDENTIAL_NEEDED_TITLE",

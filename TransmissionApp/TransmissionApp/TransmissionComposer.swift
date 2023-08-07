@@ -39,10 +39,6 @@ final class TransmissionComposer {
 		torrentsPage.loadData = {
 			torrentsPagePresentationAdapter.loadData(server: UserDefaultsHandler.shared.currentServer)
 		}
-		torrentsPage.authenticate = { username, password in
-//			TransmissionHTTPClient.username = username
-//			TransmissionHTTPClient.password = password
-		}
 		
 		return torrentsPage
 	}

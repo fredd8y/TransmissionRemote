@@ -18,11 +18,6 @@ public struct TorrentsPage: View {
 	
 	public var loadData: (() -> Void)?
 	
-	public var authenticate: ((_ username: String, _ password: String) -> Void)? = nil
-	
-	@State private var username: String = ""
-	@State private var password: String = ""
-	
     public var body: some View {
 		NavigationStack {
 			VStack {
@@ -92,16 +87,6 @@ public struct TorrentsPage: View {
 						.padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
 					Text(viewModel.downloadSpeed)
 						.font(.subheadline)
-				}
-			}
-			.alert(TorrentsPagePresenter.credentialRequested, isPresented: $viewModel.showAlert) {
-				TextField(TorrentsPagePresenter.username, text: $username)
-					.textInputAutocapitalization(.never)
-				SecureField(TorrentsPagePresenter.password, text: $password)
-				Button(TorrentsPagePresenter.ok) {
-					authenticate?(username, password)
-					viewModel.showAlert.toggle()
-					loadData?()
 				}
 			}
 		}
