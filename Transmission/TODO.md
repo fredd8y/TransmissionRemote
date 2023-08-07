@@ -1,12 +1,13 @@
 Improvement
 
--	Add loader to TorrentsPage
--	Remove number of torrents, replace with disk free space
 -	Use tag in polling rate picker to avoid using strings
 
-TODO
+FUTURE RELEASE
 
 -	Torrent Detail (future release)
 -	Quick action button to perform action on all torrents
 
-FIX
+NEXT RELEASE
+
+-	Remove log from production
+-	Add loader to TorrentsPage
