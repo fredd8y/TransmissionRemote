@@ -7,6 +7,10 @@ Improvement
 
 TODO
 
+-	Implement server delete
+-	Implement authentication request 
+-	Remove tabbar in ServerDetail page
+-	Handle error in ServerDetail page, improve field UX
 -	Improve server selection UI
 -	Add error to ServerDetailPage
 -	Crypt password before saving it in userDefaults
