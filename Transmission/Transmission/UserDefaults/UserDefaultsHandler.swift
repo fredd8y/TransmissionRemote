@@ -5,6 +5,7 @@
 //  Created by Federico Arvat on 28/07/23.
 //
 
+import Combine
 import Foundation
 
 // MARK: - UserDefaultsKeys
@@ -56,13 +57,16 @@ public class UserDefaultsHandler {
 	
 	public static let shared = UserDefaultsHandler()
 	
-	@Published public var pollingRate: Int {
+	public var pollingRate: Int {
 		didSet {
 			setPollingRate(pollingRate)
+			pollingRatePublisher.send(pollingRate)
 		}
 	}
 	
-	@Published public var currentServer: Server? {
+	public let pollingRatePublisher = PassthroughSubject<Int, Never>()
+	
+	public var currentServer: Server? {
 		didSet {
 			if let currentServer {
 				setServerName(currentServer.name)
@@ -75,8 +79,11 @@ public class UserDefaultsHandler {
 			} else {
 				removeServer()
 			}
+			currentServerPublisher.send(currentServer)
 		}
 	}
+	
+	public let currentServerPublisher = PassthroughSubject<Server?, Never>()
 	
 	// MARK: - Polling rate
 	

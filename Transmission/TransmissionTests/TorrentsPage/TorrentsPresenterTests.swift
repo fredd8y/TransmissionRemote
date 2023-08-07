@@ -96,6 +96,10 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentsPagePresenter.link, localized("LINK", table: table))
 	}
 	
+	func test_serverTimeout_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.serverTimeout, localized("SERVER_TIMEOUT", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Title"
 		let error = "a error"

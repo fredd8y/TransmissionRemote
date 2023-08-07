@@ -236,10 +236,7 @@ public struct TorrentsPage: View {
 				}
 			)
 		}
-		.onAppear {
-			loadData?()
-		}
-		.refreshable {
+		.onLoad {
 			loadData?()
 		}
 	}

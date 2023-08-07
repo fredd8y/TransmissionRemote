@@ -138,6 +138,7 @@ final class TransmissionHTTPClient {
 				body: SessionBodies.get.data(using: .utf8)!,
 				additionalHeader: headers(server.credentials)
 			)
+			.mapError(TransmissionHTTPClient.handleError)
 			.tryMap(TransmissionHTTPClient.log)
 			.tryMap(SessionGetMapper.map)
 			.flatMap { session in
@@ -158,6 +159,13 @@ final class TransmissionHTTPClient {
 				Just((freeDiskSpace, torrents)).setFailureType(to: Error.self)
 			}
 			.eraseToAnyPublisher()
+	}
+	
+	static func handleError(_ error: Error) -> Error {
+		guard (error as NSError).code == -1001 else {
+			return SessionGetMapper.Error.invalidData
+		}
+		return SessionGetMapper.Error.serverTimeout
 	}
 	
 	static func log(_ data: Data, from response: HTTPURLResponse) throws -> (data: Data, response: HTTPURLResponse) {

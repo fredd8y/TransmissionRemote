@@ -55,7 +55,7 @@ public struct SettingsPage: View {
 			.listStyle(.insetGrouped)
 			.navigationTitle(viewModel.title)
 			.navigationBarTitleDisplayMode(.inline)
-		}.onAppear {
+		}.onLoad {
 			loadData?()
 		}
     }

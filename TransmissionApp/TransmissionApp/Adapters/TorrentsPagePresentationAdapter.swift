@@ -19,25 +19,16 @@ final class TorrentsPagePresentationAdapter {
 	) {
 		self.torrentsPageViewModel = torrentsPageViewModel
 		self.sessionIdHandler = sessionIdHandler
-		UserDefaultsHandler.shared.$pollingRate.sink { [weak self] newValue in
-			self?.resetTimer(server: UserDefaultsHandler.shared.currentServer, timeInterval: TimeInterval(newValue))
+		UserDefaultsHandler.shared.pollingRatePublisher.sink { [weak self] _ in
+			self?.loadData()
 		}.store(in: &pollingRateCancellable)
-		UserDefaultsHandler.shared.$currentServer.sink { [weak self] newValue in
+		UserDefaultsHandler.shared.currentServerPublisher.dropFirst().sink { [weak self] _ in
 			self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.empty())
-			self?.resetTimer(server: newValue, timeInterval: TimeInterval(UserDefaultsHandler.shared.pollingRate))
+			self?.cancellables.removeAll()
+			self?.loadData()
 		}.store(in: &currentServerCancellable)
-		resetTimer(
-			server: UserDefaultsHandler.shared.currentServer,
-			timeInterval: TimeInterval(UserDefaultsHandler.shared.pollingRate)
-		)
 	}
 	
-	private func resetTimer(server: Server?, timeInterval: TimeInterval) {
-		timer?.invalidate()
-		cancellables.removeAll()
-		timer = createTimer(server: server, timerInterval: timeInterval)
-		timer?.fire()
-	}
 	
 	private var cancellables = Set<AnyCancellable>()
 	private var addTorrentCancellable = Set<AnyCancellable>()
@@ -49,15 +40,6 @@ final class TorrentsPagePresentationAdapter {
 	
 	private var sessionIdHandler: (String) -> Void
 	
-	private var timer: Timer?
-	
-	private func createTimer(server: Server?, timerInterval: TimeInterval) -> Timer {
-		Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { [weak self] _ in
-			self?.cancellables.removeAll()
-			self?.loadData(server: server)
-		}
-	}
-
 	@ObservedObject var torrentsPageViewModel: TorrentsPageViewModel
 	
 	func start(_ id: Int) {
@@ -86,7 +68,7 @@ final class TorrentsPagePresentationAdapter {
 				}
 			},
 			receiveValue: { [weak self] _ in
-				self?.loadData(server: server)
+				self?.loadData()
 			}
 		).store(in: &stopTorrentCancellable)
 	}
@@ -116,7 +98,7 @@ final class TorrentsPagePresentationAdapter {
 				}
 			},
 			receiveValue: { [weak self] _ in
-				self?.loadData(server: server)
+				self?.loadData()
 			}
 		).store(in: &stopTorrentCancellable)
 	}
@@ -154,7 +136,7 @@ final class TorrentsPagePresentationAdapter {
 				}
 			},
 			receiveValue: { [weak self] _ in
-				self?.loadData(server: server)
+				self?.loadData()
 			}
 		).store(in: &addTorrentCancellable)
 	}
@@ -199,7 +181,7 @@ final class TorrentsPagePresentationAdapter {
 				}
 			},
 			receiveValue: { [weak self] _ in
-				self?.loadData(server: server)
+				self?.loadData()
 			}
 		).store(in: &addTorrentCancellable)
 	}
@@ -234,23 +216,23 @@ final class TorrentsPagePresentationAdapter {
 				}
 			},
 			receiveValue: { [weak self] _ in
-				self?.loadData(server: server)
+				self?.loadData()
 			}
 		).store(in: &deleteTorrentCancellable)
 	}
 	
-	func loadData(server: Server?) {
-		guard let server else {
+	func loadData() {
+		guard let server = UserDefaultsHandler.shared.currentServer else {
 			torrentsPageViewModel.newValues(TorrentsPageViewModel.serverNotSet())
 			return
 		}
-		TransmissionHTTPClient.makeRemoteTorrentsLoader(server: server)
+		var cancellable: AnyCancellable?
+		cancellable = TransmissionHTTPClient.makeRemoteTorrentsLoader(server: server)
 		.dispatchOnMainQueue()
 		.sink(
 			receiveCompletion: { [weak self] completion in
 				switch completion {
-				case .finished:
-					break
+				case .finished: break
 				case let .failure(error):
 					if let _error = error as? SessionGetMapper.Error {
 						switch _error {
@@ -259,21 +241,22 @@ final class TorrentsPagePresentationAdapter {
 							self?.torrentsPageViewModel.alertMessageVisible = true
 						case .authenticationFailed:
 							self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.credentialRequired())
-							self?.timer?.invalidate()
 						case .missingSessionId(let sessionId):
 							guard let _sessionId = sessionId as? String else {
 								// TODO: Handle error
 								break
 							}
 							self?.sessionIdHandler(_sessionId)
-							self?.resetTimer(server: server, timeInterval: TimeInterval(UserDefaultsHandler.shared.pollingRate))
+							self?.loadData()
 						case .invalidData:
 							self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.error())
+						case .serverTimeout:
+							self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.serverTimeout())
 						}
 					}
 				}
 			},
-			receiveValue: { (downloadDirFreeSpace, torrents) in
+			receiveValue: { [weak self] (downloadDirFreeSpace, torrents) in
 				let viewModel = TorrentsPagePresenter.map(
 					title: TorrentsPagePresenter.title,
 					error: nil,
@@ -285,9 +268,16 @@ final class TorrentsPagePresentationAdapter {
 					alertMessage: nil,
 					alertMessageVisible: false
 				)
-				self.torrentsPageViewModel.newValues(viewModel)
+				self?.torrentsPageViewModel.newValues(viewModel)
+				DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.seconds(UserDefaultsHandler.shared.pollingRate)) { [weak self] in
+					if let cancellable, self?.cancellables.contains(cancellable) == true {
+						self?.cancellables.remove(cancellable)
+						self?.loadData()
+					}
+				}
 			}
-		).store(in: &cancellables)
+		)
+		cancellable?.store(in: &cancellables)
 	}
 }
 

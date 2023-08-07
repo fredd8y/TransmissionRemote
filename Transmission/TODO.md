@@ -6,9 +6,7 @@ Improvement
 
 TODO
 
--	Handle error in server adapter when save throws
--	Comment public functions
--	Torrent Detail
+-	Torrent Detail (future release)
 -	Quick action button to perform action on all torrents
 
 FIX

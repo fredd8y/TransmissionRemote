@@ -36,9 +36,7 @@ final class TransmissionComposer {
 		)
 		
 		var torrentsPage = TorrentsPage(viewModel: viewModel)
-		torrentsPage.loadData = {
-			torrentsPagePresentationAdapter.loadData(server: UserDefaultsHandler.shared.currentServer)
-		}
+		torrentsPage.loadData = torrentsPagePresentationAdapter.loadData
 		torrentsPage.selectedFile = torrentsPagePresentationAdapter.selectedFile
 		torrentsPage.delete = torrentsPagePresentationAdapter.delete
 		torrentsPage.stop = torrentsPagePresentationAdapter.stop
@@ -56,9 +54,7 @@ final class TransmissionComposer {
 		)
 		
 		var settingsPage = SettingsPage(viewModel: viewModel, serverPage: serverPage)
-		settingsPage.loadData = {
-			settingsPagePresentationAdapter.loadData(server: UserDefaultsHandler.shared.currentServer)
-		}
+		settingsPage.loadData = settingsPagePresentationAdapter.loadData
 		settingsPage.pollingRateSelected = settingsPagePresentationAdapter.selectedPollingRate
 		return settingsPage
 	}

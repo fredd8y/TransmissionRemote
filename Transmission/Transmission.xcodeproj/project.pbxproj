@@ -115,6 +115,7 @@
 		7BB10EA72A7D06EB00F275EF /* TorrentStopMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB10EA62A7D06EB00F275EF /* TorrentStopMapperTests.swift */; };
 		7BB10EAA2A7D226700F275EF /* TorrentStartMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB10EA92A7D226700F275EF /* TorrentStartMapper.swift */; };
 		7BB10EAD2A7D229700F275EF /* TorrentStartMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB10EAC2A7D229700F275EF /* TorrentStartMapperTests.swift */; };
+		7BB229D12A813BE100F2408F /* DidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB229D02A813BE100F2408F /* DidLoadModifier.swift */; };
 		7BC0D8062A6C0AA000B36367 /* HeaderUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8052A6C0AA000B36367 /* HeaderUtilsTests.swift */; };
 		7BC0D83E2A6C170A00B36367 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BC0D83D2A6C170A00B36367 /* Info.plist */; };
 		7BC3ABDB2A76C20F00B054DB /* ServerDetailPagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3ABDA2A76C20F00B054DB /* ServerDetailPagePresenterTests.swift */; };
@@ -297,6 +298,7 @@
 		7BB10EA62A7D06EB00F275EF /* TorrentStopMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentStopMapperTests.swift; sourceTree = "<group>"; };
 		7BB10EA92A7D226700F275EF /* TorrentStartMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentStartMapper.swift; sourceTree = "<group>"; };
 		7BB10EAC2A7D229700F275EF /* TorrentStartMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentStartMapperTests.swift; sourceTree = "<group>"; };
+		7BB229D02A813BE100F2408F /* DidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidLoadModifier.swift; sourceTree = "<group>"; };
 		7BC0D8052A6C0AA000B36367 /* HeaderUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUtilsTests.swift; sourceTree = "<group>"; };
 		7BC0D83D2A6C170A00B36367 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BC3ABDA2A76C20F00B054DB /* ServerDetailPagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDetailPagePresenterTests.swift; sourceTree = "<group>"; };
@@ -747,6 +749,7 @@
 		7B8CB83E2A66C8CE001A4D90 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7BB229CF2A813BCF00F2408F /* Helpers */,
 				7B8CB8422A66CAE2001A4D90 /* TorrentsPage.swift */,
 				7B6CD5D72A724CD200E81983 /* TabContainer.swift */,
 				7B6CD5D92A724D5A00E81983 /* SettingsPage.swift */,
@@ -874,6 +877,14 @@
 				7BB10EAC2A7D229700F275EF /* TorrentStartMapperTests.swift */,
 			);
 			path = "Torrent Start API";
+			sourceTree = "<group>";
+		};
+		7BB229CF2A813BCF00F2408F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7BB229D02A813BE100F2408F /* DidLoadModifier.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		7BBF3C542A72B016001206A8 /* Shared API */ = {
@@ -1375,6 +1386,7 @@
 			files = (
 				7B6CD5DA2A724D5A00E81983 /* SettingsPage.swift in Sources */,
 				7B6CD5D82A724CD200E81983 /* TabContainer.swift in Sources */,
+				7BB229D12A813BE100F2408F /* DidLoadModifier.swift in Sources */,
 				7B23250B2A7685F300836B02 /* ServerDetailPage.swift in Sources */,
 				7B8CB8432A66CAE2001A4D90 /* TorrentsPage.swift in Sources */,
 				7B2324DA2A753D5400836B02 /* ServerPage.swift in Sources */,

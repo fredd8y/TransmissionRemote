@@ -64,4 +64,18 @@ extension TorrentsPageViewModel {
 		)
 	}
 	
+	static func serverTimeout() -> TorrentsPageViewModel {
+		TorrentsPagePresenter.map(
+			title: TorrentsPagePresenter.title,
+			error: TorrentsPagePresenter.serverTimeout,
+			uploadSpeed: 0,
+			downloadSpeed: 0,
+			torrents: [],
+			freeDiskSpace: nil,
+			emptyMessage: nil,
+			alertMessage: nil,
+			alertMessageVisible: false
+		)
+	}
+	
 }

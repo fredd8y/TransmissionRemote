@@ -76,7 +76,7 @@ public struct ServerPage: View {
 				guard let newValue else { return }
 				selectServer?(newValue)
 			}
-		}.onAppear {
+		}.onLoad {
 			loadData?()
 			withAnimation {
 				tabBarVisibility = .hidden
