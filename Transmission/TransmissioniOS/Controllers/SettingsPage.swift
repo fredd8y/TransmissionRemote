@@ -52,7 +52,7 @@ public struct SettingsPage: View {
 				}
 
 			}
-			.listStyle(.plain)
+			.listStyle(.insetGrouped)
 			.navigationTitle(viewModel.title)
 			.navigationBarTitleDisplayMode(.inline)
 		}.onAppear {

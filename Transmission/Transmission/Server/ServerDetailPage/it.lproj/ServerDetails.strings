@@ -16,3 +16,8 @@
 "AUTHENTICATION_SECTION_HEADER" = "DETTAGLI AUTENTICAZIONE";
 "PROTOCOL_PLACEHOLDER" = "Protocollo";
 "SAVE_BUTTON_TITLE" = "Salva";
+"NAME_ERROR" = "Nome server mancante";
+"IP_ERROR" = "Indirizzo IP non corretto o mancante";
+"PORT_ERROR" = "Porta non corretta o mancante";
+"USERNAME_ERROR" = "Username mancante";
+"PASSWORD_ERROR" = "Password mancante";

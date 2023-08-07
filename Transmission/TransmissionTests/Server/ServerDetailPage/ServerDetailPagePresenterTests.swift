@@ -52,6 +52,26 @@ final class ServerDetailPagePresenterTests: XCServerTestCase {
 		XCTAssertEqual(ServerDetailPagePresenter.saveButtonTitle, localized("SAVE_BUTTON_TITLE", table: table))
 	}
 	
+	func test_nameError_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.saveButtonTitle, localized("NAME_ERROR", table: table))
+	}
+	
+	func test_ipError_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.saveButtonTitle, localized("IP_ERROR", table: table))
+	}
+	
+	func test_portError_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.saveButtonTitle, localized("PORT_ERROR", table: table))
+	}
+	
+	func test_usernameError_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.saveButtonTitle, localized("USERNAME_ERROR", table: table))
+	}
+	
+	func test_passwordError_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.saveButtonTitle, localized("PASSWORD_ERROR", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Server detail"
 		let server = server()

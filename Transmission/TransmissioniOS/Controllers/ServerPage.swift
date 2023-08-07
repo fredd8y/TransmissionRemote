@@ -52,7 +52,7 @@ public struct ServerPage: View {
 
 				}
 			}
-			.listStyle(.plain)
+			.listStyle(.insetGrouped)
 			.navigationTitle(viewModel.title)
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {

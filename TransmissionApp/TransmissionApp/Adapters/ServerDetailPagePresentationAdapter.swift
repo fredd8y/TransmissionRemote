@@ -29,20 +29,22 @@ class ServerDetailPagePresentationAdapter {
 	func save(_ model: ServerDetailPageDataModel) -> Error? {
 		do {
 			guard model.name != "" else {
-				// TODO: Handle validation error
-				return nil
+				return ServerDetailPage.ServerDetailPageError.name
 			}
 			guard model.ip != "" else {
-				// TODO: Handle validation error
-				return nil
+				// TODO: Add correct IP format check
+				return ServerDetailPage.ServerDetailPageError.ip
 			}
 			guard model.port != "", let intPort = Int(model.port) else {
-				// TODO: Handle validation error
-				return nil
+				return ServerDetailPage.ServerDetailPageError.ip
 			}
-			if (model.username != "" && model.name == "") || (model.username == "" && model.username != "") {
-				// TODO: Handle validation error
-				return nil
+			if (model.username != "" && model.password == "") || (model.password == "" && model.username != "") {
+				if model.username == "" {
+					return ServerDetailPage.ServerDetailPageError.username
+				}
+				if model.password == "" {
+					return ServerDetailPage.ServerDetailPageError.password
+				}
 			}
 			let server = Server(
 				name: model.name,
@@ -53,10 +55,7 @@ class ServerDetailPagePresentationAdapter {
 				password: model.password == "" ? nil : model.password,
 				id: model.id
 			)
-			guard let url = ServerFile.url else {
-				// TODO: Handle error
-				return nil
-			}
+			guard let url = ServerFile.url else { return nil }
 			var servers = try ServerGetMapper.map(try Data(contentsOf: url))
 			if let index = servers.firstIndex(where: { $0.id == model.id }) {
 				servers[index] = server

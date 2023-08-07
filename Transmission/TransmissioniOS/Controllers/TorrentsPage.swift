@@ -61,7 +61,7 @@ public struct TorrentsPage: View {
 							}
 						}
 					}
-					.listStyle(.plain)
+					.listStyle(.insetGrouped)
 				}
 			}
 			.navigationTitle(viewModel.title)

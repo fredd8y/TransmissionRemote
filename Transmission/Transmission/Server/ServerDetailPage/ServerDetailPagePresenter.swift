@@ -89,6 +89,46 @@ public final class ServerDetailPagePresenter {
 			comment: "Save button title")
 	}
 	
+	public static var nameError: String {
+		NSLocalizedString(
+			"NAME_ERROR",
+			tableName: "ServerDetails",
+			bundle: Bundle(for: ServerDetailPagePresenter.self),
+			comment: "Error when missing name")
+	}
+	
+	public static var ipError: String {
+		NSLocalizedString(
+			"IP_ERROR",
+			tableName: "ServerDetails",
+			bundle: Bundle(for: ServerDetailPagePresenter.self),
+			comment: "Error when missing or wrong IP")
+	}
+	
+	public static var portError: String {
+		NSLocalizedString(
+			"PORT_ERROR",
+			tableName: "ServerDetails",
+			bundle: Bundle(for: ServerDetailPagePresenter.self),
+			comment: "Error when missing or wrong port")
+	}
+	
+	public static var usernameError: String {
+		NSLocalizedString(
+			"USERNAME_ERROR",
+			tableName: "ServerDetails",
+			bundle: Bundle(for: ServerDetailPagePresenter.self),
+			comment: "Error when missing or wrong username")
+	}
+	
+	public static var passwordError: String {
+		NSLocalizedString(
+			"PASSWORD_ERROR",
+			tableName: "ServerDetails",
+			bundle: Bundle(for: ServerDetailPagePresenter.self),
+			comment: "Error when missing or wrong password")
+	}
+	
 	public static func map(
 		title: String,
 		server: Server
