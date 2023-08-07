@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import Transmission
+@testable import Transmission
 
 final class TorrentPresenterTests: XCTorrentTestCase {
 	
@@ -63,6 +63,71 @@ final class TorrentPresenterTests: XCTorrentTestCase {
 		
 		XCTAssertEqual(viewModel.error, torrent.errorString)
 	}
+	
+	func test_torrentStatusDescription_stopped() {
+		let torrent = anyTorrentWithStatus(.stopped)
+		
+		let description = TorrentPresenter.torrentStatusDescription(torrent)
+		
+		XCTAssertEqual(description, TorrentPresenter.stopped)
+	}
+	
+	func test_torrentStatusDescription_queuedVerifyLocalData() {
+		let torrent = anyTorrentWithStatus(.queuedVerifyLocalData)
+		
+		let description = TorrentPresenter.torrentStatusDescription(torrent)
+		
+		XCTAssertEqual(description, TorrentPresenter.queuedToVerifyLocalData)
+	}
+	
+	func test_torrentStatusDescription_verifyingLocalData() {
+		let torrent = anyTorrentWithStatus(.verifyingLocalData)
+		
+		let description = TorrentPresenter.torrentStatusDescription(torrent)
+		
+		XCTAssertEqual(description, "\(TorrentPresenter.verifyingLocalData) \(TorrentPresenter.relativeEta(torrent.eta))")
+	}
+	
+	func test_torrentStatusDescription_queuedToDownload() {
+		let torrent = anyTorrentWithStatus(.queuedDownload)
+		
+		let description = TorrentPresenter.torrentStatusDescription(torrent)
+		
+		XCTAssertEqual(description, TorrentPresenter.queuedToDownload)
+	}
+	
+	func test_torrentStatusDescription_downloading() {
+		let torrent = anyTorrentWithStatus(.downloading)
+		
+		let description = TorrentPresenter.torrentStatusDescription(torrent)
+		
+		XCTAssertEqual(description, "\(TorrentPresenter.downloadCompletedIn) \(TorrentPresenter.relativeEta(torrent.eta))")
+	}
+	
+	func test_torrentStatusDescription_queuedToSeed() {
+		let torrent = anyTorrentWithStatus(.queuedToSeed)
+		
+		let description = TorrentPresenter.torrentStatusDescription(torrent)
+		
+		XCTAssertEqual(description, TorrentPresenter.queuedToSeed)
+	}
+	
+	func test_torrentStatusDescription_seeding() {
+		let torrent = anyTorrentWithStatus(.seeding)
+		
+		let description = TorrentPresenter.torrentStatusDescription(torrent)
+		
+		XCTAssertEqual(description, TorrentPresenter.seeding)
+	}
+	
+	func test_torrentStatusDescription_unknown() {
+		let torrent = anyTorrentWithStatus(.unknown)
+		
+		let description = TorrentPresenter.torrentStatusDescription(torrent)
+		
+		XCTAssertEqual(description, TorrentPresenter.unknown)
+	}
+	
 }
 
 

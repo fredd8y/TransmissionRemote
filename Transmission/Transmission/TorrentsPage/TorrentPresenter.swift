@@ -80,38 +80,41 @@ public final class TorrentPresenter {
 			comment: "Description to show when torrent is in queue for seed")
 	}
 	
-	public static func map(_ torrent: Torrent) -> TorrentViewModel {
-
+	static func relativeEta(_ value: Int) -> String {
 		let relativeDateFormatter = RelativeDateTimeFormatter()
 		relativeDateFormatter.locale = .current
 		relativeDateFormatter.calendar = .current
 		
-		let description: String
-		
+		return relativeDateFormatter.localizedString(fromTimeInterval: Double(value))
+	}
+	
+	static func torrentStatusDescription(_ torrent: Torrent) -> String {
 		switch torrent.status {
 		case .stopped:
-			description = stopped
+			return stopped
 		case .queuedVerifyLocalData:
-			description = queuedToVerifyLocalData
-		case .verifyinLocalData:
-			description = "\(verifyingLocalData) \(relativeDateFormatter.localizedString(fromTimeInterval: Double(torrent.eta)))"
+			return queuedToVerifyLocalData
+		case .verifyingLocalData:
+			return "\(verifyingLocalData) \(relativeEta(torrent.eta))"
 		case .queuedDownload:
-			description = queuedToDownload
+			return queuedToDownload
 		case .downloading:
-			description = "\(downloadCompletedIn) \(relativeDateFormatter.localizedString(fromTimeInterval: Double(torrent.eta)))"
+			return "\(downloadCompletedIn) \(relativeEta(torrent.eta))"
 		case .queuedToSeed:
-			description = queuedToSeed
+			return queuedToSeed
 		case .seeding:
-			description = seeding
+			return seeding
 		case .unknown:
-			description = unknown
+			return unknown
 		}
-		
+	}
+	
+	public static func map(_ torrent: Torrent) -> TorrentViewModel {
 		return TorrentViewModel(
 			id: torrent.id,
 			name: torrent.name,
 			error: torrent.errorString != "" ? torrent.errorString : nil,
-			description: description,
+			description: torrentStatusDescription(torrent),
 			completionPercentage: torrent.percentDone,
 			completionPercentageString: ((torrent.percentDone * 100).round() ?? "-") + "%",
 			downloaded: "\(Int(Double(torrent.totalSize) * torrent.percentDone).byteSize) \(of) \(torrent.totalSize.byteSize)",

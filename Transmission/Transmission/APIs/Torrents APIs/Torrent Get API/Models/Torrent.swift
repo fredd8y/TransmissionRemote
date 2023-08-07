@@ -15,7 +15,7 @@ public struct Torrent: Equatable {
 			switch status {
 			case 0: self = .stopped
 			case 1: self = .queuedVerifyLocalData
-			case 2: self = .verifyinLocalData
+			case 2: self = .verifyingLocalData
 			case 3: self = .queuedDownload
 			case 4: self = .downloading
 			case 5: self = .queuedToSeed
@@ -26,7 +26,7 @@ public struct Torrent: Equatable {
 		
 		case stopped
 		case queuedVerifyLocalData
-		case verifyinLocalData
+		case verifyingLocalData
 		case queuedDownload
 		case downloading
 		case queuedToSeed
