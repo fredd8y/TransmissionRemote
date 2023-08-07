@@ -80,6 +80,10 @@ public final class TorrentPresenter {
 			comment: "Description to show when torrent is in queue for seed")
 	}
 	
+	static func percentageString(_ value: Double) -> String {
+		((value * 100).round() ?? "-") + "%"
+	}
+	
 	static func relativeEta(_ value: Int) -> String {
 		let relativeDateFormatter = RelativeDateTimeFormatter()
 		relativeDateFormatter.locale = .current
@@ -95,7 +99,7 @@ public final class TorrentPresenter {
 		case .queuedVerifyLocalData:
 			return queuedToVerifyLocalData
 		case .verifyingLocalData:
-			return "\(verifyingLocalData) \(relativeEta(torrent.eta))"
+			return verifyingLocalData
 		case .queuedDownload:
 			return queuedToDownload
 		case .downloading:
@@ -116,7 +120,7 @@ public final class TorrentPresenter {
 			error: torrent.errorString != "" ? torrent.errorString : nil,
 			description: torrentStatusDescription(torrent),
 			completionPercentage: torrent.percentDone,
-			completionPercentageString: ((torrent.percentDone * 100).round() ?? "-") + "%",
+			completionPercentageString: percentageString(torrent.percentDone),
 			downloaded: "\(Int(Double(torrent.totalSize) * torrent.percentDone).byteSize) \(of) \(torrent.totalSize.byteSize)",
 			downloadSpeed: torrent.rateDownload.byteSize
 		)

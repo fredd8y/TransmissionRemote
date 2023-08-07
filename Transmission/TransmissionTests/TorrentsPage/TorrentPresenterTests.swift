@@ -85,7 +85,7 @@ final class TorrentPresenterTests: XCTorrentTestCase {
 		
 		let description = TorrentPresenter.torrentStatusDescription(torrent)
 		
-		XCTAssertEqual(description, "\(TorrentPresenter.verifyingLocalData) \(TorrentPresenter.relativeEta(torrent.eta))")
+		XCTAssertEqual(description, TorrentPresenter.verifyingLocalData)
 	}
 	
 	func test_torrentStatusDescription_queuedToDownload() {
