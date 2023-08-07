@@ -95,7 +95,9 @@ final class TorrentsPagePresentationAdapter {
 					}
 				}
 			},
-			receiveValue: { _ in }
+			receiveValue: { [weak self] _ in
+				self?.loadData(server: server)
+			}
 		).store(in: &addTorrentCancellable)
 	}
 	
@@ -120,7 +122,9 @@ final class TorrentsPagePresentationAdapter {
 					self?.torrentsPageViewModel.alertMessageVisible = true
 				}
 			},
-			receiveValue: { _ in }
+			receiveValue: { [weak self] _ in
+				self?.loadData(server: server)
+			}
 		).store(in: &deleteTorrentCancellable)
 	}
 	
