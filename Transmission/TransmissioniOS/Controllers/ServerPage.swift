@@ -14,7 +14,11 @@ public struct ServerPage: View {
 		self.viewModel = viewModel
 	}
 	
-	@ObservedObject var viewModel: ServerPageViewModel
+	@Environment(\.isPresented) var isPresented
+	
+	@ObservedObject private var viewModel: ServerPageViewModel
+	
+	@State private var tabBarVisibility: Visibility = .visible
 	
 	public var loadData: (() -> Void)?
 	
@@ -60,12 +64,20 @@ public struct ServerPage: View {
 					}
 				}
 			}
+			.toolbar(tabBarVisibility, for: .tabBar)
 			.onChange(of: viewModel.currentSelectedServerId) { newValue in
 				guard let newValue else { return }
 				selectServer?(newValue)
 			}
 		}.onAppear {
 			loadData?()
+			withAnimation {
+				tabBarVisibility = .hidden
+			}
+		}.onChange(of: isPresented) { _ in
+			withAnimation {
+				tabBarVisibility = .visible
+			}
 		}
     }
 }

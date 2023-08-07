@@ -74,7 +74,6 @@ class TorrentsPageTests: XCTestCase {
 			uploadSpeed: "5,5 MB/s",
 			downloadSpeed: "5,5 MB/s",
 			torrents: torrents,
-			showAlert: false,
 			emptyMessage: emptyMessage
 		)
 	}

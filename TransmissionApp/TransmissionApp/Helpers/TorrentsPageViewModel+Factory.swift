@@ -40,4 +40,16 @@ extension TorrentsPageViewModel {
 			emptyMessage: TorrentsPagePresenter.serverNotSet
 		)
 	}
+	
+	static func credentialRequired() -> TorrentsPageViewModel {
+		TorrentsPagePresenter.map(
+			title: TorrentsPagePresenter.title,
+			error: TorrentsPagePresenter.credentialRequired,
+			uploadSpeed: 0,
+			downloadSpeed: 0,
+			torrents: [],
+			emptyMessage: nil
+		)
+	}
+	
 }

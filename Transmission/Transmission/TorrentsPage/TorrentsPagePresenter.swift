@@ -32,7 +32,7 @@ public final class TorrentsPagePresenter {
 			comment: "Singular of torrent")
 	}
 	
-	public static var credentialRequested: String {
+	public static var credentialRequired: String {
 		NSLocalizedString(
 			"CREDENTIAL_NEEDED_TITLE",
 			tableName: "Torrents",
@@ -70,7 +70,6 @@ public final class TorrentsPagePresenter {
 		uploadSpeed: Int,
 		downloadSpeed: Int,
 		torrents: [Torrent],
-		showAlert: Bool = false,
 		emptyMessage: String?
 	) -> TorrentsPageViewModel {
 		return TorrentsPageViewModel(
@@ -81,7 +80,6 @@ public final class TorrentsPagePresenter {
 			torrents: torrents.map {
 				TorrentPresenter.map($0)
 			},
-			showAlert: showAlert,
 			emptyMessage: emptyMessage
 		)
 	}

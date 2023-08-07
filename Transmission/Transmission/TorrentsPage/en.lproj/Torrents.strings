@@ -12,7 +12,7 @@
 "TORRENT" = "Torrent";
 "USERNAME" = "Username";
 "PASSWORD" = "Password";
-"CREDENTIAL_NEEDED_TITLE" = "Credential requested";
+"CREDENTIAL_NEEDED_TITLE" = "Wrong or missing credential, add it to server configuration in settings tab";
 "OK" = "Ok";
 "UNDEFINED_ERROR" = "Something went wrong";
 "DOWNLOAD_COMPLETED_IN" = "Download will be completed";

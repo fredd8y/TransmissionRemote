@@ -74,6 +74,7 @@ public struct ServerDetailPage: View {
 					}.foregroundColor(.primary)
 				}
 			}
+			.toolbar(.hidden, for: .tabBar)
 		}
 	}
 }

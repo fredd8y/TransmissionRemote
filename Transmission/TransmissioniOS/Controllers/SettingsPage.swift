@@ -12,6 +12,8 @@ public struct SettingsPage: View {
 	
 	@ObservedObject var viewModel: SettingsPageViewModel
 	
+	@State private var tabBarVisibility: Visibility = .visible
+	
 	private var serverPage: ServerPage
 	
 	public init(viewModel: SettingsPageViewModel, serverPage: ServerPage) {
