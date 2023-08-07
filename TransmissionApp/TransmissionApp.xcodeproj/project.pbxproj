@@ -18,8 +18,6 @@
 		7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8132A6C158100B36367 /* TransmissionApp.swift */; };
 		7BC0D8182A6C158300B36367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC0D8172A6C158300B36367 /* Assets.xcassets */; };
 		7BC0D81B2A6C158300B36367 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC0D81A2A6C158300B36367 /* Preview Assets.xcassets */; };
-		7BC0D82F2A6C158300B36367 /* TransmissionAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D82E2A6C158300B36367 /* TransmissionAppUITests.swift */; };
-		7BC0D8312A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8302A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift */; };
 		7BC0D8432A6E3C4100B36367 /* Combine+Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8422A6E3C4100B36367 /* Combine+Publishers.swift */; };
 		7BC0D8452A6E3FE200B36367 /* TransmissionComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8442A6E3FE200B36367 /* TransmissionComposer.swift */; };
 		7BC0D84A2A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8492A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift */; };
@@ -33,13 +31,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		7BC0D8212A6C158300B36367 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7BC0D8082A6C158100B36367 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7BC0D80F2A6C158100B36367;
-			remoteInfo = TransmissionApp;
-		};
-		7BC0D82B2A6C158300B36367 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7BC0D8082A6C158100B36367 /* Project object */;
 			proxyType = 1;
@@ -77,9 +68,6 @@
 		7BC0D8172A6C158300B36367 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BC0D81A2A6C158300B36367 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7BC0D8202A6C158300B36367 /* TransmissionAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransmissionAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BC0D82A2A6C158300B36367 /* TransmissionAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransmissionAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BC0D82E2A6C158300B36367 /* TransmissionAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionAppUITests.swift; sourceTree = "<group>"; };
-		7BC0D8302A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7BC0D8422A6E3C4100B36367 /* Combine+Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Publishers.swift"; sourceTree = "<group>"; };
 		7BC0D8442A6E3FE200B36367 /* TransmissionComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionComposer.swift; sourceTree = "<group>"; };
 		7BC0D8492A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsPagePresentationAdapter.swift; sourceTree = "<group>"; };
@@ -106,13 +94,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7BC0D8272A6C158300B36367 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -129,7 +110,6 @@
 			children = (
 				7BC0D8122A6C158100B36367 /* TransmissionApp */,
 				7BC0D8232A6C158300B36367 /* TransmissionAppTests */,
-				7BC0D82D2A6C158300B36367 /* TransmissionAppUITests */,
 				7BC0D8112A6C158100B36367 /* Products */,
 				7BC0D84F2A6EAB3A00B36367 /* Frameworks */,
 			);
@@ -140,7 +120,6 @@
 			children = (
 				7BC0D8102A6C158100B36367 /* TransmissionApp.app */,
 				7BC0D8202A6C158300B36367 /* TransmissionAppTests.xctest */,
-				7BC0D82A2A6C158300B36367 /* TransmissionAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,15 +156,6 @@
 				7BBF3C612A742E3C001206A8 /* UserDefaultsHandlerTests.swift */,
 			);
 			path = TransmissionAppTests;
-			sourceTree = "<group>";
-		};
-		7BC0D82D2A6C158300B36367 /* TransmissionAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7BC0D82E2A6C158300B36367 /* TransmissionAppUITests.swift */,
-				7BC0D8302A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift */,
-			);
-			path = TransmissionAppUITests;
 			sourceTree = "<group>";
 		};
 		7BC0D8412A6E3C3700B36367 /* Helpers */ = {
@@ -256,24 +226,6 @@
 			productReference = 7BC0D8202A6C158300B36367 /* TransmissionAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7BC0D8292A6C158300B36367 /* TransmissionAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7BC0D83A2A6C158300B36367 /* Build configuration list for PBXNativeTarget "TransmissionAppUITests" */;
-			buildPhases = (
-				7BC0D8262A6C158300B36367 /* Sources */,
-				7BC0D8272A6C158300B36367 /* Frameworks */,
-				7BC0D8282A6C158300B36367 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7BC0D82C2A6C158300B36367 /* PBXTargetDependency */,
-			);
-			name = TransmissionAppUITests;
-			productName = TransmissionAppUITests;
-			productReference = 7BC0D82A2A6C158300B36367 /* TransmissionAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -290,10 +242,6 @@
 					7BC0D81F2A6C158300B36367 = {
 						CreatedOnToolsVersion = 14.2;
 						LastSwiftMigration = 1420;
-						TestTargetID = 7BC0D80F2A6C158100B36367;
-					};
-					7BC0D8292A6C158300B36367 = {
-						CreatedOnToolsVersion = 14.2;
 						TestTargetID = 7BC0D80F2A6C158100B36367;
 					};
 				};
@@ -313,7 +261,6 @@
 			targets = (
 				7BC0D80F2A6C158100B36367 /* TransmissionApp */,
 				7BC0D81F2A6C158300B36367 /* TransmissionAppTests */,
-				7BC0D8292A6C158300B36367 /* TransmissionAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -329,13 +276,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7BC0D81E2A6C158300B36367 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7BC0D8282A6C158300B36367 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -373,15 +313,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7BC0D8262A6C158300B36367 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7BC0D8312A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift in Sources */,
-				7BC0D82F2A6C158300B36367 /* TransmissionAppUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -389,11 +320,6 @@
 			isa = PBXTargetDependency;
 			target = 7BC0D80F2A6C158100B36367 /* TransmissionApp */;
 			targetProxy = 7BC0D8212A6C158300B36367 /* PBXContainerItemProxy */;
-		};
-		7BC0D82C2A6C158300B36367 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7BC0D80F2A6C158100B36367 /* TransmissionApp */;
-			targetProxy = 7BC0D82B2A6C158300B36367 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -623,42 +549,6 @@
 			};
 			name = Release;
 		};
-		7BC0D83B2A6C158300B36367 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UYXPW2Z6TM;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.transmission.test.it.TransmissionAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TransmissionApp;
-			};
-			name = Debug;
-		};
-		7BC0D83C2A6C158300B36367 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UYXPW2Z6TM;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.transmission.test.it.TransmissionAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TransmissionApp;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -685,15 +575,6 @@
 			buildConfigurations = (
 				7BC0D8382A6C158300B36367 /* Debug */,
 				7BC0D8392A6C158300B36367 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7BC0D83A2A6C158300B36367 /* Build configuration list for PBXNativeTarget "TransmissionAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7BC0D83B2A6C158300B36367 /* Debug */,
-				7BC0D83C2A6C158300B36367 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
