@@ -63,14 +63,14 @@ class SessionGetMapperTest: XCTestCase {
 	}
 	
 	func test_map_deliversSessionItemOn200HTTPResponseWithValidJSON() {
-		let arguments = makeSessionItem()
+		let sessionItem = makeSessionItem()
 
-		let json = makeJSON(fromDictionary: arguments.json)
+		let json = makeJSON(fromDictionary: sessionItem.json)
 
 		do {
-			let sessionItem = try SessionGetMapper.map(json, from: HTTPURLResponse(statusCode: 200))
+			let result = try SessionGetMapper.map(json, from: HTTPURLResponse(statusCode: 200))
 
-			XCTAssertEqual(sessionItem, arguments.model)
+			XCTAssertEqual(result, sessionItem.model)
 		} catch {
 			XCTFail("Expected no exception, got \(error.localizedDescription) instead")
 		}
