@@ -82,6 +82,7 @@ class ServerDetailPagePresentationAdapter {
 				servers.append(server)
 			}
 			try ServerSetMapper.map(servers).write(to: url)
+			UserDefaultsHandler.shared.currentServer = server
 		} catch {
 			// TODO: Handle error
 			dump(error)

@@ -38,7 +38,8 @@ class UserDefaultsHandler {
 			let httpProtocol = HTTPProtocol(rawValue: stringHTTPProtocol),
 			let serverIp = UserDefaults.standard.string(forKey: UserDefaultsKeys.serverIp.rawValue),
 			let serverPort = UserDefaults.standard.value(forKey: UserDefaultsKeys.serverPort.rawValue) as? Int,
-			let serverId = UserDefaults.standard.value(forKey: UserDefaultsKeys.serverId.rawValue) as? UUID
+			let serverIdString = UserDefaults.standard.value(forKey: UserDefaultsKeys.serverId.rawValue) as? String,
+			let serverId = UUID(uuidString: serverIdString)
 		{
 			currentServer = Server(
 				name: serverName,

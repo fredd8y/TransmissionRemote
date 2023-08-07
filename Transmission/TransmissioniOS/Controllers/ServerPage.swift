@@ -9,15 +9,13 @@ import SwiftUI
 import Transmission
 
 public struct ServerPage: View {
+	
 	public init(viewModel: ServerPageViewModel) {
 		self.viewModel = viewModel
-		_selection = State(initialValue: viewModel.currentSelectedServerId)
 	}
 	
 	@ObservedObject var viewModel: ServerPageViewModel
-		
-	@State private var selection: UUID?
-		
+	
 	public var loadData: (() -> Void)?
 	
 	public var selectedServer: ((UUID) -> ServerDetailPage?)?
@@ -26,7 +24,7 @@ public struct ServerPage: View {
 		
     public var body: some View {
 		NavigationStack {
-			List(viewModel.servers, selection: $selection) { server in
+			List(viewModel.servers, selection: $viewModel.currentSelectedServerId) { server in
 				VStack(alignment: .leading, spacing: 8) {
 					Text(server.title)
 						.font(.subheadline)

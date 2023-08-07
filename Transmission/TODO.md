@@ -7,6 +7,7 @@ Improvement
 
 TODO
 
+-	Improve server selection UI
 -	Add error to ServerDetailPage
 -	Remove ObservedObject from torrentsPageViewModel
 -	Crypt password before saving it in userDefaults

@@ -24,7 +24,7 @@ public class ServerPageViewModel: ObservableObject, Equatable {
 	@Published public var title: String
 	@Published public var servers: [ServerViewModel]
 	public var editItemActionTitle: String
-	public var currentSelectedServerId: UUID?
+	@Published public var currentSelectedServerId: UUID?
 	
 	public static func == (lhs: ServerPageViewModel, rhs: ServerPageViewModel) -> Bool {
 		lhs.title == rhs.title &&

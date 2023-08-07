@@ -31,7 +31,9 @@ public struct ServerDetailPage: View {
 	private var viewModel: ServerDetailPageViewModel
 	
 	@State private var title: String
+	
 	@State private var dataModel: ServerDetailPageDataModel
+	
 	@State private var error: Error?
 	
 	public var body: some View {

@@ -58,6 +58,6 @@ final class TransmissionHTTPClient {
 
 private extension Server {
 	var baseURL: URL {
-		return URL(string: "\(httpProtocol.rawValue)//:\(ip):\(port)")!
+		return URL(string: url)!
 	}
 }

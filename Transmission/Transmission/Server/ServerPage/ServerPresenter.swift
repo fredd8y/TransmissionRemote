@@ -16,9 +16,3 @@ public class ServerPresenter {
 		)
 	}
 }
-
-private extension Server {
-	var url: String {
-		return "\(httpProtocol.rawValue)//:\(ip):\(port)"
-	}
-}

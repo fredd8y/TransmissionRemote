@@ -26,4 +26,16 @@ final class ServerPresenterTests: XCTestCase {
 		XCTAssertEqual(viewModel.id, id)
 	}
 	
+	func test_server_createsUrl() {
+		let server = Server(
+			name: "a name",
+			httpProtocol: .http,
+			ip: "192.168.1.1",
+			port: 9091,
+			id: UUID()
+		)
+		
+		XCTAssertEqual(server.url, "http://192.168.1.1:9091")
+	}
+	
 }

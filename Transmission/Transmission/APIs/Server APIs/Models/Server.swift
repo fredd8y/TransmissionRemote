@@ -33,4 +33,8 @@ public struct Server: Equatable {
 	public let username: String?
 	public let password: String?
 	public let id: UUID
+	
+	public var url: String {
+		return "\(httpProtocol.rawValue)://\(ip):\(port)"
+	}
 }
