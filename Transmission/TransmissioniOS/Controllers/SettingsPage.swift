@@ -24,11 +24,11 @@ public struct SettingsPage: View {
 				VStack(alignment: .leading) {
 					Text(viewModel.updateIntervalTitle)
 						.font(.subheadline)
-					Picker(viewModel.updateIntervalTitle, selection: $viewModel.currentSelectedIntervalIndex) {
+					Picker(viewModel.updateIntervalTitle, selection: $viewModel.currentSelectedInterval) {
 						ForEach(viewModel.updateIntervalList, id: \.self) { Text($0) }
 					}
 					.pickerStyle(.segmented)
-					.onChange(of: viewModel.currentSelectedIntervalIndex) { newValue in
+					.onChange(of: viewModel.currentSelectedInterval) { newValue in
 						// TODO: call closure to handle change
 					}
 				}

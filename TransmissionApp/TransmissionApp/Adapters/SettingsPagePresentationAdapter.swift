@@ -71,7 +71,7 @@ private extension SettingsViewModel {
 		title = viewModel.title
 		updateIntervalTitle = viewModel.updateIntervalTitle
 		updateIntervalList = viewModel.updateIntervalList
-		currentSelectedIntervalIndex = viewModel.currentSelectedIntervalIndex
+		currentSelectedInterval = viewModel.currentSelectedInterval
 		serversTitle = viewModel.serversTitle
 		currentServerName = viewModel.currentServerName
 	}
