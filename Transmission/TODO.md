@@ -7,7 +7,6 @@ Improvement
 TODO
 
 -	Fix selected interval index from observedobject
--	Handle non-existing server file
 -	Try to hide Codable detail from Transmission Server class 
 -	Settings with multiple servers
 	-	Server name
