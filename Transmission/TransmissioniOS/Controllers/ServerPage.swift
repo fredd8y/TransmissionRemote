@@ -49,6 +49,7 @@ public struct ServerPage: View {
 			withAnimation {
 				showNavigationBar = .hidden
 			}
+			loadData?()
 		}
     }
 }
