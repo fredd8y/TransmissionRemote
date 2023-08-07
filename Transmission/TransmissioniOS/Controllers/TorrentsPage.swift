@@ -125,7 +125,7 @@ struct TorrentsPage_Previews: PreviewProvider {
 						downloadSpeed: "5,6MB"
 					)
 				],
-				showAlert: true
+				showAlert: false
 			)
 		)
     }
