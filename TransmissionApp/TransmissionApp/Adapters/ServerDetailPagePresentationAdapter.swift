@@ -14,12 +14,8 @@ class ServerDetailPagePresentationAdapter {
 	
 	private var cancellable: Cancellable?
 	
-	private let serverFileName = "servers.json"
-		
-	private lazy var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appending(component: serverFileName)
-	
 	func showServerDetail(_ id: UUID) -> ServerDetailPage? {
-		guard let url else { return nil }
+		guard let url = ServerFile.url else { return nil }
 		do {
 			guard let server = try ServerGetMapper.map(try Data(contentsOf: url)).first(where: { $0.id == id }) else {
 				return nil
@@ -57,7 +53,7 @@ class ServerDetailPagePresentationAdapter {
 				password: model.password == "" ? nil : model.password,
 				id: model.id
 			)
-			guard let url else {
+			guard let url = ServerFile.url else {
 				// TODO: Handle error
 				return nil
 			}
