@@ -6,9 +6,9 @@ Improvement
 
 TODO
 
+-	Try to fix UserDefaultsFailing test
 -	Handle error in server adapter when save throws
 -	Comment public functions
--	Crypt password before saving it in userDefaults
 -	Torrent Detail
 -	Quick action button to perform action on all torrents
 
