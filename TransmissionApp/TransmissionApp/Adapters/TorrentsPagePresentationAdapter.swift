@@ -102,10 +102,7 @@ final class TorrentsPagePresentationAdapter {
 			torrentsPageViewModel.newValues(TorrentsPageViewModel.serverNotSet())
 			return
 		}
-		Publishers.Zip(
-			TransmissionHTTPClient.makeRemoteSessionLoader(server: server),
-			TransmissionHTTPClient.makeRemoteTorrentsLoader(server: server)
-		)
+		TransmissionHTTPClient.makeRemoteTorrentsLoader(server: server)
 		.dispatchOnMainQueue()
 		.sink(
 			receiveCompletion: { [weak self] completion in
@@ -131,7 +128,7 @@ final class TorrentsPagePresentationAdapter {
 					}
 				}
 			},
-			receiveValue: { (_, torrents) in
+			receiveValue: { torrents in
 				let viewModel = TorrentsPagePresenter.map(
 					title: TorrentsPagePresenter.title,
 					error: nil,

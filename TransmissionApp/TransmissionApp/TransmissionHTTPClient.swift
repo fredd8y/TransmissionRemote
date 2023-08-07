@@ -51,7 +51,7 @@ final class TransmissionHTTPClient {
 			.eraseToAnyPublisher()
 	}
 	
-	static func makeRemoteSessionLoader(server: Server) -> AnyPublisher<Session, Error> {
+	static func makeRemoteTorrentsLoader(server: Server) -> AnyPublisher<[Torrent], Error> {
 		return httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
@@ -60,16 +60,17 @@ final class TransmissionHTTPClient {
 			)
 			.tryMap(TransmissionHTTPClient.log)
 			.tryMap(SessionGetMapper.map)
-			.eraseToAnyPublisher()
-	}
-
-	static func makeRemoteTorrentsLoader(server: Server) -> AnyPublisher<[Torrent], Error> {
-		return httpClient
-			.postPublisher(
-				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: TorrentBodies.get(TorrentField.minimumTorrentField),
-				additionalHeader: headers(server)
-			)
+			.flatMap { _ in
+				Future { promise in
+					httpClient.post(
+						APIsEndpoint.post.url(baseURL: server.baseURL),
+						body: TorrentBodies.get(TorrentField.minimumTorrentField),
+						additionalHeader: headers(server)
+					) { result in
+						promise(result)
+					}
+				}
+			}
 			.tryMap(TransmissionHTTPClient.log)
 			.tryMap(TorrentGetMapper.map)
 			.eraseToAnyPublisher()
