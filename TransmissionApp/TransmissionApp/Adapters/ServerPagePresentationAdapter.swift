@@ -40,7 +40,7 @@ class ServerPagePresentationAdapter {
 						// we create an empty server file and we relaunch loadData()
 						if error is ServerPublishers.Error {
 							do {
-								try JSONEncoder().encode(try ServerSetMapper.map([])).write(to: url)
+								try ServerSetMapper.map([]).write(to: url)
 								self?.loadData()
 							} catch {
 								// TODO: Handle error on SettingsPage
