@@ -11,9 +11,9 @@ extension SettingsViewModel {
 	static func empty() -> SettingsViewModel {
 		SettingsViewModel(
 			title: SettingsPresenter.title,
-			updateIntervalTitle: SettingsPresenter.updateIntervalTitle,
-			updateIntervalList: ["-"],
-			currentSelectedIntervalIndex: "-",
+			pollingRateTitle: SettingsPresenter.pollingRateTitle,
+			pollingRateList: ["-"],
+			currentSelectedPollingRate: "-",
 			serversTitle: SettingsPresenter.serverTitle,
 			currentServerName: "-"
 		)

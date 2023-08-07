@@ -10,24 +10,24 @@ import SwiftUI
 public class SettingsViewModel: ObservableObject {
 	public init(
 		title: String,
-		updateIntervalTitle: String,
-		updateIntervalList: [String],
-		currentSelectedIntervalIndex: String,
+		pollingRateTitle: String,
+		pollingRateList: [String],
+		currentSelectedPollingRate: String,
 		serversTitle: String,
 		currentServerName: String
 	) {
 		self.title = title
-		self.updateIntervalTitle = updateIntervalTitle
-		self.updateIntervalList = updateIntervalList
-		self.currentSelectedInterval = currentSelectedIntervalIndex
+		self.pollingRateTitle = pollingRateTitle
+		self.pollingRateList = pollingRateList
+		self.currentSelectedPollingRate = currentSelectedPollingRate
 		self.serversTitle = serversTitle
 		self.currentServerName = currentServerName
 	}
 		
 	@Published public var title: String
-	@Published public var updateIntervalTitle: String
-	@Published public var updateIntervalList: [String]
-	@Published public var currentSelectedInterval: String
+	@Published public var pollingRateTitle: String
+	@Published public var pollingRateList: [String]
+	@Published public var currentSelectedPollingRate: String
 	@Published public var serversTitle: String
 	@Published public var currentServerName: String
 }

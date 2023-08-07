@@ -21,7 +21,7 @@ final class SettingsPresenterTests: XCTestCase {
 	}
 	
 	func test_updateIntervalTitle_isLocalized() {
-		XCTAssertEqual(SettingsPresenter.updateIntervalTitle, localized("UPDATE_INTERVAL_TITLE", table: table))
+		XCTAssertEqual(SettingsPresenter.pollingRateTitle, localized("UPDATE_INTERVAL_TITLE", table: table))
 	}
 
 	func test_serverTitle_isLocalized() {
@@ -50,8 +50,8 @@ final class SettingsPresenterTests: XCTestCase {
 		)
 		
 		XCTAssertEqual(viewModel.title, title)
-		XCTAssertEqual(viewModel.updateIntervalTitle, updateIntervalTitle)
-		XCTAssertEqual(viewModel.updateIntervalList, updateIntervalList.map { "\($0) \(SettingsPresenter.seconds)" })
+		XCTAssertEqual(viewModel.pollingRateTitle, updateIntervalTitle)
+		XCTAssertEqual(viewModel.pollingRateList, updateIntervalList.map { "\($0) \(SettingsPresenter.seconds)" })
 		XCTAssertEqual(viewModel.currentSelectedIntervalIndex, currentSelectedIntervalIndex)
 		XCTAssertEqual(viewModel.serversTitle, serversTitle)
 		XCTAssertEqual(viewModel.currentServerName, currentServerName)

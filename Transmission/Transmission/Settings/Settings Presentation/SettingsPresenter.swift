@@ -24,7 +24,7 @@ public class SettingsPresenter {
 			comment: "Update interval seconds word")
 	}
 	
-	public static var updateIntervalTitle: String {
+	public static var pollingRateTitle: String {
 		NSLocalizedString(
 			"UPDATE_INTERVAL_TITLE",
 			tableName: "Settings",
@@ -50,17 +50,17 @@ public class SettingsPresenter {
 	
 	public static func map(
 		title: String,
-		updateIntervalTitle: String,
-		updateIntervalList: [Int],
-		currentSelectedIntervalIndex: Int,
+		pollingRateTitle: String,
+		pollingRateList: [Int],
+		currentSelectedPollingRate: Int,
 		serversTitle: String,
 		currentServerName: String
 	) -> SettingsViewModel {
 		SettingsViewModel(
 			title: title,
-			updateIntervalTitle: updateIntervalTitle,
-			updateIntervalList: updateIntervalList.map { secondString($0) },
-			currentSelectedIntervalIndex: secondString(updateIntervalList[currentSelectedIntervalIndex]),
+			pollingRateTitle: pollingRateTitle,
+			pollingRateList: pollingRateList.map { secondString($0) },
+			currentSelectedPollingRate: secondString(pollingRateList[currentSelectedPollingRate]),
 			serversTitle: serversTitle,
 			currentServerName: currentServerName
 		)

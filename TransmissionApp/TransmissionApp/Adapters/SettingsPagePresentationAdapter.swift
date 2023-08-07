@@ -51,12 +51,12 @@ class SettingsPagePresentationAdapter {
 						break
 					}
 				},
-				receiveValue: { [weak self] (servers, updateIntervals, currentUpdateInterval) in
+				receiveValue: { [weak self] (servers, pollingRateList, currentPollingRate) in
 					let viewModel = SettingsPresenter.map(
 						title: SettingsPresenter.title,
-						updateIntervalTitle: SettingsPresenter.updateIntervalTitle,
-						updateIntervalList: updateIntervals,
-						currentSelectedIntervalIndex: updateIntervals.firstIndex(of: currentUpdateInterval) ?? 0,
+						pollingRateTitle: SettingsPresenter.pollingRateTitle,
+						pollingRateList: pollingRateList,
+						currentSelectedPollingRate: pollingRateList.firstIndex(of: currentPollingRate) ?? 0,
 						serversTitle: SettingsPresenter.serverTitle,
 						currentServerName: servers.first(where: { $0.selected })?.name ?? SettingsPresenter.serverNotAvailable
 					)
@@ -74,9 +74,9 @@ class SettingsPagePresentationAdapter {
 private extension SettingsViewModel {
 	func newValues(_ viewModel: SettingsViewModel) {
 		title = viewModel.title
-		updateIntervalTitle = viewModel.updateIntervalTitle
-		updateIntervalList = viewModel.updateIntervalList
-		currentSelectedInterval = viewModel.currentSelectedInterval
+		pollingRateTitle = viewModel.pollingRateTitle
+		pollingRateList = viewModel.pollingRateList
+		currentSelectedPollingRate = viewModel.currentSelectedPollingRate
 		serversTitle = viewModel.serversTitle
 		currentServerName = viewModel.currentServerName
 	}

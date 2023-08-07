@@ -24,14 +24,14 @@ public struct SettingsPage: View {
 		NavigationStack {
 			List {
 				VStack(alignment: .leading) {
-					Text(viewModel.updateIntervalTitle)
+					Text(viewModel.pollingRateTitle)
 						.font(.subheadline)
-					Picker(viewModel.updateIntervalTitle, selection: $viewModel.currentSelectedInterval) {
-						ForEach(viewModel.updateIntervalList, id: \.self) { Text($0) }
+					Picker(viewModel.pollingRateTitle, selection: $viewModel.currentSelectedPollingRate) {
+						ForEach(viewModel.pollingRateList, id: \.self) { Text($0) }
 					}
 					.pickerStyle(.segmented)
-					.onChange(of: viewModel.currentSelectedInterval) { newValue in
-						updateIntervalSelected?(newValue, viewModel.updateIntervalList)
+					.onChange(of: viewModel.currentSelectedPollingRate) { newValue in
+						updateIntervalSelected?(newValue, viewModel.pollingRateList)
 					}
 				}
 				NavigationLink {
@@ -60,9 +60,9 @@ struct SettingsPage_Previews: PreviewProvider {
     static var previews: some View {
         SettingsPage(viewModel: SettingsViewModel(
 			title: "Settings",
-			updateIntervalTitle: "Update interval",
-			updateIntervalList: ["2 seconds", "5 seconds", "10 seconds", "30 seconds"],
-			currentSelectedIntervalIndex: "5 seconds",
+			pollingRateTitle: "Update interval",
+			pollingRateList: ["2 seconds", "5 seconds", "10 seconds", "30 seconds"],
+			currentSelectedPollingRate: "5 seconds",
 			serversTitle: "Server",
 			currentServerName: "Raspberry"
 		))
