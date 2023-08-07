@@ -21,4 +21,32 @@ class TorrentRemoveMapperTests: XCTestCase {
 		}
 	}
 	
+	func test_map_throwsErrorOnResponseWithoutSuccessResult() throws {
+		let (json, apiError) = makeResponseWithFailure()
+		
+		let jsonData = makeJSON(fromDictionary: json)
+		
+		do {
+			_ = try TorrentRemoveMapper.map(jsonData, from: HTTPURLResponse(statusCode: 200))
+		} catch {
+			if case let TorrentRemoveMapper.Error.failed(explanation) = error {
+				XCTAssertEqual(explanation, apiError)
+			} else {
+				XCTFail("Expected TorrentRemoveMapper.Error.failed, got \(error) instead")
+			}
+		}
+	}
+	
+	// MARK: - Helpers
+	
+	private func makeResponseWithFailure() -> (json: [String: Any], error: String) {
+		let error = "failed for some reason"
+		
+		let json: [String: Any] = [
+			"result": error
+		]
+		return (json, error)
+	}
+	
+	
 }
