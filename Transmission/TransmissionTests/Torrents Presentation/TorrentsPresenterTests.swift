@@ -10,36 +10,38 @@ import Transmission
 
 final class TorrentsPresenterTests: XCTestCase {
 	
+	private let table = "Torrents"
+	
 	func test_title_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.title, localized("TORRENTS_VIEW_TITLE"))
+		XCTAssertEqual(TorrentsPresenter.title, localized("TORRENTS_VIEW_TITLE", table: table))
 	}
 	
 	func test_torrents_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.torrents, localized("TORRENTS"))
+		XCTAssertEqual(TorrentsPresenter.torrents, localized("TORRENTS", table: table))
 	}
 	
 	func test_torrent_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.torrent, localized("TORRENT"))
+		XCTAssertEqual(TorrentsPresenter.torrent, localized("TORRENT", table: table))
 	}
 	
 	func test_username_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.username, localized("USERNAME"))
+		XCTAssertEqual(TorrentsPresenter.username, localized("USERNAME", table: table))
 	}
 	
 	func test_password_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.password, localized("PASSWORD"))
+		XCTAssertEqual(TorrentsPresenter.password, localized("PASSWORD", table: table))
 	}
 	
 	func test_credentialRequested_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.credentialRequested, localized("CREDENTIAL_NEEDED_TITLE"))
+		XCTAssertEqual(TorrentsPresenter.credentialRequested, localized("CREDENTIAL_NEEDED_TITLE", table: table))
 	}
 	
 	func test_ok_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.ok, localized("OK"))
+		XCTAssertEqual(TorrentsPresenter.ok, localized("OK", table: table))
 	}
 	
 	func test_undefinedError_isLocalized() {
-		XCTAssertEqual(TorrentsPresenter.undefinedError, localized("UNDEFINED_ERROR"))
+		XCTAssertEqual(TorrentsPresenter.undefinedError, localized("UNDEFINED_ERROR", table: table))
 	}
 	
 	func test_map_createsViewModelWithNoError() {

@@ -1,0 +1,10 @@
+/* 
+  Settings.strings
+  Transmission
+
+  Created by Federico Arvat on 27/07/23.
+  
+*/
+
+"SETTINGS_PAGE_TITLE" = "Settings";
+"SECONDS" = "Seconds";

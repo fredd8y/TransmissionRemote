@@ -10,16 +10,18 @@ import Transmission
 
 final class TorrentPresenterTests: XCTestCase {
 	
+	private let table = "Torrents"
+	
 	func test_of_isLocalized() {
-		XCTAssertEqual(TorrentPresenter.of, localized("TORRENT_ITEM_OF_PREPOSITION"))
+		XCTAssertEqual(TorrentPresenter.of, localized("TORRENT_ITEM_OF_PREPOSITION", table: table))
 	}
 	
 	func test_downloadCompletedIn_isLocalized() {
-		XCTAssertEqual(TorrentPresenter.downloadCompletedIn, localized("DOWNLOAD_COMPLETED_IN"))
+		XCTAssertEqual(TorrentPresenter.downloadCompletedIn, localized("DOWNLOAD_COMPLETED_IN", table: table))
 	}
 	
 	func test_completed_isLocalized() {
-		XCTAssertEqual(TorrentPresenter.completed, localized("COMPLETED"))
+		XCTAssertEqual(TorrentPresenter.completed, localized("COMPLETED", table: table))
 	}
 	
 	func test_map_createsViewModelWithNilError() {
