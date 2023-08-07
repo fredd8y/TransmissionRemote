@@ -16,6 +16,38 @@ public final class TorrentsPresenter {
 			comment: "Title for the torrents view")
 	}
 	
+	public static var torrents: String {
+		NSLocalizedString(
+			"TORRENTS",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPresenter.self),
+			comment: "Plural of torrent")
+	}
+	
+	public static var torrent: String {
+		NSLocalizedString(
+			"TORRENT",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPresenter.self),
+			comment: "Singular of torrent")
+	}
+	
+	public static var username: String {
+		NSLocalizedString(
+			"USERNAME",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPresenter.self),
+			comment: "Credential alert username placeholer")
+	}
+	
+	public static var password: String {
+		NSLocalizedString(
+			"PASSWORD",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPresenter.self),
+			comment: "Credential alert password placeholer")
+	}
+	
 	public static func map(
 		title: String,
 		error: String?,

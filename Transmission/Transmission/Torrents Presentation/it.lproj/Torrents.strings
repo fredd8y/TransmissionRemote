@@ -6,6 +6,10 @@
   
 */
 
-"TORRENTS_VIEW_TITLE" = "Torrents";
+"TORRENTS_VIEW_TITLE" = "Transmission";
 "TORRENT_ITEM_OF_PREPOSITION" = "di";
 "TORRENT_ITEM_ETA" = "ETA";
+"TORRENTS" = "Torrents";
+"TORRENT" = "Torrent";
+"USERNAME" = "Username";
+"PASSWORD" = "Password";

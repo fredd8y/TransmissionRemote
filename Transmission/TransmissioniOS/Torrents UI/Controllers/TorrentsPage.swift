@@ -94,7 +94,7 @@ public struct TorrentsPage: View {
 	}
 	
 	private var torrentsDescription: String {
-		let description = torrents.count == 1 ? "torrent" : "torrents"
+		let description = torrents.count == 1 ? TorrentsPresenter.torrent : TorrentsPresenter.torrents
 		return "\(torrents.count) \(description)"
 	}
 }

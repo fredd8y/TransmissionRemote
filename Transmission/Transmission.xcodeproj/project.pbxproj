@@ -450,7 +450,6 @@
 			isa = PBXGroup;
 			children = (
 				7B8CB83E2A66C8CE001A4D90 /* Controllers */,
-				7B8CB83F2A66C8DA001A4D90 /* Views */,
 			);
 			path = "Torrents UI";
 			sourceTree = "<group>";
@@ -461,13 +460,6 @@
 				7B8CB8422A66CAE2001A4D90 /* TorrentsPage.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		7B8CB83F2A66C8DA001A4D90 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		7B9305B02A0F998B005EBE56 /* URLSessionHTTPClient */ = {
