@@ -13,15 +13,32 @@ public final class SessionGetMapper {
 		return "X-Transmission-Session-Id"
 	}
 	
-	public enum Error: Swift.Error {
+	public enum Error: Swift.Error, Equatable {
 		case invalidData
+		case authenticationFailed
 		case missingSessionId(sessionIdValue: Any?)
+		
+		public static func == (lhs: SessionGetMapper.Error, rhs: SessionGetMapper.Error) -> Bool {
+			switch (lhs, rhs) {
+			case (.invalidData, .invalidData):
+				return true
+			case (.authenticationFailed, .authenticationFailed):
+				return true
+			case (.missingSessionId, .missingSessionId):
+				return true
+			default:
+				return false
+			}
+		}
 	}
 	
 	public static func map(_ data: Data, from response: HTTPURLResponse) throws -> Session {
 		guard response.isOK, let remoteSessionItem = try? JSONDecoder().decode(RemoteSession.self, from: data) else {
 			if response.isMissingSessionId {
 				throw Error.missingSessionId(sessionIdValue: response.allHeaderFields[sessionIdKey])
+			}
+			if response.isAuthenticationFailed {
+				throw Error.authenticationFailed
 			}
 			throw Error.invalidData
 		}

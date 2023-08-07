@@ -9,6 +9,21 @@ import XCTest
 import Transmission
 
 class SessionGetMapperTest: XCTestCase {
+	
+	func test_map_throwsAuthenticationErrorOn401HTTPStatus() throws {
+		let json = makeJSON(fromDictionary: [:])
+		
+		do {
+			_ = try SessionGetMapper.map(json, from: HTTPURLResponse(statusCode: 401))
+		} catch {
+			XCTAssertEqual(
+				(error as! SessionGetMapper.Error),
+				SessionGetMapper.Error.authenticationFailed,
+				"Expected authenticationFailed error, got \(error) instead"
+			)
+		}
+	}
+	
 	func test_map_throwsErrorOnHTTPResponseStatusCodeDifferentThan200And409() throws {
 		let json = makeJSON(fromDictionary: [:])
 		let samples = [199, 201, 300, 408, 410, 500]
