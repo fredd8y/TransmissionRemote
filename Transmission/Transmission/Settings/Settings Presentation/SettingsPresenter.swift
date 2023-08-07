@@ -60,7 +60,7 @@ public class SettingsPresenter {
 			title: title,
 			updateIntervalTitle: updateIntervalTitle,
 			updateIntervalList: updateIntervalList.map { "\($0) \(seconds)" },
-			currentSelectedIntervalIndex: currentSelectedIntervalIndex,
+			currentSelectedIntervalIndex: "\(updateIntervalList[currentSelectedIntervalIndex]) \(seconds)",
 			serversTitle: serversTitle,
 			currentServerName: currentServerName
 		)

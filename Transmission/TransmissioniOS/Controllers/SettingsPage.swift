@@ -12,12 +12,8 @@ public struct SettingsPage: View {
 	
 	@ObservedObject var viewModel: SettingsViewModel
 	
-	@State private var selectedUpdateInterval: String
-	
 	public init(viewModel: SettingsViewModel) {
 		self.viewModel = viewModel
-		
-		selectedUpdateInterval = viewModel.updateIntervalList[viewModel.currentSelectedIntervalIndex]
 	}
 	
 	public var loadData: (() -> Void)?
@@ -28,14 +24,12 @@ public struct SettingsPage: View {
 				VStack(alignment: .leading) {
 					Text(viewModel.updateIntervalTitle)
 						.font(.subheadline)
-					Picker(viewModel.updateIntervalTitle, selection: $selectedUpdateInterval) {
+					Picker(viewModel.updateIntervalTitle, selection: $viewModel.currentSelectedIntervalIndex) {
 						ForEach(viewModel.updateIntervalList, id: \.self) { Text($0) }
 					}
 					.pickerStyle(.segmented)
-					.onChange(of: selectedUpdateInterval) { newValue in
-						if let index = viewModel.updateIntervalList.firstIndex(of: newValue) {
-							viewModel.currentSelectedIntervalIndex = index
-						}
+					.onChange(of: viewModel.currentSelectedIntervalIndex) { newValue in
+						// TODO: call closure to handle change
 					}
 				}
 				NavigationLink {
@@ -66,7 +60,7 @@ struct SettingsPage_Previews: PreviewProvider {
 			title: "Settings",
 			updateIntervalTitle: "Update interval",
 			updateIntervalList: ["2 seconds", "5 seconds", "10 seconds", "30 seconds"],
-			currentSelectedIntervalIndex: 0,
+			currentSelectedIntervalIndex: "5 seconds",
 			serversTitle: "Server",
 			currentServerName: "Raspberry"
 		))

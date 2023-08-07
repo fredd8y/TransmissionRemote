@@ -12,7 +12,7 @@ public class SettingsViewModel: ObservableObject {
 		title: String,
 		updateIntervalTitle: String,
 		updateIntervalList: [String],
-		currentSelectedIntervalIndex: Int,
+		currentSelectedIntervalIndex: String,
 		serversTitle: String,
 		currentServerName: String
 	) {
@@ -27,7 +27,7 @@ public class SettingsViewModel: ObservableObject {
 	@Published public var title: String
 	@Published public var updateIntervalTitle: String
 	@Published public var updateIntervalList: [String]
-	@Published public var currentSelectedIntervalIndex: Int
+	@Published public var currentSelectedIntervalIndex: String
 	@Published public var serversTitle: String
 	@Published public var currentServerName: String
 }

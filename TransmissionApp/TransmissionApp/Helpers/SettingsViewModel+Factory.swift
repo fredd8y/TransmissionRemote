@@ -13,7 +13,7 @@ extension SettingsViewModel {
 			title: SettingsPresenter.title,
 			updateIntervalTitle: SettingsPresenter.updateIntervalTitle,
 			updateIntervalList: ["-"],
-			currentSelectedIntervalIndex: 0,
+			currentSelectedIntervalIndex: "-",
 			serversTitle: SettingsPresenter.serverTitle,
 			currentServerName: "-"
 		)
