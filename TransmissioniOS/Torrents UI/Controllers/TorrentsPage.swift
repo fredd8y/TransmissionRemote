@@ -10,20 +10,18 @@ import Transmission
 
 public struct TorrentsPage: View {
 	
-	/// Typealias created to avoid having to import Transmission framework
-	/// when using this struct
-	public typealias TorrentViewModel = Transmission.TorrentViewModel
-	
-	public init(title: String, torrents: [TorrentViewModel], error: String?) {
-		_title = State(initialValue: title)
-		_error = State(initialValue: error)
-		_torrents = State(initialValue: torrents)
+	public init(model: TorrentsViewModel) {
+		_title = State(initialValue: model.title)
+		_error = State(initialValue: model.error)
+		_uploadSpeed = State(initialValue: model.uploadSpeed)
+		_downloadSpeed = State(initialValue: model.downloadSpeed)
+		_torrents = State(initialValue: model.torrents)
 	}
 	
 	@State private var title: String
 	@State private var error: String?
-//	@State private var uploadSpeed: String
-//	@State private var downloadSpeed: String
+	@State private var uploadSpeed: String
+	@State private var downloadSpeed: String
 	@State private var torrents: [TorrentViewModel]
 	
     public var body: some View {
@@ -84,27 +82,31 @@ public struct TorrentsPage: View {
 struct TorrentsPage_Previews: PreviewProvider {
     static var previews: some View {
 		TorrentsPage(
-			title: "Title",
-			torrents: [
-				TorrentViewModel(
-					name: "a name",
-					error: "download error",
-					eta: "-",
-					completionPercentage: 0.5,
-					completionPercentageString: "50%",
-					downloaded: "5,4GB of 7,8GB",
-					downloadSpeed: "-"
-				),
-				TorrentViewModel(
-					name: "another name",
-					eta: "ETA: 7h 12m 12s",
-					completionPercentage: 0.75,
-					completionPercentageString: "50%",
-					downloaded: "5,4GB of 7,8GB",
-					downloadSpeed: "5,6MB"
-				)
-			],
-			error: nil
+			model: TorrentsViewModel(
+				title: "Title",
+				error: nil,
+				uploadSpeed: "5,5 Mb/s",
+				downloadSpeed: "5,5 Mb/s",
+				torrents: [
+					TorrentViewModel(
+						name: "a name",
+						error: "download error",
+						eta: "-",
+						completionPercentage: 0.5,
+						completionPercentageString: "50%",
+						downloaded: "5,4GB of 7,8GB",
+						downloadSpeed: "-"
+					),
+					TorrentViewModel(
+						name: "another name",
+						eta: "ETA: 7h 12m 12s",
+						completionPercentage: 0.75,
+						completionPercentageString: "50%",
+						downloaded: "5,4GB of 7,8GB",
+						downloadSpeed: "5,6MB"
+					)
+				]
+			)
 		)
     }
 }

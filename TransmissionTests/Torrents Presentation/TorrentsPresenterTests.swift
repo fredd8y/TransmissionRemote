@@ -22,7 +22,13 @@ final class TorrentsPresenterTests: XCTestCase {
 		let torrent2 = anyTorrentWithError()
 		let torrents = [torrent1, torrent2]
 		
-		let viewModel = TorrentsPresenter.map(title: title, uploadSpeed: uploadSpeed, downloadSpeed: downloadSpeed, torrents: torrents)
+		let viewModel = TorrentsPresenter.map(
+			title: title,
+			error: nil,
+			uploadSpeed: uploadSpeed,
+			downloadSpeed: downloadSpeed,
+			torrents: torrents
+		)
 		
 		XCTAssertEqual(viewModel.title, title)
 		XCTAssertEqual(viewModel.downloadSpeed, "1,24 MB/s")

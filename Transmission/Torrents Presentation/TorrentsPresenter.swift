@@ -18,6 +18,7 @@ public final class TorrentsPresenter {
 	
 	public static func map(
 		title: String,
+		error: String?,
 		uploadSpeed: Int,
 		downloadSpeed: Int,
 		torrents: [Torrent]
@@ -26,6 +27,7 @@ public final class TorrentsPresenter {
 		let stringDownloadSpeed = (Double(downloadSpeed) / 1_000_000).round() ?? "0,00"
 		return TorrentsViewModel(
 			title: title,
+			error: error,
 			uploadSpeed: "\(stringUploadSpeed) MB/s",
 			downloadSpeed: "\(stringDownloadSpeed) MB/s",
 			torrents: torrents.map {

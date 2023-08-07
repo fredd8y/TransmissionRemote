@@ -7,6 +7,7 @@
 
 import XCTest
 import TransmissioniOS
+@testable import Transmission
 
 class TorrentsPageTests: XCTestCase {
 	func test_emptyList() {
@@ -42,17 +43,23 @@ class TorrentsPageTests: XCTestCase {
 	
 	// MARK: - Helpers
 	
-	private func makeSUT(_ error: String?, torrents: [TorrentsPage.TorrentViewModel]) -> TorrentsPage {
-		TorrentsPage(title: "Title", torrents: torrents, error: error)
+	private func makeSUT(_ error: String?, torrents: [TorrentViewModel]) -> TorrentsPage {
+		TorrentsPage(model: TorrentsViewModel(
+			title: "Title",
+			error: error,
+			uploadSpeed: "5,5 MB/s",
+			downloadSpeed: "5,5 MB/s",
+			torrents: torrents
+		))
 	}
 	
-	private func emptyList() -> [TorrentsPage.TorrentViewModel] {
+	private func emptyList() -> [TorrentViewModel] {
 		[]
 	}
 	
-	private func listWithContent() -> [TorrentsPage.TorrentViewModel] {
+	private func listWithContent() -> [TorrentViewModel] {
 		[
-			TorrentsPage.TorrentViewModel(
+			TorrentViewModel(
 				name: anyName,
 				eta: anyEta,
 				completionPercentage: anyPercentage,
@@ -60,7 +67,7 @@ class TorrentsPageTests: XCTestCase {
 				downloaded: anyDownloaded,
 				downloadSpeed: anyDownloadSpeed
 			),
-			TorrentsPage.TorrentViewModel(
+			TorrentViewModel(
 				name: anyName,
 				eta: anyEta,
 				completionPercentage: anyPercentage,
@@ -71,9 +78,9 @@ class TorrentsPageTests: XCTestCase {
 		]
 	}
 	
-	private func listWithItemError() -> [TorrentsPage.TorrentViewModel] {
+	private func listWithItemError() -> [TorrentViewModel] {
 		[
-			TorrentsPage.TorrentViewModel(
+			TorrentViewModel(
 				name: anyName,
 				error: anyError,
 				eta: anyEta,
