@@ -44,7 +44,7 @@ final class TorrentsPresenterTests: XCTestCase {
 		XCTAssertEqual(TorrentsPresenter.undefinedError, localized("UNDEFINED_ERROR", table: table))
 	}
 	
-	func test_map_createsViewModelWithNoError() {
+	func test_map_createsViewModel() {
 		let title = "Title"
 		let uploadSpeed = 1234576
 		let downloadSpeed = 1234567
