@@ -16,7 +16,6 @@
 		7B3690F42A69DC0C000E130B /* TorrentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3690F32A69DC0C000E130B /* TorrentsViewModel.swift */; };
 		7B3690F72A69E0A7000E130B /* Double+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3690F62A69E0A7000E130B /* Double+Rounding.swift */; };
 		7B4599B22A66DD2600189C16 /* Transmission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCC4CFA2A0D41BC004A8297 /* Transmission.framework */; };
-		7B4599B72A67C0B200189C16 /* Text+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4599B62A67C0B200189C16 /* Text+.swift */; };
 		7B4599BA2A67CB7C00189C16 /* TorrentsLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4599B92A67CB7C00189C16 /* TorrentsLocalizationTests.swift */; };
 		7B4599BC2A67CBBE00189C16 /* SharedLocalizationTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4599BB2A67CBBE00189C16 /* SharedLocalizationTestHelpers.swift */; };
 		7B4599BF2A67CC2400189C16 /* Torrents.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B4599C12A67CC2400189C16 /* Torrents.strings */; };
@@ -110,7 +109,6 @@
 		7B3690EF2A69866A000E130B /* LIST_WITH_ITEM_ERROR_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LIST_WITH_ITEM_ERROR_dark.png; sourceTree = "<group>"; };
 		7B3690F32A69DC0C000E130B /* TorrentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsViewModel.swift; sourceTree = "<group>"; };
 		7B3690F62A69E0A7000E130B /* Double+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounding.swift"; sourceTree = "<group>"; };
-		7B4599B62A67C0B200189C16 /* Text+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+.swift"; sourceTree = "<group>"; };
 		7B4599B92A67CB7C00189C16 /* TorrentsLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsLocalizationTests.swift; sourceTree = "<group>"; };
 		7B4599BB2A67CBBE00189C16 /* SharedLocalizationTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLocalizationTestHelpers.swift; sourceTree = "<group>"; };
 		7B4599C02A67CC2400189C16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Torrents.strings; sourceTree = "<group>"; };
@@ -225,14 +223,6 @@
 				7B6CD5D32A716D7400E81983 /* Int+Byte.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		7B4599B52A67C0A000189C16 /* Shared Views */ = {
-			isa = PBXGroup;
-			children = (
-				7B4599B62A67C0B200189C16 /* Text+.swift */,
-			);
-			path = "Shared Views";
 			sourceTree = "<group>";
 		};
 		7B4599B82A67CB3000189C16 /* Torrents Presentation */ = {
@@ -445,7 +435,6 @@
 		7B8CB8292A66C867001A4D90 /* TransmissioniOS */ = {
 			isa = PBXGroup;
 			children = (
-				7B4599B52A67C0A000189C16 /* Shared Views */,
 				7B8CB83E2A66C8CE001A4D90 /* Controllers */,
 			);
 			path = TransmissioniOS;
@@ -891,7 +880,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B4599B72A67C0B200189C16 /* Text+.swift in Sources */,
 				7B8CB8432A66CAE2001A4D90 /* TorrentsPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

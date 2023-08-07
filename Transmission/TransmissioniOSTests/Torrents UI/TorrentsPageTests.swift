@@ -41,6 +41,18 @@ class TorrentsPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "LIST_WITH_ITEM_ERROR_light_extraExtraExtraLarge")
 	}
 	
+	func test_list_fromEmptyToFilled() {
+		let sut = makeSUT(torrents: emptyList())
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "EMPTY_LIST_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "EMPTY_LIST_dark")
+		
+		sut.viewModel.torrents = listWithContent()
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "LIST_WITH_CONTENT_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "LIST_WITH_CONTENT_dark")
+	}
+	
 	// MARK: - Helpers
 	
 	private func makeSUT(torrents: [TorrentViewModel], error: String? = nil) -> TorrentsPage {

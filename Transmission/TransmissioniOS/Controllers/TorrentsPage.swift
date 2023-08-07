@@ -29,7 +29,8 @@ public struct TorrentsPage: View {
 				if let error = viewModel.error {
 					HStack {
 						Spacer()
-						SubheadlineText(error)
+						Text(error)
+							.font(.subheadline)
 							.foregroundColor(Color.white)
 							.padding()
 							.multilineTextAlignment(.center)
@@ -39,14 +40,18 @@ public struct TorrentsPage: View {
 				List {
 					ForEach(viewModel.torrents) { torrent in
 						VStack(alignment: .leading) {
-							SubheadlineText(torrent.name).font(.subheadline)
-							Caption2Text(torrent.downloaded)
+							Text(torrent.name)
+								.font(.subheadline)
+							Text(torrent.downloaded)
+								.font(.caption2)
 							HStack {
 								ProgressView(value: torrent.completionPercentage)
 									.tint(torrent.error == nil ? .blue : .red)
-								Caption2Text(torrent.completionPercentageString)
+								Text(torrent.completionPercentageString)
+									.font(.caption2)
 							}
-							Caption2Text(torrent.error ?? torrent.eta)
+							Text(torrent.error ?? torrent.eta)
+								.font(.caption2)
 								.foregroundColor(torrent.error == nil ? .primary : .red)
 						}
 					}
@@ -63,9 +68,10 @@ public struct TorrentsPage: View {
 						.foregroundColor(.red)
 						.frame(width: 16, height: 16)
 						.padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
-					SubheadlineText(viewModel.uploadSpeed)
+					Text(viewModel.uploadSpeed)
+						.font(.subheadline)
 					Spacer()
-					SubheadlineText(torrentsDescription)
+					Text(torrentsDescription)
 					Spacer()
 					Image(systemName: "arrow.down")
 						.resizable()
@@ -73,7 +79,8 @@ public struct TorrentsPage: View {
 						.foregroundColor(.green)
 						.frame(width: 16, height: 16)
 						.padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
-					SubheadlineText(viewModel.downloadSpeed)
+					Text(viewModel.downloadSpeed)
+						.font(.subheadline)
 				}
 			}
 			.alert(TorrentsPresenter.credentialRequested, isPresented: $viewModel.showAlert) {
