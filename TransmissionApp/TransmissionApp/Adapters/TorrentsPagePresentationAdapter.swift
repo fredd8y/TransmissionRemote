@@ -220,9 +220,17 @@ final class TorrentsPagePresentationAdapter {
 			receiveCompletion: { [weak self] completion in
 				switch completion {
 				case .finished: break
-				case .failure:
-					self?.torrentsPageViewModel.alertMessage = TorrentsPagePresenter.genericError
-					self?.torrentsPageViewModel.alertMessageVisible = true
+				case .failure(let error):
+					if let _error = error as? TorrentRemoveMapper.Error {
+						switch _error {
+						case .failed(let explanation):
+							self?.torrentsPageViewModel.alertMessage = explanation
+							self?.torrentsPageViewModel.alertMessageVisible = true
+						case .invalidData:
+							self?.torrentsPageViewModel.alertMessage = TorrentsPagePresenter.genericError
+							self?.torrentsPageViewModel.alertMessageVisible = true
+						}
+					}
 				}
 			},
 			receiveValue: { [weak self] _ in
@@ -246,10 +254,13 @@ final class TorrentsPagePresentationAdapter {
 				case let .failure(error):
 					if let _error = error as? SessionGetMapper.Error {
 						switch _error {
+						case .failed(let explanation):
+							self?.torrentsPageViewModel.alertMessage = explanation
+							self?.torrentsPageViewModel.alertMessageVisible = true
 						case .authenticationFailed:
 							self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.credentialRequired())
 							self?.timer?.invalidate()
-						case let .missingSessionId(sessionId):
+						case .missingSessionId(let sessionId):
 							guard let _sessionId = sessionId as? String else {
 								// TODO: Handle error
 								break

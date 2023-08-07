@@ -91,9 +91,25 @@ class SessionGetMapperTest: XCTestCase {
 		}
 	}
 	
-	// MARK: - Helpers
+	func test_map_throwsErrorOnResponseWithoutSuccessResult() throws {
+		let result = "wrong result"
+		let (_, json) = makeSessionItem(result)
+		let jsonData = makeJSON(fromDictionary: json)
+		
+		do {
+			_ = try SessionGetMapper.map(jsonData, from: HTTPURLResponse(statusCode: 200))
+		} catch {
+			if case let SessionGetMapper.Error.failed(explanation) = error {
+				XCTAssertEqual(explanation, result)
+			} else {
+				XCTFail("Expected TorrentStartMapper.Error.failed, got \(error) instead")
+			}
+		}
+	}
 	
-	private func makeSessionItem() -> (model: Session, json: [String: Any]) {
+	// MARK: - Helpers
+		
+	private func makeSessionItem(_ result: String = "success") -> (model: Session, json: [String: Any]) {
 		return makeSessionItem(
 			altSpeedDown: Int.random(in: 50..<5000),
 			altSpeedEnabled: Bool.random(),
@@ -150,7 +166,7 @@ class SessionGetMapperTest: XCTestCase {
 			speedUnits: ["kB/s", "MB/s", "GB/s", "TB/s"],
 			utpEnabled: Bool.random(),
 			version: "any version",
-			result: "any result"
+			result: result
 		)
 	}
 }

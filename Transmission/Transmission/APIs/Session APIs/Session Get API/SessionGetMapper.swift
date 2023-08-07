@@ -16,6 +16,7 @@ public final class SessionGetMapper {
 	public enum Error: Swift.Error, Equatable {
 		case invalidData
 		case authenticationFailed
+		case failed(explanation: String)
 		case missingSessionId(sessionIdValue: Any?)
 		
 		public static func == (lhs: SessionGetMapper.Error, rhs: SessionGetMapper.Error) -> Bool {
@@ -25,6 +26,8 @@ public final class SessionGetMapper {
 			case (.authenticationFailed, .authenticationFailed):
 				return true
 			case (.missingSessionId, .missingSessionId):
+				return true
+			case (.failed, .failed):
 				return true
 			default:
 				return false
@@ -42,15 +45,18 @@ public final class SessionGetMapper {
 			}
 			throw Error.invalidData
 		}
+		if remoteSessionItem.result != SharedAPIsConstants.success {
+			throw Error.failed(explanation: remoteSessionItem.result)
+		}
 		return remoteSessionItem.sessionItem
 	}
 	
 	private struct RemoteSession: Decodable {
 		
-		private let arguments: Arguments
-		private let result: String
+		let arguments: Arguments
+		let result: String
 		
-		private struct Arguments: Decodable {
+		struct Arguments: Decodable {
 			let altSpeedDown: Int
 			let altSpeedEnabled: Bool
 			let altSpeedTimeBegin: Int
