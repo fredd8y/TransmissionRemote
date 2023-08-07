@@ -19,4 +19,30 @@ final class SettingsPresenterTests: XCTestCase {
 	func test_seconds_isLocalized() {
 		XCTAssertEqual(SettingsPresenter.seconds, localized("SECONDS", table: table))
 	}
+	
+	func test_map_createsViewModel() {
+		let title = "Settings"
+		let updateIntervalTitle = "Update interval"
+		let updateIntervalList = [2, 5, 10, 30]
+		let currentSelectedIntervalIndex = 1
+		let serversTitle = "Server"
+		let currentServerName = "A server"
+		
+		let viewModel = SettingsPresenter.map(
+			title: title,
+			updateIntervalTitle: updateIntervalTitle,
+			updateIntervalList: updateIntervalList,
+			currentSelectedIntervalIndex: currentSelectedIntervalIndex,
+			serversTitle: serversTitle,
+			currentServerName: currentServerName
+		)
+		
+		XCTAssertEqual(viewModel.title, title)
+		XCTAssertEqual(viewModel.updateIntervalTitle, updateIntervalTitle)
+		XCTAssertEqual(viewModel.updateIntervalList, updateIntervalList.map { "\($0) \(SettingsPresenter.seconds)" })
+		XCTAssertEqual(viewModel.currentSelectedIntervalIndex, currentSelectedIntervalIndex)
+		XCTAssertEqual(viewModel.serversTitle, serversTitle)
+		XCTAssertEqual(viewModel.currentServerName, currentServerName)
+	}
+	
 }
