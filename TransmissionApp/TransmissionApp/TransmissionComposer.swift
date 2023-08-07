@@ -19,16 +19,14 @@ final class TransmissionComposer {
 	public static func torrentsPagePresentationAdapter() -> TorrentsPage {
 		let viewModel = TorrentsViewModel.empty()
 		
-		var torrentsPage = TorrentsPage(viewModel: viewModel)
-		
 		let torrentsPagePresentationAdapter = TorrentsPagePresentationAdapter(
-			torrentsPage: torrentsPage,
 			torrentsPageViewModel: viewModel,
 			sessionIdHandler: { sessionId in
 				TransmissionHTTPClient.sessionId = sessionId
 			}
 		)
 		
+		var torrentsPage = TorrentsPage(viewModel: viewModel)
 		torrentsPage.loadData = torrentsPagePresentationAdapter.loadData
 		torrentsPage.authenticate = { username, password in
 			TransmissionHTTPClient.username = username

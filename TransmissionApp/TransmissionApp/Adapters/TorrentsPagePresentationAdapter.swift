@@ -14,11 +14,9 @@ final class TorrentsPagePresentationAdapter {
 	// MARK: Lifecycle
 
 	init(
-		torrentsPage: TorrentsPage,
 		torrentsPageViewModel: TorrentsViewModel,
 		sessionIdHandler: @escaping (String) -> Void
 	) {
-		self.torrentsPage = torrentsPage
 		self.torrentsPageViewModel = torrentsPageViewModel
 		self.sessionIdHandler = sessionIdHandler
 	}
@@ -29,7 +27,6 @@ final class TorrentsPagePresentationAdapter {
 		self?.loadData()
 	}
 	
-	private var torrentsPage: TorrentsPage	
 	private var cancellable: Cancellable?
 	private var sessionIdHandler: (String) -> Void
 

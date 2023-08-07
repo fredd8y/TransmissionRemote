@@ -16,3 +16,5 @@
 "CREDENTIAL_NEEDED_TITLE" = "Credential requested";
 "OK" = "Ok";
 "UNDEFINED_ERROR" = "Something went wrong";
+"DOWNLOAD_COMPLETED_IN" = "Download will be completed";
+"COMPLETED" = "Completed";
