@@ -24,11 +24,6 @@ final class ServerPublishers {
 		.eraseToAnyPublisher()
 	}
 	
-	static func makeCurrentServerGetLoader() -> AnyPublisher<Server?, Never> {
-		Just(UserDefaultsHandler.shared.currentServer)
-			.eraseToAnyPublisher()
-	}
-	
 	private static func getDataPublisher(_ url: URL) -> AnyPublisher<Data, Swift.Error> {
 		Deferred {
 			Future { completion in

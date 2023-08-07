@@ -20,11 +20,13 @@ final class TorrentsPagePresentationAdapter {
 		self.torrentsPageViewModel = torrentsPageViewModel
 		self.sessionIdHandler = sessionIdHandler
 		pollingRateCancellable = UserDefaultsHandler.shared.$pollingRate.sink { [weak self] newValue in
-			self?.refresh()
+			self?.sessionLoaderCancellable?.cancel()
+			self?.loadData(server: UserDefaultsHandler.shared.currentServer)
 		}
 		currentServerCancellable = UserDefaultsHandler.shared.$currentServer.sink { [weak self] newValue in
-			self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.error())
-			self?.refresh()
+			self?.sessionLoaderCancellable?.cancel()
+			self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.empty())
+			self?.loadData(server: newValue)
 		}
 	}
 	
@@ -36,13 +38,8 @@ final class TorrentsPagePresentationAdapter {
 
 	@ObservedObject var torrentsPageViewModel: TorrentsPageViewModel
 	
-	private func refresh() {
-		sessionLoaderCancellable?.cancel()
-		loadData()
-	}
-
-	func loadData() {
-		guard let server = UserDefaultsHandler.shared.currentServer else {
+	func loadData(server: Server?) {
+		guard let server else {
 			torrentsPageViewModel.newValues(TorrentsPageViewModel.serverNotSet())
 			return
 		}
@@ -67,7 +64,7 @@ final class TorrentsPagePresentationAdapter {
 								break
 							}
 							self?.sessionIdHandler(_sessionId)
-							self?.loadData()
+							self?.loadData(server: server)
 						case .invalidData:
 							self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.error())
 						}
@@ -95,7 +92,7 @@ final class TorrentsPagePresentationAdapter {
 								)
 								self?.torrentsPageViewModel.newValues(viewModel)
 								DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.seconds(UserDefaultsHandler.shared.pollingRate)) {
-									self?.loadData()
+									self?.loadData(server: server)
 								}
 							}
 						)

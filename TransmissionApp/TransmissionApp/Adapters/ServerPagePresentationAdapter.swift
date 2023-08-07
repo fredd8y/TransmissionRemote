@@ -23,7 +23,7 @@ class ServerPagePresentationAdapter {
 	
 	private let serverFileName = "servers.json"
 	
-	private lazy var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathExtension(serverFileName)
+	private lazy var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appending(component: serverFileName)
 	
 	func selectServer(_ id: UUID) {
 		guard let url else { return }

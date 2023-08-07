@@ -13,21 +13,25 @@ class SettingsPagePresentationAdapter {
 	
 	init(settingsViewModel: SettingsPageViewModel) {
 		self.settingsViewModel = settingsViewModel
+		
+		serverCancellable = UserDefaultsHandler.shared.$currentServer.sink { [weak self] newValue in
+			self?.loadData(server: newValue)
+		}
 	}
 	
 	private var settingsViewModel: SettingsPageViewModel
 	
 	private var cancellable: Cancellable?
+	private var serverCancellable: Cancellable?
 		
-	func loadData() {
-		cancellable = Publishers.Zip3(
-			ServerPublishers.makeCurrentServerGetLoader(),
+	func loadData(server: Server?) {
+		cancellable = Publishers.Zip(
 			PollingRateHandler.makeUpdatePollingRateLoader(),
 			PollingRateHandler.makeCurrentPollingRateLoader()
 		)
 			.dispatchOnMainQueue()
 			.sink(
-				receiveValue: { [weak self] (server, pollingRateList, currentPollingRate) in
+				receiveValue: { [weak self] (pollingRateList, currentPollingRate) in
 					let viewModel = SettingsPagePresenter.map(
 						title: SettingsPagePresenter.title,
 						pollingRateTitle: SettingsPagePresenter.pollingRateTitle,

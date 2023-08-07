@@ -36,7 +36,9 @@ final class TransmissionComposer {
 		)
 		
 		var torrentsPage = TorrentsPage(viewModel: viewModel)
-		torrentsPage.loadData = torrentsPagePresentationAdapter.loadData
+		torrentsPage.loadData = {
+			torrentsPagePresentationAdapter.loadData(server: UserDefaultsHandler.shared.currentServer)
+		}
 		torrentsPage.authenticate = { username, password in
 //			TransmissionHTTPClient.username = username
 //			TransmissionHTTPClient.password = password
@@ -53,7 +55,9 @@ final class TransmissionComposer {
 		)
 		
 		var settingsPage = SettingsPage(viewModel: viewModel, serverPage: serverPage)
-		settingsPage.loadData = settingsPagePresentationAdapter.loadData
+		settingsPage.loadData = {
+			settingsPagePresentationAdapter.loadData(server: UserDefaultsHandler.shared.currentServer)
+		}
 		settingsPage.pollingRateSelected = settingsPagePresentationAdapter.selectedPollingRate
 		return settingsPage
 	}
