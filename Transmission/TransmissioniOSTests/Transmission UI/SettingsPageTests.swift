@@ -20,7 +20,7 @@ class SettingsPageTests: XCTestCase {
 	// MARK: - Helpers
 	
 	private func makeSUT() -> SettingsPage {
-		SettingsPage(viewModel: viewModel)
+		SettingsPage(viewModel: viewModel, serverPage: ServerPage(viewModel: ServersViewModel(title: ServersPresenter.title, servers: [], currentSelectedServer: nil)))
 	}
 	
 	private var viewModel: SettingsViewModel {
