@@ -26,9 +26,15 @@ public final class URLSessionHTTPClient: HTTPClient {
 		let task = session.dataTask(with: urlRequest) { data, response, error in
 			if let error {
 				completion(.failure(error))
+			} else if let data, let httpUrlResponse = (response as? HTTPURLResponse) {
+				completion(.success((data, httpUrlResponse)))
+			} else {
+				completion(.failure(UnexpectedValuesError()))
 			}
 		}
 		task.resume()
 		return task
 	}
+	
+	private struct UnexpectedValuesError: Error {}
 }
