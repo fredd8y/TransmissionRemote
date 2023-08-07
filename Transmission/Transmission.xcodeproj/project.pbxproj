@@ -55,6 +55,9 @@
 		7B80FC892A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B80FC7E2A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_light.png */; };
 		7B80FC8A2A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ERROR_MESSAGE_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B80FC7F2A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ERROR_MESSAGE_dark.png */; };
 		7B80FC8B2A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B80FC802A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_dark.png */; };
+		7B80FC8F2A72624200A6DAB6 /* SettingsPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B80FC8E2A72624200A6DAB6 /* SettingsPageTests.swift */; };
+		7B80FC922A7262D600A6DAB6 /* SETTINGS_PAGE_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B80FC902A7262D600A6DAB6 /* SETTINGS_PAGE_dark.png */; };
+		7B80FC932A7262D600A6DAB6 /* SETTINGS_PAGE_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B80FC912A7262D600A6DAB6 /* SETTINGS_PAGE_light.png */; };
 		7B8338292A0FA19F0052F7EC /* SessionBodies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8338282A0FA19F0052F7EC /* SessionBodies.swift */; };
 		7B83382B2A0FA1E60052F7EC /* SessionBodiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B83382A2A0FA1E60052F7EC /* SessionBodiesTests.swift */; };
 		7B83383A2A1016C20052F7EC /* SessionGetMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8338392A1016C20052F7EC /* SessionGetMapper.swift */; };
@@ -159,6 +162,9 @@
 		7B80FC7E2A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_LIST_WITH_CONTENT_light.png; sourceTree = "<group>"; };
 		7B80FC7F2A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ERROR_MESSAGE_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_LIST_WITH_ERROR_MESSAGE_dark.png; sourceTree = "<group>"; };
 		7B80FC802A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_dark.png; sourceTree = "<group>"; };
+		7B80FC8E2A72624200A6DAB6 /* SettingsPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageTests.swift; sourceTree = "<group>"; };
+		7B80FC902A7262D600A6DAB6 /* SETTINGS_PAGE_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SETTINGS_PAGE_dark.png; sourceTree = "<group>"; };
+		7B80FC912A7262D600A6DAB6 /* SETTINGS_PAGE_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SETTINGS_PAGE_light.png; sourceTree = "<group>"; };
 		7B8338282A0FA19F0052F7EC /* SessionBodies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionBodies.swift; sourceTree = "<group>"; };
 		7B83382A2A0FA1E60052F7EC /* SessionBodiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionBodiesTests.swift; sourceTree = "<group>"; };
 		7B8338392A1016C20052F7EC /* SessionGetMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionGetMapper.swift; sourceTree = "<group>"; };
@@ -275,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				7B4599CE2A68109900189C16 /* TorrentsPageTests.swift */,
+				7B80FC8E2A72624200A6DAB6 /* SettingsPageTests.swift */,
 				7B4599D72A6819EC00189C16 /* snapshots */,
 			);
 			path = "Torrents UI";
@@ -293,6 +300,8 @@
 		7B4599D72A6819EC00189C16 /* snapshots */ = {
 			isa = PBXGroup;
 			children = (
+				7B80FC902A7262D600A6DAB6 /* SETTINGS_PAGE_dark.png */,
+				7B80FC912A7262D600A6DAB6 /* SETTINGS_PAGE_light.png */,
 				7B80FC762A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_dark.png */,
 				7B80FC772A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_light.png */,
 				7B80FC7A2A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_dark.png */,
@@ -930,6 +939,8 @@
 				7B80FC852A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_dark.png in Resources */,
 				7B80FC8B2A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_dark.png in Resources */,
 				7B80FC812A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_dark.png in Resources */,
+				7B80FC932A7262D600A6DAB6 /* SETTINGS_PAGE_light.png in Resources */,
+				7B80FC922A7262D600A6DAB6 /* SETTINGS_PAGE_dark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,6 +989,7 @@
 				7B4599D42A6817C700189C16 /* XCTestCase+Snapshot.swift in Sources */,
 				7B4599D22A68170300189C16 /* View+TestHelpers.swift in Sources */,
 				7B4599D62A68184100189C16 /* UIViewController+Snapshot.swift in Sources */,
+				7B80FC8F2A72624200A6DAB6 /* SettingsPageTests.swift in Sources */,
 				7B4599CF2A68109900189C16 /* TorrentsPageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

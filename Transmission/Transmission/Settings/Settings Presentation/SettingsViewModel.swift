@@ -5,9 +5,9 @@
 //  Created by Federico Arvat on 27/07/23.
 //
 
-import Foundation
+import SwiftUI
 
-public class SettingsViewModel {
+public class SettingsViewModel: ObservableObject {
 	public init(
 		title: String,
 		updateIntervalTitle: String,
@@ -24,10 +24,10 @@ public class SettingsViewModel {
 		self.currentServerName = currentServerName
 	}
 		
-	public let title: String
-	public let updateIntervalTitle: String
-	public let updateIntervalList: [String]
-	public let currentSelectedIntervalIndex: Int
-	public let serversTitle: String
-	public let currentServerName: String
+	@Published public var title: String
+	@Published public var updateIntervalTitle: String
+	@Published public var updateIntervalList: [String]
+	@Published public var currentSelectedIntervalIndex: Int
+	@Published public var serversTitle: String
+	@Published public var currentServerName: String
 }
