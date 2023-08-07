@@ -9,4 +9,5 @@ FUTURE RELEASE
 
 NEXT RELEASE
 
--	Remove log from production
+-	Acceptance tests
+-	Implement github actions to automatically release and test
