@@ -6,6 +6,7 @@ Improvement
 
 TODO
 
+-	Handle non-existing server file
 -	Try to hide Codable detail from Transmission Server class 
 -	Settings with multiple servers
 	-	Server name

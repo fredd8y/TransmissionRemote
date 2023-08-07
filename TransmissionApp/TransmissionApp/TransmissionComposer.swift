@@ -51,7 +51,8 @@ final class TransmissionComposer {
 		)
 		
 		var settingsPage = SettingsPage(viewModel: viewModel)
-		// Add to settingsPage closures to load servers and update intervals
+		settingsPage.loadData = settingsPagePresentationAdapter.loadData
+		// Add to settingsPage closures to update intervals and servers
 		return settingsPage
 	}
 }

@@ -20,6 +20,8 @@ public struct SettingsPage: View {
 		selectedUpdateInterval = viewModel.updateIntervalList[viewModel.currentSelectedIntervalIndex]
 	}
 	
+	public var loadData: (() -> Void)?
+	
     public var body: some View {
 		NavigationStack {
 			List {
@@ -52,6 +54,8 @@ public struct SettingsPage: View {
 			.listStyle(.plain)
 			.navigationTitle(viewModel.title)
 			.navigationBarTitleDisplayMode(.inline)
+		}.onAppear {
+			loadData?()
 		}
     }
 }
