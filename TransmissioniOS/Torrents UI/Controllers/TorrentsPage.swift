@@ -8,9 +8,13 @@
 import SwiftUI
 import Transmission
 
-struct TorrentsPage: View {
+public struct TorrentsPage: View {
 	
-	init(title: String, torrents: [TorrentViewModel], error: String?) {
+	/// Typealias created to avoid having to import Transmission framework
+	/// when using this struct
+	public typealias TorrentViewModel = Transmission.TorrentViewModel
+	
+	public init(title: String, torrents: [TorrentViewModel], error: String?) {
 		_title = State(initialValue: title)
 		_error = State(initialValue: error)
 		_torrents = State(initialValue: torrents)
@@ -20,7 +24,7 @@ struct TorrentsPage: View {
 	@State private var error: String?
 	@State private var torrents: [TorrentViewModel]
 	
-    var body: some View {
+    public var body: some View {
 		NavigationView {
 			VStack {
 				if let error {
