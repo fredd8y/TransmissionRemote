@@ -9,9 +9,6 @@ import Foundation
 
 public class URLSessionHTTPClient: HTTPClient {
 	
-	private let BASIC = "Basic"
-	private let AUTHORIZATION = "Authorization"
-	
 	let session: URLSession
 	
 	public init(session: URLSession) {
@@ -21,21 +18,14 @@ public class URLSessionHTTPClient: HTTPClient {
 	public func post(
 		_ url: URL,
 		body: Data,
-		username: String,
-		password: String,
-		sessionId: String?,
+		additionalHeader: [String: String]?,
 		completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void
 	) -> URLSessionTask {
 		var urlRequest = URLRequest(url: url)
 		urlRequest.httpMethod = "POST"
 		urlRequest.httpBody = body
-		let authorizationString = "\(username):\(password)".data(using: .utf8)!.base64EncodedString()
-		urlRequest.addValue(
-			"\(BASIC) \(authorizationString)",
-			forHTTPHeaderField: AUTHORIZATION
-		)
-		if let sessionId {
-			urlRequest.addValue(sessionId, forHTTPHeaderField: SessionGetMapper.sessionIdKey)
+		additionalHeader?.forEach { (key, value) in
+			urlRequest.addValue(value, forHTTPHeaderField: key)
 		}
 		
 		let task = session.dataTask(with: urlRequest) { data, response, error in

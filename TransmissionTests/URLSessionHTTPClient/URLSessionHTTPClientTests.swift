@@ -28,14 +28,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
 			exp.fulfill()
 		}
 		
-		makeSUT().post(
-			url,
-			body: data,
-			username: anyUsername(),
-			password: anyPassword(),
-			sessionId: nil,
-			completion: { _ in }
-		)
+		makeSUT().post(url, body: data, additionalHeader: [:], completion: { _ in })
 		
 		wait(for: [exp], timeout: 1.0)
 	}
@@ -153,7 +146,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
 		var receivedResult: HTTPClient.Result!
 		// This taskHandler apply the input function to the URLSessionTask
 		// returned by the post()
-		taskHandler(sut.post(anyURL(), body: anyData(), username: anyUsername(), password: anyPassword(), sessionId: nil) { result in
+		taskHandler(sut.post(anyURL(), body: anyData(), additionalHeader: [:]) { result in
 			receivedResult = result
 			exp.fulfill()
 		})
