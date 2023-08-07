@@ -22,8 +22,6 @@
 		7BBF3C4D2A72A648001206A8 /* ServerPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C4C2A72A648001206A8 /* ServerPublishers.swift */; };
 		7BBF3C5C2A742B6E001206A8 /* SettingsPageViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C5B2A742B6E001206A8 /* SettingsPageViewModel+Factory.swift */; };
 		7BBF3C5E2A742CF7001206A8 /* PollingRateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C5D2A742CF7001206A8 /* PollingRateHandler.swift */; };
-		7BBF3C602A742D37001206A8 /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C5F2A742D37001206A8 /* UserDefaultsHandler.swift */; };
-		7BBF3C642A742FBC001206A8 /* UserDefaultsHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C612A742E3C001206A8 /* UserDefaultsHandlerTests.swift */; };
 		7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8132A6C158100B36367 /* TransmissionApp.swift */; };
 		7BC0D8182A6C158300B36367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC0D8172A6C158300B36367 /* Assets.xcassets */; };
 		7BC0D81B2A6C158300B36367 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC0D81A2A6C158300B36367 /* Preview Assets.xcassets */; };
@@ -81,8 +79,6 @@
 		7BBF3C4C2A72A648001206A8 /* ServerPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPublishers.swift; sourceTree = "<group>"; };
 		7BBF3C5B2A742B6E001206A8 /* SettingsPageViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsPageViewModel+Factory.swift"; sourceTree = "<group>"; };
 		7BBF3C5D2A742CF7001206A8 /* PollingRateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingRateHandler.swift; sourceTree = "<group>"; };
-		7BBF3C5F2A742D37001206A8 /* UserDefaultsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandler.swift; sourceTree = "<group>"; };
-		7BBF3C612A742E3C001206A8 /* UserDefaultsHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandlerTests.swift; sourceTree = "<group>"; };
 		7BC0D8102A6C158100B36367 /* TransmissionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransmissionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC0D8132A6C158100B36367 /* TransmissionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionApp.swift; sourceTree = "<group>"; };
 		7BC0D8172A6C158300B36367 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -177,7 +173,6 @@
 				7BC0D84D2A6EA90000B36367 /* TransmissionHTTPClient.swift */,
 				7BBF3C4C2A72A648001206A8 /* ServerPublishers.swift */,
 				7BBF3C5D2A742CF7001206A8 /* PollingRateHandler.swift */,
-				7BBF3C5F2A742D37001206A8 /* UserDefaultsHandler.swift */,
 				7BC0D8172A6C158300B36367 /* Assets.xcassets */,
 				7BC0D8192A6C158300B36367 /* Preview Content */,
 			);
@@ -195,7 +190,6 @@
 		7BC0D8232A6C158300B36367 /* TransmissionAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				7BBF3C612A742E3C001206A8 /* UserDefaultsHandlerTests.swift */,
 				7BA01FD92A7EA0D500FBB43D /* KeychainTests.swift */,
 				7BA01FDD2A7EBA4E00FBB43D /* CipherTests.swift */,
 				7BA01FDF2A7FEF1A00FBB43D /* Base16Tests.swift */,
@@ -357,7 +351,6 @@
 				7BC0D8432A6E3C4100B36367 /* Combine+Publishers.swift in Sources */,
 				7BD2368F2A77C9B900AF75A9 /* ServerDetailPageViewModel+Factory.swift in Sources */,
 				7BC0D84A2A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift in Sources */,
-				7BBF3C602A742D37001206A8 /* UserDefaultsHandler.swift in Sources */,
 				7B2325022A766DEC00836B02 /* ServerPageViewModel+Factory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,7 +361,6 @@
 			files = (
 				7BA01FDE2A7EBA4E00FBB43D /* CipherTests.swift in Sources */,
 				7BA01FE02A7FEF1A00FBB43D /* Base16Tests.swift in Sources */,
-				7BBF3C642A742FBC001206A8 /* UserDefaultsHandlerTests.swift in Sources */,
 				7BA01FDA2A7EA0D500FBB43D /* KeychainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Transmission
 
 // MARK: - UserDefaultsKeys
 
@@ -23,7 +22,7 @@ enum UserDefaultsKeys: String {
 
 // MARK: - UserDefaultsHandler
 
-class UserDefaultsHandler {
+public class UserDefaultsHandler {
 	// MARK: Lifecycle
 	
 	private init() {
@@ -55,15 +54,15 @@ class UserDefaultsHandler {
 	
 	// MARK: Internal
 	
-	static let shared = UserDefaultsHandler()
+	public static let shared = UserDefaultsHandler()
 	
-	@Published var pollingRate: Int {
+	@Published public var pollingRate: Int {
 		didSet {
 			setPollingRate(pollingRate)
 		}
 	}
 	
-	@Published var currentServer: Server? {
+	@Published public var currentServer: Server? {
 		didSet {
 			if let currentServer {
 				setServerName(currentServer.name)
