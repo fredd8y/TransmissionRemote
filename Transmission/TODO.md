@@ -6,7 +6,6 @@ Improvement
 
 TODO
 
--	Find a way to have reliable test when UserDefaults is involved (SettingsPageTests)
 -	Settings with multiple servers
 	-	Server name
 	-	protocol (http/https)
