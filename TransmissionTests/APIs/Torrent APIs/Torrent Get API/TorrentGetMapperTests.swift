@@ -20,6 +20,14 @@ class TorrentGetMapperTests: XCTestCase {
 		}
 	}
 	
+	func test_map_throwsErrorOn200HTTPResponseWithInvalidJson() throws {
+		let json = Data("invalid json".utf8)
+		
+		XCTAssertThrowsError(
+			try TorrentGetMapper.map(json, from: HTTPURLResponse(statusCode: 200))
+		)
+	}
+	
 	// MARK: - Helpers
 
 	private func makeJSON(fromDictionary dictionary: [String: Any]) -> Data {
