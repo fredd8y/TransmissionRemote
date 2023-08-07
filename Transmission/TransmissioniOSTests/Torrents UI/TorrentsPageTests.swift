@@ -41,6 +41,16 @@ class TorrentsPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "LIST_WITH_ITEM_ERROR_light_extraExtraExtraLarge")
 	}
 	
+	func test_updateViewModel() {
+		let sut = makeSUT(torrents: emptyList())
+		
+		sut.update(withViewModel: viewModel(withTorrents: listWithContent()))
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "LIST_WITH_CONTENT_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "LIST_WITH_CONTENT_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "LIST_WITH_CONTENT_light_extraExtraExtraLarge")
+	}
+	
 	// MARK: - Helpers
 	
 	private func makeSUT(torrents: [TorrentViewModel], error: String? = nil) -> TorrentsPage {
