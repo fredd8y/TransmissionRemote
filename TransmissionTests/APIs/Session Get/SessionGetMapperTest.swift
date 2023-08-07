@@ -31,6 +31,12 @@ class SessionGetMapperTest: XCTestCase {
 		}
 	}
 	
+	func test_map_throwsErrorOn200HTTPResponseWithEmptyJSON() throws {
+		XCTAssertThrowsError(
+			try SessionGetMapper.map(Data(), from: HTTPURLResponse(statusCode: 200))
+		)
+	}
+	
 	func test_map_throwsSessionIdErrorOn409HTTPResponse() throws {
 		let json = makeItemsJSON(withArguments: [], andResult: anyString())
 		let sessionIdValue = anyString()
