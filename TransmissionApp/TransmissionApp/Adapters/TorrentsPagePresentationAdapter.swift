@@ -127,7 +127,9 @@ final class TorrentsPagePresentationAdapter {
 					uploadSpeed: torrents.reduce(0) { $0 + $1.rateUpload },
 					downloadSpeed: torrents.reduce(0) { $0 + $1.rateDownload },
 					torrents: torrents,
-					emptyMessage: nil
+					emptyMessage: nil,
+					alertMessage: nil,
+					alertMessageVisible: false
 				)
 				self.torrentsPageViewModel.newValues(viewModel)
 			}

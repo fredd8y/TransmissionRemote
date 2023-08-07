@@ -49,6 +49,8 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		let torrent2 = anyTorrentWithError()
 		let torrents = [torrent1, torrent2]
 		let emptyMessage = "a message"
+		let alertMessage = "alert message"
+		let alertMessageVisibile = false
 		
 		let viewModel = TorrentsPagePresenter.map(
 			title: title,
@@ -56,7 +58,9 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 			uploadSpeed: uploadSpeed,
 			downloadSpeed: downloadSpeed,
 			torrents: torrents,
-			emptyMessage: emptyMessage
+			emptyMessage: emptyMessage,
+			alertMessage: alertMessage,
+			alertMessageVisible: alertMessageVisibile
 		)
 		
 		XCTAssertEqual(viewModel.title, title)
@@ -68,6 +72,8 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 			TorrentPresenter.map(torrent2)
 		])
 		XCTAssertEqual(viewModel.emptyMessage, emptyMessage)
+		XCTAssertEqual(viewModel.alertMessage, alertMessage)
+		XCTAssertEqual(viewModel.alertMessageVisible, alertMessageVisibile)
 	}
 }
 

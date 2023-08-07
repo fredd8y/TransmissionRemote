@@ -64,13 +64,23 @@ public final class TorrentsPagePresenter {
 			comment: "Error shown when there's no current server set")
 	}
 	
+	public static var alertErrorTitle: String {
+		NSLocalizedString(
+			"ALERT_ERROR_TITLE",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Title for torrents page alert error")
+	}
+	
 	public static func map(
 		title: String,
 		error: String?,
 		uploadSpeed: Int,
 		downloadSpeed: Int,
 		torrents: [Torrent],
-		emptyMessage: String?
+		emptyMessage: String?,
+		alertMessage: String?,
+		alertMessageVisible: Bool
 	) -> TorrentsPageViewModel {
 		return TorrentsPageViewModel(
 			title: title,
@@ -80,7 +90,9 @@ public final class TorrentsPagePresenter {
 			torrents: torrents.map {
 				TorrentPresenter.map($0)
 			},
-			emptyMessage: emptyMessage
+			emptyMessage: emptyMessage,
+			alertMessage: alertMessage,
+			alertMessageVisible: alertMessageVisible
 		)
 	}
 }

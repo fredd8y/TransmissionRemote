@@ -15,7 +15,9 @@ public class TorrentsPageViewModel: ObservableObject {
 		uploadSpeed: String,
 		downloadSpeed: String,
 		torrents: [TorrentViewModel],
-		emptyMessage: String?
+		emptyMessage: String?,
+		alertMessage: String?,
+		alertMessageVisible: Bool = false
 	) {
 		self.title = title
 		self.error = error
@@ -23,6 +25,8 @@ public class TorrentsPageViewModel: ObservableObject {
 		self.downloadSpeed = downloadSpeed
 		self.torrents = torrents
 		self.emptyMessage = emptyMessage
+		self.alertMessage = alertMessage
+		self.alertMessageVisible = alertMessageVisible
 	}
 	
 	@Published public var title: String
@@ -31,4 +35,6 @@ public class TorrentsPageViewModel: ObservableObject {
 	@Published public var downloadSpeed: String
 	@Published public var torrents: [TorrentViewModel]
 	@Published public var emptyMessage: String?
+	@Published public var alertMessage: String?
+	@Published public var alertMessageVisible: Bool
 }

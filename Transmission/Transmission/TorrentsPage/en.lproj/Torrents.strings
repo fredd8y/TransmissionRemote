@@ -18,3 +18,4 @@
 "DOWNLOAD_COMPLETED_IN" = "Download will be completed";
 "COMPLETED" = "Completed";
 "SERVER_NOT_SET" = "Server not found, go to Settings tab to add one";
+"ALERT_ERROR_TITLE" = "Error";

@@ -17,6 +17,8 @@ public struct TorrentsPage: View {
 	
 	@ObservedObject var viewModel: TorrentsPageViewModel
 	
+	@State public var alertPresented: Bool = false
+	
 	@State public var fileImporterPresented: Bool = false
 	
 	public var loadData: (() -> Void)?
@@ -117,6 +119,18 @@ public struct TorrentsPage: View {
 					}
 				}
 			)
+			.alert(
+				TorrentsPagePresenter.alertErrorTitle,
+				isPresented: $viewModel.alertMessageVisible,
+				actions: {
+					Button(action: {}, label: {
+						Text(TorrentsPagePresenter.ok)
+					})
+				},
+				message: {
+					Text(viewModel.alertMessage ?? "")
+				}
+			)
 		}
 		.onAppear {
 			loadData?()
@@ -159,7 +173,9 @@ struct TorrentsPage_Previews: PreviewProvider {
 						downloadSpeed: "5,6MB"
 					)
 				],
-				emptyMessage: nil
+				emptyMessage: nil,
+				alertMessage: nil,
+				alertMessageVisible: false
 			)
 		)
     }
