@@ -1,3 +1,3 @@
 TODO
 
--	EndToEnd tests for remaining API
+-	Improve TorrentPresenterTest when TorrentViewModel is more defined

@@ -30,13 +30,13 @@ public struct Torrent: Equatable {
 		self.totalSize = totalSize
 	}
 
-	let name: String
-	let error: Int
-	let errorString: String
-	let eta: Int
-	let id: Int
-	let isFinished: Bool
-	let percentDone: Double
-	let rateDownload: Int
-	let totalSize: Int
+	public let name: String
+	public let error: Int
+	public let errorString: String
+	public let eta: Int
+	public let id: Int
+	public let isFinished: Bool
+	public let percentDone: Double
+	public let rateDownload: Int
+	public let totalSize: Int
 }
