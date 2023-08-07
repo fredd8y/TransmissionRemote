@@ -105,20 +105,20 @@
 			path = "APIs Endpoint";
 			sourceTree = "<group>";
 		};
-		7B83381D2A0F9E110052F7EC /* Session */ = {
+		7B83381D2A0F9E110052F7EC /* Session Bodies */ = {
 			isa = PBXGroup;
 			children = (
 				7B8338282A0FA19F0052F7EC /* SessionBodies.swift */,
 			);
-			path = Session;
+			path = "Session Bodies";
 			sourceTree = "<group>";
 		};
-		7B83381E2A0F9E210052F7EC /* Session */ = {
+		7B83381E2A0F9E210052F7EC /* Session Bodies */ = {
 			isa = PBXGroup;
 			children = (
 				7B83382A2A0FA1E60052F7EC /* SessionBodiesTests.swift */,
 			);
-			path = Session;
+			path = "Session Bodies";
 			sourceTree = "<group>";
 		};
 		7B8338382A1016B20052F7EC /* Session Get API */ = {
@@ -130,13 +130,13 @@
 			path = "Session Get API";
 			sourceTree = "<group>";
 		};
-		7B83383B2A1120A40052F7EC /* Session Get */ = {
+		7B83383B2A1120A40052F7EC /* Session Get API */ = {
 			isa = PBXGroup;
 			children = (
 				7BC960D22A129A2A0030B5E0 /* Helpers */,
 				7B83383C2A1120B20052F7EC /* SessionGetMapperTest.swift */,
 			);
-			path = "Session Get";
+			path = "Session Get API";
 			sourceTree = "<group>";
 		};
 		7B83383E2A1124600052F7EC /* Helpers */ = {
@@ -168,10 +168,8 @@
 		7B9305AC2A0F9919005EBE56 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
-				7B83383E2A1124600052F7EC /* Helpers */,
-				7B8338382A1016B20052F7EC /* Session Get API */,
+				7BC960D52A12D0EF0030B5E0 /* Session APIs */,
 				7B6D10482A0F9BF20077A40B /* APIs Endpoint */,
-				7B83381D2A0F9E110052F7EC /* Session */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -188,9 +186,8 @@
 		7B9305B12A0F99A4005EBE56 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
-				7B83383B2A1120A40052F7EC /* Session Get */,
+				7BC960D62A12D1230030B5E0 /* Session APIs */,
 				7B6D10492A0F9C010077A40B /* APIs Endpoint */,
-				7B83381E2A0F9E210052F7EC /* Session */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -201,6 +198,25 @@
 				7BC960D32A129A3E0030B5E0 /* SessionGetMapperTests+Arguments.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7BC960D52A12D0EF0030B5E0 /* Session APIs */ = {
+			isa = PBXGroup;
+			children = (
+				7B83381D2A0F9E110052F7EC /* Session Bodies */,
+				7B8338382A1016B20052F7EC /* Session Get API */,
+				7B83383E2A1124600052F7EC /* Helpers */,
+			);
+			path = "Session APIs";
+			sourceTree = "<group>";
+		};
+		7BC960D62A12D1230030B5E0 /* Session APIs */ = {
+			isa = PBXGroup;
+			children = (
+				7B83381E2A0F9E210052F7EC /* Session Bodies */,
+				7B83383B2A1120A40052F7EC /* Session Get API */,
+			);
+			path = "Session APIs";
 			sourceTree = "<group>";
 		};
 		7BCC4CF02A0D41BC004A8297 = {
