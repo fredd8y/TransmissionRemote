@@ -43,6 +43,7 @@
 		7B6587602A0D846500317EBE /* URLRequest+BodyStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65875B2A0D846500317EBE /* URLRequest+BodyStream.swift */; };
 		7B6587612A0D846500317EBE /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65875C2A0D846500317EBE /* URLSessionHTTPClientTests.swift */; };
 		7B6CD5D02A715AF300E81983 /* TorrentField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CF2A715AF300E81983 /* TorrentField.swift */; };
+		7B6CD5D42A716D7400E81983 /* Int+Byte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5D32A716D7400E81983 /* Int+Byte.swift */; };
 		7B6EDC292A6531CB00264EF2 /* APIEndToEndConfigurationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EDC282A6531CB00264EF2 /* APIEndToEndConfigurationsTests.swift */; };
 		7B6EDC2C2A65346D00264EF2 /* TransmissionAPIEndToEndTests+Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EDC2B2A65346D00264EF2 /* TransmissionAPIEndToEndTests+Secrets.swift */; };
 		7B6EDC2D2A65463600264EF2 /* EndToEndTestConfigurations.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7B4907B62A6524CB00C75819 /* EndToEndTestConfigurations.xcconfig */; };
@@ -138,6 +139,7 @@
 		7B65875B2A0D846500317EBE /* URLRequest+BodyStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+BodyStream.swift"; sourceTree = "<group>"; };
 		7B65875C2A0D846500317EBE /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		7B6CD5CF2A715AF300E81983 /* TorrentField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentField.swift; sourceTree = "<group>"; };
+		7B6CD5D32A716D7400E81983 /* Int+Byte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Byte.swift"; sourceTree = "<group>"; };
 		7B6EDC282A6531CB00264EF2 /* APIEndToEndConfigurationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndToEndConfigurationsTests.swift; sourceTree = "<group>"; };
 		7B6EDC2B2A65346D00264EF2 /* TransmissionAPIEndToEndTests+Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransmissionAPIEndToEndTests+Secrets.swift"; sourceTree = "<group>"; };
 		7B8338282A0FA19F0052F7EC /* SessionBodies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionBodies.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				7B3690F62A69E0A7000E130B /* Double+Rounding.swift */,
+				7B6CD5D32A716D7400E81983 /* Int+Byte.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -927,6 +930,7 @@
 				7BC960DF2A12D1BB0030B5E0 /* TorrentBodies.swift in Sources */,
 				7B6587552A0D845000317EBE /* URLSessionHTTPClient.swift in Sources */,
 				7B4DFB732A15394F007E9C63 /* Torrent.swift in Sources */,
+				7B6CD5D42A716D7400E81983 /* Int+Byte.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
