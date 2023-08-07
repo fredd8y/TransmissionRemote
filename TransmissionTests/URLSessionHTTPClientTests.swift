@@ -10,6 +10,12 @@ import Transmission
 
 final class URLSessionHTTPClientTests: XCTestCase {
 
+	override func tearDown() {
+		super.tearDown()
+		
+		URLProtocolStub.removeStub()
+	}
+	
 	func test_getFromURL_performPOSTRequestWithURL() {
 		let url = anyURL()
 		let data = Data("any data".utf8)
