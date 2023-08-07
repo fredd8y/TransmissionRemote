@@ -66,7 +66,8 @@ public struct ServerPage: View {
 					NavigationLink {
 						newServer?()
 					} label: {
-						Image(systemName: "plus").foregroundColor(.primary)
+						Image(systemName: "plus")
+							.foregroundColor(.primary)
 					}
 				}
 			}

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Transmission
+import UniformTypeIdentifiers
 
 public struct TorrentsPage: View {
 	
@@ -17,6 +18,8 @@ public struct TorrentsPage: View {
 	@ObservedObject var viewModel: TorrentsPageViewModel
 	
 	public var loadData: (() -> Void)?
+	
+	@State public var fileImporterPresented: Bool = false
 	
     public var body: some View {
 		NavigationStack {
@@ -67,6 +70,16 @@ public struct TorrentsPage: View {
 			.navigationTitle(viewModel.title)
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
+				ToolbarItemGroup(placement: .navigationBarTrailing) {
+					Button {
+						fileImporterPresented.toggle()
+					} label: {
+						Image(systemName: "plus")
+							.foregroundColor(.primary)
+					}
+				}
+			}
+			.toolbar {
 				ToolbarItemGroup(placement: .bottomBar) {
 					Image(systemName: "arrow.up")
 						.resizable()
@@ -89,6 +102,18 @@ public struct TorrentsPage: View {
 						.font(.subheadline)
 				}
 			}
+			.fileImporter(
+				isPresented: $fileImporterPresented,
+				allowedContentTypes: [.item],
+				onCompletion: { result in
+					switch result {
+					case .failure(let error):
+						print(error)
+					case .success(let url):
+						print(url)
+					}
+				}
+			)
 		}
 		.onAppear {
 			loadData?()
