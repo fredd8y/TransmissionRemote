@@ -27,61 +27,68 @@ class ServerDetailPagePresentationAdapter {
 	}
 	
 	func save(_ model: ServerDetailPageDataModel) -> Error? {
-		do {
-			// Name check
-			guard model.name != "" else {
-				return ServerDetailPageError.name
-			}
-			// IP check
-			guard model.ip != "" else {
-				return ServerDetailPageError.name
-			}
-			let ipComponents = model.ip.components(separatedBy: ".")
-			guard ipComponents.count == 4 else {
-				return ServerDetailPageError.ip
-			}
-			let wrongComponents = ipComponents.filter {
-				guard let number = Int($0) else { return true }
-				return number < 0 && number > 255
-			}
-			if wrongComponents.count > 0 {
-				return ServerDetailPageError.ip
-			}
-			// Port check
-			guard model.port != "", let intPort = Int(model.port), intPort >= 1, intPort <= 65535 else {
-				return ServerDetailPageError.port
-			}
-			// Username and Password check
-			if (model.username != "" && model.password == "") || (model.password != "" && model.username == "") {
-				if model.username == "" {
-					return ServerDetailPageError.username
-				}
-				if model.password == "" {
-					return ServerDetailPageError.password
-				}
-			}
-			let server = Server(
-				name: model.name,
-				httpProtocol: model.httpProtocol,
-				ip: model.ip,
-				port: intPort,
-				username: model.username == "" ? nil : model.username,
-				password: model.password == "" ? nil : try Cipher.encryptPassword(model.password, withKey: try Cipher.generateSymmetricKey(withPassword: try Keychain.getPasswordKey())),
-				id: model.id
-			)
-			guard let url = ServerFile.url else { return nil }
-			var servers = try ServerGetMapper.map(try Data(contentsOf: url))
-			if let index = servers.firstIndex(where: { $0.id == model.id }) {
-				servers[index] = server
-			} else {
-				servers.append(server)
-			}
-			try ServerSetMapper.map(servers).write(to: url)
-			UserDefaultsHandler.shared.currentServer = server
-		} catch {
-			// TODO: Handle error
-			dump(error)
+		// Name check
+		guard model.name != "" else {
+			return ServerDetailPageError.name
 		}
+		// IP check
+		guard model.ip != "" else {
+			return ServerDetailPageError.name
+		}
+		let ipComponents = model.ip.components(separatedBy: ".")
+		guard ipComponents.count == 4 else {
+			return ServerDetailPageError.ip
+		}
+		let wrongComponents = ipComponents.filter {
+			guard let number = Int($0) else { return true }
+			return number < 0 && number > 255
+		}
+		if wrongComponents.count > 0 {
+			return ServerDetailPageError.ip
+		}
+		// Port check
+		guard model.port != "", let intPort = Int(model.port), intPort >= 1, intPort <= 65535 else {
+			return ServerDetailPageError.port
+		}
+		// Username and Password check
+		if (model.username != "" && model.password == "") || (model.password != "" && model.username == "") {
+			if model.username == "" {
+				return ServerDetailPageError.username
+			}
+			if model.password == "" {
+				return ServerDetailPageError.password
+			}
+		}
+		guard
+			let passwordKey = try? Keychain.getPasswordKey(),
+			let symmetricKey = try? Cipher.generateSymmetricKey(withPassword: passwordKey),
+			let password = try? Cipher.encryptPassword(model.password, withKey: symmetricKey)
+		else { return ServerDetailPageError.alert(message: ServerDetailPagePresenter.undefinedError) }
+		let server = Server(
+			name: model.name,
+			httpProtocol: model.httpProtocol,
+			ip: model.ip,
+			port: intPort,
+			username: model.username == "" ? nil : model.username,
+			password: model.password == "" ? nil : password,
+			id: model.id
+		)
+		guard
+			let url = ServerFile.url,
+			let fileData = try? Data(contentsOf: url),
+			var servers = try? ServerGetMapper.map(fileData)
+		else { return ServerDetailPageError.alert(message: ServerDetailPagePresenter.undefinedError) }
+		if let index = servers.firstIndex(where: { $0.id == model.id }) {
+			servers[index] = server
+		} else {
+			servers.append(server)
+		}
+		do {
+			try ServerSetMapper.map(servers).write(to: url)
+		} catch {
+			return ServerDetailPageError.alert(message: ServerDetailPagePresenter.undefinedError)
+		}
+		UserDefaultsHandler.shared.currentServer = server
 		return nil
 	}
 	

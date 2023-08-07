@@ -137,13 +137,20 @@ public final class ServerDetailPagePresenter {
 			comment: "Ok string")
 	}
 	
-	
 	public static var alertErrorTitle: String {
 		NSLocalizedString(
 			"ALERT_ERROR_TITLE",
 			tableName: "ServerDetails",
 			bundle: Bundle(for: TorrentsPagePresenter.self),
 			comment: "Title for server detail alert error")
+	}
+	
+	public static var undefinedError: String {
+		NSLocalizedString(
+			"UNDEFINED_ERROR",
+			tableName: "ServerDetails",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Generic error to shown when something internal fail")
 	}
 	
 	public static func map(
@@ -160,9 +167,7 @@ public final class ServerDetailPagePresenter {
 			port: server.port.description,
 			username: server.username,
 			password: server.password,
-			serverId: server.id,
-			alertMessage: alertMessage,
-			alertMessageVisible: alertMessageVisible
+			serverId: server.id
 		)
 	}
 }

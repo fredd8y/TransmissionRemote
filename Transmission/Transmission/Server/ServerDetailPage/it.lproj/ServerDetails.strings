@@ -23,3 +23,4 @@
 "PASSWORD_ERROR" = "Password mancante";
 "OK" = "Ok";
 "ALERT_ERROR_TITLE" = "Errore";
+"UNDEFINED_ERROR" = "Qualcosa è andato storto";

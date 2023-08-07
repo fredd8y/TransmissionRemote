@@ -108,8 +108,15 @@ public struct ServerDetailPage: View {
 			.toolbar {
 				ToolbarItem {
 					Button {
-						viewModel.error = save?(dataModel) as? ServerDetailPageError
-						if viewModel.error == nil {
+						let error = save?(dataModel) as? ServerDetailPageError
+						switch error {
+						case .alert(let message):
+							viewModel.alertMessage = message
+							viewModel.alertMessageVisible = true
+						default:
+							viewModel.error = error
+						}
+						if error == nil {
 							dismiss()
 						}
 					} label: {
@@ -124,6 +131,7 @@ public struct ServerDetailPage: View {
 				actions: {
 					Button(action: {
 						viewModel.alertMessage = nil
+						viewModel.alertMessageVisible = false
 					}, label: {
 						Text(ServerDetailPagePresenter.ok)
 					})

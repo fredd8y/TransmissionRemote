@@ -15,7 +15,7 @@
 "PASSWORD" = "Password";
 "CREDENTIAL_NEEDED_TITLE" = "Credenziali errate o mancanti, aggiungile alla configurazione del server nelle impostazioni";
 "OK" = "Ok";
-"UNDEFINED_ERROR" = "Something went wrong";
+"UNDEFINED_ERROR" = "Qualcosa è andato storto";
 "DOWNLOAD_COMPLETED_IN" = "Il download sarà completato";
 "SERVER_NOT_SET" = "Server non presente, vai nel tab impostazioni per aggiungerne uno";
 "ALERT_ERROR_TITLE" = "Errore";

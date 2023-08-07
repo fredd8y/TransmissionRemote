@@ -11,12 +11,13 @@ public typealias ServerDetailPageError = ServerDetailPageViewModel.ServerDetailP
 
 public class ServerDetailPageViewModel: ObservableObject {
 	
-	public enum ServerDetailPageError: Error {
+	public enum ServerDetailPageError: Error, Equatable {
 		case name
 		case ip
 		case port
 		case username
 		case password
+		case alert(message: String)
 	}
 	
 	public init(
