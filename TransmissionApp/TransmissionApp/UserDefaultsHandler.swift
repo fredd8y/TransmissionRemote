@@ -91,7 +91,7 @@ class UserDefaultsHandler {
 	}
 	
 	private func setServerId(_ id: UUID) {
-		UserDefaults.standard.setValue(id, forKey: UserDefaultsKeys.serverId.rawValue)
+		UserDefaults.standard.setValue(id.uuidString, forKey: UserDefaultsKeys.serverId.rawValue)
 	}
 	
 	private func setServerPort(_ port: Int) {

@@ -26,7 +26,8 @@ final class UserDefaultsHandlerTests: XCTestCase {
 			ip: "192.168.1.1",
 			port: 9091,
 			username: "a username",
-			password: "a password"
+			password: "a password",
+			id: UUID()
 		)
 		
 		UserDefaultsHandler.shared.currentServer = testValue
@@ -39,7 +40,8 @@ final class UserDefaultsHandlerTests: XCTestCase {
 			name: "a name",
 			httpProtocol: .https,
 			ip: "192.168.1.1",
-			port: 9091
+			port: 9091,
+			id: UUID()
 		)
 		
 		UserDefaultsHandler.shared.currentServer = testValue

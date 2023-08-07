@@ -31,6 +31,15 @@ public struct ServerPage: View {
 			.listStyle(.plain)
 			.navigationTitle(viewModel.title)
 			.navigationBarTitleDisplayMode(.inline)
+			.toolbar {
+				ToolbarItem(placement: .navigationBarTrailing) {
+					Button {
+						// TODO
+					} label: {
+						Image(systemName: "plus")
+					}.foregroundColor(.primary)
+				}
+			}
 		}
     }
 }

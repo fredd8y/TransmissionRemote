@@ -11,7 +11,7 @@ public class ServersViewModel: ObservableObject {
 	public init(
 		title: String,
 		servers: [ServerViewModel],
-		currentSelectedServer: UUID
+		currentSelectedServer: UUID?
 	) {
 		self.title = title
 		self.servers = servers
@@ -20,5 +20,5 @@ public class ServersViewModel: ObservableObject {
 	
 	@Published public var title: String
 	@Published public var servers: [ServerViewModel]
-	public var currentSelectedServer: UUID
+	public var currentSelectedServer: UUID?
 }
