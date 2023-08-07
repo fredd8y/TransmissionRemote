@@ -7,7 +7,6 @@ Improvement
 
 TODO
 
--	Remove tabbar in ServerDetail page
 -	Handle error in ServerDetail page, improve field UX
 -	Improve server selection UI
 -	Add error to ServerDetailPage
