@@ -13,23 +13,19 @@ public final class SessionGetMapper {
 		return "X-Transmission-Session-Id"
 	}
 	
-	struct RemoteSessionItem: Decodable {
-		
-	}
-	
 	public enum Error: Swift.Error {
 		case invalidData
 		case missingSessionId(sessionIdValue: Any?)
 	}
 	
-	public static func map(_ data: Data, from response: HTTPURLResponse) throws -> [SessionItem] {
-		guard response.isOK, let _ = try? JSONDecoder().decode(RemoteSessionItem.self, from: data) else {
+	public static func map(_ data: Data, from response: HTTPURLResponse) throws -> SessionItem {
+		guard response.isOK, let remoteSessionItem = try? JSONDecoder().decode(RemoteSessionItem.self, from: data) else {
 			if response.isMissingSessionId {
 				throw Error.missingSessionId(sessionIdValue: response.allHeaderFields[sessionIdKey])
 			}
 			throw Error.invalidData
 		}
-		return []
+		return remoteSessionItem.sessionItem
 	}
 	
 }

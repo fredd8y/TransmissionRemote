@@ -10,7 +10,7 @@ import Transmission
 
 class SessionGetMapperTest: XCTestCase {
 	func test_map_throwsErrorOnHTTPResponseStatusCodeDifferentThan200And409() throws {
-		let json = makeItemsJSON(withArguments: [], andResult: anyString())
+		let json = makeJSON(fromDictionary: [:])
 		let samples = [199, 201, 300, 408, 410, 500]
 		
 		try samples.forEach { code in
@@ -38,7 +38,7 @@ class SessionGetMapperTest: XCTestCase {
 	}
 	
 	func test_map_throwsSessionIdErrorOn409HTTPResponse() throws {
-		let json = makeItemsJSON(withArguments: [], andResult: anyString())
+		let json = makeJSON(fromDictionary: [:])
 		let sessionIdValue = anyString()
 		do {
 			_ = try SessionGetMapper.map(
@@ -62,10 +62,84 @@ class SessionGetMapperTest: XCTestCase {
 		}
 	}
 	
+	func test_map_deliversSessionItemOn200HTTPResponseWithValidJSON() {
+		let arguments = makeSessionItem()
+
+		let json = makeJSON(fromDictionary: arguments.json)
+
+		do {
+			let sessionItem = try SessionGetMapper.map(json, from: HTTPURLResponse(statusCode: 200))
+
+			XCTAssertEqual(sessionItem, arguments.model)
+		} catch {
+			XCTFail("Expected no exception, got \(error.localizedDescription) instead")
+		}
+	}
+	
 	// MARK: - Helpers
 	
-	func makeItemsJSON(withArguments arguments: [[String: Any]], andResult result: String) -> Data {
-		let json: [String: Any] = ["arguments": arguments, "result": result]
-		return try! JSONSerialization.data(withJSONObject: json)
+	private func makeJSON(fromDictionary dictionary: [String: Any]) -> Data {
+		return try! JSONSerialization.data(withJSONObject: dictionary)
+	}
+	
+	private func makeSessionItem() -> (model: SessionItem, json: [String: Any]) {
+		return makeSessionItem(
+			altSpeedDown: Int.random(in: 50..<5000),
+			altSpeedEnabled: Bool.random(),
+			altSpeedTimeBegin: Int.random(in: 50..<5000),
+			altSpeedTimeDay: Int.random(in: 50..<5000),
+			altSpeedTimeEnabled: Bool.random(),
+			altSpeedTimeEnd: Int.random(in: 50..<5000),
+			altSpeedUp: Int.random(in: 50..<5000),
+			blocklistEnabled: Bool.random(),
+			blockListSize: Int.random(in: 50..<5000),
+			blocklistUrl: anyURL().absoluteString,
+			cacheSizeMb: Int.random(in: 50..<5000),
+			configDir: anyURL().absoluteString,
+			dhtEnabled: Bool.random(),
+			downloadDir: anyURL().absoluteString,
+			downloadDirFreeSpace: Int.random(in: 50..<5000),
+			downloadQueueEnabled: Bool.random(),
+			downloadQueueSize: Int.random(in: 50..<5000),
+			encryption: "preferred",
+			idleSeedingLimit: Int.random(in: 50..<5000),
+			idleSeedingLimitEnabled: Bool.random(),
+			incompleteDir: anyURL().absoluteString,
+			incompleteDirEnabled: Bool.random(),
+			lpdEnabled: Bool.random(),
+			peerLimitGlobal: Int.random(in: 50..<5000),
+			peerLimitPerTorrent: Int.random(in: 50..<5000),
+			peerPort: Int.random(in: 50..<5000),
+			peerPortRandomOnStart: Bool.random(),
+			pexEnabled: Bool.random(),
+			portForwardingEnabled: Bool.random(),
+			queueStalledEnabled: Bool.random(),
+			queueStalledMinutes: Int.random(in: 50..<5000),
+			renamePartialFiles: Bool.random(),
+			rpcVersion: Int.random(in: 50..<5000),
+			rpcVersionMinimum: Int.random(in: 50..<5000),
+			scriptTorrentDoneEnabled: Bool.random(),
+			scriptTorrentDoneFilename: "any file name",
+			seedQueueEnabled: Bool.random(),
+			seedQueueSize: Int.random(in: 50..<5000),
+			seedRatioLimit: Int.random(in: 50..<5000),
+			seedRatioLimited: Bool.random(),
+			sessionId: "any session id",
+			speedLimitDown: Int.random(in: 50..<5000),
+			speedLimitDownEnabled: Bool.random(),
+			speedLimitUp: Int.random(in: 50..<5000),
+			speedLimitUpEnabled: Bool.random(),
+			startAddedTorrents: Bool.random(),
+			trashOriginalTorrentFiles: Bool.random(),
+			memoryBytes: Int.random(in: 50..<5000),
+			memoryUnits: ["KiB", "MiB", "GiB", "TiB"],
+			sizeBytes: Int.random(in: 50..<5000),
+			sizeUnits: ["kB", "MB", "GB", "TB"],
+			speedBytes: Int.random(in: 50..<5000),
+			speedUnits: ["kB/s", "MB/s", "GB/s", "TB/s"],
+			utpEnabled: Bool.random(),
+			version: "any version",
+			result: "any result"
+		)
 	}
 }
