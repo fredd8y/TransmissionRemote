@@ -67,9 +67,13 @@ final class TransmissionComposer {
 		let serverDetailPresentationAdapter = ServerDetailPagePresentationAdapter()
 		
 		var serverPage = ServerPage(viewModel: viewModel)
+		
+		serverPage.selectServer = serverPagePresentationAdapter.selectServer
 		serverPage.loadData = serverPagePresentationAdapter.loadData
-		serverPage.selectedServer = serverDetailPresentationAdapter.selectedServer
+		
+		serverPage.showServerDetail = serverDetailPresentationAdapter.showServerDetail
 		serverPage.newServer = serverDetailPresentationAdapter.newServer
+		
 		return serverPage
 	}
 	

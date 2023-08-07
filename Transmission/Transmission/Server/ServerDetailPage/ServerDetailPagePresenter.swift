@@ -109,7 +109,8 @@ public final class ServerDetailPagePresenter {
 			username: server.username,
 			usernamePlaceholder: usernamePlaceholder,
 			password: server.password,
-			passwordPlaceholder: passwordPlaceholder
+			passwordPlaceholder: passwordPlaceholder,
+			serverId: server.id
 		)
 	}
 }

@@ -22,7 +22,8 @@ public struct ServerDetailPage: View {
 			ip: viewModel.ip ?? "",
 			port: viewModel.port ?? "",
 			username: viewModel.username ?? "",
-			password: viewModel.password ?? ""
+			password: viewModel.password ?? "",
+			id: viewModel.serverId
 		))
 	}
 	
@@ -90,7 +91,8 @@ struct ServerDetailPage_Previews: PreviewProvider {
 				ipPlaceholder: "IP",
 				portPlaceholder: "Port",
 				usernamePlaceholder: "Username",
-				passwordPlaceholder: "Password"
+				passwordPlaceholder: "Password",
+				serverId: UUID()
 			)
 		)
     }

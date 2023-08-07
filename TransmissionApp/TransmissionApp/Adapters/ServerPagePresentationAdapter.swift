@@ -19,15 +19,27 @@ class ServerPagePresentationAdapter {
 	
 	private var cancellable: Cancellable?
 	
+	private var selectionCancellable: Cancellable?
+	
 	private let serverFileName = "servers.json"
 	
+	private lazy var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathExtension(serverFileName)
+	
+	func selectServer(_ id: UUID) {
+		guard let url else { return }
+		selectionCancellable = ServerPublishers.makeServerGetLoader(atUrl: url)
+			.dispatchOnMainQueue()
+			.sink(
+				receiveCompletion: { _ in },
+				receiveValue: { servers in
+					guard let server = servers.first(where: { $0.id == id }) else { return }
+					UserDefaultsHandler.shared.currentServer = server
+				}
+			)
+	}
+	
 	func loadData() {
-		guard
-			let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathExtension(serverFileName)
-		else {
-			// TODO: Handle error on SettingsPage
-			return
-		}
+		guard let url else { return }
 		cancellable = ServerPublishers.makeServerGetLoader(atUrl: url)
 			.dispatchOnMainQueue()
 			.sink(

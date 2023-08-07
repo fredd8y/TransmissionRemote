@@ -24,7 +24,8 @@ public struct ServerDetailPageViewModel {
 		username: String? = nil,
 		usernamePlaceholder: String,
 		password: String? = nil,
-		passwordPlaceholder: String
+		passwordPlaceholder: String,
+		serverId: UUID
 	) {
 		self.serverSectionHeader = serverSectionHeader
 		self.authenticationSectionHeader = authenticationSectionHeader
@@ -42,6 +43,7 @@ public struct ServerDetailPageViewModel {
 		self.usernamePlaceholder = usernamePlaceholder
 		self.password = password
 		self.passwordPlaceholder = passwordPlaceholder
+		self.serverId = serverId
 	}
 	
 	public var serverSectionHeader: String
@@ -60,4 +62,5 @@ public struct ServerDetailPageViewModel {
 	public var usernamePlaceholder: String
 	public var password: String?
 	public var passwordPlaceholder: String
+	public var serverId: UUID
 }

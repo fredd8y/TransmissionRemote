@@ -18,7 +18,9 @@ public struct ServerPage: View {
 	
 	public var loadData: (() -> Void)?
 	
-	public var selectedServer: ((UUID) -> ServerDetailPage?)?
+	public var showServerDetail: ((UUID) -> ServerDetailPage?)?
+	
+	public var selectServer: ((UUID) -> Void)?
 	
 	public var newServer: (() -> ServerDetailPage)?
 		
@@ -32,7 +34,7 @@ public struct ServerPage: View {
 						.font(.caption2)
 				}.contextMenu {
 					NavigationLink {
-						selectedServer?(server.id)
+						showServerDetail?(server.id)
 					} label: {
 						Text(viewModel.editItemActionTitle)
 					}
@@ -49,6 +51,10 @@ public struct ServerPage: View {
 						Image(systemName: "plus").foregroundColor(.primary)
 					}
 				}
+			}
+			.onChange(of: viewModel.currentSelectedServerId) { newValue in
+				guard let newValue else { return }
+				selectServer?(newValue)
 			}
 		}.onAppear {
 			loadData?()
