@@ -12,6 +12,7 @@ extension ServerPageViewModel {
 		ServerPageViewModel(
 			title: ServerPagePresenter.title,
 			servers: [],
+			editItemActionTitle: ServerPagePresenter.editItemActionTitle,
 			currentSelectedServerId: nil
 		)
 	}

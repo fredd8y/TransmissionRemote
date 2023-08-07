@@ -7,7 +7,6 @@ Improvement
 
 TODO
 
--	Change servers editing, remove selection, use long press instead
 -	Add error to ServerDetailPage
 -	Remove ObservedObject from torrentsPageViewModel
 -	Crypt password before saving it in userDefaults
