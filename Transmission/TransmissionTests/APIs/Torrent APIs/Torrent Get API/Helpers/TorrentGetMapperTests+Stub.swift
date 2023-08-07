@@ -18,6 +18,7 @@ extension TorrentGetMapperTests {
 		isFinished: Bool,
 		percentDone: Double,
 		rateDownload: Int,
+		rateUpload: Int,
 		totalSize: Int,
 		result: String
 	) -> (model: [Torrent], json: [String: Any]) {
@@ -31,6 +32,7 @@ extension TorrentGetMapperTests {
 				isFinished: isFinished,
 				percentDone: percentDone,
 				rateDownload: rateDownload,
+				rateUpload: rateUpload,
 				totalSize: totalSize
 			)
 		]
@@ -45,6 +47,7 @@ extension TorrentGetMapperTests {
 					"isFinished": isFinished,
 					"percentDone": percentDone,
 					"rateDownload": rateDownload,
+					"rateUpload": rateUpload,
 					"totalSize": totalSize
 				]]
 			],

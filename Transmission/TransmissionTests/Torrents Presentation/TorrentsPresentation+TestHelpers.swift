@@ -19,6 +19,7 @@ extension XCTestCase {
 			isFinished: false,
 			percentDone: 0.76,
 			rateDownload: 123456,
+			rateUpload: 123456,
 			totalSize: 1234567
 		)
 	}
@@ -33,6 +34,7 @@ extension XCTestCase {
 			isFinished: false,
 			percentDone: 0.76,
 			rateDownload: 123456,
+			rateUpload: 123456,
 			totalSize: 1234567
 		)
 	}

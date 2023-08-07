@@ -60,6 +60,7 @@ class TorrentGetMapperTests: XCTestCase {
 			isFinished: false,
 			percentDone: 0.76,
 			rateDownload: 2733000,
+			rateUpload: 123456,
 			totalSize: 8765432,
 			result: "success"
 		)

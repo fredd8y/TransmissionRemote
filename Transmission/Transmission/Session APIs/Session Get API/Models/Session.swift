@@ -112,56 +112,56 @@ public struct Session: Equatable {
 		self.version = version
 	}
 
-	let altSpeedDown: Int
-	let altSpeedEnabled: Bool
-	let altSpeedTimeBegin: Int
-	let altSpeedTimeDay: Int
-	let altSpeedTimeEnabled: Bool
-	let altSpeedTimeEnd: Int
-	let altSpeedUp: Int
-	let blocklistEnabled: Bool
-	let blockListSize: Int
-	let blocklistUrl: String
-	let cacheSizeMb: Int
-	let configDir: String
-	let dhtEnabled: Bool
-	let downloadDir: String
-	let downloadDirFreeSpace: Int
-	let downloadQueueEnabled: Bool
-	let downloadQueueSize: Int
-	let encryption: String
-	let idleSeedingLimit: Int
-	let idleSeedingLimitEnabled: Bool
-	let incompleteDir: String
-	let incompleteDirEnabled: Bool
-	let lpdEnabled: Bool
-	let peerLimitGlobal: Int
-	let peerLimitPerTorrent: Int
-	let peerPort: Int
-	let peerPortRandomOnStart: Bool
-	let pexEnabled: Bool
-	let portForwardingEnabled: Bool
-	let queueStalledEnabled: Bool
-	let queueStalledMinutes: Int
-	let renamePartialFiles: Bool
-	let rpcVersion: Int
-	let rpcVersionMinimum: Int
-	let scriptTorrentDoneEnabled: Bool
-	let scriptTorrentDoneFilename: String
-	let seedQueueEnabled: Bool
-	let seedQueueSize: Int
-	let seedRatioLimit: Int
-	let seedRatioLimited: Bool
-	let sessionId: String
-	let speedLimitDown: Int
-	let speedLimitDownEnabled: Bool
-	let speedLimitUp: Int
-	let speedLimitUpEnabled: Bool
-	let startAddedTorrents: Bool
-	let trashOriginalTorrentFiles: Bool
-	let units: Units
-	let utpEnabled: Bool
-	let version: String
+	public let altSpeedDown: Int
+	public let altSpeedEnabled: Bool
+	public let altSpeedTimeBegin: Int
+	public let altSpeedTimeDay: Int
+	public let altSpeedTimeEnabled: Bool
+	public let altSpeedTimeEnd: Int
+	public let altSpeedUp: Int
+	public let blocklistEnabled: Bool
+	public let blockListSize: Int
+	public let blocklistUrl: String
+	public let cacheSizeMb: Int
+	public let configDir: String
+	public let dhtEnabled: Bool
+	public let downloadDir: String
+	public let downloadDirFreeSpace: Int
+	public let downloadQueueEnabled: Bool
+	public let downloadQueueSize: Int
+	public let encryption: String
+	public let idleSeedingLimit: Int
+	public let idleSeedingLimitEnabled: Bool
+	public let incompleteDir: String
+	public let incompleteDirEnabled: Bool
+	public let lpdEnabled: Bool
+	public let peerLimitGlobal: Int
+	public let peerLimitPerTorrent: Int
+	public let peerPort: Int
+	public let peerPortRandomOnStart: Bool
+	public let pexEnabled: Bool
+	public let portForwardingEnabled: Bool
+	public let queueStalledEnabled: Bool
+	public let queueStalledMinutes: Int
+	public let renamePartialFiles: Bool
+	public let rpcVersion: Int
+	public let rpcVersionMinimum: Int
+	public let scriptTorrentDoneEnabled: Bool
+	public let scriptTorrentDoneFilename: String
+	public let seedQueueEnabled: Bool
+	public let seedQueueSize: Int
+	public let seedRatioLimit: Int
+	public let seedRatioLimited: Bool
+	public let sessionId: String
+	public let speedLimitDown: Int
+	public let speedLimitDownEnabled: Bool
+	public let speedLimitUp: Int
+	public let speedLimitUpEnabled: Bool
+	public let startAddedTorrents: Bool
+	public let trashOriginalTorrentFiles: Bool
+	public let units: Units
+	public let utpEnabled: Bool
+	public let version: String
 }
 
 public struct Units: Equatable {

@@ -17,6 +17,7 @@ public struct Torrent: Equatable {
 		isFinished: Bool,
 		percentDone: Double,
 		rateDownload: Int,
+		rateUpload: Int,
 		totalSize: Int
 	) {
 		self.name = name
@@ -27,6 +28,7 @@ public struct Torrent: Equatable {
 		self.isFinished = isFinished
 		self.percentDone = percentDone
 		self.rateDownload = rateDownload
+		self.rateUpload = rateUpload
 		self.totalSize = totalSize
 	}
 
@@ -38,5 +40,6 @@ public struct Torrent: Equatable {
 	public let isFinished: Bool
 	public let percentDone: Double
 	public let rateDownload: Int
+	public let rateUpload: Int
 	public let totalSize: Int
 }

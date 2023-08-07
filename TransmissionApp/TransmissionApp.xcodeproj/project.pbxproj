@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7BC0D8142A6C158100B36367 /* TransmissionAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8132A6C158100B36367 /* TransmissionAppApp.swift */; };
-		7BC0D8162A6C158100B36367 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8152A6C158100B36367 /* ContentView.swift */; };
+		7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8132A6C158100B36367 /* TransmissionApp.swift */; };
 		7BC0D8182A6C158300B36367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC0D8172A6C158300B36367 /* Assets.xcassets */; };
 		7BC0D81B2A6C158300B36367 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC0D81A2A6C158300B36367 /* Preview Assets.xcassets */; };
 		7BC0D8252A6C158300B36367 /* TransmissionAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8242A6C158300B36367 /* TransmissionAppTests.swift */; };
 		7BC0D82F2A6C158300B36367 /* TransmissionAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D82E2A6C158300B36367 /* TransmissionAppUITests.swift */; };
 		7BC0D8312A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8302A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift */; };
+		7BC0D8432A6E3C4100B36367 /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8422A6E3C4100B36367 /* CombineHelpers.swift */; };
+		7BC0D8452A6E3FE200B36367 /* TransmissionUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8442A6E3FE200B36367 /* TransmissionUIComposer.swift */; };
+		7BC0D84A2A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8492A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift */; };
+		7BC0D84C2A6EA20100B36367 /* TorrentsViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D84B2A6EA20100B36367 /* TorrentsViewModel+Factory.swift */; };
+		7BC0D84E2A6EA90000B36367 /* TransmissionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D84D2A6EA90000B36367 /* TransmissionHTTPClient.swift */; };
+		7BC0D8512A6EAB3A00B36367 /* Transmission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC0D8502A6EAB3A00B36367 /* Transmission.framework */; };
+		7BC0D8522A6EAB3A00B36367 /* Transmission.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC0D8502A6EAB3A00B36367 /* Transmission.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7BC0D8552A6EAB3D00B36367 /* TransmissioniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC0D8542A6EAB3D00B36367 /* TransmissioniOS.framework */; };
+		7BC0D8562A6EAB3D00B36367 /* TransmissioniOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC0D8542A6EAB3D00B36367 /* TransmissioniOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,10 +41,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7BC0D8532A6EAB3A00B36367 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7BC0D8562A6EAB3D00B36367 /* TransmissioniOS.framework in Embed Frameworks */,
+				7BC0D8522A6EAB3A00B36367 /* Transmission.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7BC0D8102A6C158100B36367 /* TransmissionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransmissionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BC0D8132A6C158100B36367 /* TransmissionAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionAppApp.swift; sourceTree = "<group>"; };
-		7BC0D8152A6C158100B36367 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7BC0D8132A6C158100B36367 /* TransmissionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionApp.swift; sourceTree = "<group>"; };
 		7BC0D8172A6C158300B36367 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BC0D81A2A6C158300B36367 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7BC0D8202A6C158300B36367 /* TransmissionAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransmissionAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +66,13 @@
 		7BC0D82A2A6C158300B36367 /* TransmissionAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransmissionAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC0D82E2A6C158300B36367 /* TransmissionAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionAppUITests.swift; sourceTree = "<group>"; };
 		7BC0D8302A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7BC0D8422A6E3C4100B36367 /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
+		7BC0D8442A6E3FE200B36367 /* TransmissionUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionUIComposer.swift; sourceTree = "<group>"; };
+		7BC0D8492A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsPagePresentationAdapter.swift; sourceTree = "<group>"; };
+		7BC0D84B2A6EA20100B36367 /* TorrentsViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorrentsViewModel+Factory.swift"; sourceTree = "<group>"; };
+		7BC0D84D2A6EA90000B36367 /* TransmissionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionHTTPClient.swift; sourceTree = "<group>"; };
+		7BC0D8502A6EAB3A00B36367 /* Transmission.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Transmission.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC0D8542A6EAB3D00B36367 /* TransmissioniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TransmissioniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BC0D8552A6EAB3D00B36367 /* TransmissioniOS.framework in Frameworks */,
+				7BC0D8512A6EAB3A00B36367 /* Transmission.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +109,7 @@
 				7BC0D8232A6C158300B36367 /* TransmissionAppTests */,
 				7BC0D82D2A6C158300B36367 /* TransmissionAppUITests */,
 				7BC0D8112A6C158100B36367 /* Products */,
+				7BC0D84F2A6EAB3A00B36367 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,8 +126,11 @@
 		7BC0D8122A6C158100B36367 /* TransmissionApp */ = {
 			isa = PBXGroup;
 			children = (
-				7BC0D8132A6C158100B36367 /* TransmissionAppApp.swift */,
-				7BC0D8152A6C158100B36367 /* ContentView.swift */,
+				7BC0D8462A6E614D00B36367 /* Adapters */,
+				7BC0D8412A6E3C3700B36367 /* Helpers */,
+				7BC0D8132A6C158100B36367 /* TransmissionApp.swift */,
+				7BC0D8442A6E3FE200B36367 /* TransmissionUIComposer.swift */,
+				7BC0D84D2A6EA90000B36367 /* TransmissionHTTPClient.swift */,
 				7BC0D8172A6C158300B36367 /* Assets.xcassets */,
 				7BC0D8192A6C158300B36367 /* Preview Content */,
 			);
@@ -127,6 +162,32 @@
 			path = TransmissionAppUITests;
 			sourceTree = "<group>";
 		};
+		7BC0D8412A6E3C3700B36367 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7BC0D8422A6E3C4100B36367 /* CombineHelpers.swift */,
+				7BC0D84B2A6EA20100B36367 /* TorrentsViewModel+Factory.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7BC0D8462A6E614D00B36367 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				7BC0D8492A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		7BC0D84F2A6EAB3A00B36367 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BC0D8542A6EAB3D00B36367 /* TransmissioniOS.framework */,
+				7BC0D8502A6EAB3A00B36367 /* Transmission.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +198,7 @@
 				7BC0D80C2A6C158100B36367 /* Sources */,
 				7BC0D80D2A6C158100B36367 /* Frameworks */,
 				7BC0D80E2A6C158100B36367 /* Resources */,
+				7BC0D8532A6EAB3A00B36367 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -257,8 +319,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BC0D8162A6C158100B36367 /* ContentView.swift in Sources */,
-				7BC0D8142A6C158100B36367 /* TransmissionAppApp.swift in Sources */,
+				7BC0D84E2A6EA90000B36367 /* TransmissionHTTPClient.swift in Sources */,
+				7BC0D84C2A6EA20100B36367 /* TorrentsViewModel+Factory.swift in Sources */,
+				7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */,
+				7BC0D8452A6E3FE200B36367 /* TransmissionUIComposer.swift in Sources */,
+				7BC0D8432A6E3C4100B36367 /* CombineHelpers.swift in Sources */,
+				7BC0D84A2A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

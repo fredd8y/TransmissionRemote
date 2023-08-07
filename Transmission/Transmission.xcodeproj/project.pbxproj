@@ -569,6 +569,8 @@
 		7BCC4CF02A0D41BC004A8297 = {
 			isa = PBXGroup;
 			children = (
+				7BD9A20F2A63293400B6380A /* TODO.md */,
+				7BD9A1ED2A6300E600B6380A /* Requirements.md */,
 				7BCC4CFC2A0D41BC004A8297 /* Transmission */,
 				7BCC4D062A0D41BC004A8297 /* TransmissionTests */,
 				7BD9A2052A631C8E00B6380A /* TransmissionAPIEndToEndTests */,
@@ -594,8 +596,6 @@
 		7BCC4CFC2A0D41BC004A8297 /* Transmission */ = {
 			isa = PBXGroup;
 			children = (
-				7BD9A20F2A63293400B6380A /* TODO.md */,
-				7BD9A1ED2A6300E600B6380A /* Requirements.md */,
 				7B8CB8182A66C016001A4D90 /* Torrents Feature */,
 				7B8CB8192A66C0F8001A4D90 /* Torrents Presentation */,
 				7B8CB8212A66C2C0001A4D90 /* Torrents APIs */,

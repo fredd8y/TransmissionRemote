@@ -18,11 +18,22 @@ public struct TorrentsPage: View {
 		_torrents = State(initialValue: model.torrents)
 	}
 	
+	public var loadData: (() -> Void)?
+	
+	public func update(withViewModel viewModel: TorrentsViewModel) {
+		title = viewModel.title
+		error = viewModel.error
+		uploadSpeed = viewModel.uploadSpeed
+		downloadSpeed = viewModel.downloadSpeed
+		torrents = viewModel.torrents
+	}
+	
 	@State private var title: String
 	@State private var error: String?
 	@State private var uploadSpeed: String
 	@State private var downloadSpeed: String
 	@State private var torrents: [TorrentViewModel]
+	@State private var isCredentialAlertShown: Bool = false
 	
     public var body: some View {
 		NavigationStack {
@@ -64,7 +75,7 @@ public struct TorrentsPage: View {
 						.foregroundColor(.red)
 						.frame(width: 16, height: 16)
 						.padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
-					SubheadlineText("5,5MB")
+					SubheadlineText(uploadSpeed)
 					Spacer()
 					SubheadlineText(torrentsDescription)
 					Spacer()
@@ -74,11 +85,13 @@ public struct TorrentsPage: View {
 						.foregroundColor(.green)
 						.frame(width: 16, height: 16)
 						.padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
-					SubheadlineText("5,5MB")
+					SubheadlineText(downloadSpeed)
 				}
 			}
+		}.onAppear {
+			loadData?()
 		}
-    }
+	}
 	
 	private var torrentsDescription: String {
 		let description = torrents.count == 1 ? "torrent" : "torrents"
