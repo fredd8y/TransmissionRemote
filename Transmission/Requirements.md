@@ -1,4 +1,4 @@
-v1.0
+v0.1
 
 Features
 
@@ -11,12 +11,9 @@ Features
 	-	Size of the torrent and the already downloaded part
 2.	Total download speed
 3.	Total number of active torrent
-4.	Add a torrent
-5.	Delete a torrent
 
-API for every feature
+APIs needed for all features
 
-1.
 ✅	Session Get
--	Session Stats 
+✅	Session Stats 
 ✅	Torrent Get
