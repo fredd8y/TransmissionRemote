@@ -13,11 +13,16 @@ class ServerPagePresentationAdapter {
 	
 	init(serversViewModel: ServerPageViewModel) {
 		self.serversViewModel = serversViewModel
+		
+		serverCancellable = UserDefaultsHandler.shared.currentServerPublisher.sink { [weak self] newValue in
+			self?.loadData()
+		}
 	}
 	
 	private let serversViewModel: ServerPageViewModel
 	
 	private var cancellable: Cancellable?
+	private var serverCancellable: Cancellable?
 	private var deleteCancellable: Cancellable?
 	private var selectionCancellable: Cancellable?
 	

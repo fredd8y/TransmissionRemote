@@ -26,7 +26,7 @@ final class TransmissionComposer {
 	}
 	
 	private static func torrentsPage() -> TorrentsPage {
-		let viewModel = TorrentsPageViewModel.empty()
+		let viewModel = TorrentsPageViewModel.loading()
 		
 		let torrentsPagePresentationAdapter = TorrentsPagePresentationAdapter(
 			torrentsPageViewModel: viewModel,

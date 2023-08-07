@@ -23,7 +23,7 @@ final class TorrentsPagePresentationAdapter {
 			self?.loadData()
 		}.store(in: &pollingRateCancellable)
 		UserDefaultsHandler.shared.currentServerPublisher.dropFirst().sink { [weak self] _ in
-			self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.empty())
+			self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.loading())
 			self?.cancellables.removeAll()
 			self?.loadData()
 		}.store(in: &currentServerCancellable)
@@ -259,6 +259,7 @@ final class TorrentsPagePresentationAdapter {
 			receiveValue: { [weak self] (downloadDirFreeSpace, torrents) in
 				let viewModel = TorrentsPagePresenter.map(
 					title: TorrentsPagePresenter.title,
+					isLoading: false,
 					error: nil,
 					uploadSpeed: torrents.reduce(0) { $0 + $1.rateUpload },
 					downloadSpeed: torrents.reduce(0) { $0 + $1.rateDownload },
@@ -284,6 +285,7 @@ final class TorrentsPagePresentationAdapter {
 private extension TorrentsPageViewModel {
 	func newValues(_ viewModel: TorrentsPageViewModel) {
 		title = viewModel.title
+		isLoading = viewModel.isLoading
 		error = viewModel.error
 		uploadSpeed = viewModel.uploadSpeed
 		downloadSpeed = viewModel.downloadSpeed

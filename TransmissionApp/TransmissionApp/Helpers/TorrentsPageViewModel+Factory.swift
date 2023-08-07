@@ -8,9 +8,10 @@
 import Transmission
 
 extension TorrentsPageViewModel {
-	static func empty() -> TorrentsPageViewModel {
+	static func loading() -> TorrentsPageViewModel {
 		TorrentsPagePresenter.map(
 			title: TorrentsPagePresenter.title,
+			isLoading: true,
 			error: nil,
 			uploadSpeed: 0,
 			downloadSpeed: 0,
@@ -25,6 +26,7 @@ extension TorrentsPageViewModel {
 	static func error() -> TorrentsPageViewModel {
 		TorrentsPagePresenter.map(
 			title: TorrentsPagePresenter.title,
+			isLoading: false,
 			error: TorrentsPagePresenter.undefinedError,
 			uploadSpeed: 0,
 			downloadSpeed: 0,
@@ -39,6 +41,7 @@ extension TorrentsPageViewModel {
 	static func serverNotSet() -> TorrentsPageViewModel {
 		TorrentsPagePresenter.map(
 			title: TorrentsPagePresenter.title,
+			isLoading: false,
 			error: nil,
 			uploadSpeed: 0,
 			downloadSpeed: 0,
@@ -53,6 +56,7 @@ extension TorrentsPageViewModel {
 	static func credentialRequired() -> TorrentsPageViewModel {
 		TorrentsPagePresenter.map(
 			title: TorrentsPagePresenter.title,
+			isLoading: false,
 			error: TorrentsPagePresenter.credentialRequired,
 			uploadSpeed: 0,
 			downloadSpeed: 0,
@@ -67,6 +71,7 @@ extension TorrentsPageViewModel {
 	static func serverTimeout() -> TorrentsPageViewModel {
 		TorrentsPagePresenter.map(
 			title: TorrentsPagePresenter.title,
+			isLoading: false,
 			error: TorrentsPagePresenter.serverTimeout,
 			uploadSpeed: 0,
 			downloadSpeed: 0,

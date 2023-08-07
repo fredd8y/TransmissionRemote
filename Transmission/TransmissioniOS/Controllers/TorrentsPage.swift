@@ -67,48 +67,53 @@ public struct TorrentsPage: View {
 						Spacer()
 					}
 				} else {
-					List {
-						ForEach(viewModel.torrents) { torrent in
-							VStack(alignment: .leading) {
-								Text(torrent.name)
-									.font(.subheadline)
-								Text(torrent.downloaded)
-									.font(.caption2)
-								HStack {
-									ProgressView(value: torrent.completionPercentage)
-										.tint(progressBarColor(torrent))
-									Text(torrent.completionPercentageString)
-										.font(.caption2)
-								}
-								Text(torrent.error ?? torrent.description)
-									.font(.caption2)
-									.foregroundColor(torrent.error == nil ? .primary : .red)
-									.contextMenu {
-										Button(role: .destructive) {
-											deletingTorrentId = torrent.id
-											torrentRemoveAlertPresented.toggle()
-										} label: {
-											Text(TorrentsPagePresenter.remove)
-										}
-										switch torrent.status {
-										case .running, .completed:
-											Button {
-												stop?(torrent.id)
-											} label: {
-												Text(TorrentsPagePresenter.stop)
-											}
-										case .stopped:
-											Button {
-												start?(torrent.id)
-											} label: {
-												Text(TorrentsPagePresenter.start)
-											}
-										}
-									}
-							}
+					if viewModel.isLoading, viewModel.error == nil {
+						VStack {
+							ProgressView().progressViewStyle(.circular)
 						}
+					} else {
+						List {
+							ForEach(viewModel.torrents) { torrent in
+								VStack(alignment: .leading) {
+									Text(torrent.name)
+										.font(.subheadline)
+									Text(torrent.downloaded)
+										.font(.caption2)
+									HStack {
+										ProgressView(value: torrent.completionPercentage)
+											.tint(progressBarColor(torrent))
+										Text(torrent.completionPercentageString)
+											.font(.caption2)
+									}
+									Text(torrent.error ?? torrent.description)
+										.font(.caption2)
+										.foregroundColor(torrent.error == nil ? .primary : .red)
+										.contextMenu {
+											Button(role: .destructive) {
+												deletingTorrentId = torrent.id
+												torrentRemoveAlertPresented.toggle()
+											} label: {
+												Text(TorrentsPagePresenter.remove)
+											}
+											switch torrent.status {
+											case .running, .completed:
+												Button {
+													stop?(torrent.id)
+												} label: {
+													Text(TorrentsPagePresenter.stop)
+												}
+											case .stopped:
+												Button {
+													start?(torrent.id)
+												} label: {
+													Text(TorrentsPagePresenter.start)
+												}
+											}
+										}
+								}
+							}
+						}.listStyle(.insetGrouped)
 					}
-					.listStyle(.insetGrouped)
 				}
 			}
 			.navigationTitle(viewModel.title)
@@ -256,6 +261,7 @@ struct TorrentsPage_Previews: PreviewProvider {
 		TorrentsPage(
 			viewModel: TorrentsPageViewModel(
 				title: "Title",
+				isLoading: true,
 				error: nil,
 				uploadSpeed: "5,5 Mb/s",
 				downloadSpeed: "5,5 Mb/s",

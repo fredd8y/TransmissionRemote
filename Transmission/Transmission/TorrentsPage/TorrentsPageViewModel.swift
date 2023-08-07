@@ -11,6 +11,7 @@ import Foundation
 public class TorrentsPageViewModel: ObservableObject {
 	public init(
 		title: String,
+		isLoading: Bool,
 		error: String?,
 		uploadSpeed: String,
 		downloadSpeed: String,
@@ -21,6 +22,7 @@ public class TorrentsPageViewModel: ObservableObject {
 		alertMessageVisible: Bool = false
 	) {
 		self.title = title
+		self.isLoading = isLoading
 		self.error = error
 		self.uploadSpeed = uploadSpeed
 		self.downloadSpeed = downloadSpeed
@@ -32,6 +34,7 @@ public class TorrentsPageViewModel: ObservableObject {
 	}
 	
 	@Published public var title: String
+	@Published public var isLoading: Bool
 	@Published public var error: String?
 	@Published public var uploadSpeed: String
 	@Published public var downloadSpeed: String

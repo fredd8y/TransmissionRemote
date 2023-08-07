@@ -218,6 +218,7 @@ public final class TorrentsPagePresenter {
 	
 	public static func map(
 		title: String,
+		isLoading: Bool,
 		error: String?,
 		uploadSpeed: Int,
 		downloadSpeed: Int,
@@ -229,6 +230,7 @@ public final class TorrentsPagePresenter {
 	) -> TorrentsPageViewModel {
 		return TorrentsPageViewModel(
 			title: title,
+			isLoading: isLoading,
 			error: error,
 			uploadSpeed: uploadSpeed.speed,
 			downloadSpeed: downloadSpeed.speed,
