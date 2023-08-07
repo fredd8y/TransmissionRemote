@@ -89,6 +89,6 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-# Ignore test configuration file
+# Ignore test Configuration
 
-Configurations.xcconfig
+EndToEndTestConfigurations.xcconfig
