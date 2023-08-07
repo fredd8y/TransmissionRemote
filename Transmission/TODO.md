@@ -9,15 +9,6 @@ TODO
 
 -	Improve server selection UI
 -	Add error to ServerDetailPage
--	Remove ObservedObject from torrentsPageViewModel
 -	Crypt password before saving it in userDefaults
--	Settings with multiple servers
-	-	Server name
-	-	protocol (http/https)
-	-	IP
-	-	port
-	-	Authentication (not mandatory)
--	Parametric baseURL
--	Parametric polling rate
 
 FIX
