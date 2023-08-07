@@ -1,5 +1,5 @@
 //
-//  Torrents.swift
+//  Torrent.swift
 //  Transmission
 //
 //  Created by Federico Arvat on 17/05/23.

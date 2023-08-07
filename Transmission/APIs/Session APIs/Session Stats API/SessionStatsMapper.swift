@@ -20,4 +20,18 @@ public final class SessionStatsMapper {
 		return remoteStats.stats
 	}
 	
+	
+	private struct RemoteStats: Decodable {
+		private let arguments: Arguments
+		
+		private struct Arguments:  Decodable {
+			let activeTorrentCount: Int
+			let downloadSpeed: Int
+		}
+		
+		var stats: Stats {
+			Stats(activeTorrentCount: arguments.activeTorrentCount, downloadSpeed: arguments.downloadSpeed)
+		}
+	}
+	
 }
