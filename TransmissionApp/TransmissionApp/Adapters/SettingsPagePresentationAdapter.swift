@@ -34,7 +34,7 @@ class SettingsPagePresentationAdapter {
 						break
 					}
 				},
-				receiveValue: { (servers, updateIntervals, currentUpdateInterval) in
+				receiveValue: { [weak self] (servers, updateIntervals, currentUpdateInterval) in
 					let viewModel = SettingsPresenter.map(
 						title: SettingsPresenter.title,
 						updateIntervalTitle: SettingsPresenter.updateIntervalTitle,
@@ -43,6 +43,7 @@ class SettingsPagePresentationAdapter {
 						serversTitle: SettingsPresenter.serverTitle,
 						currentServerName: servers.first(where: { $0.selected })?.name ?? "Not defined"
 					)
+					self?.settingsViewModel.newValues(viewModel)
 				}
 			)
 	}
