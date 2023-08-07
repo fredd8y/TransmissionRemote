@@ -22,13 +22,14 @@ public final class SessionGetMapper {
 		case missingSessionId(sessionIdValue: Any?)
 	}
 	
-	public static func map(_ data: Data, from response: HTTPURLResponse) throws {
-		guard response.isOK else {
+	public static func map(_ data: Data, from response: HTTPURLResponse) throws -> [SessionItem] {
+		guard response.isOK, let _ = try? JSONDecoder().decode(RemoteSessionItem.self, from: data) else {
 			if response.isMissingSessionId {
 				throw Error.missingSessionId(sessionIdValue: response.allHeaderFields[sessionIdKey])
 			}
 			throw Error.invalidData
 		}
+		return []
 	}
 	
 }

@@ -20,6 +20,17 @@ class SessionGetMapperTest: XCTestCase {
 		}
 	}
 	
+	func test_map_throwsErrorOn200Or409ResponseWithInvalidJSON() throws {
+		let invalidJson = Data("invalid json".utf8)
+		let samples = [200, 409]
+		
+		try samples.forEach { code in
+			XCTAssertThrowsError(
+				try SessionGetMapper.map(invalidJson, from: HTTPURLResponse(statusCode: code))
+			)
+		}
+	}
+	
 	func test_map_throwsSessionIdErrorOn409HTTPResponse() throws {
 		let json = makeItemsJSON(withArguments: [], andResult: anyString())
 		let sessionIdValue = anyString()
