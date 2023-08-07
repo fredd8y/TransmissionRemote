@@ -16,27 +16,84 @@ final class ServerDetailPagePresenterTests: XCServerTestCase {
 		XCTAssertEqual(ServerDetailPagePresenter.title, localized("SERVERS_DETAIL_VIEW_TITLE", table: table))
 	}
 	
+	func test_serverSectionHeader_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.serverSectionHeader, localized("SERVER_SECTION_HEADER", table: table))
+	}
+	
+	func test_authenticationSectionHeader_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.authenticationSectionHeader, localized("AUTHENTICATION_SECTION_HEADER", table: table))
+	}
+	
+	func test_namePlaceholder_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.namePlaceholder, localized("NAME_PLACEHOLDER", table: table))
+	}
+	
+	func test_ipPlaceholder_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.ipPlaceholder, localized("IP_PLACEHOLDER", table: table))
+	}
+	
+	func test_protocolPlaceholder_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.protocolPlaceholder, localized("PROTOCOL_PLACEHOLDER", table: table))
+	}
+	
+	func test_portPlaceholder_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.portPlaceholder, localized("PORT_PLACEHOLDER", table: table))
+	}
+	
+	func test_usernamePlaceholder_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.usernamePlaceholder, localized("USERNAME_PLACEHOLDER", table: table))
+	}
+	
+	func test_passwordPlaceholder_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.passwordPlaceholder, localized("PASSWORD_PLACEHOLDER", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Server detail"
 		let server = server()
+		let serverSectionHeader = "Server"
+		let authenticationSectionHeader = "Authentication"
+		let namePlaceholder = "Name"
+		let protocolPlaceholder = "Protocol"
+		let ipPlaceholder = "IP"
+		let portPlaceholder = "Port"
+		let usernamePlaceholder = "Username"
+		let passwordPlaceholder = "Password"
+		
 		
 		let viewModel = ServerDetailPageViewModel(
+			serverSectionHeader: serverSectionHeader,
+			authenticationSectionHeader: authenticationSectionHeader,
 			title: title,
 			name: server.name,
-			protocol: server.httpProtocol.rawValue,
+			namePlaceholder: namePlaceholder,
+			httpProtocol: server.httpProtocol.rawValue,
+			protocolPlaceholder: protocolPlaceholder,
 			ip: server.ip,
-			port: server.port,
+			ipPlaceholder: ipPlaceholder,
+			port: server.port.description,
+			portPlaceholder: portPlaceholder,
 			username: server.username,
-			password: server.password
+			usernamePlaceholder: usernamePlaceholder,
+			password: server.password,
+			passwordPlaceholder: passwordPlaceholder
 		)
 		
+		XCTAssertEqual(viewModel.serverSectionHeader, serverSectionHeader)
+		XCTAssertEqual(viewModel.authenticationSectionHeader, authenticationSectionHeader)
 		XCTAssertEqual(viewModel.title, title)
 		XCTAssertEqual(viewModel.name, server.name)
-		XCTAssertEqual(viewModel.protocol, server.httpProtocol.rawValue)
+		XCTAssertEqual(viewModel.namePlaceholder, namePlaceholder)
+		XCTAssertEqual(viewModel.httpProtocol, server.httpProtocol.rawValue)
+		XCTAssertEqual(viewModel.protocolPlaceholder, protocolPlaceholder)
 		XCTAssertEqual(viewModel.ip, server.ip)
-		XCTAssertEqual(viewModel.port, server.port)
+		XCTAssertEqual(viewModel.ipPlaceholder, ipPlaceholder)
+		XCTAssertEqual(viewModel.port, server.port.description)
+		XCTAssertEqual(viewModel.portPlaceholder, portPlaceholder)
 		XCTAssertEqual(viewModel.username, server.username)
+		XCTAssertEqual(viewModel.usernamePlaceholder, usernamePlaceholder)
 		XCTAssertEqual(viewModel.password, server.password)
+		XCTAssertEqual(viewModel.passwordPlaceholder, passwordPlaceholder)
 	}
 	
 }

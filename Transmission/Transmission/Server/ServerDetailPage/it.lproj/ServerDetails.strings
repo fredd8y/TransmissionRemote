@@ -7,3 +7,11 @@
 */
 
 "SERVERS_DETAIL_VIEW_TITLE" = "Server";
+"NAME_PLACEHOLDER" = "Nome server";
+"IP_PLACEHOLDER" = "Indirizzo IP";
+"PORT_PLACEHOLDER" = "Porta";
+"USERNAME_PLACEHOLDER" = "Username";
+"PASSWORD_PLACEHOLDER" = "Password";
+"SERVER_SECTION_HEADER" = "Dettagli server";
+"AUTHENTICATION_SECTION_HEADER" = "Dettagli autenticazione";
+"PROTOCOL_PLACEHOLDER" = "Protocollo";
