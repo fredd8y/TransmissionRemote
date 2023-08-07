@@ -125,16 +125,3 @@ class UserDefaultsHandler {
 	}
 	
 }
-
-private extension Server.HTTPProtocol {
-	static func httpProtocol(forValue value: String) -> Self? {
-		switch value {
-		case "http":
-			return .http
-		case "https":
-			return .https
-		default:
-			return nil
-		}
-	}
-}

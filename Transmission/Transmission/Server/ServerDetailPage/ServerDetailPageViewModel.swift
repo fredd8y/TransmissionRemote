@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class ServerDetailPageViewModel: ObservableObject {
+public struct ServerDetailPageViewModel {
 	public init(
 		serverSectionHeader: String,
 		authenticationSectionHeader: String,
@@ -44,20 +44,20 @@ public class ServerDetailPageViewModel: ObservableObject {
 		self.passwordPlaceholder = passwordPlaceholder
 	}
 	
-	@Published public var serverSectionHeader: String
-	@Published public var authenticationSectionHeader: String
-	@Published public var title: String
-	@Published public var saveButtonTitle: String
-	@Published public var name: String?
-	@Published public var namePlaceholder: String
-	@Published public var httpProtocol: String?
-	@Published public var protocolPlaceholder: String
-	@Published public var ip: String?
-	@Published public var ipPlaceholder: String
-	@Published public var port: String?
-	@Published public var portPlaceholder: String
-	@Published public var username: String?
-	@Published public var usernamePlaceholder: String
-	@Published public var password: String?
-	@Published public var passwordPlaceholder: String
+	public var serverSectionHeader: String
+	public var authenticationSectionHeader: String
+	public var title: String
+	public var saveButtonTitle: String
+	public var name: String?
+	public var namePlaceholder: String
+	public var httpProtocol: String?
+	public var protocolPlaceholder: String
+	public var ip: String?
+	public var ipPlaceholder: String
+	public var port: String?
+	public var portPlaceholder: String
+	public var username: String?
+	public var usernamePlaceholder: String
+	public var password: String?
+	public var passwordPlaceholder: String
 }

@@ -7,7 +7,8 @@ Improvement
 
 TODO
 
--	Show ServerPage from SettingsPage
+
+-	Add error to ServerDetailPage
 -	Implement server add
 -	Remove ObservedObject from torrentsPageViewModel
 -	In SettingsPage avoid retrieving servers from file, get the current from user defaults instead

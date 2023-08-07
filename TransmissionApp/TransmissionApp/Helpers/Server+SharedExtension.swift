@@ -15,4 +15,15 @@ extension Server.HTTPProtocol {
 		case .https: return "https"
 		}
 	}
+	
+	static func httpProtocol(forValue value: String) -> Self? {
+		switch value {
+		case "http":
+			return .http
+		case "https":
+			return .https
+		default:
+			return nil
+		}
+	}
 }

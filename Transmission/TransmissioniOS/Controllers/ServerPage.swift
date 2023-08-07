@@ -17,19 +17,25 @@ public struct ServerPage: View {
 	@ObservedObject var viewModel: ServerPageViewModel
 		
 	@State private var selection: UUID?
-	
-	@State private var showNavigationBar: Visibility = .visible
-	
+		
 	public var loadData: (() -> Void)?
+	
+	public var selectedServer: ((UUID) -> ServerDetailPage?)?
+	
+	public var newServer: (() -> ServerDetailPage)?
 	
     public var body: some View {
 		NavigationStack {
 			List(viewModel.servers, selection: $selection) { server in
-				VStack(alignment: .leading, spacing: 8) {
-					Text(server.title)
-						.font(.subheadline)
-					Text(server.url)
-						.font(.caption2)
+				NavigationLink {
+					selectedServer?(server.id)
+				} label: {
+					VStack(alignment: .leading, spacing: 8) {
+						Text(server.title)
+							.font(.subheadline)
+						Text(server.url)
+							.font(.caption2)
+					}
 				}
 			}
 			.listStyle(.plain)
@@ -37,18 +43,14 @@ public struct ServerPage: View {
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
-					Button {
-						// TODO
+					NavigationLink {
+						newServer?()
 					} label: {
-						Image(systemName: "plus")
-					}.foregroundColor(.primary)
+						Image(systemName: "plus").foregroundColor(.primary)
+					}
 				}
 			}
-			.toolbar(showNavigationBar, for: .tabBar)
 		}.onAppear {
-			withAnimation {
-				showNavigationBar = .hidden
-			}
 			loadData?()
 		}
     }

@@ -12,6 +12,7 @@ import TransmissioniOS
 
 
 final class TransmissionComposer {
+	
 	private init() {}
 	
 	private static var cancellable: Cancellable?
@@ -63,10 +64,13 @@ final class TransmissionComposer {
 		let serverPagePresentationAdapter = ServerPagePresentationAdapter(
 			serversViewModel: viewModel
 		)
+		let serverDetailPresentationAdapter = ServerDetailPagePresentationAdapter()
 		
 		var serverPage = ServerPage(viewModel: viewModel)
 		serverPage.loadData = serverPagePresentationAdapter.loadData
-		// Add closures to handle server selection
+		serverPage.selectedServer = serverDetailPresentationAdapter.selectedServer
+		serverPage.newServer = serverDetailPresentationAdapter.newServer
 		return serverPage
 	}
+	
 }
