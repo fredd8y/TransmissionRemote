@@ -41,7 +41,7 @@ class SessionGetMapperTest: XCTestCase {
 		let json = makeItemsJSON(withArguments: [], andResult: anyString())
 		let sessionIdValue = anyString()
 		do {
-			try SessionGetMapper.map(
+			_ = try SessionGetMapper.map(
 				json,
 				from: HTTPURLResponse(statusCode: 409, headerFields: [SessionGetMapper.sessionIdKey: sessionIdValue])
 			)
@@ -60,7 +60,6 @@ class SessionGetMapperTest: XCTestCase {
 				XCTFail("Expected SessionGetMapper.Error.missingSessionId value, got \(error.self) instead")
 			}
 		}
-		
 	}
 	
 	// MARK: - Helpers
