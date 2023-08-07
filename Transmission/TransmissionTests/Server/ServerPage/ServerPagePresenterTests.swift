@@ -8,7 +8,7 @@
 import XCTest
 import Transmission
 
-final class ServerPagePresenterTests: XCTestCase {
+final class ServerPagePresenterTests: XCServerTestCase {
 	
 	private let table = "Servers"
 	
@@ -35,19 +35,5 @@ final class ServerPagePresenterTests: XCTestCase {
 			ServerPresenter.map(server2)
 		])
 		XCTAssertEqual(viewModel.currentSelectedServerId, currentSelectedServer.id)
-	}
-	
-	// MARK: - Helpers
-	
-	private func server(_ id: UUID = UUID()) -> Server {
-		Server(
-			name: "a server",
-			httpProtocol: .http,
-			ip: "192.168.0.1",
-			port: 9091,
-			username: "a username",
-			password: "a password",
-			id: id
-		)
 	}
 }

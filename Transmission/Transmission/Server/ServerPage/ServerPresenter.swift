@@ -22,12 +22,3 @@ private extension Server {
 		return "\(httpProtocol.rawValue)//:\(ip):\(port)"
 	}
 }
-
-private extension Server.HTTPProtocol {
-	var rawValue: String {
-		switch self {
-		case .http: return "http"
-		case .https: return "https"
-		}
-	}
-}
