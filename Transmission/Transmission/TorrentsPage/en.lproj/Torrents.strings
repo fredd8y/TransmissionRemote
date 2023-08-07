@@ -34,3 +34,4 @@
 "QUEUED_TO_SEED" = "Queued to seed";
 "SEEDING" = "Seeding";
 "UNKNOWN_STATUS" = "Unknown";
+"STOP" = "Stop";

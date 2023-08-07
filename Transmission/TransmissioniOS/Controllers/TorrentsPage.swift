@@ -27,6 +27,8 @@ public struct TorrentsPage: View {
 	
 	public var selectedFile: ((URL) -> Void)?
 	
+	public var stop: ((Int) -> Void)?
+	
 	public var delete: ((_ id: Int, _ deleteLocalData: Bool) -> Void)?
 	
 	@State private var deletingTorrentId: Int = -1
@@ -64,21 +66,30 @@ public struct TorrentsPage: View {
 									.font(.caption2)
 								HStack {
 									ProgressView(value: torrent.completionPercentage)
-										.tint(torrent.error == nil ? .blue : .red)
+										.tint(progressBarColor(torrent))
 									Text(torrent.completionPercentageString)
 										.font(.caption2)
 								}
 								Text(torrent.error ?? torrent.description)
 									.font(.caption2)
 									.foregroundColor(torrent.error == nil ? .primary : .red)
-								// For some reason if the contextmenu is applied to the VStack the compiler
-								// can't build
 									.contextMenu {
 										Button(role: .destructive) {
 											deletingTorrentId = torrent.id
 											torrentRemoveAlertPresented.toggle()
 										} label: {
 											Text(TorrentsPagePresenter.remove)
+										}
+										switch torrent.status {
+										case .running, .completed:
+											Button {
+												stop?(torrent.id)
+											} label: {
+												Text(TorrentsPagePresenter.stop)
+											}
+										case .stopped:
+											// TODO: Handle start
+											EmptyView()
 										}
 									}
 							}
@@ -186,6 +197,15 @@ public struct TorrentsPage: View {
 		let description = viewModel.torrents.count == 1 ? TorrentsPagePresenter.torrent : TorrentsPagePresenter.torrents
 		return "\(viewModel.torrents.count) \(description)"
 	}
+	
+	private func progressBarColor(_ torrent: TorrentViewModel) -> Color {
+		guard torrent.error == nil else { return .red }
+		switch torrent.status {
+		case .completed: return .green
+		case .running: return .blue
+		case .stopped: return .gray
+		}
+	}
 }
 
 struct TorrentsPage_Previews: PreviewProvider {
@@ -205,16 +225,18 @@ struct TorrentsPage_Previews: PreviewProvider {
 						completionPercentage: 0.5,
 						completionPercentageString: "50%",
 						downloaded: "5,4GB of 7,8GB",
-						downloadSpeed: "-"
+						downloadSpeed: "-",
+						status: .running
 					),
 					TorrentViewModel(
 						id: 2,
 						name: "another name",
 						description: "ETA: 7h 12m 12s",
-						completionPercentage: 0.75,
-						completionPercentageString: "50%",
+						completionPercentage: 1,
+						completionPercentageString: "100%",
 						downloaded: "5,4GB of 7,8GB",
-						downloadSpeed: "5,6MB"
+						downloadSpeed: "5,6MB",
+						status: .completed
 					)
 				],
 				emptyMessage: nil,

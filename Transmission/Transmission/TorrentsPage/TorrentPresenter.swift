@@ -122,7 +122,19 @@ public final class TorrentPresenter {
 			completionPercentage: torrent.percentDone,
 			completionPercentageString: percentageString(torrent.percentDone),
 			downloaded: "\(Int(Double(torrent.totalSize) * torrent.percentDone).byteSize) \(of) \(torrent.totalSize.byteSize)",
-			downloadSpeed: torrent.rateDownload.byteSize
+			downloadSpeed: torrent.rateDownload.byteSize,
+			status: viewModelStatus(torrent.status)
 		)
+	}
+	
+	static func viewModelStatus(_ status: Torrent.Status) -> TorrentViewModel.Status {
+		switch status {
+		case .stopped:
+			return .stopped
+		case .seeding:
+			return .completed
+		default:
+			return .running
+		}
 	}
 }

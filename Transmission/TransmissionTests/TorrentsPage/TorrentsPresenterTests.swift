@@ -76,6 +76,10 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentsPagePresenter.remove, localized("REMOVE", table: table))
 	}
 	
+	func test_stop_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.stop, localized("STOP", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Title"
 		let error = "a error"

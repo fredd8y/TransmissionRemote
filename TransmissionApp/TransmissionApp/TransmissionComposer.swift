@@ -41,6 +41,7 @@ final class TransmissionComposer {
 		}
 		torrentsPage.selectedFile = torrentsPagePresentationAdapter.selectedFile
 		torrentsPage.delete = torrentsPagePresentationAdapter.delete
+		torrentsPage.stop = torrentsPagePresentationAdapter.stop
 		
 		return torrentsPage
 	}

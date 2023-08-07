@@ -9,6 +9,12 @@ import Foundation
 
 public struct TorrentViewModel: Identifiable, Equatable {
 	
+	public enum Status {
+		case stopped
+		case completed
+		case running
+	}
+	
 	public init(
 		id: Int,
 		name: String,
@@ -17,7 +23,8 @@ public struct TorrentViewModel: Identifiable, Equatable {
 		completionPercentage: Double,
 		completionPercentageString: String,
 		downloaded: String,
-		downloadSpeed: String
+		downloadSpeed: String,
+		status: Status
 	) {
 		self.id = id
 		self.name = name
@@ -27,6 +34,7 @@ public struct TorrentViewModel: Identifiable, Equatable {
 		self.completionPercentageString = completionPercentageString
 		self.downloaded = downloaded
 		self.downloadSpeed = downloadSpeed
+		self.status = status
 	}
 	
 	public let id: Int
@@ -37,5 +45,6 @@ public struct TorrentViewModel: Identifiable, Equatable {
 	public let completionPercentageString: String
 	public let downloaded: String
 	public let downloadSpeed: String
+	public let status: Status
 	
 }

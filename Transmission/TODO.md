@@ -7,12 +7,10 @@ Improvement
 TODO
 
 -	Handle magnet link
--	Think about a toast message to notify that a torrent has been added correctly
--	Implement data verification for already downloaded torrent
 -	Comment public functions
--	Separate torrent bodies tests
 -	Crypt password before saving it in userDefaults
 -	Torrent Detail
 -	Pausing Torrent
+-	Quick action button to perform action on all torrents
 
 FIX

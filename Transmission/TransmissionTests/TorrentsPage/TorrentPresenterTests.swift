@@ -64,6 +64,54 @@ final class TorrentPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(viewModel.error, torrent.errorString)
 	}
 	
+	func test_viewModelStatus_stopped() {
+		let viewModelStatus = TorrentPresenter.viewModelStatus(.stopped)
+		
+		XCTAssertEqual(viewModelStatus, .stopped)
+	}
+	
+	func test_viewModelStatus_queuedVerifyLocalData() {
+		let viewModelStatus = TorrentPresenter.viewModelStatus(.queuedVerifyLocalData)
+		
+		XCTAssertEqual(viewModelStatus, .running)
+	}
+	
+	func test_viewModelStatus_verifyingLocalData() {
+		let viewModelStatus = TorrentPresenter.viewModelStatus(.verifyingLocalData)
+		
+		XCTAssertEqual(viewModelStatus, .running)
+	}
+	
+	func test_viewModelStatus_queuedDownload() {
+		let viewModelStatus = TorrentPresenter.viewModelStatus(.queuedDownload)
+		
+		XCTAssertEqual(viewModelStatus, .running)
+	}
+	
+	func test_viewModelStatus_downloading() {
+		let viewModelStatus = TorrentPresenter.viewModelStatus(.downloading)
+		
+		XCTAssertEqual(viewModelStatus, .running)
+	}
+	
+	func test_viewModelStatus_queuedToSeed() {
+		let viewModelStatus = TorrentPresenter.viewModelStatus(.queuedToSeed)
+		
+		XCTAssertEqual(viewModelStatus, .running)
+	}
+	
+	func test_viewModelStatus_seeding() {
+		let viewModelStatus = TorrentPresenter.viewModelStatus(.seeding)
+		
+		XCTAssertEqual(viewModelStatus, .completed)
+	}
+	
+	func test_viewModelStatus_unknown() {
+		let viewModelStatus = TorrentPresenter.viewModelStatus(.unknown)
+		
+		XCTAssertEqual(viewModelStatus, .running)
+	}
+	
 	func test_torrentStatusDescription_stopped() {
 		let torrent = anyTorrentWithStatus(.stopped)
 		

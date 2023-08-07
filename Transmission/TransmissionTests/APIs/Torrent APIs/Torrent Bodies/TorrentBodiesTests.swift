@@ -76,7 +76,7 @@ extension TorrentBodiesTests {
 	func test_torrentRemove_httpBodyDeletingLocalData() {
 		let expectedBody = #"{"method":"torrent-remove","arguments":{"ids":[1],"delete-local-data":true}}"#.data(using: .utf8)
 		
-		let httpBody = try! TorrentBodies.remove(id: 1, deleteLocalData: true)
+		let httpBody = TorrentBodies.remove(id: 1, deleteLocalData: true)
 		
 		XCTAssertEqual(expectedBody, httpBody)
 	}
@@ -84,7 +84,17 @@ extension TorrentBodiesTests {
 	func test_torrentRemove_httpBodyPreservingLocalData() {
 		let expectedBody = #"{"method":"torrent-remove","arguments":{"ids":[1],"delete-local-data":false}}"#.data(using: .utf8)
 		
-		let httpBody = try! TorrentBodies.remove(id: 1, deleteLocalData: false)
+		let httpBody = TorrentBodies.remove(id: 1, deleteLocalData: false)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+}
+
+extension TorrentBodiesTests {
+	func test_torrentStop_httpBody() {
+		let expectedBody = #"{"method":"torrent-stop","arguments":{"ids":[1]}}"#.data(using: .utf8)
+		
+		let httpBody = TorrentBodies.stop(id: 1)
 		
 		XCTAssertEqual(expectedBody, httpBody)
 	}

@@ -34,3 +34,4 @@
 "QUEUED_TO_SEED" = "In coda per seed";
 "SEEDING" = "Seeding";
 "UNKNOWN_STATUS" = "Sconosciuto";
+"STOP" = "Stop";

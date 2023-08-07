@@ -89,3 +89,22 @@ extension TorrentBodies {
 		try! JSONEncoder().encode(TorrentRemoveBody(id: id, deleteLocalData: deleteLocalData))
 	}
 }
+
+extension TorrentBodies {
+	private struct TorrentStopBody: Encodable {
+		init(id: Int) {
+			arguments = Arguments(ids: [id])
+		}
+		
+		let method: String = "torrent-stop"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let ids: [Int]
+		}
+	}
+	
+	public static func stop(id: Int) -> Data {
+		try! JSONEncoder().encode(TorrentStopBody(id: id))
+	}
+}
