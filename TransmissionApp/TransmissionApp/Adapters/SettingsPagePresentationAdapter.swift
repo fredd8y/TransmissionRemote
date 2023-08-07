@@ -41,7 +41,7 @@ class SettingsPagePresentationAdapter {
 						updateIntervalList: updateIntervals,
 						currentSelectedIntervalIndex: currentUpdateInterval,
 						serversTitle: SettingsPresenter.serverTitle,
-						currentServerName: servers.first(where: { $0.selected })?.name ?? "Not defined"
+						currentServerName: servers.first(where: { $0.selected })?.name ?? SettingsPresenter.serverNotAvailable
 					)
 					self?.settingsViewModel.newValues(viewModel)
 				}
