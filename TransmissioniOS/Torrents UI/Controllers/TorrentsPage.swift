@@ -22,10 +22,12 @@ public struct TorrentsPage: View {
 	
 	@State private var title: String
 	@State private var error: String?
+//	@State private var uploadSpeed: String
+//	@State private var downloadSpeed: String
 	@State private var torrents: [TorrentViewModel]
 	
     public var body: some View {
-		NavigationView {
+		NavigationStack {
 			VStack {
 				if let error {
 					HStack {
@@ -56,6 +58,25 @@ public struct TorrentsPage: View {
 			}
 			.navigationTitle(title)
 			.navigationBarTitleDisplayMode(.inline)
+			.toolbar {
+				ToolbarItemGroup(placement: .bottomBar) {
+					Image(systemName: "arrow.up")
+						.resizable()
+						.scaledToFit()
+						.foregroundColor(.red)
+						.frame(width: 16, height: 16)
+						.padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+					SubheadlineText("5,5MB")
+					Spacer()
+					Image(systemName: "arrow.down")
+						.resizable()
+						.scaledToFit()
+						.foregroundColor(.green)
+						.frame(width: 16, height: 16)
+						.padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+					SubheadlineText("5,5MB")
+				}
+			}
 		}
     }
 }

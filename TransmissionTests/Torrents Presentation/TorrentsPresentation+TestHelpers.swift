@@ -9,6 +9,34 @@ import XCTest
 import Transmission
 
 extension XCTestCase {
+	func anyTorrentWithError() -> Torrent {
+		Torrent(
+			name: "a name",
+			error: 0,
+			errorString: "an error",
+			eta: 123456789,
+			id: 1234,
+			isFinished: false,
+			percentDone: 0.76,
+			rateDownload: 123456,
+			totalSize: 1234567
+		)
+	}
+	
+	func anyTorrentWithoutError() -> Torrent {
+		Torrent(
+			name: "a name",
+			error: 0,
+			errorString: "",
+			eta: 123456789,
+			id: 1234,
+			isFinished: false,
+			percentDone: 0.76,
+			rateDownload: 123456,
+			totalSize: 1234567
+		)
+	}
+	
 	func localized(_ key: String, file: StaticString = #filePath, line: UInt = #line) -> String {
 		let table = "Torrents"
 		let bundle = Bundle(for: TorrentsPresenter.self)

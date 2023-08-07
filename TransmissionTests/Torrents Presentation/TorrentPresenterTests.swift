@@ -17,18 +17,8 @@ final class TorrentPresenterTests: XCTestCase {
 		XCTAssertEqual(TorrentPresenter.of, localized("TORRENT_ITEM_OF_PREPOSITION"))
 	}
 	
-	func test_map_createsViewModelwithNilError() {
-		let torrent = Torrent(
-			name: "a name",
-			error: 0,
-			errorString: "",
-			eta: 123456789,
-			id: 1234,
-			isFinished: false,
-			percentDone: 0.76,
-			rateDownload: 123456,
-			totalSize: 1234567
-		)
+	func test_map_createsViewModelWithNilError() {
+		let torrent = anyTorrentWithoutError()
 		
 		let viewModel = TorrentPresenter.map(torrent)
 		
@@ -36,17 +26,7 @@ final class TorrentPresenterTests: XCTestCase {
 	}
 	
 	func test_map_createsViewModelWithError() {
-		let torrent = Torrent(
-			name: "a name",
-			error: 0,
-			errorString: "an error",
-			eta: 123456789,
-			id: 1234,
-			isFinished: false,
-			percentDone: 0.76,
-			rateDownload: 123456,
-			totalSize: 1234567
-		)
+		let torrent = anyTorrentWithError()
 		
 		let viewModel = TorrentPresenter.map(torrent)
 		

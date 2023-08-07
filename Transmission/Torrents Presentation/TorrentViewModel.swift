@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct TorrentViewModel: Identifiable {
+public struct TorrentViewModel: Identifiable, Equatable {
 	public init(
 		name: String,
 		error: String? = nil,
@@ -34,4 +34,14 @@ public struct TorrentViewModel: Identifiable {
 	public let completionPercentageString: String
 	public let downloaded: String
 	public let downloadSpeed: String
+	
+	public static func == (lhs: Self, rhs: Self) -> Bool {
+		return lhs.name == rhs.name &&
+		lhs.error == rhs.error &&
+		lhs.eta == rhs.eta &&
+		lhs.completionPercentage == rhs.completionPercentage &&
+		lhs.completionPercentageString == rhs.completionPercentageString &&
+		lhs.downloaded == rhs.downloaded &&
+		lhs.downloadSpeed == rhs.downloadSpeed
+	}
 }
