@@ -5,5 +5,8 @@ Improvement
 
 TODO
 
--	Add tests for update method in TorrentsPage
--	Implement credentials input in TorrentsPage
+-	Add password obfuscation to credential
+-	Add fields to Torrents-Get API
+-	Save credentials
+-	Implement polling
+-	Parametric baseURL

@@ -432,7 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				7B4599B52A67C0A000189C16 /* Shared Views */,
-				7B8CB83D2A66C8B4001A4D90 /* Torrents UI */,
+				7B8CB83E2A66C8CE001A4D90 /* Controllers */,
 			);
 			path = TransmissioniOS;
 			sourceTree = "<group>";
@@ -444,14 +444,6 @@
 				7B4599CD2A68108A00189C16 /* Torrents UI */,
 			);
 			path = TransmissioniOSTests;
-			sourceTree = "<group>";
-		};
-		7B8CB83D2A66C8B4001A4D90 /* Torrents UI */ = {
-			isa = PBXGroup;
-			children = (
-				7B8CB83E2A66C8CE001A4D90 /* Controllers */,
-			);
-			path = "Torrents UI";
 			sourceTree = "<group>";
 		};
 		7B8CB83E2A66C8CE001A4D90 /* Controllers */ = {

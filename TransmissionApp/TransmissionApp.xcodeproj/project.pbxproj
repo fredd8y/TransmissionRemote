@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B6CD5CB2A71050F00E81983 /* Logger+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CA2A71050F00E81983 /* Logger+.swift */; };
+		7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */; };
 		7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8132A6C158100B36367 /* TransmissionApp.swift */; };
 		7BC0D8182A6C158300B36367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC0D8172A6C158300B36367 /* Assets.xcassets */; };
 		7BC0D81B2A6C158300B36367 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC0D81A2A6C158300B36367 /* Preview Assets.xcassets */; };
 		7BC0D8252A6C158300B36367 /* TransmissionAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8242A6C158300B36367 /* TransmissionAppTests.swift */; };
 		7BC0D82F2A6C158300B36367 /* TransmissionAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D82E2A6C158300B36367 /* TransmissionAppUITests.swift */; };
 		7BC0D8312A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8302A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift */; };
-		7BC0D8432A6E3C4100B36367 /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8422A6E3C4100B36367 /* CombineHelpers.swift */; };
+		7BC0D8432A6E3C4100B36367 /* Combine+Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8422A6E3C4100B36367 /* Combine+Publishers.swift */; };
 		7BC0D8452A6E3FE200B36367 /* TransmissionComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8442A6E3FE200B36367 /* TransmissionComposer.swift */; };
 		7BC0D84A2A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8492A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift */; };
 		7BC0D84C2A6EA20100B36367 /* TorrentsViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D84B2A6EA20100B36367 /* TorrentsViewModel+Factory.swift */; };
@@ -57,6 +59,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B6CD5CA2A71050F00E81983 /* Logger+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+.swift"; sourceTree = "<group>"; };
+		7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+MainQueueDispatcher.swift"; sourceTree = "<group>"; };
 		7BC0D8102A6C158100B36367 /* TransmissionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransmissionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC0D8132A6C158100B36367 /* TransmissionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionApp.swift; sourceTree = "<group>"; };
 		7BC0D8172A6C158300B36367 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,7 +70,7 @@
 		7BC0D82A2A6C158300B36367 /* TransmissionAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransmissionAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC0D82E2A6C158300B36367 /* TransmissionAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionAppUITests.swift; sourceTree = "<group>"; };
 		7BC0D8302A6C158300B36367 /* TransmissionAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		7BC0D8422A6E3C4100B36367 /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
+		7BC0D8422A6E3C4100B36367 /* Combine+Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Publishers.swift"; sourceTree = "<group>"; };
 		7BC0D8442A6E3FE200B36367 /* TransmissionComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionComposer.swift; sourceTree = "<group>"; };
 		7BC0D8492A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsPagePresentationAdapter.swift; sourceTree = "<group>"; };
 		7BC0D84B2A6EA20100B36367 /* TorrentsViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorrentsViewModel+Factory.swift"; sourceTree = "<group>"; };
@@ -102,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B6CD5C92A7104F500E81983 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				7B6CD5CA2A71050F00E81983 /* Logger+.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
 		7BC0D8072A6C158100B36367 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +138,7 @@
 		7BC0D8122A6C158100B36367 /* TransmissionApp */ = {
 			isa = PBXGroup;
 			children = (
+				7B6CD5C92A7104F500E81983 /* Logger */,
 				7BC0D8462A6E614D00B36367 /* Adapters */,
 				7BC0D8412A6E3C3700B36367 /* Helpers */,
 				7BC0D8132A6C158100B36367 /* TransmissionApp.swift */,
@@ -165,8 +178,9 @@
 		7BC0D8412A6E3C3700B36367 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				7BC0D8422A6E3C4100B36367 /* CombineHelpers.swift */,
+				7BC0D8422A6E3C4100B36367 /* Combine+Publishers.swift */,
 				7BC0D84B2A6EA20100B36367 /* TorrentsViewModel+Factory.swift */,
+				7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -321,9 +335,11 @@
 			files = (
 				7BC0D84E2A6EA90000B36367 /* TransmissionHTTPClient.swift in Sources */,
 				7BC0D84C2A6EA20100B36367 /* TorrentsViewModel+Factory.swift in Sources */,
+				7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */,
+				7B6CD5CB2A71050F00E81983 /* Logger+.swift in Sources */,
 				7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */,
 				7BC0D8452A6E3FE200B36367 /* TransmissionComposer.swift in Sources */,
-				7BC0D8432A6E3C4100B36367 /* CombineHelpers.swift in Sources */,
+				7BC0D8432A6E3C4100B36367 /* Combine+Publishers.swift in Sources */,
 				7BC0D84A2A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -29,6 +29,7 @@ final class TransmissionHTTPClient {
 					body: SessionBodies.get.data(using: .utf8)!,
 					additionalHeader: headers()
 				)
+				.logResponse()
 				.tryMap(SessionGetMapper.map)
 				.eraseToAnyPublisher()
 		}
@@ -42,6 +43,7 @@ final class TransmissionHTTPClient {
 					body: TorrentBodies.get.data(using: .utf8)!,
 					additionalHeader: headers()
 				)
+				.logResponse()
 				.tryMap(TorrentGetMapper.map)
 				.eraseToAnyPublisher()
 		}
