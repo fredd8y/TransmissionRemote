@@ -13,6 +13,7 @@ import Transmission
 enum UserDefaultsKeys: String {
 	case pollingRate
 	case serverIp
+	case serverId
 	case serverName
 	case serverPort
 	case serverUsername
@@ -36,7 +37,8 @@ class UserDefaultsHandler {
 			let serverHTTPProtocol = UserDefaults.standard.string(forKey: UserDefaultsKeys.serverHTTPProtocol.rawValue),
 			let httpProtocol = Server.HTTPProtocol.httpProtocol(forValue: serverHTTPProtocol),
 			let serverIp = UserDefaults.standard.string(forKey: UserDefaultsKeys.serverIp.rawValue),
-			let serverPort = UserDefaults.standard.value(forKey: UserDefaultsKeys.serverPort.rawValue) as? Int
+			let serverPort = UserDefaults.standard.value(forKey: UserDefaultsKeys.serverPort.rawValue) as? Int,
+			let serverId = UserDefaults.standard.value(forKey: UserDefaultsKeys.serverId.rawValue) as? UUID
 		{
 			currentServer = Server(
 				name: serverName,
@@ -44,7 +46,8 @@ class UserDefaultsHandler {
 				ip: serverIp,
 				port: serverPort,
 				username: UserDefaults.standard.string(forKey: UserDefaultsKeys.serverUsername.rawValue),
-				password: UserDefaults.standard.string(forKey: UserDefaultsKeys.serverPassword.rawValue)
+				password: UserDefaults.standard.string(forKey: UserDefaultsKeys.serverPassword.rawValue),
+				id: serverId
 			)
 		}
 	}
@@ -68,6 +71,7 @@ class UserDefaultsHandler {
 				setServerPort(currentServer.port)
 				setServerUsername(currentServer.username)
 				setServerPassword(currentServer.password)
+				setServerId(currentServer.id)
 			} else {
 				removeServer()
 			}
@@ -84,6 +88,10 @@ class UserDefaultsHandler {
 	
 	private func setServerIp(_ ip: String) {
 		UserDefaults.standard.setValue(ip, forKey: UserDefaultsKeys.serverIp.rawValue)
+	}
+	
+	private func setServerId(_ id: UUID) {
+		UserDefaults.standard.setValue(id, forKey: UserDefaultsKeys.serverId.rawValue)
 	}
 	
 	private func setServerPort(_ port: Int) {
@@ -108,6 +116,7 @@ class UserDefaultsHandler {
 	
 	private func removeServer() {
 		UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.serverIp.rawValue)
+		UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.serverId.rawValue)
 		UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.serverName.rawValue)
 		UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.serverPort.rawValue)
 		UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.serverUsername.rawValue)

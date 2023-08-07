@@ -26,6 +26,7 @@ struct RemoteServer: Codable {
 	let port: Int
 	let username: String?
 	let password: String?
+	let id: UUID
 	
 	var server: Server {
 		Server(
@@ -34,7 +35,8 @@ struct RemoteServer: Codable {
 			ip: ip,
 			port: port,
 			username: username,
-			password: password
+			password: password,
+			id: id
 		)
 	}
 }

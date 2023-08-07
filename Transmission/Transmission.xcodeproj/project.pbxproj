@@ -10,6 +10,13 @@
 		7B2324D42A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B2324D12A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light.png */; };
 		7B2324D52A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B2324D22A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_dark.png */; };
 		7B2324D62A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B2324D32A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light_extraExtraExtraLarge.png */; };
+		7B2324D82A753C2300836B02 /* ServerPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2324D72A753C2300836B02 /* ServerPageTests.swift */; };
+		7B2324DA2A753D5400836B02 /* ServerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2324D92A753D5400836B02 /* ServerPage.swift */; };
+		7B2324E02A753EA100836B02 /* ServersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2324DF2A753EA100836B02 /* ServersPresenter.swift */; };
+		7B2324E22A753EB000836B02 /* ServerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2324E12A753EB000836B02 /* ServerPresenter.swift */; };
+		7B2324E42A753EB600836B02 /* ServersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2324E32A753EB600836B02 /* ServersViewModel.swift */; };
+		7B2324E62A753EBC00836B02 /* ServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2324E52A753EBC00836B02 /* ServerViewModel.swift */; };
+		7B2324E92A753F2000836B02 /* Servers.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B2324EB2A753F2000836B02 /* Servers.strings */; };
 		7B3690F42A69DC0C000E130B /* TorrentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3690F32A69DC0C000E130B /* TorrentsViewModel.swift */; };
 		7B3690F72A69E0A7000E130B /* Double+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3690F62A69E0A7000E130B /* Double+Rounding.swift */; };
 		7B4599B22A66DD2600189C16 /* Transmission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCC4CFA2A0D41BC004A8297 /* Transmission.framework */; };
@@ -122,6 +129,14 @@
 		7B2324D12A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_MESSAGE_light.png; sourceTree = "<group>"; };
 		7B2324D22A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_MESSAGE_dark.png; sourceTree = "<group>"; };
 		7B2324D32A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_MESSAGE_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		7B2324D72A753C2300836B02 /* ServerPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPageTests.swift; sourceTree = "<group>"; };
+		7B2324D92A753D5400836B02 /* ServerPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPage.swift; sourceTree = "<group>"; };
+		7B2324DF2A753EA100836B02 /* ServersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersPresenter.swift; sourceTree = "<group>"; };
+		7B2324E12A753EB000836B02 /* ServerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPresenter.swift; sourceTree = "<group>"; };
+		7B2324E32A753EB600836B02 /* ServersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersViewModel.swift; sourceTree = "<group>"; };
+		7B2324E52A753EBC00836B02 /* ServerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewModel.swift; sourceTree = "<group>"; };
+		7B2324EA2A753F2000836B02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Servers.strings; sourceTree = "<group>"; };
+		7B2324EC2A753F2600836B02 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Servers.strings; sourceTree = "<group>"; };
 		7B3690F32A69DC0C000E130B /* TorrentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsViewModel.swift; sourceTree = "<group>"; };
 		7B3690F62A69E0A7000E130B /* Double+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounding.swift"; sourceTree = "<group>"; };
 		7B4599B92A67CB7C00189C16 /* TorrentsLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsLocalizationTests.swift; sourceTree = "<group>"; };
@@ -253,6 +268,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B2324DB2A753E0700836B02 /* Servers */ = {
+			isa = PBXGroup;
+			children = (
+				7B2324DD2A753E5000836B02 /* Servers Presentation */,
+				7B2324EB2A753F2000836B02 /* Servers.strings */,
+			);
+			path = Servers;
+			sourceTree = "<group>";
+		};
+		7B2324DD2A753E5000836B02 /* Servers Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				7B2324E12A753EB000836B02 /* ServerPresenter.swift */,
+				7B2324DF2A753EA100836B02 /* ServersPresenter.swift */,
+				7B2324E52A753EBC00836B02 /* ServerViewModel.swift */,
+				7B2324E32A753EB600836B02 /* ServersViewModel.swift */,
+			);
+			path = "Servers Presentation";
+			sourceTree = "<group>";
+		};
+		7B2324DE2A753E7500836B02 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7B4DFB722A15394F007E9C63 /* Torrent.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		7B3690F52A69E091000E130B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +329,7 @@
 			children = (
 				7B4599CE2A68109900189C16 /* TorrentsPageTests.swift */,
 				7B80FC8E2A72624200A6DAB6 /* SettingsPageTests.swift */,
+				7B2324D72A753C2300836B02 /* ServerPageTests.swift */,
 				7B4599D72A6819EC00189C16 /* snapshots */,
 			);
 			path = "Transmission UI";
@@ -352,13 +396,6 @@
 			path = "Torrent Fields";
 			sourceTree = "<group>";
 		};
-		7B6CD5DB2A7251E700E81983 /* Settings Feature */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Settings Feature";
-			sourceTree = "<group>";
-		};
 		7B6CD5DC2A7251F200E81983 /* Settings Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,7 +409,6 @@
 		7B6CD5DE2A72528900E81983 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				7B6CD5DB2A7251E700E81983 /* Settings Feature */,
 				7B6CD5DC2A7251F200E81983 /* Settings Presentation */,
 			);
 			path = Settings;
@@ -381,7 +417,6 @@
 		7B6CD5DF2A72529100E81983 /* Torrents */ = {
 			isa = PBXGroup;
 			children = (
-				7B8CB8182A66C016001A4D90 /* Torrents Feature */,
 				7B8CB8192A66C0F8001A4D90 /* Torrents Presentation */,
 			);
 			path = Torrents;
@@ -474,14 +509,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		7B8CB8182A66C016001A4D90 /* Torrents Feature */ = {
-			isa = PBXGroup;
-			children = (
-				7B4DFB722A15394F007E9C63 /* Torrent.swift */,
-			);
-			path = "Torrents Feature";
-			sourceTree = "<group>";
-		};
 		7B8CB8192A66C0F8001A4D90 /* Torrents Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,6 +574,7 @@
 				7B8CB8422A66CAE2001A4D90 /* TorrentsPage.swift */,
 				7B6CD5D72A724CD200E81983 /* ContainerView.swift */,
 				7B6CD5D92A724D5A00E81983 /* SettingsPage.swift */,
+				7B2324D92A753D5400836B02 /* ServerPage.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -687,6 +715,7 @@
 		7BC960E02A12D2250030B5E0 /* Torrent Get API */ = {
 			isa = PBXGroup;
 			children = (
+				7B2324DE2A753E7500836B02 /* Models */,
 				7BC960E22A135E6D0030B5E0 /* TorrentGetMapper.swift */,
 			);
 			path = "Torrent Get API";
@@ -733,6 +762,7 @@
 			children = (
 				7B6CD5DF2A72529100E81983 /* Torrents */,
 				7B6CD5DE2A72528900E81983 /* Settings */,
+				7B2324DB2A753E0700836B02 /* Servers */,
 				7B6CD5E02A72529E00E81983 /* APIs */,
 			);
 			path = Transmission;
@@ -1002,6 +1032,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B4599BF2A67CC2400189C16 /* Torrents.strings in Resources */,
+				7B2324E92A753F2000836B02 /* Servers.strings in Resources */,
 				7B6CD5E72A72533700E81983 /* Settings.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1032,6 +1063,7 @@
 				7B6CD5DA2A724D5A00E81983 /* SettingsPage.swift in Sources */,
 				7B6CD5D82A724CD200E81983 /* ContainerView.swift in Sources */,
 				7B8CB8432A66CAE2001A4D90 /* TorrentsPage.swift in Sources */,
+				7B2324DA2A753D5400836B02 /* ServerPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1042,6 +1074,7 @@
 				7B4599D42A6817C700189C16 /* XCTestCase+Snapshot.swift in Sources */,
 				7B4599D22A68170300189C16 /* View+TestHelpers.swift in Sources */,
 				7B4599D62A68184100189C16 /* UIViewController+Snapshot.swift in Sources */,
+				7B2324D82A753C2300836B02 /* ServerPageTests.swift in Sources */,
 				7B80FC8F2A72624200A6DAB6 /* SettingsPageTests.swift in Sources */,
 				7B4599CF2A68109900189C16 /* TorrentsPageTests.swift in Sources */,
 			);
@@ -1058,6 +1091,7 @@
 				7B83383A2A1016C20052F7EC /* SessionGetMapper.swift in Sources */,
 				7BD9A1F62A630D5200B6380A /* SessionStatsMapper.swift in Sources */,
 				7B9B8F722A7450C200A30771 /* ServerGetMapper.swift in Sources */,
+				7B2324E42A753EB600836B02 /* ServersViewModel.swift in Sources */,
 				7B8CB81B2A66C111001A4D90 /* TorrentsPresenter.swift in Sources */,
 				7BD9A1FD2A6311F600B6380A /* Stats.swift in Sources */,
 				7B8CB81F2A66C19E001A4D90 /* TorrentViewModel.swift in Sources */,
@@ -1069,8 +1103,11 @@
 				7B6587562A0D845000317EBE /* HTTPClient.swift in Sources */,
 				7B3690F72A69E0A7000E130B /* Double+Rounding.swift in Sources */,
 				7B8338402A1124780052F7EC /* HTTPURLResponse+StatusCode.swift in Sources */,
+				7B2324E02A753EA100836B02 /* ServersPresenter.swift in Sources */,
+				7B2324E22A753EB000836B02 /* ServerPresenter.swift in Sources */,
 				7B8CB8152A66A421001A4D90 /* HeaderUtils.swift in Sources */,
 				7B9B8F762A74554300A30771 /* RemoteServer.swift in Sources */,
+				7B2324E62A753EBC00836B02 /* ServerViewModel.swift in Sources */,
 				7BC960DF2A12D1BB0030B5E0 /* TorrentBodies.swift in Sources */,
 				7B6587552A0D845000317EBE /* URLSessionHTTPClient.swift in Sources */,
 				7B4DFB732A15394F007E9C63 /* Torrent.swift in Sources */,
@@ -1142,6 +1179,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7B2324EB2A753F2000836B02 /* Servers.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B2324EA2A753F2000836B02 /* en */,
+				7B2324EC2A753F2600836B02 /* it */,
+			);
+			name = Servers.strings;
+			sourceTree = "<group>";
+		};
 		7B4599C12A67CC2400189C16 /* Torrents.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

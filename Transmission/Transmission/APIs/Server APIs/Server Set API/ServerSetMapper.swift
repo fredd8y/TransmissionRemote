@@ -31,7 +31,8 @@ private extension Server {
 			ip: ip,
 			port: port,
 			username: username,
-			password: password
+			password: password,
+			id: id
 		)
 	}
 }

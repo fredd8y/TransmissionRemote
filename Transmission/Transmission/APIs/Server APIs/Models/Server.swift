@@ -14,7 +14,8 @@ public struct Server: Equatable {
 		ip: String,
 		port: Int,
 		username: String? = nil,
-		password: String? = nil
+		password: String? = nil,
+		id: UUID
 	) {
 		self.name = name
 		self.httpProtocol = httpProtocol
@@ -22,6 +23,7 @@ public struct Server: Equatable {
 		self.port = port
 		self.username = username
 		self.password = password
+		self.id = id
 	}
 	
 	
@@ -36,4 +38,5 @@ public struct Server: Equatable {
 	public let port: Int
 	public let username: String?
 	public let password: String?
+	public let id: UUID
 }
