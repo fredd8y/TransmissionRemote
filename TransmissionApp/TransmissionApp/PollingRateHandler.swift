@@ -15,7 +15,7 @@ final class PollingRateHandler {
 	
 	static var pollingRateList = [2, 5, 10, 30]
 	
-	static func makeUpdatePollingRateLoader() -> AnyPublisher<[Int], Error> {
+	static func makeUpdatePollingRateLoader() -> AnyPublisher<[Int], Never> {
 		Deferred {
 			Future { completion in
 				completion(.success(pollingRateList))
@@ -23,7 +23,7 @@ final class PollingRateHandler {
 		}.eraseToAnyPublisher()
 	}
 	
-	static func makeCurrentPollingRateLoader() -> AnyPublisher<Int, Error> {
+	static func makeCurrentPollingRateLoader() -> AnyPublisher<Int, Never> {
 		Deferred {
 			Future { completion in
 				completion(.success(UserDefaultsHandler.shared.pollingRate))

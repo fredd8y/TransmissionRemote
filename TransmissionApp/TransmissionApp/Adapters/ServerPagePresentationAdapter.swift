@@ -31,11 +31,21 @@ class ServerPagePresentationAdapter {
 		cancellable = ServerPublishers.makeServerGetLoader(atUrl: url)
 			.dispatchOnMainQueue()
 			.sink(
-				receiveCompletion: { completion in
+				receiveCompletion: { [weak self] completion in
 					switch completion {
 					case .finished: break
 					case .failure(let error):
-						// TODO: handle error
+						// The only error that we can receive here is on file opening,
+						// that means the the file does not exist
+						// we create an empty server file and we relaunch loadData()
+						if error is ServerPublishers.Error {
+							do {
+								try JSONEncoder().encode(try ServerSetMapper.map([])).write(to: url)
+								self?.loadData()
+							} catch {
+								// TODO: Handle error on SettingsPage
+							}
+						}
 						break
 					}
 				},
