@@ -6,6 +6,7 @@ Improvement
 
 TODO
 
+-	Comment public functions
 -	Separate torrent bodies tests
 -	Crypt password before saving it in userDefaults
 -	Torrent Add
