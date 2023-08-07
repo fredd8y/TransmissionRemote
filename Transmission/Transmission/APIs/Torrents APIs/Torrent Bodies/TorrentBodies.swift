@@ -7,7 +7,11 @@
 
 import Foundation
 
-public enum TorrentBodies {
+
+
+public enum TorrentBodies {}
+
+extension TorrentBodies {
 	private struct TorrentGetBody: Encodable {
 		init(_ fields: [String]) {
 			arguments = Arguments(fields: fields)
@@ -25,6 +29,9 @@ public enum TorrentBodies {
 		try! JSONEncoder().encode(TorrentGetBody(fields))
 	}
 	
+}
+
+extension TorrentBodies {
 	private struct TorrentAddBody: Encodable {
 		struct InvalidTorrentFilePath: Error {}
 		

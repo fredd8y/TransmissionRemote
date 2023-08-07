@@ -8,7 +8,10 @@
 import XCTest
 import Transmission
 
-final class TorrentBodiesTests: XCTestCase {
+final class TorrentBodiesTests: XCTestCase {}
+
+extension TorrentBodiesTests {
+	
 	func test_torrentGet_httpBodyWithEmptyFields() {
 		let expectedBody = #"{"method":"torrent-get","arguments":{"fields":[]}}"#.data(using: .utf8)
 		
@@ -25,6 +28,10 @@ final class TorrentBodiesTests: XCTestCase {
 		
 		XCTAssertEqual(expectedBody, httpBody)
 	}
+	
+}
+
+extension TorrentBodiesTests {
 	
 	func test_torrentAdd_doesNotThrowOnCorrectInput() {
 		let (fileUrl, _) = fileUrl()
@@ -62,4 +69,5 @@ final class TorrentBodiesTests: XCTestCase {
 	private func anyDownloadDir() -> String {
 		"a download dir"
 	}
+	
 }
