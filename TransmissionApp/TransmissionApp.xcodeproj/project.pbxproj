@@ -10,7 +10,7 @@
 		7B6CD5CB2A71050F00E81983 /* Logger+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CA2A71050F00E81983 /* Logger+.swift */; };
 		7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */; };
 		7BBF3C4B2A729554001206A8 /* SettingsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */; };
-		7BBF3C4D2A72A648001206A8 /* ServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C4C2A72A648001206A8 /* ServerHandler.swift */; };
+		7BBF3C4D2A72A648001206A8 /* ServerPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C4C2A72A648001206A8 /* ServerPublishers.swift */; };
 		7BBF3C5C2A742B6E001206A8 /* SettingsViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C5B2A742B6E001206A8 /* SettingsViewModel+Factory.swift */; };
 		7BBF3C5E2A742CF7001206A8 /* UpdateIntervalHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C5D2A742CF7001206A8 /* UpdateIntervalHandler.swift */; };
 		7BBF3C602A742D37001206A8 /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C5F2A742D37001206A8 /* UserDefaultsHandler.swift */; };
@@ -58,7 +58,7 @@
 		7B6CD5CA2A71050F00E81983 /* Logger+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+.swift"; sourceTree = "<group>"; };
 		7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+MainQueueDispatcher.swift"; sourceTree = "<group>"; };
 		7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPagePresentationAdapter.swift; sourceTree = "<group>"; };
-		7BBF3C4C2A72A648001206A8 /* ServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHandler.swift; sourceTree = "<group>"; };
+		7BBF3C4C2A72A648001206A8 /* ServerPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPublishers.swift; sourceTree = "<group>"; };
 		7BBF3C5B2A742B6E001206A8 /* SettingsViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel+Factory.swift"; sourceTree = "<group>"; };
 		7BBF3C5D2A742CF7001206A8 /* UpdateIntervalHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateIntervalHandler.swift; sourceTree = "<group>"; };
 		7BBF3C5F2A742D37001206A8 /* UserDefaultsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandler.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 				7BC0D8132A6C158100B36367 /* TransmissionApp.swift */,
 				7BC0D8442A6E3FE200B36367 /* TransmissionComposer.swift */,
 				7BC0D84D2A6EA90000B36367 /* TransmissionHTTPClient.swift */,
-				7BBF3C4C2A72A648001206A8 /* ServerHandler.swift */,
+				7BBF3C4C2A72A648001206A8 /* ServerPublishers.swift */,
 				7BBF3C5D2A742CF7001206A8 /* UpdateIntervalHandler.swift */,
 				7BBF3C5F2A742D37001206A8 /* UserDefaultsHandler.swift */,
 				7BC0D8172A6C158300B36367 /* Assets.xcassets */,
@@ -298,7 +298,7 @@
 				7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */,
 				7BC0D8452A6E3FE200B36367 /* TransmissionComposer.swift in Sources */,
 				7BBF3C5E2A742CF7001206A8 /* UpdateIntervalHandler.swift in Sources */,
-				7BBF3C4D2A72A648001206A8 /* ServerHandler.swift in Sources */,
+				7BBF3C4D2A72A648001206A8 /* ServerPublishers.swift in Sources */,
 				7BC0D8432A6E3C4100B36367 /* Combine+Publishers.swift in Sources */,
 				7BC0D84A2A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift in Sources */,
 				7BBF3C602A742D37001206A8 /* UserDefaultsHandler.swift in Sources */,

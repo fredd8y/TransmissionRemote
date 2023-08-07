@@ -27,7 +27,7 @@ class SettingsPagePresentationAdapter {
 			return
 		}
 		cancellable = Publishers.Zip3(
-			ServerHandler.makeServerLoader(atUrl: url),
+			ServerPublishers.makeServerGetLoader(atUrl: url),
 			UpdateIntervalHandler.makeUpdateIntervalListLoader(),
 			UpdateIntervalHandler.makeCurrentUpdateIntervalLoader()
 		)
@@ -40,9 +40,9 @@ class SettingsPagePresentationAdapter {
 						// The only error that we can receive here is on file opening,
 						// that means the the file is non-existing
 						// we create an empty server file and we relaunch loadData()
-						if error is ServerHandler.Error {
+						if error is ServerPublishers.Error {
 							do {
-								try TransmissionFileHandler.setContent(url, content: [Server]())
+								try JSONEncoder().encode(try ServerSetMapper.map([])).write(to: url)
 								self?.loadData()
 							} catch {
 								// TODO: Handle error on SettingsPage

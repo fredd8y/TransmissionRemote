@@ -7,9 +7,9 @@
 
 import Foundation
 
-public struct Server: Codable {
+public struct Server {
 	
-	public enum HTTPProtocol: Codable {
+	public enum HTTPProtocol {
 		case http
 		case https
 	}
