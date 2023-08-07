@@ -24,7 +24,9 @@ public final class URLSessionHTTPClient: HTTPClient {
 		urlRequest.httpBody = body
 		
 		let task = session.dataTask(with: urlRequest) { data, response, error in
-			
+			if let error {
+				completion(.failure(error))
+			}
 		}
 		task.resume()
 		return task
