@@ -85,7 +85,7 @@ extension TorrentBodies {
 		}
 	}
 	
-	public static func remove(id: Int, deleteLocalData: Bool) throws -> Data {
-		try JSONEncoder().encode(TorrentRemoveBody(id: id, deleteLocalData: deleteLocalData))
+	public static func remove(id: Int, deleteLocalData: Bool) -> Data {
+		try! JSONEncoder().encode(TorrentRemoveBody(id: id, deleteLocalData: deleteLocalData))
 	}
 }

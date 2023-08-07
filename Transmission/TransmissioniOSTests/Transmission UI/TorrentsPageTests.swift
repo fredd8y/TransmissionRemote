@@ -93,6 +93,7 @@ class TorrentsPageTests: XCTestCase {
 	private func listWithContent() -> [TorrentViewModel] {
 		[
 			TorrentViewModel(
+				id: 1,
 				name: anyName,
 				eta: anyEta,
 				completionPercentage: anyPercentage,
@@ -101,6 +102,7 @@ class TorrentsPageTests: XCTestCase {
 				downloadSpeed: anyDownloadSpeed
 			),
 			TorrentViewModel(
+				id: 2,
 				name: anyName,
 				eta: anyEta,
 				completionPercentage: anyPercentage,
@@ -114,6 +116,7 @@ class TorrentsPageTests: XCTestCase {
 	private func listWithItemError() -> [TorrentViewModel] {
 		[
 			TorrentViewModel(
+				id: 1,
 				name: anyName,
 				error: anyError,
 				eta: anyEta,

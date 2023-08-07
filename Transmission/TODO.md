@@ -6,6 +6,7 @@ Improvement
 
 TODO
 
+-	Find a way to synch when an action is made, delete/add
 -	Think about a toast message to notify that a torrent has been added correctly
 -	Implement data verification for already downloaded torrent
 -	Comment public functions

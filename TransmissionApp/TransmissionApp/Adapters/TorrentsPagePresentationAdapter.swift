@@ -43,6 +43,7 @@ final class TorrentsPagePresentationAdapter {
 	private var pollingRateCancellable = Set<AnyCancellable>()
 	private var currentServerCancellable = Set<AnyCancellable>()
 	private var addTorrentCancellable = Set<AnyCancellable>()
+	private var deleteTorrentCancellable = Set<AnyCancellable>()
 	
 	private var sessionIdHandler: (String) -> Void
 	
@@ -81,6 +82,7 @@ final class TorrentsPagePresentationAdapter {
 				case .finished:
 					url.stopAccessingSecurityScopedResource()
 				case .failure(let error):
+					url.stopAccessingSecurityScopedResource()
 					if let _error = error as? TorrentAddMapper.Error {
 						switch _error {
 						case .torrentDuplicate(let name):
@@ -95,6 +97,31 @@ final class TorrentsPagePresentationAdapter {
 			},
 			receiveValue: { _ in }
 		).store(in: &addTorrentCancellable)
+	}
+	
+	func delete(_ id: Int, _ deleteLocalData: Bool) {
+		guard let server = UserDefaultsHandler.shared.currentServer else {
+			torrentsPageViewModel.alertMessage = TorrentsPagePresenter.missingServerError
+			torrentsPageViewModel.alertMessageVisible = true
+			return
+		}
+		TransmissionHTTPClient.makeTorrentRemovePublisher(
+			server: server,
+			id: id,
+			deleteLocalData: deleteLocalData
+		)
+		.dispatchOnMainQueue()
+		.sink(
+			receiveCompletion: { [weak self] completion in
+				switch completion {
+				case .finished: break
+				case .failure:
+					self?.torrentsPageViewModel.alertMessage = TorrentsPagePresenter.genericError
+					self?.torrentsPageViewModel.alertMessageVisible = true
+				}
+			},
+			receiveValue: { _ in }
+		).store(in: &deleteTorrentCancellable)
 	}
 	
 	func loadData(server: Server?) {

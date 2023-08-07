@@ -39,6 +39,7 @@ public final class TorrentPresenter {
 		relativeDateFormatter.calendar = .current
 		
 		return TorrentViewModel(
+			id: torrent.id,
 			name: torrent.name,
 			error: torrent.errorString != "" ? torrent.errorString : nil,
 			eta: torrent.eta > 0 ? "\(downloadCompletedIn) \(relativeDateFormatter.localizedString(fromTimeInterval: Double(torrent.eta)))" : completed,

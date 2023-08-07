@@ -9,6 +9,7 @@ import Foundation
 
 public struct TorrentViewModel: Identifiable, Equatable {
 	public init(
+		id: Int,
 		name: String,
 		error: String? = nil,
 		eta: String,
@@ -17,6 +18,7 @@ public struct TorrentViewModel: Identifiable, Equatable {
 		downloaded: String,
 		downloadSpeed: String
 	) {
+		self.id = id
 		self.name = name
 		self.error = error
 		self.eta = eta
@@ -26,7 +28,7 @@ public struct TorrentViewModel: Identifiable, Equatable {
 		self.downloadSpeed = downloadSpeed
 	}
 	
-	public let id = UUID()
+	public let id: Int
 	public let name: String
 	public let error: String?
 	public let eta: String

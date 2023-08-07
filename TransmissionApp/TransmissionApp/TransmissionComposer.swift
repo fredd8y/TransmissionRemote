@@ -40,6 +40,7 @@ final class TransmissionComposer {
 			torrentsPagePresentationAdapter.loadData(server: UserDefaultsHandler.shared.currentServer)
 		}
 		torrentsPage.selectedFile = torrentsPagePresentationAdapter.selectedFile
+		torrentsPage.delete = torrentsPagePresentationAdapter.delete
 		
 		return torrentsPage
 	}

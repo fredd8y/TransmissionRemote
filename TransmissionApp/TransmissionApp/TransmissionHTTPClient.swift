@@ -16,6 +16,23 @@ final class TransmissionHTTPClient {
 	
 	static var sessionId: String?
 
+	static func makeTorrentRemovePublisher(
+		server: Server,
+		id: Int,
+		deleteLocalData: Bool
+	) -> AnyPublisher<Void, Error> {
+		return httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: TorrentBodies.remove(id: id, deleteLocalData: deleteLocalData),
+				additionalHeader: headers(server)
+			)
+			.tryMap(TransmissionHTTPClient.log)
+			.tryMap(TorrentRemoveMapper.map)
+			.eraseToAnyPublisher()
+			
+	}
+	
 	static func makeTorrentAddPublisher(
 		server: Server,
 		startWhenAdded: Bool,

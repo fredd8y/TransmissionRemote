@@ -72,6 +72,54 @@ public final class TorrentsPagePresenter {
 			comment: "Title for torrents page alert error")
 	}
 	
+	public static var deleteTorrentAlertTitle: String {
+		NSLocalizedString(
+			"DELETE_TORRENT_ALERT_TITLE",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Title for delete torrent alert")
+	}
+	
+	public static var deleteTorrentAlertMessage: String {
+		NSLocalizedString(
+			"DELETE_TORRENT_ALERT_MESSAGE",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Message for delete torrent alert")
+	}
+	
+	public static var deleteLocalData: String {
+		NSLocalizedString(
+			"DELETE_LOCAL_DATA",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Title for delete local data button")
+	}
+	
+	public static var keepLocalData: String {
+		NSLocalizedString(
+			"KEEP_LOCAL_DATA",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Title keep local data button")
+	}
+	
+	public static var cancel: String {
+		NSLocalizedString(
+			"CANCEL",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Title for cancel button")
+	}
+	
+	public static var remove: String {
+		NSLocalizedString(
+			"REMOVE",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Title for remove button")
+	}
+	
 	public static var missingServerError: String {
 		NSLocalizedString(
 			"MISSING_SERVER_ERROR",

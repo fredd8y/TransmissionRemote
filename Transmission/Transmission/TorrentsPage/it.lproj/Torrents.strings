@@ -22,3 +22,9 @@
 "FILE_PERMISSION_ERRROR" = "Errore permessi sul file selezionato";
 "ITEM_ALREADY_ADDED_ERROR" = "già aggiunto";
 "GENERIC_ERROR" = "Errore sconosciuto";
+"DELETE_TORRENT_ALERT_TITLE" = "Rimuovi";
+"DELETE_TORRENT_ALERT_MESSAGE" = "Vuoi rimuovere anche i dati del torrent?";
+"DELETE_LOCAL_DATA" = "Rimuovi dati torrent";
+"KEEP_LOCAL_DATA" = "Mantieni dati torrent";
+"CANCEL" = "Annulla";
+"REMOVE" = "Rimuovi";

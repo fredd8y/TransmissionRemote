@@ -52,6 +52,30 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentsPagePresenter.genericError, localized("GENERIC_ERROR", table: table))
 	}
 	
+	func test_deleteTorrentAlertTitle_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.deleteTorrentAlertTitle, localized("DELETE_TORRENT_ALERT_TITLE", table: table))
+	}
+	
+	func test_deleteTorrentAlertMessage_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.deleteTorrentAlertMessage, localized("DELETE_TORRENT_ALERT_MESSAGE", table: table))
+	}
+	
+	func test_deleteLocalData_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.deleteLocalData, localized("DELETE_LOCAL_DATA", table: table))
+	}
+	
+	func test_keepLocalData_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.keepLocalData, localized("KEEP_LOCAL_DATA", table: table))
+	}
+	
+	func test_cancel_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.cancel, localized("CANCEL", table: table))
+	}
+	
+	func test_remove_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.remove, localized("REMOVE", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Title"
 		let error = "a error"

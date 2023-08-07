@@ -21,11 +21,15 @@ public struct TorrentsPage: View {
 	
 	@State public var fileImporterPresented: Bool = false
 	
-	@State public var torrentAddDetailPresented: Bool = true
+	@State public var torrentRemoveAlertPresented: Bool = false
 	
 	public var loadData: (() -> Void)?
 	
 	public var selectedFile: ((URL) -> Void)?
+	
+	public var delete: ((_ id: Int, _ deleteLocalData: Bool) -> Void)?
+	
+	@State private var deletingTorrentId: Int = -1
 	
     public var body: some View {
 		NavigationStack {
@@ -67,6 +71,16 @@ public struct TorrentsPage: View {
 								Text(torrent.error ?? torrent.eta)
 									.font(.caption2)
 									.foregroundColor(torrent.error == nil ? .primary : .red)
+								// For some reason if the contextmenu is applied to the VStack the compiler
+								// can't build
+									.contextMenu {
+										Button(role: .destructive) {
+											deletingTorrentId = torrent.id
+											torrentRemoveAlertPresented.toggle()
+										} label: {
+											Text(TorrentsPagePresenter.remove)
+										}
+									}
 							}
 						}
 					}
@@ -84,8 +98,6 @@ public struct TorrentsPage: View {
 							.foregroundColor(.primary)
 					}
 				}
-			}
-			.toolbar {
 				ToolbarItemGroup(placement: .bottomBar) {
 					Image(systemName: "arrow.up")
 						.resizable()
@@ -135,6 +147,32 @@ public struct TorrentsPage: View {
 					Text(viewModel.alertMessage ?? "")
 				}
 			)
+			.alert(
+				TorrentsPagePresenter.deleteTorrentAlertTitle,
+				isPresented: $torrentRemoveAlertPresented,
+				actions: {
+					Button {
+						delete?(deletingTorrentId, false)
+						deletingTorrentId = -1
+					} label: {
+						Text(TorrentsPagePresenter.keepLocalData)
+					}
+					Button(role: .destructive) {
+						delete?(deletingTorrentId, true)
+						deletingTorrentId = -1
+					} label: {
+						Text(TorrentsPagePresenter.deleteLocalData)
+					}
+					Button(role: .cancel) {
+						deletingTorrentId = -1
+					} label: {
+						Text(TorrentsPagePresenter.cancel)
+					}
+				},
+				message: {
+					Text(TorrentsPagePresenter.deleteTorrentAlertMessage)
+				}
+			)
 		}
 		.onAppear {
 			loadData?()
@@ -160,6 +198,7 @@ struct TorrentsPage_Previews: PreviewProvider {
 				downloadSpeed: "5,5 Mb/s",
 				torrents: [
 					TorrentViewModel(
+						id: 1,
 						name: "a name",
 						error: "download error",
 						eta: "-",
@@ -169,6 +208,7 @@ struct TorrentsPage_Previews: PreviewProvider {
 						downloadSpeed: "-"
 					),
 					TorrentViewModel(
+						id: 2,
 						name: "another name",
 						eta: "ETA: 7h 12m 12s",
 						completionPercentage: 0.75,
