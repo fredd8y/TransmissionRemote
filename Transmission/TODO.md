@@ -8,3 +8,8 @@ TODO
 
 -	Save credentials
 -	Parametric baseURL
+-	Parametric polling rate
+
+FIX
+
+-	Wrong torrents number
