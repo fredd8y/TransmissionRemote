@@ -11,28 +11,15 @@ import Transmission
 public struct TorrentsPage: View {
 	
 	public init(viewModel: TorrentsViewModel) {
-		_viewModel = StateObject(wrappedValue: viewModel)
+		self.viewModel = viewModel
 	}
 	
-	public func update(withViewModel viewModel: TorrentsViewModel) {
-		self.viewModel.title = viewModel.title
-		self.viewModel.error = viewModel.error
-		self.viewModel.uploadSpeed = viewModel.uploadSpeed
-		self.viewModel.downloadSpeed = viewModel.downloadSpeed
-		self.viewModel.torrents = viewModel.torrents
-	}
-	
-	@StateObject var viewModel: TorrentsViewModel
+	@ObservedObject public var viewModel: TorrentsViewModel
 	
 	public var loadData: (() -> Void)?
 	
 	public var authenticate: ((_ username: String, _ password: String) -> Void)? = nil
 	
-	public func askForCredentials() {
-		isCredentialAlertShown.toggle()
-	}
-	
-	@State private var isCredentialAlertShown: Bool = false
 	@State private var username: String = ""
 	@State private var password: String = ""
 	
@@ -89,16 +76,17 @@ public struct TorrentsPage: View {
 					SubheadlineText(viewModel.downloadSpeed)
 				}
 			}
-			.alert(TorrentsPresenter.credentialRequested, isPresented: $isCredentialAlertShown) {
+			.alert(TorrentsPresenter.credentialRequested, isPresented: $viewModel.showAlert) {
 				TextField(TorrentsPresenter.username, text: $username)
 				TextField(TorrentsPresenter.password, text: $password)
 				Button(TorrentsPresenter.ok) {
 					authenticate?(username, password)
-					isCredentialAlertShown.toggle()
+					viewModel.showAlert.toggle()
 					loadData?()
 				}
 			}
-		}.onAppear {
+		}
+		.onAppear {
 			loadData?()
 		}
 	}
@@ -135,7 +123,8 @@ struct TorrentsPage_Previews: PreviewProvider {
 						downloaded: "5,4GB of 7,8GB",
 						downloadSpeed: "5,6MB"
 					)
-				]
+				],
+				showAlert: false
 			)
 		)
     }

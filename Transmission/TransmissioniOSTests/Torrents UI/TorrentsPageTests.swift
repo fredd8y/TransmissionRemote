@@ -42,9 +42,9 @@ class TorrentsPageTests: XCTestCase {
 	}
 	
 	func test_updateViewModel() {
-		let sut = makeSUT(torrents: emptyList())
+		var sut = makeSUT(torrents: emptyList())
 		
-		sut.update(withViewModel: viewModel(withTorrents: listWithContent()))
+		sut.viewModel = viewModel(withTorrents: listWithContent())
 		
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "LIST_WITH_CONTENT_light")
 		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "LIST_WITH_CONTENT_dark")
@@ -63,7 +63,8 @@ class TorrentsPageTests: XCTestCase {
 			error: error,
 			uploadSpeed: "5,5 MB/s",
 			downloadSpeed: "5,5 MB/s",
-			torrents: torrents
+			torrents: torrents,
+			showAlert: false
 		)
 	}
 	

@@ -6,6 +6,7 @@
 //
 
 import Combine
+import SwiftUI
 import Transmission
 import TransmissioniOS
 
@@ -13,14 +14,19 @@ import TransmissioniOS
 final class TransmissionComposer {
 	private init() {}
 	
+	private static var cancellable: Cancellable?
+	
 	public static func torrentsPagePresentationAdapter(
 		sessionLoader: @escaping () -> AnyPublisher<Session, Error>,
 		torrentLoader: @escaping () -> AnyPublisher<[Torrent], Error>
 	) -> TorrentsPage {
-		var torrentsPage = makeTorrentsPage()
+		let viewModel = TorrentsViewModel.empty()
+		
+		var torrentsPage = TorrentsPage(viewModel: viewModel)
 		
 		let torrentsPagePresentationAdapter = TorrentsPagePresentationAdapter(
 			torrentsPage: torrentsPage,
+			torrentsPageViewModel: viewModel,
 			sessionLoader: sessionLoader,
 			torrentLoader: torrentLoader,
 			sessionIdHandler: { sessionId in
@@ -35,9 +41,5 @@ final class TransmissionComposer {
 		}
 		
 		return torrentsPage
-	}
-	
-	private static func makeTorrentsPage() -> TorrentsPage {
-		TorrentsPage(viewModel: .empty)
 	}
 }

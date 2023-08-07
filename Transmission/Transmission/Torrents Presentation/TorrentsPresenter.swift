@@ -77,7 +77,8 @@ public final class TorrentsPresenter {
 		error: String?,
 		uploadSpeed: Int,
 		downloadSpeed: Int,
-		torrents: [Torrent]
+		torrents: [Torrent],
+		showAlert: Bool = false
 	) -> TorrentsViewModel {
 		let stringUploadSpeed = (Double(uploadSpeed) / 1_000_000).round() ?? "0,00"
 		let stringDownloadSpeed = (Double(downloadSpeed) / 1_000_000).round() ?? "0,00"
@@ -88,7 +89,8 @@ public final class TorrentsPresenter {
 			downloadSpeed: "\(stringDownloadSpeed) MB/s",
 			torrents: torrents.map {
 				TorrentPresenter.map($0)
-			}
+			},
+			showAlert: showAlert
 		)
 	}
 }
