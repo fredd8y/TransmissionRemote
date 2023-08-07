@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7B2324D02A75072800836B02 /* Server+SharedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2324CF2A75072800836B02 /* Server+SharedExtension.swift */; };
+		7B2325022A766DEC00836B02 /* ServersViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2325012A766DEC00836B02 /* ServersViewModel+Factory.swift */; };
+		7B2325042A766E6800836B02 /* ServerPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2325032A766E6800836B02 /* ServerPagePresentationAdapter.swift */; };
 		7B6CD5CB2A71050F00E81983 /* Logger+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CA2A71050F00E81983 /* Logger+.swift */; };
 		7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */; };
 		7BBF3C4B2A729554001206A8 /* SettingsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */; };
@@ -57,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		7B2324CF2A75072800836B02 /* Server+SharedExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server+SharedExtension.swift"; sourceTree = "<group>"; };
+		7B2325012A766DEC00836B02 /* ServersViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServersViewModel+Factory.swift"; sourceTree = "<group>"; };
+		7B2325032A766E6800836B02 /* ServerPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPagePresentationAdapter.swift; sourceTree = "<group>"; };
 		7B6CD5CA2A71050F00E81983 /* Logger+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+.swift"; sourceTree = "<group>"; };
 		7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+MainQueueDispatcher.swift"; sourceTree = "<group>"; };
 		7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPagePresentationAdapter.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */,
 				7BC0D84B2A6EA20100B36367 /* TorrentsViewModel+Factory.swift */,
 				7BBF3C5B2A742B6E001206A8 /* SettingsViewModel+Factory.swift */,
+				7B2325012A766DEC00836B02 /* ServersViewModel+Factory.swift */,
 				7B2324CF2A75072800836B02 /* Server+SharedExtension.swift */,
 			);
 			path = Helpers;
@@ -177,6 +182,7 @@
 			children = (
 				7BC0D8492A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift */,
 				7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */,
+				7B2325032A766E6800836B02 /* ServerPagePresentationAdapter.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 				7BC0D84C2A6EA20100B36367 /* TorrentsViewModel+Factory.swift in Sources */,
 				7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */,
 				7B6CD5CB2A71050F00E81983 /* Logger+.swift in Sources */,
+				7B2325042A766E6800836B02 /* ServerPagePresentationAdapter.swift in Sources */,
 				7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */,
 				7BC0D8452A6E3FE200B36367 /* TransmissionComposer.swift in Sources */,
 				7BBF3C5E2A742CF7001206A8 /* PollingRateHandler.swift in Sources */,
@@ -306,6 +313,7 @@
 				7BC0D8432A6E3C4100B36367 /* Combine+Publishers.swift in Sources */,
 				7BC0D84A2A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift in Sources */,
 				7BBF3C602A742D37001206A8 /* UserDefaultsHandler.swift in Sources */,
+				7B2325022A766DEC00836B02 /* ServersViewModel+Factory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

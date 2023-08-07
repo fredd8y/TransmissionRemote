@@ -19,12 +19,12 @@ public final class ServersPresenter {
 	public static func map(
 		title: String,
 		servers: [Server],
-		currentSelectedServer: Server
+		currentSelectedServer: Server?
 	) -> ServersViewModel {
 		return ServersViewModel(
 			title: title,
 			servers: servers.map(ServerPresenter.map),
-			currentSelectedServer: currentSelectedServer.id
+			currentSelectedServer: currentSelectedServer?.id
 		)
 	}
 }

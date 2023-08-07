@@ -18,6 +18,8 @@ public struct ServerPage: View {
 		
 	@State private var selection: UUID?
 	
+	public var loadData: (() -> Void)?
+	
     public var body: some View {
 		NavigationStack {
 			List(viewModel.servers, selection: $selection) { server in

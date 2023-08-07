@@ -11,7 +11,7 @@ import Transmission
 
 class SettingsPagePresentationAdapter {
 	
-	internal init(settingsViewModel: SettingsViewModel) {
+	init(settingsViewModel: SettingsViewModel) {
 		self.settingsViewModel = settingsViewModel
 	}
 	

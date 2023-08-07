@@ -7,8 +7,9 @@ Improvement
 
 TODO
 
--	Add id to ServerViewModel avoid using url as identifier
+-	Show ServerPage from SettingsPage
 -	Implement server add
+-	Remove ObservedObject from torrentsPageViewModel
 -	In SettingsPage avoid retrieving servers from file, get the current from user defaults instead
 -	Crypt password before saving it in userDefaults
 -	Settings with multiple servers

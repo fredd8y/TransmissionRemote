@@ -12,8 +12,11 @@ public struct SettingsPage: View {
 	
 	@ObservedObject var viewModel: SettingsViewModel
 	
-	public init(viewModel: SettingsViewModel) {
+	private var serverPage: ServerPage
+	
+	public init(viewModel: SettingsViewModel, serverPage: ServerPage) {
 		self.viewModel = viewModel
+		self.serverPage = serverPage
 	}
 	
 	public var loadData: (() -> Void)?
@@ -35,7 +38,7 @@ public struct SettingsPage: View {
 					}
 				}
 				NavigationLink {
-					// TODO
+					serverPage
 				} label: {
 					VStack(alignment: .leading) {
 						Text(viewModel.serversTitle)
@@ -65,6 +68,12 @@ struct SettingsPage_Previews: PreviewProvider {
 			currentSelectedPollingRate: "5 seconds",
 			serversTitle: "Server",
 			currentServerName: "Raspberry"
-		))
+		), serverPage: ServerPage(
+			viewModel: ServersViewModel(
+				title: "Title",
+				servers: [],
+				currentSelectedServer: nil)
+			)
+		)
     }
 }
