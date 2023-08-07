@@ -30,34 +30,34 @@ class ServerDetailPagePresentationAdapter {
 		do {
 			// Name check
 			guard model.name != "" else {
-				return ServerDetailPage.ServerDetailPageError.name
+				return ServerDetailPageError.name
 			}
 			// IP check
 			guard model.ip != "" else {
-				return ServerDetailPage.ServerDetailPageError.name
+				return ServerDetailPageError.name
 			}
 			let ipComponents = model.ip.components(separatedBy: ".")
 			guard ipComponents.count == 4 else {
-				return ServerDetailPage.ServerDetailPageError.ip
+				return ServerDetailPageError.ip
 			}
 			let wrongComponents = ipComponents.filter {
 				guard let number = Int($0) else { return true }
 				return number < 0 && number > 255
 			}
 			if wrongComponents.count > 0 {
-				return ServerDetailPage.ServerDetailPageError.ip
+				return ServerDetailPageError.ip
 			}
 			// Port check
 			guard model.port != "", let intPort = Int(model.port), intPort >= 1, intPort <= 65535 else {
-				return ServerDetailPage.ServerDetailPageError.port
+				return ServerDetailPageError.port
 			}
 			// Username and Password check
 			if (model.username != "" && model.password == "") || (model.password != "" && model.username == "") {
 				if model.username == "" {
-					return ServerDetailPage.ServerDetailPageError.username
+					return ServerDetailPageError.username
 				}
 				if model.password == "" {
-					return ServerDetailPage.ServerDetailPageError.password
+					return ServerDetailPageError.password
 				}
 			}
 			let server = Server(

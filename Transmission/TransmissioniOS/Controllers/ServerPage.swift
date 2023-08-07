@@ -33,11 +33,18 @@ public struct ServerPage: View {
     public var body: some View {
 		NavigationStack {
 			List(viewModel.servers, selection: $viewModel.currentSelectedServerId) { server in
-				VStack(alignment: .leading, spacing: 8) {
-					Text(server.title)
-						.font(.subheadline)
-					Text(server.url)
-						.font(.caption2)
+				HStack {
+					VStack(alignment: .leading, spacing: 8) {
+						Text(server.title)
+							.font(.subheadline)
+						Text(server.url)
+							.font(.caption2)
+					}
+					if server.id == viewModel.currentSelectedServerId {
+						Spacer()
+						Image(systemName: "checkmark")
+							.foregroundColor(.primary)
+					}
 				}.contextMenu {
 					NavigationLink {
 						showServerDetail?(server.id)
@@ -49,7 +56,6 @@ public struct ServerPage: View {
 					} label: {
 						Text(viewModel.deleteItemActionTitle)
 					}
-
 				}
 			}
 			.listStyle(.insetGrouped)
