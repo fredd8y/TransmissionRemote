@@ -14,8 +14,8 @@
 		7B65875F2A0D846500317EBE /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65875A2A0D846500317EBE /* XCTestCase+MemoryLeakTracking.swift */; };
 		7B6587602A0D846500317EBE /* URLRequest+BodyStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65875B2A0D846500317EBE /* URLRequest+BodyStream.swift */; };
 		7B6587612A0D846500317EBE /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65875C2A0D846500317EBE /* URLSessionHTTPClientTests.swift */; };
-		7B8338202A0F9E680052F7EC /* SessionGetRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B83381F2A0F9E680052F7EC /* SessionGetRequestBody.swift */; };
-		7B8338222A0F9E790052F7EC /* SessionGetRequestBodyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8338212A0F9E790052F7EC /* SessionGetRequestBodyTests.swift */; };
+		7B8338292A0FA19F0052F7EC /* SessionBodies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8338282A0FA19F0052F7EC /* SessionBodies.swift */; };
+		7B83382B2A0FA1E60052F7EC /* SessionBodiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B83382A2A0FA1E60052F7EC /* SessionBodiesTests.swift */; };
 		7B9305AF2A0F997B005EBE56 /* APIsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9305AE2A0F997B005EBE56 /* APIsEndpoint.swift */; };
 		7B9305B42A0F99CB005EBE56 /* APIsEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9305B32A0F99CB005EBE56 /* APIsEndpointTests.swift */; };
 		7BCC4D032A0D41BC004A8297 /* Transmission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCC4CFA2A0D41BC004A8297 /* Transmission.framework */; };
@@ -39,8 +39,8 @@
 		7B65875A2A0D846500317EBE /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		7B65875B2A0D846500317EBE /* URLRequest+BodyStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+BodyStream.swift"; sourceTree = "<group>"; };
 		7B65875C2A0D846500317EBE /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
-		7B83381F2A0F9E680052F7EC /* SessionGetRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionGetRequestBody.swift; sourceTree = "<group>"; };
-		7B8338212A0F9E790052F7EC /* SessionGetRequestBodyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionGetRequestBodyTests.swift; sourceTree = "<group>"; };
+		7B8338282A0FA19F0052F7EC /* SessionBodies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionBodies.swift; sourceTree = "<group>"; };
+		7B83382A2A0FA1E60052F7EC /* SessionBodiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionBodiesTests.swift; sourceTree = "<group>"; };
 		7B9305AE2A0F997B005EBE56 /* APIsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIsEndpoint.swift; sourceTree = "<group>"; };
 		7B9305B32A0F99CB005EBE56 /* APIsEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIsEndpointTests.swift; sourceTree = "<group>"; };
 		7BCC4CFA2A0D41BC004A8297 /* Transmission.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Transmission.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,7 +96,7 @@
 		7B83381D2A0F9E110052F7EC /* Session */ = {
 			isa = PBXGroup;
 			children = (
-				7B83381F2A0F9E680052F7EC /* SessionGetRequestBody.swift */,
+				7B8338282A0FA19F0052F7EC /* SessionBodies.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -104,7 +104,7 @@
 		7B83381E2A0F9E210052F7EC /* Session */ = {
 			isa = PBXGroup;
 			children = (
-				7B8338212A0F9E790052F7EC /* SessionGetRequestBodyTests.swift */,
+				7B83382A2A0FA1E60052F7EC /* SessionBodiesTests.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -291,8 +291,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B8338292A0FA19F0052F7EC /* SessionBodies.swift in Sources */,
 				7B9305AF2A0F997B005EBE56 /* APIsEndpoint.swift in Sources */,
-				7B8338202A0F9E680052F7EC /* SessionGetRequestBody.swift in Sources */,
 				7B6587562A0D845000317EBE /* HTTPClient.swift in Sources */,
 				7B6587552A0D845000317EBE /* URLSessionHTTPClient.swift in Sources */,
 			);
@@ -302,9 +302,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B83382B2A0FA1E60052F7EC /* SessionBodiesTests.swift in Sources */,
 				7B65875D2A0D846500317EBE /* SharedTestHelpers.swift in Sources */,
 				7B65875E2A0D846500317EBE /* URLProtocolStub.swift in Sources */,
-				7B8338222A0F9E790052F7EC /* SessionGetRequestBodyTests.swift in Sources */,
 				7B9305B42A0F99CB005EBE56 /* APIsEndpointTests.swift in Sources */,
 				7B6587612A0D846500317EBE /* URLSessionHTTPClientTests.swift in Sources */,
 				7B65875F2A0D846500317EBE /* XCTestCase+MemoryLeakTracking.swift in Sources */,
