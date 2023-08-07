@@ -128,6 +128,14 @@ public final class TorrentsPagePresenter {
 			comment: "Title for stop button")
 	}
 	
+	public static var start: String {
+		NSLocalizedString(
+			"START",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Title for start button")
+	}
+	
 	public static var missingServerError: String {
 		NSLocalizedString(
 			"MISSING_SERVER_ERROR",

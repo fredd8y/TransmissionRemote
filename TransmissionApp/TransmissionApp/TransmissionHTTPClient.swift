@@ -16,6 +16,20 @@ final class TransmissionHTTPClient {
 	
 	static var sessionId: String?
 
+	static func makeTorrentStartPublisher(
+		server: Server,
+		id: Int
+	) -> AnyPublisher<Void, Error> {
+		return httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: TorrentBodies.start(id: id),
+				additionalHeader: headers(server)
+			)
+			.tryMap(TransmissionHTTPClient.log)
+			.tryMap(TorrentStartMapper.map)
+			.eraseToAnyPublisher()
+	}
 	static func makeTorrentStopPublisher(
 		server: Server,
 		id: Int

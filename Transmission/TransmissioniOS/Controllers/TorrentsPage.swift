@@ -29,6 +29,8 @@ public struct TorrentsPage: View {
 	
 	public var stop: ((Int) -> Void)?
 	
+	public var start: ((Int) -> Void)?
+	
 	public var delete: ((_ id: Int, _ deleteLocalData: Bool) -> Void)?
 	
 	@State private var deletingTorrentId: Int = -1
@@ -88,8 +90,11 @@ public struct TorrentsPage: View {
 												Text(TorrentsPagePresenter.stop)
 											}
 										case .stopped:
-											// TODO: Handle start
-											EmptyView()
+											Button {
+												start?(torrent.id)
+											} label: {
+												Text(TorrentsPagePresenter.start)
+											}
 										}
 									}
 							}

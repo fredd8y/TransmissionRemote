@@ -99,3 +99,13 @@ extension TorrentBodiesTests {
 		XCTAssertEqual(expectedBody, httpBody)
 	}
 }
+
+extension TorrentBodiesTests {
+	func test_torrentStart_httpBody() {
+		let expectedBody = #"{"method":"torrent-start","arguments":{"ids":[1]}}"#.data(using: .utf8)
+		
+		let httpBody = TorrentBodies.start(id: 1)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+}

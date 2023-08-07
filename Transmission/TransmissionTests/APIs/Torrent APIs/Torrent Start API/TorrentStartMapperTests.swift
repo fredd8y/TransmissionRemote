@@ -1,5 +1,5 @@
 //
-//  TorrentStopMapperTests.swift
+//  TorrentStartMapperTests.swift
 //  TransmissionTests
 //
 //  Created by Federico Arvat on 04/08/23.
@@ -8,7 +8,7 @@
 import XCTest
 import Transmission
 
-class TorrentStopMapperTests: XCTestCase {
+class TorrentStartMapperTests: XCTestCase {
 	
 	func test_map_throwsErrorOnNon200HTTPResponse() throws {
 		let json = makeJSON(fromDictionary: [:])
@@ -16,9 +16,10 @@ class TorrentStopMapperTests: XCTestCase {
 		
 		try samples.forEach { code in
 			XCTAssertThrowsError(
-				try TorrentStopMapper.map(json, from: HTTPURLResponse(statusCode: code))
+				try TorrentStartMapper.map(json, from: HTTPURLResponse(statusCode: code))
 			)
 		}
 	}
 	
 }
+
