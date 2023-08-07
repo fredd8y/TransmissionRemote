@@ -11,7 +11,7 @@ import Transmission
 public struct ServerPage: View {
 	public init(viewModel: ServersViewModel) {
 		self.viewModel = viewModel
-		selection = viewModel.currentSelectedServer
+		_selection = State(initialValue: viewModel.currentSelectedServer)
 	}
 	
 	@ObservedObject var viewModel: ServersViewModel

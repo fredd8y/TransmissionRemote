@@ -27,14 +27,24 @@ class ServerPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "SERVER_PAGE_LIST_WITH_CONTENT_light_extraExtraExtraLarge")
 	}
 	
-	// MARK: - Helpers
-	
-	private func makeSUT(servers: [ServerViewModel]) -> ServerPage {
-		ServerPage(viewModel: viewModel(servers: servers))
+	func test_listWithContentWithSelection() {
+		let (servers, selectedServerId) = listWithContentWithSelection()
+		
+		let sut = makeSUT(servers: servers, currentSelectedServer: selectedServerId)
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "SERVER_PAGE_LIST_WITH_CONTENT_WITH_SELECTION_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "SERVER_PAGE_LIST_WITH_CONTENT_WITH_SELECTION_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "SERVER_PAGE_LIST_WITH_CONTENT_WITH_SELECTION_light_extraExtraExtraLarge")
 	}
 	
-	private func viewModel(servers: [ServerViewModel]) -> ServersViewModel {
-		ServersViewModel(title: ServersPresenter.title, servers: servers, currentSelectedServer: nil)
+	// MARK: - Helpers
+	
+	private func makeSUT(servers: [ServerViewModel], currentSelectedServer: UUID? = nil) -> ServerPage {
+		ServerPage(viewModel: viewModel(servers: servers, currentSelectedServer: currentSelectedServer))
+	}
+	
+	private func viewModel(servers: [ServerViewModel], currentSelectedServer: UUID? = nil) -> ServersViewModel {
+		ServersViewModel(title: ServersPresenter.title, servers: servers, currentSelectedServer: currentSelectedServer)
 	}
 	
 	private func emptyList() -> [ServerViewModel] {
@@ -54,5 +64,21 @@ class ServerPageTests: XCTestCase {
 				id: UUID()
 			)
 		]
+	}
+	
+	private func listWithContentWithSelection() -> (servers: [ServerViewModel], selectedId: UUID) {
+		let selectedId = UUID()
+		return (servers: [
+			ServerViewModel(
+				title: "Raspberry",
+				url: "http://192.168.1.1:9091",
+				id: selectedId
+			),
+			ServerViewModel(
+				title: "NAS",
+				url: "http://192.168.1.2:9091",
+				id: UUID()
+			)
+		], selectedId: selectedId)
 	}
 }
