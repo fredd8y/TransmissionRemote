@@ -44,7 +44,7 @@ class TorrentsPageTests: XCTestCase {
 	// MARK: - Helpers
 	
 	private func makeSUT(torrents: [TorrentViewModel], error: String? = nil) -> TorrentsPage {
-		TorrentsPage(model: viewModel(withTorrents: torrents, andError: error))
+		TorrentsPage(viewModel: viewModel(withTorrents: torrents, andError: error))
 	}
 	
 	private func viewModel(withTorrents torrents: [TorrentViewModel], andError error: String? = nil) -> TorrentsViewModel {

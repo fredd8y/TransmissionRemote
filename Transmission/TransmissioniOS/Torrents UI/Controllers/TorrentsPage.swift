@@ -10,35 +10,27 @@ import Transmission
 
 public struct TorrentsPage: View {
 	
-	public init(model: TorrentsViewModel) {
-		_title = State(initialValue: model.title)
-		_error = State(initialValue: model.error)
-		_uploadSpeed = State(initialValue: model.uploadSpeed)
-		_downloadSpeed = State(initialValue: model.downloadSpeed)
-		_torrents = State(initialValue: model.torrents)
+	public init(viewModel: TorrentsViewModel) {
+		_viewModel = StateObject(wrappedValue: viewModel)
 	}
 	
-	public var loadData: (() -> Void)?
-		
 	public func update(withViewModel viewModel: TorrentsViewModel) {
-		title = viewModel.title
-		error = viewModel.error
-		uploadSpeed = viewModel.uploadSpeed
-		downloadSpeed = viewModel.downloadSpeed
-		torrents = viewModel.torrents
+		self.viewModel.title = viewModel.title
+		self.viewModel.error = viewModel.error
+		self.viewModel.uploadSpeed = viewModel.uploadSpeed
+		self.viewModel.downloadSpeed = viewModel.downloadSpeed
+		self.viewModel.torrents = viewModel.torrents
 	}
+	
+	@StateObject var viewModel: TorrentsViewModel
+	
+	public var loadData: (() -> Void)?
 	
 	public var authenticate: ((_ username: String, _ password: String) -> Void)? = nil
 	
 	public func askForCredentials() {
 		isCredentialAlertShown.toggle()
 	}
-	
-	@State private var title: String
-	@State private var error: String?
-	@State private var uploadSpeed: String
-	@State private var downloadSpeed: String
-	@State private var torrents: [TorrentViewModel]
 	
 	@State private var isCredentialAlertShown: Bool = false
 	@State private var username: String = ""
@@ -47,7 +39,7 @@ public struct TorrentsPage: View {
     public var body: some View {
 		NavigationStack {
 			VStack {
-				if let error {
+				if let error = viewModel.error {
 					HStack {
 						Spacer()
 						SubheadlineText(error)
@@ -58,7 +50,7 @@ public struct TorrentsPage: View {
 					}.background { Color.red }
 				}
 				List {
-					ForEach(torrents) { torrent in
+					ForEach(viewModel.torrents) { torrent in
 						VStack(alignment: .leading) {
 							SubheadlineText(torrent.name).font(.subheadline)
 							Caption2Text(torrent.downloaded)
@@ -74,7 +66,7 @@ public struct TorrentsPage: View {
 				}
 				.listStyle(.plain)
 			}
-			.navigationTitle(title)
+			.navigationTitle(viewModel.title)
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
 				ToolbarItemGroup(placement: .bottomBar) {
@@ -84,7 +76,7 @@ public struct TorrentsPage: View {
 						.foregroundColor(.red)
 						.frame(width: 16, height: 16)
 						.padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
-					SubheadlineText(uploadSpeed)
+					SubheadlineText(viewModel.uploadSpeed)
 					Spacer()
 					SubheadlineText(torrentsDescription)
 					Spacer()
@@ -94,7 +86,7 @@ public struct TorrentsPage: View {
 						.foregroundColor(.green)
 						.frame(width: 16, height: 16)
 						.padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
-					SubheadlineText(downloadSpeed)
+					SubheadlineText(viewModel.downloadSpeed)
 				}
 			}
 			.alert(TorrentsPresenter.credentialRequested, isPresented: $isCredentialAlertShown) {
@@ -112,15 +104,15 @@ public struct TorrentsPage: View {
 	}
 	
 	private var torrentsDescription: String {
-		let description = torrents.count == 1 ? TorrentsPresenter.torrent : TorrentsPresenter.torrents
-		return "\(torrents.count) \(description)"
+		let description = viewModel.torrents.count == 1 ? TorrentsPresenter.torrent : TorrentsPresenter.torrents
+		return "\(viewModel.torrents.count) \(description)"
 	}
 }
 
 struct TorrentsPage_Previews: PreviewProvider {
     static var previews: some View {
 		TorrentsPage(
-			model: TorrentsViewModel(
+			viewModel: TorrentsViewModel(
 				title: "Title",
 				error: nil,
 				uploadSpeed: "5,5 Mb/s",

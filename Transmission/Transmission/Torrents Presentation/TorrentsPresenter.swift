@@ -64,6 +64,14 @@ public final class TorrentsPresenter {
 			comment: "Ok string")
 	}
 	
+	public static var undefinedError: String {
+		NSLocalizedString(
+			"UNDEFINED_ERROR",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPresenter.self),
+			comment: "Generic error for invalidData")
+	}
+	
 	public static func map(
 		title: String,
 		error: String?,

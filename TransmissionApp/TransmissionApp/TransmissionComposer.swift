@@ -38,6 +38,6 @@ final class TransmissionComposer {
 	}
 	
 	private static func makeTorrentsPage() -> TorrentsPage {
-		TorrentsPage(model: .empty)
+		TorrentsPage(viewModel: .empty)
 	}
 }

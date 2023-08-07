@@ -40,6 +40,7 @@ final class TorrentsPagePresentationAdapter {
 						break
 					case let .failure(error):
 						guard let _error = error as? SessionGetMapper.Error else {
+							self?.torrentsPage.update(withViewModel: TorrentsViewModel.error)
 							return
 						}
 						switch _error {
@@ -52,8 +53,8 @@ final class TorrentsPagePresentationAdapter {
 							}
 							self?.sessionIdHandler(_sessionId)
 							self?.loadData()
-						default:
-							break
+						case .invalidData:
+							self?.torrentsPage.update(withViewModel: TorrentsViewModel.error)
 						}
 					}
 				},

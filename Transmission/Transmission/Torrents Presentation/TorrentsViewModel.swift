@@ -5,9 +5,10 @@
 //  Created by Federico Arvat on 20/07/23.
 //
 
+import Combine
 import Foundation
 
-public struct TorrentsViewModel {
+public class TorrentsViewModel: ObservableObject {
 	public init(
 		title: String,
 		error: String?,
@@ -22,9 +23,9 @@ public struct TorrentsViewModel {
 		self.torrents = torrents
 	}
 	
-	public let title: String
-	public let error: String?
-	public let uploadSpeed: String
-	public let downloadSpeed: String
-	public let torrents: [TorrentViewModel]
+	@Published public var title: String
+	@Published public var error: String?
+	@Published public var uploadSpeed: String
+	@Published public var downloadSpeed: String
+	@Published public var torrents: [TorrentViewModel]
 }
