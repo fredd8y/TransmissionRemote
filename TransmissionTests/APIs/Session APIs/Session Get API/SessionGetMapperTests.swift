@@ -52,31 +52,6 @@ class SessionGetMapperTest: XCTestCase {
 		)
 	}
 	
-	func test_map_throwsSessionIdErrorOn409HTTPResponse() throws {
-		let json = makeJSON(fromDictionary: [:])
-		let sessionIdValue = anyString()
-		do {
-			_ = try SessionGetMapper.map(
-				json,
-				from: HTTPURLResponse(statusCode: 409, headerFields: [SessionGetMapper.sessionIdKey: sessionIdValue])
-			)
-		} catch {
-			guard let _error = error as? SessionGetMapper.Error else {
-				XCTFail("Expected SessionGetMapper.Error value, got \(error.self) instead")
-				return
-			}
-			if case let SessionGetMapper.Error.missingSessionId(sessionId) = _error {
-				if let retrievedSessionIdValue = sessionId as? String {
-					XCTAssertEqual(sessionIdValue, retrievedSessionIdValue)
-				} else {
-					XCTFail("Expected String sessionIdValue value, got \(String(describing: sessionId)) instead")
-				}
-			} else {
-				XCTFail("Expected SessionGetMapper.Error.missingSessionId value, got \(error.self) instead")
-			}
-		}
-	}
-	
 	func test_map_deliversSessionItemOn200HTTPResponseWithValidJSON() {
 		let sessionItem = makeSessionItem()
 

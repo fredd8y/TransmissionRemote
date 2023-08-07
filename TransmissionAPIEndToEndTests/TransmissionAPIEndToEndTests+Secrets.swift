@@ -8,7 +8,7 @@
 import Foundation
 
 var baseUrl: URL? {
-	Bundle(for: SessionGetAPIEndToEndTests.self).infoDictionary!["BASE_URL"] as? URL
+	URL(string: Bundle(for: SessionGetAPIEndToEndTests.self).infoDictionary!["BASE_URL"] as! String)
 }
 
 var username: String? {

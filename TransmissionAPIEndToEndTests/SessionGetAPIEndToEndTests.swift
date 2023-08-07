@@ -45,9 +45,12 @@ final class SessionGetAPIEndToEndTests: XCTestCase {
 		) { result in
 			switch result {
 			case let .failure(error):
-				XCTFail("Expected success, got \(error) instead")
+				guard case URLSessionHTTPClientRetrierDecorator.Error.missingSessionId = error else {
+					XCTFail("Expected missingSessionId, got \(error) instead")
+					return
+				}
 			case let .success((_, response)):
-				XCTAssertEqual(response.statusCode, 409, "Expected 409, got \(response.statusCode) instead")
+				XCTFail("Expected failure, got \(response) instead")
 			}
 			exp.fulfill()
 		}
@@ -67,26 +70,14 @@ final class SessionGetAPIEndToEndTests: XCTestCase {
 		) { result in
 			switch result {
 			case let .failure(error):
-				XCTFail("Expected success, got \(error) instead")
-			case let .success((data, response)):
-				do {
-					_ = try SessionGetMapper.map(data, from: response)
-					XCTFail("Expected missingSessionId exception")
-				} catch {
-					guard case let SessionGetMapper.Error.missingSessionId(sessionIdValue) = error else {
-						XCTFail("Expected missingSessionId, got \(error) instead")
-						return
-					}
-					guard let sessionId = sessionIdValue as? String else {
-						XCTFail("Expected sessionId to be String, got \(String(describing: sessionIdValue.self)) instead")
-						return
-					}
+				switch error as! URLSessionHTTPClientRetrierDecorator.Error {
+				case let .missingSessionId(sessionId):
 					client.post(
 						APIsEndpoint.post.url(baseURL: baseUrl!),
 						body: SessionBodies.get.data(using: .utf8)!,
 						username: username!,
 						password: password!,
-						sessionId: sessionId
+						sessionId: sessionId as? String
 					) { result in
 						switch result {
 						case let .failure(error):
@@ -97,6 +88,8 @@ final class SessionGetAPIEndToEndTests: XCTestCase {
 						exp.fulfill()
 					}
 				}
+			case let .success((_, response)):
+				XCTFail("Expected failure, got \(response) instead")
 			}
 		}
 		wait(for: [exp], timeout: 5.0)
@@ -105,7 +98,7 @@ final class SessionGetAPIEndToEndTests: XCTestCase {
 	// MARK: - Helpers
 
 	private func ephemeralClient(file: StaticString = #filePath, line: UInt = #line) -> HTTPClient {
-		let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+		let client = URLSessionHTTPClientRetrierDecorator(decoratee: URLSessionHTTPClient(session: URLSession(configuration: .ephemeral)))
 		trackForMemoryLeaks(client, file: file, line: line)
 		return client
 	}
