@@ -32,6 +32,14 @@ class TorrentsPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "LIST_WITH_CONTENT_light_extraExtraExtraLarge")
 	}
 	
+	func test_listWithItemError() {
+		let sut = makeSUT(nil, torrents: listWithItemError())
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "LIST_WITH_ITEM_ERROR_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "LIST_WITH_ITEM_ERROR_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "LIST_WITH_ITEM_ERROR_light_extraExtraExtraLarge")
+	}
+	
 	// MARK: - Helpers
 	
 	private func makeSUT(_ error: String?, torrents: [TorrentsPage.TorrentViewModel]) -> TorrentsPage {
@@ -63,10 +71,28 @@ class TorrentsPageTests: XCTestCase {
 		]
 	}
 	
+	private func listWithItemError() -> [TorrentsPage.TorrentViewModel] {
+		[
+			TorrentsPage.TorrentViewModel(
+				name: anyName,
+				error: anyError,
+				eta: anyEta,
+				completionPercentage: anyPercentage,
+				completionPercentageString: anyPercentageString,
+				downloaded: anyDownloaded,
+				downloadSpeed: anyDownloadSpeed
+			)
+		]
+	}
+	
 	// MARK: - Helpers
 	
 	private var anyName: String {
 		"a name"
+	}
+	
+	private var anyError: String {
+		"Torrent error"
 	}
 	
 	private var anyEta: String {

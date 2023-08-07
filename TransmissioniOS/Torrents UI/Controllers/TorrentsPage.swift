@@ -44,9 +44,11 @@ public struct TorrentsPage: View {
 							Caption2Text(torrent.downloaded)
 							HStack {
 								ProgressView(value: torrent.completionPercentage)
+									.tint(torrent.error == nil ? .blue : .red)
 								Caption2Text(torrent.completionPercentageString)
 							}
-							Caption2Text(torrent.eta)
+							Caption2Text(torrent.error ?? torrent.eta)
+								.foregroundColor(torrent.error == nil ? .primary : .red)
 						}
 					}
 				}
@@ -65,11 +67,12 @@ struct TorrentsPage_Previews: PreviewProvider {
 			torrents: [
 				TorrentViewModel(
 					name: "a name",
-					eta: "ETA: 6d 7h 54m 33s",
+					error: "download error",
+					eta: "-",
 					completionPercentage: 0.5,
 					completionPercentageString: "50%",
 					downloaded: "5,4GB of 7,8GB",
-					downloadSpeed: "5,6MB"
+					downloadSpeed: "-"
 				),
 				TorrentViewModel(
 					name: "another name",
