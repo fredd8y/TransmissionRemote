@@ -12,6 +12,8 @@
 		7B4BB74F2A7A77F100A68EF5 /* ServerFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4BB74E2A7A77F100A68EF5 /* ServerFile.swift */; };
 		7B6CD5CB2A71050F00E81983 /* Logger+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CA2A71050F00E81983 /* Logger+.swift */; };
 		7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */; };
+		7BA01FD82A7E9A8700FBB43D /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FD72A7E9A8700FBB43D /* Keychain.swift */; };
+		7BA01FDA2A7EA0D500FBB43D /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FD92A7EA0D500FBB43D /* KeychainTests.swift */; };
 		7BBF3C4B2A729554001206A8 /* SettingsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */; };
 		7BBF3C4D2A72A648001206A8 /* ServerPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C4C2A72A648001206A8 /* ServerPublishers.swift */; };
 		7BBF3C5C2A742B6E001206A8 /* SettingsPageViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C5B2A742B6E001206A8 /* SettingsPageViewModel+Factory.swift */; };
@@ -65,6 +67,8 @@
 		7B4BB74E2A7A77F100A68EF5 /* ServerFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerFile.swift; sourceTree = "<group>"; };
 		7B6CD5CA2A71050F00E81983 /* Logger+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+.swift"; sourceTree = "<group>"; };
 		7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+MainQueueDispatcher.swift"; sourceTree = "<group>"; };
+		7BA01FD72A7E9A8700FBB43D /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		7BA01FD92A7EA0D500FBB43D /* KeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
 		7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPagePresentationAdapter.swift; sourceTree = "<group>"; };
 		7BBF3C4C2A72A648001206A8 /* ServerPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPublishers.swift; sourceTree = "<group>"; };
 		7BBF3C5B2A742B6E001206A8 /* SettingsPageViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsPageViewModel+Factory.swift"; sourceTree = "<group>"; };
@@ -123,6 +127,14 @@
 			path = Logger;
 			sourceTree = "<group>";
 		};
+		7BA01FD62A7E9A5600FBB43D /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				7BA01FD72A7E9A8700FBB43D /* Keychain.swift */,
+			);
+			path = Password;
+			sourceTree = "<group>";
+		};
 		7BC0D8072A6C158100B36367 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +157,7 @@
 		7BC0D8122A6C158100B36367 /* TransmissionApp */ = {
 			isa = PBXGroup;
 			children = (
+				7BA01FD62A7E9A5600FBB43D /* Password */,
 				7B4BB74D2A7A77DC00A68EF5 /* Server File */,
 				7B6CD5C92A7104F500E81983 /* Logger */,
 				7BC0D8462A6E614D00B36367 /* Adapters */,
@@ -173,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				7BBF3C612A742E3C001206A8 /* UserDefaultsHandlerTests.swift */,
+				7BA01FD92A7EA0D500FBB43D /* KeychainTests.swift */,
 			);
 			path = TransmissionAppTests;
 			sourceTree = "<group>";
@@ -323,6 +337,7 @@
 				7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */,
 				7BC0D8452A6E3FE200B36367 /* TransmissionComposer.swift in Sources */,
 				7BBF3C5E2A742CF7001206A8 /* PollingRateHandler.swift in Sources */,
+				7BA01FD82A7E9A8700FBB43D /* Keychain.swift in Sources */,
 				7BBF3C4D2A72A648001206A8 /* ServerPublishers.swift in Sources */,
 				7B4BB74F2A7A77F100A68EF5 /* ServerFile.swift in Sources */,
 				7BC0D8432A6E3C4100B36367 /* Combine+Publishers.swift in Sources */,
@@ -338,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BBF3C642A742FBC001206A8 /* UserDefaultsHandlerTests.swift in Sources */,
+				7BA01FDA2A7EA0D500FBB43D /* KeychainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -72,6 +72,7 @@ class ServerPagePresentationAdapter {
 						// we create an empty server file and we relaunch loadData()
 						if error is ServerPublishers.Error {
 							do {
+								try Keychain.addPasswordKey(try Keychain.generateRandomPassword())
 								try ServerSetMapper.map([]).write(to: url)
 								self?.loadData()
 							} catch {

@@ -6,7 +6,7 @@ Improvement
 
 TODO
 
--	Handle failure in all APIs
+-	Handle error in server adapter when save throws
 -	Comment public functions
 -	Crypt password before saving it in userDefaults
 -	Torrent Detail
