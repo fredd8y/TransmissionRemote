@@ -6,7 +6,6 @@ Improvement
 
 TODO
 
--	Add password obfuscation to credential
 -	Add fields to Torrents-Get API
 -	Save credentials
 -	Implement polling
