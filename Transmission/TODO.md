@@ -6,7 +6,6 @@ Improvement
 
 TODO
 
--	Add fields to Torrents-Get API
 -	Save credentials
 -	Implement polling
 -	Parametric baseURL
