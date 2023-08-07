@@ -6,9 +6,10 @@
 //
 
 import XCTest
+import SwiftUI
 import Foundation
 import Transmission
-import TransmissioniOS
+@testable import TransmissioniOS
 
 class ServerDetailPageTests: XCTestCase {
 	func test_empty() {
@@ -27,6 +28,46 @@ class ServerDetailPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "SERVER_DETAIL_PAGE_light_extraExtraExtraLarge")
 	}
 	
+	func test_populated_serverNameError() {
+		let sut = makeSUT(viewModel: populatedViewModel(error: .name))
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "SERVER_DETAIL_PAGE_SERVER_NAME_ERROR_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "SERVER_DETAIL_PAGE_SERVER_NAME_ERROR_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "SERVER_DETAIL_PAGE_SERVER_NAME_ERROR_light_extraExtraExtraLarge")
+	}
+	
+	func test_populated_ipError() {
+		let sut = makeSUT(viewModel: populatedViewModel(error: .ip))
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "SERVER_DETAIL_PAGE_IP_ERROR_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "SERVER_DETAIL_PAGE_IP_ERROR_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "SERVER_DETAIL_PAGE_IP_ERROR_light_extraExtraExtraLarge")
+	}
+	
+	func test_populated_portError() {
+		let sut = makeSUT(viewModel: populatedViewModel(error: .port))
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "SERVER_DETAIL_PAGE_PORT_ERROR_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "SERVER_DETAIL_PAGE_PORT_ERROR_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "SERVER_DETAIL_PAGE_PORT_ERROR_light_extraExtraExtraLarge")
+	}
+	
+	func test_populated_usernameError() {
+		let sut = makeSUT(viewModel: populatedViewModel(error: .username))
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "SERVER_DETAIL_PAGE_USERNAME_ERROR_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "SERVER_DETAIL_PAGE_USERNAME_ERROR_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "SERVER_DETAIL_PAGE_USERNAME_ERROR_light_extraExtraExtraLarge")
+	}
+	
+	func test_populated_passwordError() {
+		let sut = makeSUT(viewModel: populatedViewModel(error: .password))
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "SERVER_DETAIL_PAGE_PASSWORD_ERROR_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "SERVER_DETAIL_PAGE_PASSWORD_ERROR_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "SERVER_DETAIL_PAGE_PASSWORD_ERROR_light_extraExtraExtraLarge")
+	}
+	
 	// MARK: - Helpers
 	
 	private func makeSUT(viewModel: ServerDetailPageViewModel) -> ServerDetailPage {
@@ -35,38 +76,21 @@ class ServerDetailPageTests: XCTestCase {
 	
 	private func emptyViewModel() -> ServerDetailPageViewModel {
 		ServerDetailPageViewModel(
-			serverSectionHeader: ServerDetailPagePresenter.serverSectionHeader,
-			authenticationSectionHeader: ServerDetailPagePresenter.authenticationSectionHeader,
 			title: ServerDetailPagePresenter.title,
-			saveButtonTitle: ServerDetailPagePresenter.saveButtonTitle,
-			namePlaceholder: ServerDetailPagePresenter.namePlaceholder,
-			protocolPlaceholder: ServerDetailPagePresenter.protocolPlaceholder,
-			ipPlaceholder: ServerDetailPagePresenter.ipPlaceholder,
-			portPlaceholder: ServerDetailPagePresenter.portPlaceholder,
-			usernamePlaceholder: ServerDetailPagePresenter.usernamePlaceholder,
-			passwordPlaceholder: ServerDetailPagePresenter.passwordPlaceholder,
 			serverId: UUID()
 		)
 	}
 	
-	private func populatedViewModel() -> ServerDetailPageViewModel {
+	private func populatedViewModel(error: ServerDetailPageError? = nil) -> ServerDetailPageViewModel {
 		ServerDetailPageViewModel(
-			serverSectionHeader: ServerDetailPagePresenter.serverSectionHeader,
-			authenticationSectionHeader: ServerDetailPagePresenter.authenticationSectionHeader,
 			title: ServerDetailPagePresenter.title,
-			saveButtonTitle: ServerDetailPagePresenter.saveButtonTitle,
 			name: "Name",
-			namePlaceholder: ServerDetailPagePresenter.namePlaceholder,
 			httpProtocol: .http,
-			protocolPlaceholder: ServerDetailPagePresenter.protocolPlaceholder,
 			ip: "192.168.1.1",
-			ipPlaceholder: ServerDetailPagePresenter.ipPlaceholder,
 			port: "9091",
-			portPlaceholder: ServerDetailPagePresenter.portPlaceholder,
 			username: "a username",
-			usernamePlaceholder: ServerDetailPagePresenter.usernamePlaceholder,
 			password: "a password",
-			passwordPlaceholder: ServerDetailPagePresenter.passwordPlaceholder,
+			error: error,
 			serverId: UUID()
 		)
 	}

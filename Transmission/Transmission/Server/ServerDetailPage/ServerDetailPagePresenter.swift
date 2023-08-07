@@ -134,22 +134,13 @@ public final class ServerDetailPagePresenter {
 		server: Server
 	) -> ServerDetailPageViewModel {
 		ServerDetailPageViewModel(
-			serverSectionHeader: serverSectionHeader,
-			authenticationSectionHeader: authenticationSectionHeader,
 			title: title,
-			saveButtonTitle: saveButtonTitle,
 			name: server.name,
-			namePlaceholder: namePlaceholder,
 			httpProtocol: server.httpProtocol,
-			protocolPlaceholder: protocolPlaceholder,
 			ip: server.ip,
-			ipPlaceholder: ipPlaceholder,
 			port: server.port.description,
-			portPlaceholder: portPlaceholder,
 			username: server.username,
-			usernamePlaceholder: usernamePlaceholder,
 			password: server.password,
-			passwordPlaceholder: passwordPlaceholder,
 			serverId: server.id
 		)
 	}

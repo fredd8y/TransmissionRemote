@@ -9,15 +9,6 @@ import SwiftUI
 import Transmission
 
 public struct ServerDetailPage: View {
-	
-	public enum ServerDetailPageError: Error {
-		case name
-		case ip
-		case port
-		case username
-		case password
-	}
-	
 	@Environment(\.dismiss) var dismiss
 	
 	public init(viewModel: ServerDetailPageViewModel) {
@@ -43,8 +34,6 @@ public struct ServerDetailPage: View {
 	
 	@State private var dataModel: ServerDetailPageDataModel
 	
-	@State private var error: ServerDetailPageError?
-	
 	public var body: some View {
 		NavigationStack {
 			List {
@@ -53,7 +42,7 @@ public struct ServerDetailPage: View {
 						Text(ServerDetailPagePresenter.namePlaceholder)
 							.font(.caption)
 						TextField(ServerDetailPagePresenter.namePlaceholder, text: $dataModel.name)
-						if error == .name {
+						if viewModel.error == .name {
 							Text(ServerDetailPagePresenter.nameError)
 								.foregroundColor(.red)
 								.font(.caption)
@@ -73,7 +62,7 @@ public struct ServerDetailPage: View {
 						Text(ServerDetailPagePresenter.ipPlaceholder)
 							.font(.caption)
 						TextField(ServerDetailPagePresenter.ipPlaceholder, text: $dataModel.ip)
-						if error == .ip {
+						if viewModel.error == .ip {
 							Text(ServerDetailPagePresenter.ipError)
 								.foregroundColor(.red)
 								.font(.caption)
@@ -83,7 +72,7 @@ public struct ServerDetailPage: View {
 						Text(ServerDetailPagePresenter.portPlaceholder)
 							.font(.caption)
 						TextField(ServerDetailPagePresenter.portPlaceholder, text: $dataModel.port)
-						if error == .port {
+						if viewModel.error == .port {
 							Text(ServerDetailPagePresenter.portError)
 								.foregroundColor(.red)
 								.font(.caption)
@@ -95,7 +84,7 @@ public struct ServerDetailPage: View {
 						Text(ServerDetailPagePresenter.usernamePlaceholder)
 							.font(.caption)
 						TextField(ServerDetailPagePresenter.usernamePlaceholder, text: $dataModel.username)
-						if error == .username {
+						if viewModel.error == .username {
 							Text(ServerDetailPagePresenter.usernameError)
 								.foregroundColor(.red)
 								.font(.caption)
@@ -105,7 +94,7 @@ public struct ServerDetailPage: View {
 						Text(ServerDetailPagePresenter.passwordPlaceholder)
 							.font(.caption)
 						SecureField(ServerDetailPagePresenter.passwordPlaceholder, text: $dataModel.password)
-						if error == .password {
+						if viewModel.error == .password {
 							Text(ServerDetailPagePresenter.passwordError)
 								.foregroundColor(.red)
 								.font(.caption)
@@ -118,12 +107,12 @@ public struct ServerDetailPage: View {
 			.toolbar {
 				ToolbarItem {
 					Button {
-						error = save?(dataModel) as? ServerDetailPageError
-						if error == nil {
+						viewModel.error = save?(dataModel) as? ServerDetailPageError
+						if viewModel.error == nil {
 							dismiss()
 						}
 					} label: {
-						Text(viewModel.saveButtonTitle)
+						Text(ServerDetailPagePresenter.saveButtonTitle)
 					}.foregroundColor(.primary)
 				}
 			}
@@ -136,16 +125,7 @@ struct ServerDetailPage_Previews: PreviewProvider {
     static var previews: some View {
 		ServerDetailPage(
 			viewModel: ServerDetailPageViewModel(
-				serverSectionHeader: "SERVER DETAIL",
-				authenticationSectionHeader: "AUTHENTICATION DETAIL",
 				title: "Server",
-				saveButtonTitle: "Save",
-				namePlaceholder: "Name",
-				protocolPlaceholder: "Protocol",
-				ipPlaceholder: "IP",
-				portPlaceholder: "Port",
-				usernamePlaceholder: "Username",
-				passwordPlaceholder: "Password",
 				serverId: UUID()
 			)
 		)
