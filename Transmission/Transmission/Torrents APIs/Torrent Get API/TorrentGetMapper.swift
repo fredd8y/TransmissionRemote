@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class TorrentGetMapper {
+public enum TorrentGetMapper {
 	
 	public enum Error: Swift.Error {
 		case invalidData

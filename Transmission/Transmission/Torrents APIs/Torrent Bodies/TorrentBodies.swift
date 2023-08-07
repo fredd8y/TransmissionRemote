@@ -7,6 +7,21 @@
 
 import Foundation
 
-public class TorrentBodies {
-	public static let get = #"{"method": "torrent-get"}"#
+public enum TorrentBodies {
+	private struct TorrentGetBody: Encodable {
+		init(_ fields: [String]) {
+			arguments = Arguments(fields: fields)
+		}
+		
+		let method: String = "torrent-get"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let fields: [String]
+		}
+	}
+	
+	public static func get(_ fields: [String]) -> Data {
+		try! JSONEncoder().encode(TorrentGetBody(fields))
+	}
 }

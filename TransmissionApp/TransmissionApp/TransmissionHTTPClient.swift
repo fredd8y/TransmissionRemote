@@ -33,7 +33,7 @@ final class TransmissionHTTPClient {
 		return httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: URL(string: "http://192.168.178.39:9091")!),
-				body: TorrentBodies.get.data(using: .utf8)!,
+				body: TorrentBodies.get(TorrentField.minimumTorrentField),
 				additionalHeader: headers()
 			)
 			.logResponse()
