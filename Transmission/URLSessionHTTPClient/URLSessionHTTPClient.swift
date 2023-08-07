@@ -8,6 +8,9 @@
 import Foundation
 
 public final class URLSessionHTTPClient: HTTPClient {
+	
+	private let AUTHORIZATION = "Authorization"
+	
 	let session: URLSession
 	
 	public init(session: URLSession) {
@@ -17,11 +20,17 @@ public final class URLSessionHTTPClient: HTTPClient {
 	public func post(
 		_ url: URL,
 		body: Data,
+		username: String,
+		password: String,
 		completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void
 	) -> URLSessionTask {
 		var urlRequest = URLRequest(url: url)
 		urlRequest.httpMethod = "POST"
 		urlRequest.httpBody = body
+		urlRequest.addValue(
+			"\(username):\(password)".data(using: .utf8)!.base64EncodedString(),
+			forHTTPHeaderField: AUTHORIZATION
+		)
 		
 		let task = session.dataTask(with: urlRequest) { data, response, error in
 			if let error {

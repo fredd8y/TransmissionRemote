@@ -17,6 +17,8 @@ public protocol HTTPClient {
 	func post(
 		_ url: URL,
 		body: Data,
+		username: String,
+		password: String,
 		completion: @escaping (Result) -> Void
 	) -> URLSessionTask
 }

@@ -10,13 +10,18 @@ import Transmission
 
 final class SessionGetAPIEndToEndTests: XCTestCase {
 
-	func test_sessionGetAPI_return401StatusCodeOnNonAuthenticatedRequest() {
+	func test_sessionGetAPI_return401StatusCodeForRequestWithWrongCredentials() {
 		let client = ephemeralClient()
 		let exp = expectation(description: "Wait for load to complete")
 		
 		let baseURL = URL(string: "http://192.168.178.39:9091")!
 		
-		client.post(APIsEndpoint.post.url(baseURL: baseURL), body: SessionBodies.get.data(using: .utf8)!) { result in
+		client.post(
+			APIsEndpoint.post.url(baseURL: baseURL),
+			body: SessionBodies.get.data(using: .utf8)!,
+			username: "wrong username",
+			password: "wrong password"
+		) { result in
 			switch result {
 			case let .failure(error):
 				XCTFail("Expected success, got \(error) instead")
@@ -28,7 +33,7 @@ final class SessionGetAPIEndToEndTests: XCTestCase {
 		wait(for: [exp], timeout: 5.0)
 	}
 	
-//	func test_sessionGetAPI_isCorrectlyAuthenticated() {
+//	func test_sessionGetAPI_return409OnAuthenticatedRequestWithoutSessionId() {
 //		let client = ephemeralClient()
 //		let exp = expectation(description: "Wait for load to complete")
 //
