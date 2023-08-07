@@ -16,6 +16,12 @@
 		7B65875F2A0D846500317EBE /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65875A2A0D846500317EBE /* XCTestCase+MemoryLeakTracking.swift */; };
 		7B6587602A0D846500317EBE /* URLRequest+BodyStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65875B2A0D846500317EBE /* URLRequest+BodyStream.swift */; };
 		7B6587612A0D846500317EBE /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65875C2A0D846500317EBE /* URLSessionHTTPClientTests.swift */; };
+		7B6EDC272A652EF200264EF2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B6EDC262A652EF200264EF2 /* Info.plist */; };
+		7B6EDC292A6531CB00264EF2 /* APIEndToEndConfigurationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EDC282A6531CB00264EF2 /* APIEndToEndConfigurationsTests.swift */; };
+		7B6EDC2C2A65346D00264EF2 /* TransmissionAPIEndToEndTests+Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EDC2B2A65346D00264EF2 /* TransmissionAPIEndToEndTests+Secrets.swift */; };
+		7B6EDC2D2A65463600264EF2 /* EndToEndTestConfigurations.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7B4907B62A6524CB00C75819 /* EndToEndTestConfigurations.xcconfig */; };
+		7B6EDC342A65974F00264EF2 /* URLSessionHTTPClientRetrierDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EDC332A65974F00264EF2 /* URLSessionHTTPClientRetrierDecoratorTests.swift */; };
+		7B6EDC362A6597EF00264EF2 /* URLSessionHTTPClientRetrierDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EDC352A6597EF00264EF2 /* URLSessionHTTPClientRetrierDecorator.swift */; };
 		7B8338292A0FA19F0052F7EC /* SessionBodies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8338282A0FA19F0052F7EC /* SessionBodies.swift */; };
 		7B83382B2A0FA1E60052F7EC /* SessionBodiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B83382A2A0FA1E60052F7EC /* SessionBodiesTests.swift */; };
 		7B83383A2A1016C20052F7EC /* SessionGetMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8338392A1016C20052F7EC /* SessionGetMapper.swift */; };
@@ -40,7 +46,6 @@
 		7BD9A1FF2A6314D600B6380A /* RemoteStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A1FE2A6314D600B6380A /* RemoteStats.swift */; };
 		7BD9A2072A631C8E00B6380A /* SessionGetAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A2062A631C8E00B6380A /* SessionGetAPIEndToEndTests.swift */; };
 		7BD9A20B2A6320E000B6380A /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65875A2A0D846500317EBE /* XCTestCase+MemoryLeakTracking.swift */; };
-		7BD9A20E2A63284E00B6380A /* BasicAuthSecrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A20D2A63284E00B6380A /* BasicAuthSecrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,11 @@
 		7B65875A2A0D846500317EBE /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		7B65875B2A0D846500317EBE /* URLRequest+BodyStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+BodyStream.swift"; sourceTree = "<group>"; };
 		7B65875C2A0D846500317EBE /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
+		7B6EDC262A652EF200264EF2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../.Trash/Info.plist; sourceTree = "<group>"; };
+		7B6EDC282A6531CB00264EF2 /* APIEndToEndConfigurationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndToEndConfigurationsTests.swift; sourceTree = "<group>"; };
+		7B6EDC2B2A65346D00264EF2 /* TransmissionAPIEndToEndTests+Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransmissionAPIEndToEndTests+Secrets.swift"; sourceTree = "<group>"; };
+		7B6EDC332A65974F00264EF2 /* URLSessionHTTPClientRetrierDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientRetrierDecoratorTests.swift; sourceTree = "<group>"; };
+		7B6EDC352A6597EF00264EF2 /* URLSessionHTTPClientRetrierDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientRetrierDecorator.swift; sourceTree = "<group>"; };
 		7B8338282A0FA19F0052F7EC /* SessionBodies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionBodies.swift; sourceTree = "<group>"; };
 		7B83382A2A0FA1E60052F7EC /* SessionBodiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionBodiesTests.swift; sourceTree = "<group>"; };
 		7B8338392A1016C20052F7EC /* SessionGetMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionGetMapper.swift; sourceTree = "<group>"; };
@@ -96,7 +106,6 @@
 		7BD9A1FE2A6314D600B6380A /* RemoteStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteStats.swift; sourceTree = "<group>"; };
 		7BD9A2042A631C8E00B6380A /* TransmissionAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransmissionAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BD9A2062A631C8E00B6380A /* SessionGetAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionGetAPIEndToEndTests.swift; sourceTree = "<group>"; };
-		7BD9A20D2A63284E00B6380A /* BasicAuthSecrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthSecrets.swift; sourceTree = "<group>"; };
 		7BD9A20F2A63293400B6380A /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -218,6 +227,7 @@
 			children = (
 				7B6587542A0D845000317EBE /* HTTPClient.swift */,
 				7B6587532A0D845000317EBE /* URLSessionHTTPClient.swift */,
+				7B6EDC352A6597EF00264EF2 /* URLSessionHTTPClientRetrierDecorator.swift */,
 			);
 			path = URLSessionHTTPClient;
 			sourceTree = "<group>";
@@ -236,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				7B65875C2A0D846500317EBE /* URLSessionHTTPClientTests.swift */,
+				7B6EDC332A65974F00264EF2 /* URLSessionHTTPClientRetrierDecoratorTests.swift */,
 			);
 			path = URLSessionHTTPClient;
 			sourceTree = "<group>";
@@ -427,19 +438,13 @@
 		7BD9A2052A631C8E00B6380A /* TransmissionAPIEndToEndTests */ = {
 			isa = PBXGroup;
 			children = (
+				7B6EDC262A652EF200264EF2 /* Info.plist */,
 				7B4907B62A6524CB00C75819 /* EndToEndTestConfigurations.xcconfig */,
-				7BD9A20C2A63283700B6380A /* Basic Auth */,
+				7B6EDC282A6531CB00264EF2 /* APIEndToEndConfigurationsTests.swift */,
 				7BD9A2062A631C8E00B6380A /* SessionGetAPIEndToEndTests.swift */,
+				7B6EDC2B2A65346D00264EF2 /* TransmissionAPIEndToEndTests+Secrets.swift */,
 			);
 			path = TransmissionAPIEndToEndTests;
-			sourceTree = "<group>";
-		};
-		7BD9A20C2A63283700B6380A /* Basic Auth */ = {
-			isa = PBXGroup;
-			children = (
-				7BD9A20D2A63284E00B6380A /* BasicAuthSecrets.swift */,
-			);
-			path = "Basic Auth";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -571,6 +576,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B6EDC2D2A65463600264EF2 /* EndToEndTestConfigurations.xcconfig in Resources */,
+				7B6EDC272A652EF200264EF2 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +599,7 @@
 				7B6587562A0D845000317EBE /* HTTPClient.swift in Sources */,
 				7B8338402A1124780052F7EC /* HTTPURLResponse+StatusCode.swift in Sources */,
 				7BC960DF2A12D1BB0030B5E0 /* TorrentBodies.swift in Sources */,
+				7B6EDC362A6597EF00264EF2 /* URLSessionHTTPClientRetrierDecorator.swift in Sources */,
 				7B6587552A0D845000317EBE /* URLSessionHTTPClient.swift in Sources */,
 				7B4DFB732A15394F007E9C63 /* Torrents.swift in Sources */,
 				7BD9A1FF2A6314D600B6380A /* RemoteStats.swift in Sources */,
@@ -615,6 +623,7 @@
 				7BC960E52A135E7A0030B5E0 /* TorrentGetMapperTests.swift in Sources */,
 				7BD9A1F12A630C9100B6380A /* SessionStatsMapperTests.swift in Sources */,
 				7B83383D2A1120B20052F7EC /* SessionGetMapperTests.swift in Sources */,
+				7B6EDC342A65974F00264EF2 /* URLSessionHTTPClientRetrierDecoratorTests.swift in Sources */,
 				7B6587602A0D846500317EBE /* URLRequest+BodyStream.swift in Sources */,
 				7BC960D42A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift in Sources */,
 			);
@@ -624,8 +633,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B6EDC292A6531CB00264EF2 /* APIEndToEndConfigurationsTests.swift in Sources */,
+				7B6EDC2C2A65346D00264EF2 /* TransmissionAPIEndToEndTests+Secrets.swift in Sources */,
 				7BD9A2072A631C8E00B6380A /* SessionGetAPIEndToEndTests.swift in Sources */,
-				7BD9A20E2A63284E00B6380A /* BasicAuthSecrets.swift in Sources */,
 				7BD9A20B2A6320E000B6380A /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -875,11 +885,14 @@
 		};
 		7BD9A2092A631C8E00B6380A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B4907B62A6524CB00C75819 /* EndToEndTestConfigurations.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UYXPW2Z6TM;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TransmissionAPIEndToEndTests/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.federicoarvat.it.TransmissionAPIEndToEndTests;
@@ -900,6 +913,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UYXPW2Z6TM;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TransmissionAPIEndToEndTests/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.federicoarvat.it.TransmissionAPIEndToEndTests;

@@ -15,7 +15,7 @@ final class SessionGetAPIEndToEndTests: XCTestCase {
 		let exp = expectation(description: "Wait for load to complete")
 				
 		client.post(
-			APIsEndpoint.post.url(baseURL: baseURL),
+			APIsEndpoint.post.url(baseURL: baseUrl!),
 			body: SessionBodies.get.data(using: .utf8)!,
 			username: "wrong username",
 			password: "wrong password",
@@ -37,10 +37,10 @@ final class SessionGetAPIEndToEndTests: XCTestCase {
 		let exp = expectation(description: "Wait for load to complete")
 
 		client.post(
-			APIsEndpoint.post.url(baseURL: baseURL),
+			APIsEndpoint.post.url(baseURL: baseUrl!),
 			body: SessionBodies.get.data(using: .utf8)!,
-			username: BasicAuthSecrets.username,
-			password: BasicAuthSecrets.password,
+			username: username!,
+			password: password!,
 			sessionId: nil
 		) { result in
 			switch result {
@@ -59,16 +59,12 @@ final class SessionGetAPIEndToEndTests: XCTestCase {
 		let exp = expectation(description: "Wait for load to complete")
 		
 		client.post(
-			APIsEndpoint.post.url(baseURL: baseURL),
+			APIsEndpoint.post.url(baseURL: baseUrl!),
 			body: SessionBodies.get.data(using: .utf8)!,
-			username: BasicAuthSecrets.username,
-			password: BasicAuthSecrets.password,
+			username: username!,
+			password: password!,
 			sessionId: nil
-		) { [weak self] result in
-			guard let self else {
-				XCTFail("Missing self")
-				return
-			}
+		) { result in
 			switch result {
 			case let .failure(error):
 				XCTFail("Expected success, got \(error) instead")
@@ -86,10 +82,10 @@ final class SessionGetAPIEndToEndTests: XCTestCase {
 						return
 					}
 					client.post(
-						APIsEndpoint.post.url(baseURL: self.baseURL),
+						APIsEndpoint.post.url(baseURL: baseUrl!),
 						body: SessionBodies.get.data(using: .utf8)!,
-						username: BasicAuthSecrets.username,
-						password: BasicAuthSecrets.password,
+						username: username!,
+						password: password!,
 						sessionId: sessionId
 					) { result in
 						switch result {
@@ -112,10 +108,6 @@ final class SessionGetAPIEndToEndTests: XCTestCase {
 		let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
 		trackForMemoryLeaks(client, file: file, line: line)
 		return client
-	}
-	
-	private var baseURL: URL {
-		URL(string: "http://192.168.178.39:9091")!
 	}
 
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class URLSessionHTTPClient: HTTPClient {
+public class URLSessionHTTPClient: HTTPClient {
 	
 	private let BASIC = "Basic"
 	private let AUTHORIZATION = "Authorization"
