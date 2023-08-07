@@ -7,7 +7,8 @@
 
 import Foundation
 
-public class ServerViewModel: Identifiable {
+public class ServerViewModel: Identifiable, Equatable {
+	
 	public init(
 		title: String,
 		url: String,
@@ -21,4 +22,9 @@ public class ServerViewModel: Identifiable {
 	public var title: String
 	public var url: String
 	public var id: UUID
+	
+	public static func == (lhs: ServerViewModel, rhs: ServerViewModel) -> Bool {
+		lhs.title == rhs.title && lhs.url == rhs.url && lhs.id == rhs.id
+	}
+	
 }

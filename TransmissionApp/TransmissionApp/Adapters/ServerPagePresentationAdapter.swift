@@ -66,6 +66,6 @@ private extension ServerPageViewModel {
 	func newValues(_ viewModel: ServerPageViewModel) {
 		title = viewModel.title
 		servers = viewModel.servers
-		currentSelectedServer = viewModel.currentSelectedServer
+		currentSelectedServerId = viewModel.currentSelectedServerId
 	}
 }

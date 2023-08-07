@@ -72,7 +72,7 @@ struct SettingsPage_Previews: PreviewProvider {
 			viewModel: ServerPageViewModel(
 				title: "Title",
 				servers: [],
-				currentSelectedServer: nil)
+				currentSelectedServerId: nil)
 			)
 		)
     }

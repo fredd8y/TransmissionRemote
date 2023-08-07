@@ -11,7 +11,7 @@ import Transmission
 public struct ServerPage: View {
 	public init(viewModel: ServerPageViewModel) {
 		self.viewModel = viewModel
-		_selection = State(initialValue: viewModel.currentSelectedServer)
+		_selection = State(initialValue: viewModel.currentSelectedServerId)
 	}
 	
 	@ObservedObject var viewModel: ServerPageViewModel
@@ -72,7 +72,7 @@ struct ServerPage_Previews: PreviewProvider {
 						id: UUID()
 					)
 				],
-				currentSelectedServer: selectedId
+				currentSelectedServerId: selectedId
 			)
 		)
     }

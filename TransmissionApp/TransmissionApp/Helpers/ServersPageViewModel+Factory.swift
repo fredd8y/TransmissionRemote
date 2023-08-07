@@ -12,7 +12,7 @@ extension ServerPageViewModel {
 		ServerPageViewModel(
 			title: ServerPagePresenter.title,
 			servers: [],
-			currentSelectedServer: nil
+			currentSelectedServerId: nil
 		)
 	}
 }

@@ -30,7 +30,7 @@ class ServerPageTests: XCTestCase {
 	func test_listWithContentWithSelection() {
 		let (servers, selectedServerId) = listWithContentWithSelection()
 		
-		let sut = makeSUT(servers: servers, currentSelectedServer: selectedServerId)
+		let sut = makeSUT(servers: servers, currentSelectedServerId: selectedServerId)
 		
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "SERVER_PAGE_LIST_WITH_CONTENT_WITH_SELECTION_light")
 		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "SERVER_PAGE_LIST_WITH_CONTENT_WITH_SELECTION_dark")
@@ -39,12 +39,12 @@ class ServerPageTests: XCTestCase {
 	
 	// MARK: - Helpers
 	
-	private func makeSUT(servers: [ServerViewModel], currentSelectedServer: UUID? = nil) -> ServerPage {
-		ServerPage(viewModel: viewModel(servers: servers, currentSelectedServer: currentSelectedServer))
+	private func makeSUT(servers: [ServerViewModel], currentSelectedServerId: UUID? = nil) -> ServerPage {
+		ServerPage(viewModel: viewModel(servers: servers, currentSelectedServerId: currentSelectedServerId))
 	}
 	
-	private func viewModel(servers: [ServerViewModel], currentSelectedServer: UUID? = nil) -> ServerPageViewModel {
-		ServerPageViewModel(title: ServerPagePresenter.title, servers: servers, currentSelectedServer: currentSelectedServer)
+	private func viewModel(servers: [ServerViewModel], currentSelectedServerId: UUID? = nil) -> ServerPageViewModel {
+		ServerPageViewModel(title: ServerPagePresenter.title, servers: servers, currentSelectedServerId: currentSelectedServerId)
 	}
 	
 	private func emptyList() -> [ServerViewModel] {

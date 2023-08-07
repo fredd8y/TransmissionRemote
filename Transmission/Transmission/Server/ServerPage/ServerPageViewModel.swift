@@ -7,18 +7,24 @@
 
 import Foundation
 
-public class ServerPageViewModel: ObservableObject {
+public class ServerPageViewModel: ObservableObject, Equatable {
+	
 	public init(
 		title: String,
 		servers: [ServerViewModel],
-		currentSelectedServer: UUID?
+		currentSelectedServerId: UUID?
 	) {
 		self.title = title
 		self.servers = servers
-		self.currentSelectedServer = currentSelectedServer
+		self.currentSelectedServerId = currentSelectedServerId
 	}
 	
 	@Published public var title: String
 	@Published public var servers: [ServerViewModel]
-	public var currentSelectedServer: UUID?
+	public var currentSelectedServerId: UUID?
+	
+	public static func == (lhs: ServerPageViewModel, rhs: ServerPageViewModel) -> Bool {
+		lhs.title == rhs.title && lhs.servers == rhs.servers && lhs.currentSelectedServerId == rhs.currentSelectedServerId
+	}
+	
 }

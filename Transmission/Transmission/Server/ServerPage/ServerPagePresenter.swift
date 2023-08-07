@@ -24,7 +24,7 @@ public final class ServerPagePresenter {
 		return ServerPageViewModel(
 			title: title,
 			servers: servers.map(ServerPresenter.map),
-			currentSelectedServer: currentSelectedServer?.id
+			currentSelectedServerId: currentSelectedServer?.id
 		)
 	}
 }
