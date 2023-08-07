@@ -16,6 +16,24 @@ final class TransmissionHTTPClient {
 	
 	static var sessionId: String?
 
+	static func makeTorrentAddPublisher(
+		server: Server,
+		startWhenAdded: Bool,
+		downloadDir: String,
+		torrentFilePath: String
+	) throws -> AnyPublisher<String, Error> {
+		return httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: try TorrentBodies.add(startWhenAdded: startWhenAdded, downloadDir: downloadDir, torrentFilePath: torrentFilePath),
+				additionalHeader: headers(server)
+			)
+			.tryMap(TransmissionHTTPClient.log)
+			.eraseToAnyPublisher()
+			.tryMap(TorrentAddMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
 	static func makeRemoteSessionLoader(server: Server) -> AnyPublisher<Session, Error> {
 		return httpClient
 			.postPublisher(

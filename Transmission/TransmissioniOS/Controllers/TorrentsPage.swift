@@ -17,9 +17,11 @@ public struct TorrentsPage: View {
 	
 	@ObservedObject var viewModel: TorrentsPageViewModel
 	
+	@State public var fileImporterPresented: Bool = false
+	
 	public var loadData: (() -> Void)?
 	
-	@State public var fileImporterPresented: Bool = false
+	public var selectedFile: ((URL) -> Void)?
 	
     public var body: some View {
 		NavigationStack {
@@ -108,9 +110,10 @@ public struct TorrentsPage: View {
 				onCompletion: { result in
 					switch result {
 					case .failure(let error):
+						// TODO: show error message
 						print(error)
-					case .success(let url):
-						print(url)
+					case let .success(url):
+						selectedFile?(url)
 					}
 				}
 			)

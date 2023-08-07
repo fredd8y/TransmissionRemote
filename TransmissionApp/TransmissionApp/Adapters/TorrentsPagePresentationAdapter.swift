@@ -42,6 +42,7 @@ final class TorrentsPagePresentationAdapter {
 	private var cancellables = Set<AnyCancellable>()
 	private var pollingRateCancellable = Set<AnyCancellable>()
 	private var currentServerCancellable = Set<AnyCancellable>()
+	private var addTorrentCancellable = Set<AnyCancellable>()
 	
 	private var sessionIdHandler: (String) -> Void
 	
@@ -55,6 +56,35 @@ final class TorrentsPagePresentationAdapter {
 	}
 
 	@ObservedObject var torrentsPageViewModel: TorrentsPageViewModel
+	
+	func selectedFile(_ url: URL) {
+		guard let server = UserDefaultsHandler.shared.currentServer else {
+			// TODO: handle error
+			return
+		}
+		do {
+			try TransmissionHTTPClient.makeTorrentAddPublisher(
+				server: server,
+				startWhenAdded: true,
+				downloadDir: "",
+				torrentFilePath: url.absoluteString
+			)
+			.dispatchOnMainQueue()
+			.sink(
+				receiveCompletion: { completion in
+					switch completion {
+					case .finished: break
+					case .failure:
+						//TODO: Show error in torrents page
+						break
+					}
+				},
+				receiveValue: { _ in }
+			).store(in: &addTorrentCancellable)
+		} catch {
+			// TODO: handle error
+		}
+	}
 	
 	func loadData(server: Server?) {
 		guard let server else {

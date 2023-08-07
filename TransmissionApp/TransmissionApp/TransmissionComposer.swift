@@ -39,6 +39,7 @@ final class TransmissionComposer {
 		torrentsPage.loadData = {
 			torrentsPagePresentationAdapter.loadData(server: UserDefaultsHandler.shared.currentServer)
 		}
+		torrentsPage.selectedFile = torrentsPagePresentationAdapter.selectedFile
 		
 		return torrentsPage
 	}
