@@ -24,7 +24,7 @@ final class TransmissionHTTPClient {
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
 				body: TorrentBodies.start(id: id),
-				additionalHeader: headers(server)
+				additionalHeader: headers(server.credentials)
 			)
 			.tryMap(TransmissionHTTPClient.log)
 			.tryMap(TorrentStartMapper.map)
@@ -38,7 +38,7 @@ final class TransmissionHTTPClient {
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
 				body: TorrentBodies.stop(id: id),
-				additionalHeader: headers(server)
+				additionalHeader: headers(server.credentials)
 			)
 			.tryMap(TransmissionHTTPClient.log)
 			.tryMap(TorrentStopMapper.map)
@@ -54,7 +54,7 @@ final class TransmissionHTTPClient {
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
 				body: TorrentBodies.remove(id: id, deleteLocalData: deleteLocalData),
-				additionalHeader: headers(server)
+				additionalHeader: headers(server.credentials)
 			)
 			.tryMap(TransmissionHTTPClient.log)
 			.tryMap(TorrentRemoveMapper.map)
@@ -71,7 +71,7 @@ final class TransmissionHTTPClient {
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
 				body: SessionBodies.get.data(using: .utf8)!,
-				additionalHeader: headers(server)
+				additionalHeader: headers(server.credentials)
 			)
 			.tryMap(TransmissionHTTPClient.log)
 			.tryMap(SessionGetMapper.map)
@@ -82,7 +82,7 @@ final class TransmissionHTTPClient {
 						httpClient.post(
 							APIsEndpoint.post.url(baseURL: server.baseURL),
 							body: try TorrentBodies.add(startWhenAdded: startWhenAdded, downloadDir: downloadDir, torrentFilePath: nil, filename: link),
-							additionalHeader: headers(server)
+							additionalHeader: headers(server.credentials)
 						) { result in
 							promise(result)
 						}
@@ -105,7 +105,7 @@ final class TransmissionHTTPClient {
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
 				body: SessionBodies.get.data(using: .utf8)!,
-				additionalHeader: headers(server)
+				additionalHeader: headers(server.credentials)
 			)
 			.tryMap(TransmissionHTTPClient.log)
 			.tryMap(SessionGetMapper.map)
@@ -116,7 +116,7 @@ final class TransmissionHTTPClient {
 						httpClient.post(
 							APIsEndpoint.post.url(baseURL: server.baseURL),
 							body: try TorrentBodies.add(startWhenAdded: startWhenAdded, downloadDir: downloadDir, torrentFilePath: torrentFilePath, filename: nil),
-							additionalHeader: headers(server)
+							additionalHeader: headers(server.credentials)
 						) { result in
 							promise(result)
 						}
@@ -136,7 +136,7 @@ final class TransmissionHTTPClient {
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
 				body: SessionBodies.get.data(using: .utf8)!,
-				additionalHeader: headers(server)
+				additionalHeader: headers(server.credentials)
 			)
 			.tryMap(TransmissionHTTPClient.log)
 			.tryMap(SessionGetMapper.map)
@@ -146,7 +146,7 @@ final class TransmissionHTTPClient {
 					httpClient.post(
 						APIsEndpoint.post.url(baseURL: server.baseURL),
 						body: TorrentBodies.get(TorrentField.minimumTorrentField),
-						additionalHeader: headers(server)
+						additionalHeader: headers(server.credentials)
 					) { result in
 						promise(result)
 					}
@@ -160,7 +160,7 @@ final class TransmissionHTTPClient {
 			.eraseToAnyPublisher()
 	}
 	
-	public static func log(_ data: Data, from response: HTTPURLResponse) throws -> (data: Data, response: HTTPURLResponse) {
+	static func log(_ data: Data, from response: HTTPURLResponse) throws -> (data: Data, response: HTTPURLResponse) {
 		Logger.APIs.info("\nURL: \(response.url!)\nSTATUS-CODE: \(response.statusCode)\nRESPONSE: \(String(data: data, encoding: .utf8)!)")
 		return (data, response)
 	}
@@ -169,10 +169,10 @@ final class TransmissionHTTPClient {
 
 	private static let httpClient: HTTPClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
 
-	private static func headers(_ server: Server) -> [String: String] {
+	private static func headers(_ credentials: (username: String, password: String)?) -> [String: String] {
 		var headers: [String: String] = [:]
-		if let username = server.username, let password = server.password {
-			headers[HeaderUtils.AUTHORIZATION_KEY] = HeaderUtils.basicAuthCredentialsString(username: username, password: password)
+		if let credentials {
+			headers[HeaderUtils.AUTHORIZATION_KEY] = HeaderUtils.basicAuthCredentialsString(username: credentials.username, password: credentials.password)
 		}
 		if let sessionId {
 			headers[SessionGetMapper.sessionIdKey] = sessionId
@@ -185,5 +185,17 @@ final class TransmissionHTTPClient {
 private extension Server {
 	var baseURL: URL {
 		return URL(string: url)!
+	}
+	
+	var credentials: (username: String, password: String)? {
+		if let username, let password {
+			let decryptedPassword = try! Cipher.decryptPassword(
+				password,
+				withKey: try! Cipher.generateSymmetricKey(withPassword: try! Keychain.getPasswordKey())
+			)
+			return (username, decryptedPassword)
+		} else {
+			return nil
+		}
 	}
 }

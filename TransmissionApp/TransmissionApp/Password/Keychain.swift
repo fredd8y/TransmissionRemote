@@ -52,11 +52,11 @@ enum Keychain {
 	}
 	
 	static func addPasswordKey(_ password: String) throws {
-		let query: [String: AnyObject] = [
+		let query: [String: Any] = [
 			kSecClass as String: kSecClassGenericPassword,
-			kSecAttrService as String: serviceKey as AnyObject,
-			kSecAttrAccount as String: accountKey as AnyObject,
-			kSecValueData as String: password.data(using: .utf8)! as AnyObject
+			kSecAttrService as String: serviceKey,
+			kSecAttrAccount as String: accountKey,
+			kSecValueData as String: password.data(using: .utf8)!
 		]
 		let status = SecItemAdd(query as CFDictionary, nil)
 		guard status == errSecSuccess else {
@@ -64,7 +64,7 @@ enum Keychain {
 		}
 	}
 	
-	static func getPasswordKey() throws -> String? {
+	static func getPasswordKey() throws -> String {
 		let query: [String: Any] = [
 			kSecClass as String: kSecClassGenericPassword,
 			kSecAttrService as String: Keychain.serviceKey,
@@ -83,5 +83,9 @@ enum Keychain {
 			throw GetPasswordFailure()
 		}
 		return _stringItem
+	}
+	
+	static func deleteAllGenericPassword() {
+		SecItemDelete([kSecClass as String: kSecClassGenericPassword] as CFDictionary)
 	}
 }

@@ -14,6 +14,10 @@
 		7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */; };
 		7BA01FD82A7E9A8700FBB43D /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FD72A7E9A8700FBB43D /* Keychain.swift */; };
 		7BA01FDA2A7EA0D500FBB43D /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FD92A7EA0D500FBB43D /* KeychainTests.swift */; };
+		7BA01FDC2A7EB68A00FBB43D /* Cipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FDB2A7EB68A00FBB43D /* Cipher.swift */; };
+		7BA01FDE2A7EBA4E00FBB43D /* CipherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FDD2A7EBA4E00FBB43D /* CipherTests.swift */; };
+		7BA01FE02A7FEF1A00FBB43D /* Base16Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FDF2A7FEF1A00FBB43D /* Base16Tests.swift */; };
+		7BA01FE22A7FEF4800FBB43D /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FE12A7FEF4800FBB43D /* Data+.swift */; };
 		7BBF3C4B2A729554001206A8 /* SettingsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */; };
 		7BBF3C4D2A72A648001206A8 /* ServerPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C4C2A72A648001206A8 /* ServerPublishers.swift */; };
 		7BBF3C5C2A742B6E001206A8 /* SettingsPageViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C5B2A742B6E001206A8 /* SettingsPageViewModel+Factory.swift */; };
@@ -69,6 +73,10 @@
 		7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+MainQueueDispatcher.swift"; sourceTree = "<group>"; };
 		7BA01FD72A7E9A8700FBB43D /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		7BA01FD92A7EA0D500FBB43D /* KeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
+		7BA01FDB2A7EB68A00FBB43D /* Cipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cipher.swift; sourceTree = "<group>"; };
+		7BA01FDD2A7EBA4E00FBB43D /* CipherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CipherTests.swift; sourceTree = "<group>"; };
+		7BA01FDF2A7FEF1A00FBB43D /* Base16Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base16Tests.swift; sourceTree = "<group>"; };
+		7BA01FE12A7FEF4800FBB43D /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPagePresentationAdapter.swift; sourceTree = "<group>"; };
 		7BBF3C4C2A72A648001206A8 /* ServerPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPublishers.swift; sourceTree = "<group>"; };
 		7BBF3C5B2A742B6E001206A8 /* SettingsPageViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsPageViewModel+Factory.swift"; sourceTree = "<group>"; };
@@ -131,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				7BA01FD72A7E9A8700FBB43D /* Keychain.swift */,
+				7BA01FDB2A7EB68A00FBB43D /* Cipher.swift */,
+				7BA01FE12A7FEF4800FBB43D /* Data+.swift */,
 			);
 			path = Password;
 			sourceTree = "<group>";
@@ -187,6 +197,8 @@
 			children = (
 				7BBF3C612A742E3C001206A8 /* UserDefaultsHandlerTests.swift */,
 				7BA01FD92A7EA0D500FBB43D /* KeychainTests.swift */,
+				7BA01FDD2A7EBA4E00FBB43D /* CipherTests.swift */,
+				7BA01FDF2A7FEF1A00FBB43D /* Base16Tests.swift */,
 			);
 			path = TransmissionAppTests;
 			sourceTree = "<group>";
@@ -328,12 +340,14 @@
 			files = (
 				7BBF3C5C2A742B6E001206A8 /* SettingsPageViewModel+Factory.swift in Sources */,
 				7BC0D84E2A6EA90000B36367 /* TransmissionHTTPClient.swift in Sources */,
+				7BA01FDC2A7EB68A00FBB43D /* Cipher.swift in Sources */,
 				7BBF3C4B2A729554001206A8 /* SettingsPagePresentationAdapter.swift in Sources */,
 				7BC0D84C2A6EA20100B36367 /* TorrentsPageViewModel+Factory.swift in Sources */,
 				7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */,
 				7B6CD5CB2A71050F00E81983 /* Logger+.swift in Sources */,
 				7BD2368D2A77BA8200AF75A9 /* ServerDetailPagePresentationAdapter.swift in Sources */,
 				7B2325042A766E6800836B02 /* ServerPagePresentationAdapter.swift in Sources */,
+				7BA01FE22A7FEF4800FBB43D /* Data+.swift in Sources */,
 				7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */,
 				7BC0D8452A6E3FE200B36367 /* TransmissionComposer.swift in Sources */,
 				7BBF3C5E2A742CF7001206A8 /* PollingRateHandler.swift in Sources */,
@@ -352,6 +366,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BA01FDE2A7EBA4E00FBB43D /* CipherTests.swift in Sources */,
+				7BA01FE02A7FEF1A00FBB43D /* Base16Tests.swift in Sources */,
 				7BBF3C642A742FBC001206A8 /* UserDefaultsHandlerTests.swift in Sources */,
 				7BA01FDA2A7EA0D500FBB43D /* KeychainTests.swift in Sources */,
 			);

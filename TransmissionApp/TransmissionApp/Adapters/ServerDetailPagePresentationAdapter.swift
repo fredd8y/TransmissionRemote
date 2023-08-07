@@ -66,7 +66,7 @@ class ServerDetailPagePresentationAdapter {
 				ip: model.ip,
 				port: intPort,
 				username: model.username == "" ? nil : model.username,
-				password: model.password == "" ? nil : model.password,
+				password: model.password == "" ? nil : try Cipher.encryptPassword(model.password, withKey: try Cipher.generateSymmetricKey(withPassword: try Keychain.getPasswordKey())),
 				id: model.id
 			)
 			guard let url = ServerFile.url else { return nil }
