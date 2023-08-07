@@ -17,7 +17,7 @@ class SessionStatsMapperTests: XCTestCase {
 		
 		try samples.forEach { code in
 			XCTAssertThrowsError(
-				try SessionStatsMapper.map(json: json, from: HTTPURLResponse(statusCode: code))
+				try SessionStatsMapper.map(json, from: HTTPURLResponse(statusCode: code))
 			)
 		}
 	}
@@ -26,7 +26,33 @@ class SessionStatsMapperTests: XCTestCase {
 		let json = Data("invalid json".utf8)
 		
 		XCTAssertThrowsError(
-			try SessionStatsMapper.map(json: json, from: HTTPURLResponse(statusCode: 200))
+			try SessionStatsMapper.map(json, from: HTTPURLResponse(statusCode: 200))
 		)
+	}
+	
+	func test_map_throwsErrorOn200HTTPResponseWithEmptyJSON() throws {
+		XCTAssertThrowsError(
+			try TorrentGetMapper.map(Data(), from: HTTPURLResponse(statusCode: 200))
+		)
+	}
+	
+	func test_map_deliversStatsOn200HTTPResponseWithValidJSON() {
+		let stats = makeStats()
+		
+		let json = makeJSON(fromDictionary: stats.json)
+		
+		do {
+			let result = try SessionStatsMapper.map(json, from: HTTPURLResponse(statusCode: 200))
+			
+			XCTAssertEqual(result, stats.model)
+		} catch {
+			XCTFail("Expected no exception, got \(error.localizedDescription) instead")
+		}
+	}
+	
+	// MARK: - Helpers
+	
+	private func makeStats() -> (model: Stats, json: [String: Any]) {
+		makeStats(activeTorrentCount: Int.random(in: 0..<10), downloadSpeed: Int.random(in: 1_000..<10_000_000))
 	}
 }

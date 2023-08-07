@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Stats {
+public struct Stats: Equatable {
 	let activeTorrentCount: Int
 	let downloadSpeed: Int
 }

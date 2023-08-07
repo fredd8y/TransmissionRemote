@@ -14,4 +14,8 @@ public struct RemoteStats: Decodable {
 		let activeTorrentCount: Int
 		let downloadSpeed: Int
 	}
+	
+	var stats: Stats {
+		Stats(activeTorrentCount: arguments.activeTorrentCount, downloadSpeed: arguments.downloadSpeed)
+	}
 }
