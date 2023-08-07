@@ -72,6 +72,38 @@ public final class TorrentsPagePresenter {
 			comment: "Title for torrents page alert error")
 	}
 	
+	public static var missingServerError: String {
+		NSLocalizedString(
+			"MISSING_SERVER_ERROR",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Error to show when server is missing")
+	}
+	
+	public static var filePermissionError: String {
+		NSLocalizedString(
+			"FILE_PERMISSION_ERRROR",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Error to show when file is not usable")
+	}
+	
+	public static var itemAlreadyAdded: String {
+		NSLocalizedString(
+			"ITEM_ALREADY_ADDED_ERROR",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Error to show when selected item is already added")
+	}
+	
+	public static var genericError: String {
+		NSLocalizedString(
+			"GENERIC_ERROR",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Error to show when the cause is unknown")
+	}
+	
 	public static func map(
 		title: String,
 		error: String?,

@@ -21,6 +21,8 @@ public struct TorrentsPage: View {
 	
 	@State public var fileImporterPresented: Bool = false
 	
+	@State public var torrentAddDetailPresented: Bool = true
+	
 	public var loadData: (() -> Void)?
 	
 	public var selectedFile: ((URL) -> Void)?
@@ -123,7 +125,9 @@ public struct TorrentsPage: View {
 				TorrentsPagePresenter.alertErrorTitle,
 				isPresented: $viewModel.alertMessageVisible,
 				actions: {
-					Button(action: {}, label: {
+					Button(action: {
+						viewModel.alertMessage = nil
+					}, label: {
 						Text(TorrentsPagePresenter.ok)
 					})
 				},

@@ -40,6 +40,18 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentsPagePresenter.serverNotSet, localized("SERVER_NOT_SET", table: table))
 	}
 	
+	func test_filePermissionError_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.filePermissionError, localized("FILE_PERMISSION_ERRROR", table: table))
+	}
+	
+	func test_itemAlreadyAdded_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.itemAlreadyAdded, localized("ITEM_ALREADY_ADDED_ERROR", table: table))
+	}
+	
+	func test_genericError_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.genericError, localized("GENERIC_ERROR", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Title"
 		let error = "a error"

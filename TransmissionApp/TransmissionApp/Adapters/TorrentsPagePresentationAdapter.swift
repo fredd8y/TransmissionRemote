@@ -59,31 +59,42 @@ final class TorrentsPagePresentationAdapter {
 	
 	func selectedFile(_ url: URL) {
 		guard let server = UserDefaultsHandler.shared.currentServer else {
-			// TODO: handle error
+			torrentsPageViewModel.alertMessage = TorrentsPagePresenter.missingServerError
+			torrentsPageViewModel.alertMessageVisible = true
 			return
 		}
-		do {
-			try TransmissionHTTPClient.makeTorrentAddPublisher(
-				server: server,
-				startWhenAdded: true,
-				downloadDir: "",
-				torrentFilePath: url.absoluteString
-			)
-			.dispatchOnMainQueue()
-			.sink(
-				receiveCompletion: { completion in
-					switch completion {
-					case .finished: break
-					case .failure:
-						//TODO: Show error in torrents page
-						break
-					}
-				},
-				receiveValue: { _ in }
-			).store(in: &addTorrentCancellable)
-		} catch {
-			// TODO: handle error
+		guard url.startAccessingSecurityScopedResource() else {
+			torrentsPageViewModel.alertMessage = TorrentsPagePresenter.filePermissionError
+			torrentsPageViewModel.alertMessageVisible = true
+			return
 		}
+		TransmissionHTTPClient.makeTorrentAddPublisher(
+			server: server,
+			startWhenAdded: true,
+			downloadDir: "",
+			torrentFilePath: url.absoluteString
+		)
+		.dispatchOnMainQueue()
+		.sink(
+			receiveCompletion: { [weak self] completion in
+				switch completion {
+				case .finished:
+					url.stopAccessingSecurityScopedResource()
+				case .failure(let error):
+					if let _error = error as? TorrentAddMapper.Error {
+						switch _error {
+						case .torrentDuplicate(let name):
+							self?.torrentsPageViewModel.alertMessage = "\(name) \(TorrentsPagePresenter.itemAlreadyAdded)"
+							self?.torrentsPageViewModel.alertMessageVisible = true
+						case .invalidData:
+							self?.torrentsPageViewModel.alertMessage = TorrentsPagePresenter.genericError
+							self?.torrentsPageViewModel.alertMessageVisible = true
+						}
+					}
+				}
+			},
+			receiveValue: { _ in }
+		).store(in: &addTorrentCancellable)
 	}
 	
 	func loadData(server: Server?) {

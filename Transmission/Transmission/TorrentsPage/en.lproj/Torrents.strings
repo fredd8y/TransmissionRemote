@@ -19,3 +19,6 @@
 "COMPLETED" = "Completed";
 "SERVER_NOT_SET" = "Server not found, go to Settings tab to add one";
 "ALERT_ERROR_TITLE" = "Error";
+"FILE_PERMISSION_ERRROR" = "Error retrieving selected file";
+"ITEM_ALREADY_ADDED_ERROR" = "already added";
+"GENERIC_ERROR" = "Unknown error";

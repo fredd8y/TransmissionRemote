@@ -19,3 +19,6 @@
 "COMPLETED" = "Completato";
 "SERVER_NOT_SET" = "Server non presente, vai nel tab impostazioni per aggiungerne uno";
 "ALERT_ERROR_TITLE" = "Errore";
+"FILE_PERMISSION_ERRROR" = "Errore permessi sul file selezionato";
+"ITEM_ALREADY_ADDED_ERROR" = "già aggiunto";
+"GENERIC_ERROR" = "Errore sconosciuto";

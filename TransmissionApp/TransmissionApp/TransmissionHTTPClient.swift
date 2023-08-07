@@ -21,15 +21,32 @@ final class TransmissionHTTPClient {
 		startWhenAdded: Bool,
 		downloadDir: String,
 		torrentFilePath: String
-	) throws -> AnyPublisher<String, Error> {
+	) -> AnyPublisher<String, Error> {
 		return httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: try TorrentBodies.add(startWhenAdded: startWhenAdded, downloadDir: downloadDir, torrentFilePath: torrentFilePath),
+				body: SessionBodies.get.data(using: .utf8)!,
 				additionalHeader: headers(server)
 			)
 			.tryMap(TransmissionHTTPClient.log)
-			.eraseToAnyPublisher()
+			.tryMap(SessionGetMapper.map)
+			.tryMap { $0.downloadDir }
+			.flatMap { downloadDir in
+				Future { promise in
+					do {
+						httpClient.post(
+							APIsEndpoint.post.url(baseURL: server.baseURL),
+							body: try TorrentBodies.add(startWhenAdded: startWhenAdded, downloadDir: downloadDir, torrentFilePath: torrentFilePath),
+							additionalHeader: headers(server)
+						) { result in
+							promise(result)
+						}
+					} catch {
+						promise(.failure(error))
+					}
+				}
+			}
+			.tryMap(TransmissionHTTPClient.log)
 			.tryMap(TorrentAddMapper.map)
 			.eraseToAnyPublisher()
 	}
@@ -42,7 +59,6 @@ final class TransmissionHTTPClient {
 				additionalHeader: headers(server)
 			)
 			.tryMap(TransmissionHTTPClient.log)
-			.eraseToAnyPublisher()
 			.tryMap(SessionGetMapper.map)
 			.eraseToAnyPublisher()
 	}
@@ -55,7 +71,6 @@ final class TransmissionHTTPClient {
 				additionalHeader: headers(server)
 			)
 			.tryMap(TransmissionHTTPClient.log)
-			.eraseToAnyPublisher()
 			.tryMap(TorrentGetMapper.map)
 			.eraseToAnyPublisher()
 	}
