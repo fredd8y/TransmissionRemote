@@ -6,7 +6,6 @@ Improvement
 
 TODO
 
--	Handle link
 -	Handle failure in all APIs
 -	Comment public functions
 -	Crypt password before saving it in userDefaults
