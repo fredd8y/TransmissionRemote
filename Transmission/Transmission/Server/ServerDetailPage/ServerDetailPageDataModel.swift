@@ -24,12 +24,6 @@ public struct ServerDetailPageDataModel {
 		self.password = password
 	}
 	
-	
-	public enum HTTPProtocol: CaseIterable {
-		case http
-		case https
-	}
-	
 	public var name: String
 	public var httpProtocol: HTTPProtocol
 	public var ip: String

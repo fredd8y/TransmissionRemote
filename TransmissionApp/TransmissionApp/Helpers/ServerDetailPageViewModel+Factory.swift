@@ -10,7 +10,7 @@ import Transmission
 extension ServerDetailPageViewModel {
 	init(
 		name: String?,
-		httpProtocol: String?,
+		httpProtocol: HTTPProtocol?,
 		ip: String?,
 		port: String?,
 		username: String?,
@@ -44,7 +44,7 @@ extension ServerDetailPageViewModel {
 			saveButtonTitle: ServerDetailPagePresenter.saveButtonTitle,
 			name: "",
 			namePlaceholder: ServerDetailPagePresenter.namePlaceholder,
-			httpProtocol: "",
+			httpProtocol: .http,
 			protocolPlaceholder: ServerDetailPagePresenter.protocolPlaceholder,
 			ip: "",
 			ipPlaceholder: ServerDetailPagePresenter.ipPlaceholder,

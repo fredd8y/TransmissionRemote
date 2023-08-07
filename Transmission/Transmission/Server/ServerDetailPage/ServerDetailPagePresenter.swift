@@ -100,7 +100,7 @@ public final class ServerDetailPagePresenter {
 			saveButtonTitle: saveButtonTitle,
 			name: server.name,
 			namePlaceholder: namePlaceholder,
-			httpProtocol: server.httpProtocol.rawValue,
+			httpProtocol: server.httpProtocol,
 			protocolPlaceholder: protocolPlaceholder,
 			ip: server.ip,
 			ipPlaceholder: ipPlaceholder,

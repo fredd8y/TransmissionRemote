@@ -14,25 +14,27 @@ public final class ServerSetMapper {
 	}
 }
 
-private extension Server.HTTPProtocol {
-	var remoteServerProtocol: RemoteServer.HTTPProtocol {
-		switch self {
-		case .http: return .http
-		case .https: return .https
-		}
-	}
-}
-
 private extension Server {
 	var remoteServer: RemoteServer {
 		RemoteServer(
 			name: name,
-			httpProtocol: httpProtocol.remoteServerProtocol,
+			httpProtocol: httpProtocol.remoteHttpProtocol,
 			ip: ip,
 			port: port,
 			username: username,
 			password: password,
 			id: id
 		)
+	}
+}
+
+private extension HTTPProtocol {
+	var remoteHttpProtocol: RemoteServer.RemoteHTTPProtocol {
+		switch self {
+		case .http:
+			return .http
+		case .https:
+			return .https
+		}
 	}
 }

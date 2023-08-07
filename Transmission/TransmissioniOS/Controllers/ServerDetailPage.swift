@@ -14,13 +14,9 @@ public struct ServerDetailPage: View {
 		self.viewModel = viewModel
 		
 		_title = State(initialValue: viewModel.title)
-		var httpProtocol: ServerDetailPageDataModel.HTTPProtocol = .http
-		if viewModel.httpProtocol == "https" {
-			httpProtocol = .https
-		}
 		model = ServerDetailPageDataModel(
 			name: viewModel.name ?? "",
-			httpProtocol: httpProtocol,
+			httpProtocol: viewModel.httpProtocol ?? .http,
 			ip: viewModel.ip ?? "",
 			port: viewModel.port ?? "",
 			username: viewModel.username ?? "",
@@ -42,7 +38,7 @@ public struct ServerDetailPage: View {
 				Section(viewModel.serverSectionHeader) {
 					TextField(viewModel.namePlaceholder, text: $model.name)
 					Picker(viewModel.protocolPlaceholder, selection: $model.httpProtocol) {
-						ForEach(ServerDetailPageDataModel.HTTPProtocol.allCases, id: \.self) {
+						ForEach(HTTPProtocol.allCases, id: \.self) {
 							switch $0 {
 							case .http:
 								Text("http")

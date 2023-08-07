@@ -10,7 +10,7 @@ import Foundation
 public struct Server: Equatable {
 	public init(
 		name: String,
-		httpProtocol: Server.HTTPProtocol,
+		httpProtocol: HTTPProtocol,
 		ip: String,
 		port: Int,
 		username: String? = nil,
@@ -24,12 +24,6 @@ public struct Server: Equatable {
 		self.username = username
 		self.password = password
 		self.id = id
-	}
-	
-	
-	public enum HTTPProtocol {
-		case http
-		case https
 	}
 	
 	public let name: String

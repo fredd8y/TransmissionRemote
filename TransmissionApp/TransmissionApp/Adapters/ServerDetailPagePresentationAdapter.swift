@@ -29,7 +29,7 @@ class ServerDetailPagePresentationAdapter {
 			}
 			return serverDetailPage(viewModel: ServerDetailPageViewModel(
 				name: server.name,
-				httpProtocol: server.httpProtocol.rawValue,
+				httpProtocol: server.httpProtocol,
 				ip: server.ip,
 				port: server.port.description,
 				username: server.username,
@@ -64,7 +64,7 @@ class ServerDetailPagePresentationAdapter {
 			}
 			let server = Server(
 				name: model.name,
-				httpProtocol: model.httpProtocol.serverHTTPProtocol,
+				httpProtocol: model.httpProtocol,
 				ip: model.ip,
 				port: intPort,
 				username: model.username,
@@ -84,6 +84,7 @@ class ServerDetailPagePresentationAdapter {
 			try ServerSetMapper.map(servers).write(to: url)
 		} catch {
 			// TODO: Handle error
+			dump(error)
 		}
 		return nil
 	}
@@ -99,13 +100,4 @@ class ServerDetailPagePresentationAdapter {
 		return serverDetailPage
 	}
 	
-}
-
-extension ServerDetailPageDataModel.HTTPProtocol {
-	var serverHTTPProtocol: Server.HTTPProtocol {
-		switch self {
-		case .http: return .http
-		case .https: return .https
-		}
-	}
 }

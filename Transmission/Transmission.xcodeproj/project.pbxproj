@@ -104,7 +104,6 @@
 		7B9B8F7A2A74556E00A30771 /* ServerSetMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B8F792A74556E00A30771 /* ServerSetMapper.swift */; };
 		7BC0D8062A6C0AA000B36367 /* HeaderUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8052A6C0AA000B36367 /* HeaderUtilsTests.swift */; };
 		7BC0D83E2A6C170A00B36367 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BC0D83D2A6C170A00B36367 /* Info.plist */; };
-		7BC3ABD92A76C13100B054DB /* SharedServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3ABD82A76C13100B054DB /* SharedServer.swift */; };
 		7BC3ABDB2A76C20F00B054DB /* ServerDetailPagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3ABDA2A76C20F00B054DB /* ServerDetailPagePresenterTests.swift */; };
 		7BC3ABDD2A76C2A500B054DB /* SharedServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3ABDC2A76C2A500B054DB /* SharedServerTests.swift */; };
 		7BC960D42A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC960D32A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift */; };
@@ -120,6 +119,7 @@
 		7BD2368A2A77BA0300AF75A9 /* SERVER_DETAIL_PAGE_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BD236872A77BA0300AF75A9 /* SERVER_DETAIL_PAGE_dark.png */; };
 		7BD2368B2A77BA0300AF75A9 /* SERVER_DETAIL_PAGE_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BD236882A77BA0300AF75A9 /* SERVER_DETAIL_PAGE_light.png */; };
 		7BD236912A780AD400AF75A9 /* ServerDetailPageDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD236902A780AD400AF75A9 /* ServerDetailPageDataModel.swift */; };
+		7BD236932A7820D000AF75A9 /* HTTPProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD236922A7820D000AF75A9 /* HTTPProtocol.swift */; };
 		7BD6BB692A635D380065DD42 /* Transmission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCC4CFA2A0D41BC004A8297 /* Transmission.framework */; };
 		7BD9A1F12A630C9100B6380A /* SessionStatsMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A1F02A630C9100B6380A /* SessionStatsMapperTests.swift */; };
 		7BD9A1F62A630D5200B6380A /* SessionStatsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A1F52A630D5200B6380A /* SessionStatsMapper.swift */; };
@@ -255,7 +255,6 @@
 		7B9B8F792A74556E00A30771 /* ServerSetMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSetMapper.swift; sourceTree = "<group>"; };
 		7BC0D8052A6C0AA000B36367 /* HeaderUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUtilsTests.swift; sourceTree = "<group>"; };
 		7BC0D83D2A6C170A00B36367 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7BC3ABD82A76C13100B054DB /* SharedServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedServer.swift; sourceTree = "<group>"; };
 		7BC3ABDA2A76C20F00B054DB /* ServerDetailPagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDetailPagePresenterTests.swift; sourceTree = "<group>"; };
 		7BC3ABDC2A76C2A500B054DB /* SharedServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedServerTests.swift; sourceTree = "<group>"; };
 		7BC960D32A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionGetMapperTests+Stub.swift"; sourceTree = "<group>"; };
@@ -272,6 +271,7 @@
 		7BD236872A77BA0300AF75A9 /* SERVER_DETAIL_PAGE_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SERVER_DETAIL_PAGE_dark.png; sourceTree = "<group>"; };
 		7BD236882A77BA0300AF75A9 /* SERVER_DETAIL_PAGE_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SERVER_DETAIL_PAGE_light.png; sourceTree = "<group>"; };
 		7BD236902A780AD400AF75A9 /* ServerDetailPageDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDetailPageDataModel.swift; sourceTree = "<group>"; };
+		7BD236922A7820D000AF75A9 /* HTTPProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPProtocol.swift; sourceTree = "<group>"; };
 		7BD9A1ED2A6300E600B6380A /* Requirements.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Requirements.md; sourceTree = "<group>"; };
 		7BD9A1F02A630C9100B6380A /* SessionStatsMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStatsMapperTests.swift; sourceTree = "<group>"; };
 		7BD9A1F52A630D5200B6380A /* SessionStatsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStatsMapper.swift; sourceTree = "<group>"; };
@@ -359,7 +359,7 @@
 		7B23250D2A7687F400836B02 /* Server */ = {
 			isa = PBXGroup;
 			children = (
-				7BC3ABD82A76C13100B054DB /* SharedServer.swift */,
+				7BD236922A7820D000AF75A9 /* HTTPProtocol.swift */,
 				7B2324DB2A753E0700836B02 /* ServerPage */,
 				7B23250C2A76866000836B02 /* ServerDetailPage */,
 			);
@@ -1188,13 +1188,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BD236932A7820D000AF75A9 /* HTTPProtocol.swift in Sources */,
 				7B6CD5D02A715AF300E81983 /* TorrentField.swift in Sources */,
 				7B23250F2A7688EB00836B02 /* ServerDetailPagePresenter.swift in Sources */,
 				7B3690F42A69DC0C000E130B /* TorrentsPageViewModel.swift in Sources */,
 				7BC960E32A135E6D0030B5E0 /* TorrentGetMapper.swift in Sources */,
 				7B9B8F7A2A74556E00A30771 /* ServerSetMapper.swift in Sources */,
 				7B83383A2A1016C20052F7EC /* SessionGetMapper.swift in Sources */,
-				7BC3ABD92A76C13100B054DB /* SharedServer.swift in Sources */,
 				7BD9A1F62A630D5200B6380A /* SessionStatsMapper.swift in Sources */,
 				7B9B8F722A7450C200A30771 /* ServerGetMapper.swift in Sources */,
 				7B2324E42A753EB600836B02 /* ServerPageViewModel.swift in Sources */,

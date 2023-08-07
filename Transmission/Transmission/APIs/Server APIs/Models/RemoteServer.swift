@@ -8,11 +8,11 @@
 import Foundation
 
 struct RemoteServer: Codable {
-	enum HTTPProtocol: Codable {
+	enum RemoteHTTPProtocol: String, Codable {
 		case http
 		case https
 		
-		var serverProtocol: Server.HTTPProtocol {
+		var serverProtocol: HTTPProtocol {
 			switch self {
 			case .http: return .http
 			case .https: return .https
@@ -21,7 +21,7 @@ struct RemoteServer: Codable {
 	}
 	
 	let name: String
-	let httpProtocol: HTTPProtocol
+	let httpProtocol: RemoteHTTPProtocol
 	let ip: String
 	let port: Int
 	let username: String?

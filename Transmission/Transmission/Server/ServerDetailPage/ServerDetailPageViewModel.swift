@@ -15,7 +15,7 @@ public struct ServerDetailPageViewModel {
 		saveButtonTitle: String,
 		name: String? = nil,
 		namePlaceholder: String,
-		httpProtocol: String? = nil,
+		httpProtocol: HTTPProtocol? = nil,
 		protocolPlaceholder: String,
 		ip: String? = nil,
 		ipPlaceholder: String,
@@ -50,7 +50,7 @@ public struct ServerDetailPageViewModel {
 	public var saveButtonTitle: String
 	public var name: String?
 	public var namePlaceholder: String
-	public var httpProtocol: String?
+	public var httpProtocol: HTTPProtocol?
 	public var protocolPlaceholder: String
 	public var ip: String?
 	public var ipPlaceholder: String
