@@ -21,7 +21,6 @@ class TorrentStartMapperTests: XCTestCase {
 		}
 	}
 	
-	
 	func test_map_throwsErrorOnResponseWithoutSuccessResult() throws {
 		let (json, apiError) = makeResponseWithFailure()
 		

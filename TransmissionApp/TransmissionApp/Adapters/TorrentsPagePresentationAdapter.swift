@@ -102,9 +102,17 @@ final class TorrentsPagePresentationAdapter {
 			receiveCompletion: { [weak self] completion in
 				switch completion {
 				case .finished: break
-				case .failure:
-					self?.torrentsPageViewModel.alertMessage = TorrentsPagePresenter.genericError
-					self?.torrentsPageViewModel.alertMessageVisible = true
+				case .failure(let error):
+					if let _error = error as? TorrentStopMapper.Error {
+						switch _error {
+						case .failed(let explanation):
+							self?.torrentsPageViewModel.alertMessage = explanation
+							self?.torrentsPageViewModel.alertMessageVisible = true
+						case .invalidData:
+							self?.torrentsPageViewModel.alertMessage = TorrentsPagePresenter.genericError
+							self?.torrentsPageViewModel.alertMessageVisible = true
+						}
+					}
 				}
 			},
 			receiveValue: { [weak self] _ in
