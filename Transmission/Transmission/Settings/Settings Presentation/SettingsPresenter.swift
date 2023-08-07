@@ -59,10 +59,14 @@ public class SettingsPresenter {
 		SettingsViewModel(
 			title: title,
 			updateIntervalTitle: updateIntervalTitle,
-			updateIntervalList: updateIntervalList.map { "\($0) \(seconds)" },
-			currentSelectedIntervalIndex: "\(updateIntervalList[currentSelectedIntervalIndex]) \(seconds)",
+			updateIntervalList: updateIntervalList.map { secondString($0) },
+			currentSelectedIntervalIndex: secondString(updateIntervalList[currentSelectedIntervalIndex]),
 			serversTitle: serversTitle,
 			currentServerName: currentServerName
 		)
+	}
+	
+	private static func secondString(_ value: Int) -> String {
+		"\(value) \(seconds)"
 	}
 }

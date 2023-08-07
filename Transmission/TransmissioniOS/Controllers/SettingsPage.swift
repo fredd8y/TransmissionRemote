@@ -18,6 +18,8 @@ public struct SettingsPage: View {
 	
 	public var loadData: (() -> Void)?
 	
+	public var updateIntervalSelected: ((_ selectedInterval: String, _ intervalList: [String]) -> Void)?
+	
     public var body: some View {
 		NavigationStack {
 			List {
@@ -29,7 +31,7 @@ public struct SettingsPage: View {
 					}
 					.pickerStyle(.segmented)
 					.onChange(of: viewModel.currentSelectedInterval) { newValue in
-						// TODO: call closure to handle change
+						updateIntervalSelected?(newValue, viewModel.updateIntervalList)
 					}
 				}
 				NavigationLink {

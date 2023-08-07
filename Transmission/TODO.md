@@ -6,7 +6,7 @@ Improvement
 
 TODO
 
--	Implement update interval selection
+-	Implement using interval selection in TorrentsPage
 -	Settings with multiple servers
 	-	Server name
 	-	protocol (http/https)

@@ -38,7 +38,7 @@ class SettingsPagePresentationAdapter {
 					case .finished: break
 					case .failure(let error):
 						// The only error that we can receive here is on file opening,
-						// that means the the file is non-existing
+						// that means the the file does not exist
 						// we create an empty server file and we relaunch loadData()
 						if error is ServerPublishers.Error {
 							do {
@@ -63,6 +63,11 @@ class SettingsPagePresentationAdapter {
 					self?.settingsViewModel.newValues(viewModel)
 				}
 			)
+	}
+	
+	func selectedUpdateInterval(_ updateInterval: String, fromUpdateIntervalList updateIntervalList: [String]) {
+		guard let newUpdateIntervalIndex = updateIntervalList.firstIndex(of: updateInterval) else { return }
+		UserDefaultsHandler.shared.updateInterval = UpdateIntervalHandler.updateIntervals[newUpdateIntervalIndex]
 	}
 }
 

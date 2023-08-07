@@ -13,10 +13,12 @@ final class UpdateIntervalHandler {
 	
 	private init() {}
 	
+	static var updateIntervals = [2, 5, 10, 30]
+	
 	static func makeUpdateIntervalListLoader() -> AnyPublisher<[Int], Error> {
 		Deferred {
 			Future { completion in
-				completion(.success([2, 5, 10, 30]))
+				completion(.success(updateIntervals))
 			}
 		}.eraseToAnyPublisher()
 	}
