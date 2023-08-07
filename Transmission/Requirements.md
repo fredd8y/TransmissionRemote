@@ -10,7 +10,7 @@ Features
 	-	Download speed [✅]
 	-	Size of the torrent and the already downloaded part [✅]
 2.	Total download speed [✅]
-3.	Total number of active torrent []
+3.	Total number of active torrent [✅]
 
 APIs needed for all features
 
