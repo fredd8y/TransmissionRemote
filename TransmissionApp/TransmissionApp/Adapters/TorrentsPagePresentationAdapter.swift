@@ -266,6 +266,7 @@ final class TorrentsPagePresentationAdapter {
 					torrents: torrents,
 					freeDiskSpace: downloadDirFreeSpace,
 					emptyMessage: nil,
+					canAddTorrent: true,
 					alertMessage: nil,
 					alertMessageVisible: false
 				)

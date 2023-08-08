@@ -119,12 +119,14 @@ public struct TorrentsPage: View {
 			.navigationTitle(viewModel.title)
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
-				ToolbarItemGroup(placement: .navigationBarTrailing) {
-					Button {
-						torrentTypeDialogPresented.toggle()
-					} label: {
-						Image(systemName: "plus")
-							.foregroundColor(.primary)
+				if viewModel.canAddTorrent {
+					ToolbarItemGroup(placement: .navigationBarTrailing) {
+						Button {
+							torrentTypeDialogPresented.toggle()
+						} label: {
+							Image(systemName: "plus")
+								.foregroundColor(.primary)
+						}
 					}
 				}
 				ToolbarItemGroup(placement: .bottomBar) {
@@ -290,6 +292,7 @@ struct TorrentsPage_Previews: PreviewProvider {
 				],
 				freeDiskSpace: "Free space 256,0 GB",
 				emptyMessage: nil,
+				canAddTorrent: true,
 				alertMessage: nil,
 				alertMessageVisible: false
 			)

@@ -115,6 +115,7 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		let torrents = [torrent1, torrent2]
 		let freeDiskSpace = 1234567
 		let emptyMessage = "a message"
+		let canAddTorrent = true
 		let alertMessage = "alert message"
 		let alertMessageVisibile = false
 		
@@ -127,6 +128,7 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 			torrents: torrents,
 			freeDiskSpace: freeDiskSpace,
 			emptyMessage: emptyMessage,
+			canAddTorrent: canAddTorrent,
 			alertMessage: alertMessage,
 			alertMessageVisible: alertMessageVisibile
 		)
@@ -142,6 +144,7 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		])
 		XCTAssertEqual(viewModel.freeDiskSpace, "\(TorrentsPagePresenter.freeSpace) 1,18 MB")
 		XCTAssertEqual(viewModel.emptyMessage, emptyMessage)
+		XCTAssertEqual(viewModel.canAddTorrent, canAddTorrent)
 		XCTAssertEqual(viewModel.alertMessage, alertMessage)
 		XCTAssertEqual(viewModel.alertMessageVisible, alertMessageVisibile)
 	}

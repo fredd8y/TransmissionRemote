@@ -18,14 +18,14 @@ class TorrentsPageTests: XCTestCase {
 	}
 	
 	func test_emptyListLoading() {
-		let sut = makeSUT(torrents: emptyList(), isLoading: true)
+		let sut = makeSUT(torrents: emptyList(), canAddTorrent: false, isLoading: true)
 		
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENTS_PAGE_EMPTY_LIST_LOADING_light")
 		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_PAGE_EMPTY_LIST_LOADING_dark")
 	}
 	
 	func test_listWithErrorMessage() {
-		let sut = makeSUT(torrents: emptyList(), error: "This is a\nmulti-line\nerror message")
+		let sut = makeSUT(torrents: emptyList(), error: "This is a\nmulti-line\nerror message", canAddTorrent: false)
 		 
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENTS_PAGE_LIST_WITH_ERROR_MESSAGE_light")
 		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_PAGE_LIST_WITH_ERROR_MESSAGE_dark")
@@ -70,14 +70,15 @@ class TorrentsPageTests: XCTestCase {
 	
 	// MARK: - Helpers
 	
-	private func makeSUT(torrents: [TorrentViewModel], error: String? = nil, emptyMessage: String? = nil, isLoading: Bool = false) -> TorrentsPage {
-		TorrentsPage(viewModel: viewModel(withTorrents: torrents, andError: error, emptyMessage: emptyMessage, isLoading: isLoading))
+	private func makeSUT(torrents: [TorrentViewModel], error: String? = nil, emptyMessage: String? = nil, canAddTorrent: Bool = true, isLoading: Bool = false) -> TorrentsPage {
+		TorrentsPage(viewModel: viewModel(withTorrents: torrents, andError: error, emptyMessage: emptyMessage, canAddTorrent: canAddTorrent, isLoading: isLoading))
 	}
 	
 	private func viewModel(
 		withTorrents torrents: [TorrentViewModel],
 		andError error: String? = nil,
 		emptyMessage: String? = nil,
+		canAddTorrent: Bool = true,
 		alertMessage: String? = nil,
 		alertMessageVisible: Bool = false,
 		isLoading: Bool = false
@@ -91,6 +92,7 @@ class TorrentsPageTests: XCTestCase {
 			torrents: torrents,
 			freeDiskSpace: "256,0 GB",
 			emptyMessage: emptyMessage,
+			canAddTorrent: canAddTorrent,
 			alertMessage: alertMessage,
 			alertMessageVisible: alertMessageVisible
 		)

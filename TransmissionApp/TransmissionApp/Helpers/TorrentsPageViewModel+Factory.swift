@@ -18,6 +18,7 @@ extension TorrentsPageViewModel {
 			torrents: [],
 			freeDiskSpace: nil,
 			emptyMessage: nil,
+			canAddTorrent: false,
 			alertMessage: nil,
 			alertMessageVisible: false
 		)
@@ -33,6 +34,7 @@ extension TorrentsPageViewModel {
 			torrents: [],
 			freeDiskSpace: nil,
 			emptyMessage: nil,
+			canAddTorrent: false,
 			alertMessage: nil,
 			alertMessageVisible: false
 		)
@@ -48,6 +50,7 @@ extension TorrentsPageViewModel {
 			torrents: [],
 			freeDiskSpace: nil,
 			emptyMessage: TorrentsPagePresenter.serverNotSet,
+			canAddTorrent: false,
 			alertMessage: nil,
 			alertMessageVisible: false
 		)
@@ -63,6 +66,7 @@ extension TorrentsPageViewModel {
 			torrents: [],
 			freeDiskSpace: nil,
 			emptyMessage: nil,
+			canAddTorrent: false,
 			alertMessage: nil,
 			alertMessageVisible: false
 		)
@@ -78,6 +82,7 @@ extension TorrentsPageViewModel {
 			torrents: [],
 			freeDiskSpace: nil,
 			emptyMessage: nil,
+			canAddTorrent: false,
 			alertMessage: nil,
 			alertMessageVisible: false
 		)

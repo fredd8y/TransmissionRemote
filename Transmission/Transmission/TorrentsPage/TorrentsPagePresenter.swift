@@ -225,6 +225,7 @@ public final class TorrentsPagePresenter {
 		torrents: [Torrent],
 		freeDiskSpace: Int?,
 		emptyMessage: String?,
+		canAddTorrent: Bool,
 		alertMessage: String?,
 		alertMessageVisible: Bool
 	) -> TorrentsPageViewModel {
@@ -239,6 +240,7 @@ public final class TorrentsPagePresenter {
 			},
 			freeDiskSpace: "\(TorrentsPagePresenter.freeSpace) \(freeDiskSpace?.byteSize ?? "-")",
 			emptyMessage: emptyMessage,
+			canAddTorrent: canAddTorrent,
 			alertMessage: alertMessage,
 			alertMessageVisible: alertMessageVisible
 		)
