@@ -17,6 +17,13 @@ class TorrentsPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_PAGE_EMPTY_LIST_dark")
 	}
 	
+	func test_emptyListLoading() {
+		let sut = makeSUT(torrents: emptyList(), isLoading: true)
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENTS_PAGE_EMPTY_LIST_LOADING_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_PAGE_EMPTY_LIST_LOADING_dark")
+	}
+	
 	func test_listWithErrorMessage() {
 		let sut = makeSUT(torrents: emptyList(), error: "This is a\nmulti-line\nerror message")
 		 
@@ -63,8 +70,8 @@ class TorrentsPageTests: XCTestCase {
 	
 	// MARK: - Helpers
 	
-	private func makeSUT(torrents: [TorrentViewModel], error: String? = nil, emptyMessage: String? = nil) -> TorrentsPage {
-		TorrentsPage(viewModel: viewModel(withTorrents: torrents, andError: error, emptyMessage: emptyMessage))
+	private func makeSUT(torrents: [TorrentViewModel], error: String? = nil, emptyMessage: String? = nil, isLoading: Bool = false) -> TorrentsPage {
+		TorrentsPage(viewModel: viewModel(withTorrents: torrents, andError: error, emptyMessage: emptyMessage, isLoading: isLoading))
 	}
 	
 	private func viewModel(
@@ -72,10 +79,12 @@ class TorrentsPageTests: XCTestCase {
 		andError error: String? = nil,
 		emptyMessage: String? = nil,
 		alertMessage: String? = nil,
-		alertMessageVisible: Bool = false
+		alertMessageVisible: Bool = false,
+		isLoading: Bool = false
 	) -> TorrentsPageViewModel {
 		TorrentsPageViewModel(
 			title: "Title",
+			isLoading: isLoading,
 			error: error,
 			uploadSpeed: "5,5 MB/s",
 			downloadSpeed: "5,5 MB/s",

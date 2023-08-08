@@ -102,6 +102,7 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 	
 	func test_map_createsViewModel() {
 		let title = "Title"
+		let isLoading = false
 		let error = "a error"
 		let uploadSpeed = 1234576
 		let downloadSpeed = 1234567
@@ -115,6 +116,7 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		
 		let viewModel = TorrentsPagePresenter.map(
 			title: title,
+			isLoading: isLoading,
 			error: error,
 			uploadSpeed: uploadSpeed,
 			downloadSpeed: downloadSpeed,
@@ -126,6 +128,7 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		)
 		
 		XCTAssertEqual(viewModel.title, title)
+		XCTAssertEqual(viewModel.isLoading, isLoading)
 		XCTAssertEqual(viewModel.error, error)
 		XCTAssertEqual(viewModel.downloadSpeed, "1,18 MB/s")
 		XCTAssertEqual(viewModel.uploadSpeed, "1,18 MB/s")

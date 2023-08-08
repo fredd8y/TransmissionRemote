@@ -158,6 +158,8 @@
 		7BD9A1FD2A6311F600B6380A /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A1FC2A6311F600B6380A /* Stats.swift */; };
 		7BD9A2072A631C8E00B6380A /* SessionGetAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9A2062A631C8E00B6380A /* SessionGetAPIEndToEndTests.swift */; };
 		7BD9A20B2A6320E000B6380A /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65875A2A0D846500317EBE /* XCTestCase+MemoryLeakTracking.swift */; };
+		7BF3BB4D2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF3BB4B2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png */; };
+		7BF3BB4E2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF3BB4C2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,6 +345,8 @@
 		7BD9A2042A631C8E00B6380A /* TransmissionAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransmissionAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BD9A2062A631C8E00B6380A /* SessionGetAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionGetAPIEndToEndTests.swift; sourceTree = "<group>"; };
 		7BD9A20F2A63293400B6380A /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		7BF3BB4B2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png; sourceTree = "<group>"; };
+		7BF3BB4C2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -523,6 +527,8 @@
 				7B2324D32A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light_extraExtraExtraLarge.png */,
 				7B80FC762A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_dark.png */,
 				7B80FC772A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_light.png */,
+				7BF3BB4C2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png */,
+				7BF3BB4B2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png */,
 				7B80FC7A2A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_dark.png */,
 				7B80FC7D2A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_light_extraExtraExtraLarge.png */,
 				7B80FC7E2A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_light.png */,
@@ -1330,6 +1336,7 @@
 				7BD81BA22A7B03640039877F /* SERVER_DETAIL_PAGE_PASSWORD_ERROR_light.png in Resources */,
 				7B2324FE2A7663E000836B02 /* SERVER_PAGE_LIST_WITH_CONTENT_WITH_SELECTION_dark.png in Resources */,
 				7BD81BA42A7B03640039877F /* SERVER_DETAIL_PAGE_PASSWORD_ERROR_dark.png in Resources */,
+				7BF3BB4E2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png in Resources */,
 				7BD81B992A7B03640039877F /* SERVER_DETAIL_PAGE_PORT_ERROR_dark.png in Resources */,
 				7BD81B982A7B03640039877F /* SERVER_DETAIL_PAGE_SERVER_NAME_ERROR_dark.png in Resources */,
 				7BD236842A77B6D100AF75A9 /* SERVER_DETAIL_PAGE_EMPTY_light.png in Resources */,
@@ -1338,6 +1345,7 @@
 				7BD81BA02A7B03640039877F /* SERVER_DETAIL_PAGE_IP_ERROR_dark.png in Resources */,
 				7BD81BA32A7B03640039877F /* SERVER_DETAIL_PAGE_SERVER_NAME_ERROR_light.png in Resources */,
 				7B80FC812A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_dark.png in Resources */,
+				7BF3BB4D2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png in Resources */,
 				7B80FC932A7262D600A6DAB6 /* SETTINGS_PAGE_light.png in Resources */,
 				7BD81B9D2A7B03640039877F /* SERVER_DETAIL_PAGE_USERNAME_ERROR_light_extraExtraExtraLarge.png in Resources */,
 				7B2324FF2A7663E000836B02 /* SERVER_PAGE_LIST_WITH_CONTENT_WITH_SELECTION_light.png in Resources */,
