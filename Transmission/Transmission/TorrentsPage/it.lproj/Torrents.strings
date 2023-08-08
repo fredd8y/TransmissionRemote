@@ -42,3 +42,4 @@
 "LINK_INSERT_DESCRIPTION" = "Inserisci qui il torrent link";
 "FREE_SPACE" = "Spazio libero";
 "SERVER_TIMEOUT" = "Il server non risponde";
+"MISSING_SERVER_ERROR" = "Server non disponibile";

@@ -100,6 +100,10 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentsPagePresenter.serverTimeout, localized("SERVER_TIMEOUT", table: table))
 	}
 	
+	func test_missingServerError_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.missingServerError, localized("MISSING_SERVER_ERROR", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Title"
 		let isLoading = false

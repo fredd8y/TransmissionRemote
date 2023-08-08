@@ -9,5 +9,4 @@ FUTURE RELEASE
 
 NEXT RELEASE
 
--	Acceptance tests
 -	Implement github actions to automatically release and test
