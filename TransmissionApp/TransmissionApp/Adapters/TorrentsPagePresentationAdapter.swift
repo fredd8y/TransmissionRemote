@@ -293,5 +293,6 @@ private extension TorrentsPageViewModel {
 		torrents = viewModel.torrents
 		freeDiskSpace = viewModel.freeDiskSpace
 		emptyMessage = viewModel.emptyMessage
+		canAddTorrent = viewModel.canAddTorrent
 	}
 }
