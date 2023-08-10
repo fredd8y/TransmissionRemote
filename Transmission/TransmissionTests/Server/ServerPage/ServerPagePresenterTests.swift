@@ -20,6 +20,14 @@ final class ServerPagePresenterTests: XCServerTestCase {
 		XCTAssertEqual(ServerPagePresenter.editItemActionTitle, localized("SERVER_PAGE_ITEM_EDIT_ACTION", table: table))
 	}
 	
+	func test_deleteItemActionTitle_isLocalized() {
+		XCTAssertEqual(ServerPagePresenter.deleteItemActionTitle, localized("SERVER_PAGE_ITEM_DELETE_ACTION", table: table))
+	}
+	
+	func test_emptyMessage_isLocalized() {
+		XCTAssertEqual(ServerPagePresenter.serverPageEmptyMessage, localized("SERVER_PAGE_EMPTY_MESSAGE", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let currentSelectedServerId = UUID()
 		let title = "Servers"

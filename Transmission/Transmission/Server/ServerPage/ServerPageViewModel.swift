@@ -14,13 +14,15 @@ public class ServerPageViewModel: ObservableObject, Equatable {
 		servers: [ServerViewModel],
 		editItemActionTitle: String,
 		deleteItemActionTitle: String,
-		currentSelectedServerId: UUID?
+		currentSelectedServerId: UUID?,
+		emptyMessage: String?
 	) {
 		self.title = title
 		self.servers = servers
 		self.editItemActionTitle = editItemActionTitle
 		self.deleteItemActionTitle = deleteItemActionTitle
 		self.currentSelectedServerId = currentSelectedServerId
+		self.emptyMessage = emptyMessage
 	}
 	
 	@Published public var title: String
@@ -28,13 +30,16 @@ public class ServerPageViewModel: ObservableObject, Equatable {
 	public var editItemActionTitle: String
 	public var deleteItemActionTitle: String
 	@Published public var currentSelectedServerId: UUID?
+	@Published public var emptyMessage: String?
 	
 	public static func == (lhs: ServerPageViewModel, rhs: ServerPageViewModel) -> Bool {
 		lhs.title == rhs.title &&
 		lhs.servers == rhs.servers &&
 		lhs.editItemActionTitle == rhs.editItemActionTitle &&
 		lhs.deleteItemActionTitle == rhs.deleteItemActionTitle &&
-		lhs.currentSelectedServerId == rhs.currentSelectedServerId
+		lhs.currentSelectedServerId == rhs.currentSelectedServerId &&
+		lhs.emptyMessage == rhs.emptyMessage
+		
 	}
 	
 }

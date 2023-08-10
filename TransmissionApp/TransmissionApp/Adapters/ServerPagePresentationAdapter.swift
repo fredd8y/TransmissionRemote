@@ -106,5 +106,6 @@ private extension ServerPageViewModel {
 		title = viewModel.title
 		servers = viewModel.servers
 		currentSelectedServerId = viewModel.currentSelectedServerId
+		emptyMessage = viewModel.emptyMessage
 	}
 }

@@ -9,3 +9,4 @@
 "SERVERS_VIEW_TITLE" = "Servers";
 "SERVER_PAGE_ITEM_EDIT_ACTION" = "Edit";
 "SERVER_PAGE_ITEM_DELETE_ACTION" = "Delete";
+"SERVER_PAGE_EMPTY_MESSAGE" = "No server found, to add a server press the '+' button";

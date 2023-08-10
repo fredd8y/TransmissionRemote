@@ -14,7 +14,8 @@ extension ServerPageViewModel {
 			servers: [],
 			editItemActionTitle: ServerPagePresenter.editItemActionTitle,
 			deleteItemActionTitle: ServerPagePresenter.deleteItemActionTitle,
-			currentSelectedServerId: nil
+			currentSelectedServerId: nil,
+			emptyMessage: ServerPagePresenter.serverPageEmptyMessage
 		)
 	}
 }

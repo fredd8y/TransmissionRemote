@@ -62,22 +62,26 @@ public struct SettingsPage: View {
 }
 
 struct SettingsPage_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsPage(viewModel: SettingsPageViewModel(
-			title: "Settings",
-			pollingRateTitle: "Update interval",
-			pollingRateList: ["2 seconds", "5 seconds", "10 seconds", "30 seconds"],
-			currentSelectedPollingRate: "5 seconds",
-			serversTitle: "Server",
-			currentServerName: "Raspberry"
-		), serverPage: ServerPage(
-			viewModel: ServerPageViewModel(
-				title: "Title",
-				servers: [],
-				editItemActionTitle: "Edit",
-				deleteItemActionTitle: "Delete",
-				currentSelectedServerId: nil)
+	static var previews: some View {
+		SettingsPage(
+			viewModel: SettingsPageViewModel(
+				title: "Settings",
+				pollingRateTitle: "Update interval",
+				pollingRateList: ["2 seconds", "5 seconds", "10 seconds", "30 seconds"],
+				currentSelectedPollingRate: "5 seconds",
+				serversTitle: "Server",
+				currentServerName: "Raspberry"
+			),
+			serverPage: ServerPage(
+				viewModel: ServerPageViewModel(
+					title: "Title",
+					servers: [],
+					editItemActionTitle: "Edit",
+					deleteItemActionTitle: "Delete",
+					currentSelectedServerId: nil,
+					emptyMessage: "Test"
+				)
 			)
 		)
-    }
+	}
 }

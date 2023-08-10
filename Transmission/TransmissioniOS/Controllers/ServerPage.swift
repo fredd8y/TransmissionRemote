@@ -32,33 +32,46 @@ public struct ServerPage: View {
 		
     public var body: some View {
 		NavigationStack {
-			List(viewModel.servers, selection: $viewModel.currentSelectedServerId) { server in
-				HStack {
-					VStack(alignment: .leading, spacing: 8) {
-						Text(server.title)
-							.font(.subheadline)
-						Text(server.url)
-							.font(.caption2)
-					}
-					if server.id == viewModel.currentSelectedServerId {
+			VStack {
+				if let message = viewModel.emptyMessage {
+					HStack {
 						Spacer()
-						Image(systemName: "checkmark")
-							.foregroundColor(.primary)
+						Text(message)
+							.font(.subheadline)
+							.padding()
+							.multilineTextAlignment(.center)
+						Spacer()
 					}
-				}.contextMenu {
-					NavigationLink {
-						showServerDetail?(server.id)
-					} label: {
-						Text(viewModel.editItemActionTitle)
+				} else {
+					List(viewModel.servers, selection: $viewModel.currentSelectedServerId) { server in
+						HStack {
+							VStack(alignment: .leading, spacing: 8) {
+								Text(server.title)
+									.font(.subheadline)
+								Text(server.url)
+									.font(.caption2)
+							}
+							if server.id == viewModel.currentSelectedServerId {
+								Spacer()
+								Image(systemName: "checkmark")
+									.foregroundColor(.primary)
+							}
+						}.contextMenu {
+							NavigationLink {
+								showServerDetail?(server.id)
+							} label: {
+								Text(viewModel.editItemActionTitle)
+							}
+							Button(role: .destructive) {
+								deleteServer?(server.id)
+							} label: {
+								Text(viewModel.deleteItemActionTitle)
+							}
+						}
 					}
-					Button(role: .destructive) {
-						deleteServer?(server.id)
-					} label: {
-						Text(viewModel.deleteItemActionTitle)
-					}
+					.listStyle(.insetGrouped)
 				}
 			}
-			.listStyle(.insetGrouped)
 			.navigationTitle(viewModel.title)
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
@@ -76,12 +89,14 @@ public struct ServerPage: View {
 				guard let newValue else { return }
 				selectServer?(newValue)
 			}
-		}.onLoad {
+		}
+		.onLoad {
 			loadData?()
 			withAnimation {
 				tabBarVisibility = .hidden
 			}
-		}.onChange(of: isPresented) { _ in
+		}
+		.onChange(of: isPresented) { _ in
 			withAnimation {
 				tabBarVisibility = .visible
 			}
@@ -109,7 +124,8 @@ struct ServerPage_Previews: PreviewProvider {
 				],
 				editItemActionTitle: "Edit",
 				deleteItemActionTitle: "Delete",
-				currentSelectedServerId: selectedId
+				currentSelectedServerId: selectedId,
+				emptyMessage: nil
 			)
 		)
     }
