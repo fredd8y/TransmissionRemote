@@ -104,6 +104,10 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentsPagePresenter.missingServerError, localized("MISSING_SERVER_ERROR", table: table))
 	}
 	
+	func test_emptyTorrentListMessage_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.emptyTorrentListMessage, localized("EMPTY_TORRENT_LIST_MESSAGE", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Title"
 		let isLoading = false

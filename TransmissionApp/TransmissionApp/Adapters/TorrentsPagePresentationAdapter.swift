@@ -265,7 +265,7 @@ final class TorrentsPagePresentationAdapter {
 					downloadSpeed: torrents.reduce(0) { $0 + $1.rateDownload },
 					torrents: torrents,
 					freeDiskSpace: downloadDirFreeSpace,
-					emptyMessage: nil,
+					emptyMessage: torrents.count > 0 ? nil : TorrentsPagePresenter.emptyTorrentListMessage,
 					canAddTorrent: true,
 					alertMessage: nil,
 					alertMessageVisible: false

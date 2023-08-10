@@ -216,6 +216,14 @@ public final class TorrentsPagePresenter {
 			comment: "Description of free space to be shown in torrents page")
 	}
 	
+	public static var emptyTorrentListMessage: String {
+		NSLocalizedString(
+			"EMPTY_TORRENT_LIST_MESSAGE",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Message to show when torrent list is empty")
+	}
+	
 	public static func map(
 		title: String,
 		isLoading: Bool,
