@@ -92,3 +92,4 @@ iOSInjectionProject/
 # Ignore test Configuration
 
 EndToEndTestConfigurations.xcconfig
+TODO.md

@@ -236,6 +236,7 @@
 		7B4907B62A6524CB00C75819 /* EndToEndTestConfigurations.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = EndToEndTestConfigurations.xcconfig; sourceTree = "<group>"; };
 		7B4DFB702A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorrentGetMapperTests+Stub.swift"; sourceTree = "<group>"; };
 		7B4DFB722A15394F007E9C63 /* Torrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Torrent.swift; sourceTree = "<group>"; };
+		7B5036A42A862ADD0078480E /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		7B6587532A0D845000317EBE /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		7B6587542A0D845000317EBE /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		7B6587582A0D846500317EBE /* SharedTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
@@ -343,7 +344,6 @@
 		7BD9A1FC2A6311F600B6380A /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		7BD9A2042A631C8E00B6380A /* TransmissionAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransmissionAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BD9A2062A631C8E00B6380A /* SessionGetAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionGetAPIEndToEndTests.swift; sourceTree = "<group>"; };
-		7BD9A20F2A63293400B6380A /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		7BF3BB4B2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png; sourceTree = "<group>"; };
 		7BF3BB4C2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1008,7 +1008,7 @@
 		7BCC4CF02A0D41BC004A8297 = {
 			isa = PBXGroup;
 			children = (
-				7BD9A20F2A63293400B6380A /* TODO.md */,
+				7B5036A42A862ADD0078480E /* TODO.md */,
 				7BCC4CFC2A0D41BC004A8297 /* Transmission */,
 				7BCC4D062A0D41BC004A8297 /* TransmissionTests */,
 				7BD9A2052A631C8E00B6380A /* TransmissionAPIEndToEndTests */,
