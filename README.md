@@ -1,4 +1,4 @@
-# Transmission
+# TransmissionRemote
 Transmission is an app for iPhone that work as a Transmission Remote Controller, it aims to have iOS native look and feel and to follow iOS human interface guidelines.
 
 I'm developing this app to gain confidence with some concept like:
