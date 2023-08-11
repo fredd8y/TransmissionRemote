@@ -20,7 +20,10 @@ Features included currently:
 - Support multiple server
 - Download folder available free space
 
-This app is still in development so this list of features will be constantly updated as more feature will be implemented.
+This list of features will be constantly updated as more feature will be implemented.
+
+The app is working, but since it is still in development at the moment, I cannot rule out more or less serious bugs, so for practical purposes it is to be considered non-functional.
+This status will be changed when the app is considered stable.
 
 ## Acknowledgements
 
