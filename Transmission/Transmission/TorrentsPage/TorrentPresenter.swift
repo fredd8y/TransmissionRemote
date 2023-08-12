@@ -80,11 +80,20 @@ public final class TorrentPresenter {
 			comment: "Description to show when torrent is in queue for seed")
 	}
 	
+	public static var unknownDownloadTime: String {
+		NSLocalizedString(
+			"UNKNOWN_DOWNLOAD_TIME",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Description to show when download time is undefined")
+	}
+	
 	static func percentageString(_ value: Double) -> String {
 		((value * 100).round() ?? "-") + "%"
 	}
 	
 	static func relativeEta(_ value: Int) -> String {
+		guard value > 0 else { return TorrentPresenter.unknownDownloadTime }
 		let relativeDateFormatter = RelativeDateTimeFormatter()
 		relativeDateFormatter.locale = .current
 		relativeDateFormatter.calendar = .current

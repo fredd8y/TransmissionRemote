@@ -44,3 +44,4 @@
 "SERVER_TIMEOUT" = "Il server non risponde";
 "MISSING_SERVER_ERROR" = "Server non disponibile";
 "EMPTY_TORRENT_LIST_MESSAGE" = "Nessun torrent attivo, per aggiungerne premi il pulsante '+' in alto";
+"UNKNOWN_DOWNLOAD_TIME" = "tempo sconosciuto";

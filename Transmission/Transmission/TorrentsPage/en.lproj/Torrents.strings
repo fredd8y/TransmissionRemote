@@ -44,3 +44,4 @@
 "SERVER_TIMEOUT" = "Server timed out";
 "MISSING_SERVER_ERROR" = "Missing server";
 "EMPTY_TORRENT_LIST_MESSAGE" = "No torrent found, to add one press the '+' button";
+"UNKNOWN_DOWNLOAD_TIME" = "unknown time";

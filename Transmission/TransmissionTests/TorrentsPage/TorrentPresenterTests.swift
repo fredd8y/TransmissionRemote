@@ -48,6 +48,10 @@ final class TorrentPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentPresenter.unknown, localized("UNKNOWN_STATUS", table: table))
 	}
 	
+	func test_unknownDownloadTime_isLocalized() {
+		XCTAssertEqual(TorrentPresenter.unknownDownloadTime, localized("UNKNOWN_DOWNLOAD_TIME", table: table))
+	}
+	
 	func test_map_createsViewModelWithNilError() {
 		let torrent = anyTorrentWithoutError()
 		
