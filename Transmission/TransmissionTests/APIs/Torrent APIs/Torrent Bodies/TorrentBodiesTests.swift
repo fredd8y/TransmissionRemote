@@ -111,6 +111,24 @@ extension TorrentBodiesTests {
 }
 
 extension TorrentBodiesTests {
+	func test_torrentRemoveAll_httpBodyDeletingLocalData() {
+		let expectedBody = #"{"method":"torrent-remove","arguments":{"delete-local-data":true}}"#.data(using: .utf8)
+		
+		let httpBody = TorrentBodies.removeAll(deleteLocalData: true)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
+	func test_torrentRemoveAll_httpBodyPreservingLocalData() {
+		let expectedBody = #"{"method":"torrent-remove","arguments":{"delete-local-data":false}}"#.data(using: .utf8)
+		
+		let httpBody = TorrentBodies.removeAll(deleteLocalData: false)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+}
+
+extension TorrentBodiesTests {
 	func test_torrentStop_httpBody() {
 		let expectedBody = #"{"method":"torrent-stop","arguments":{"ids":[1]}}"#.data(using: .utf8)
 		

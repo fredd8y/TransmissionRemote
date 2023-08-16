@@ -98,6 +98,29 @@ extension TorrentBodies {
 }
 
 extension TorrentBodies {
+	private struct TorrentRemoveAllBody: Encodable {
+		init(deleteLocalData: Bool) {
+			arguments = Arguments(deleteLocalData: deleteLocalData)
+		}
+		
+		let method: String = "torrent-remove"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let deleteLocalData: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case deleteLocalData = "delete-local-data"
+			}
+		}
+	}
+	
+	public static func removeAll(deleteLocalData: Bool) -> Data {
+		try! JSONEncoder().encode(TorrentRemoveAllBody(deleteLocalData: deleteLocalData))
+	}
+}
+
+extension TorrentBodies {
 	private struct TorrentStopBody: Encodable {
 		init(id: Int) {
 			arguments = Arguments(ids: [id])
