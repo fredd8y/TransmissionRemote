@@ -122,7 +122,7 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 //		let canAddTorrent = true
 //		let alertMessage = "alert message"
 //		let alertMessageVisibile = false
-//		
+//
 //		let viewModel = TorrentsPagePresenter.map(
 //			title: title,
 //			isLoading: isLoading,
@@ -136,7 +136,7 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 //			alertMessage: alertMessage,
 //			alertMessageVisible: alertMessageVisibile
 //		)
-//		
+//
 //		XCTAssertEqual(viewModel.title, title)
 //		XCTAssertEqual(viewModel.isLoading, isLoading)
 //		XCTAssertEqual(viewModel.error, error)

@@ -246,6 +246,11 @@ public struct TorrentsPage: View {
 		.onLoad {
 			loadData?()
 		}
+		.if(viewModel.error != nil) { navigationStack in
+			navigationStack.refreshable {
+				loadData?()
+			}
+		}
 	}
 	
 	private func progressBarColor(_ torrent: TorrentViewModel) -> Color {
@@ -263,7 +268,7 @@ struct TorrentsPage_Previews: PreviewProvider {
 		TorrentsPage(
 			viewModel: TorrentsPageViewModel(
 				title: "Title",
-				isLoading: true,
+				isLoading: false,
 				error: nil,
 				uploadSpeed: "5,5 Mb/s",
 				downloadSpeed: "5,5 Mb/s",
