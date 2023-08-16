@@ -139,7 +139,8 @@ class TorrentsPageTests: XCTestCase {
 				completionPercentage: anyPercentage,
 				completionPercentageString: anyPercentageString,
 				downloaded: anyDownloaded,
-				downloadSpeed: anyDownloadSpeed,
+				uploadSpeed: anySpeed,
+				downloadSpeed: anySpeed,
 				status: .running
 			),
 			TorrentViewModel(
@@ -149,7 +150,8 @@ class TorrentsPageTests: XCTestCase {
 				completionPercentage: anyPercentage,
 				completionPercentageString: anyPercentageString,
 				downloaded: anyDownloaded,
-				downloadSpeed: anyDownloadSpeed,
+				uploadSpeed: anySpeed,
+				downloadSpeed: anySpeed,
 				status: .running
 			)
 		]
@@ -165,7 +167,8 @@ class TorrentsPageTests: XCTestCase {
 				completionPercentage: anyPercentage,
 				completionPercentageString: anyPercentageString,
 				downloaded: anyDownloaded,
-				downloadSpeed: anyDownloadSpeed,
+				uploadSpeed: anySpeed,
+				downloadSpeed: anySpeed,
 				status: .stopped
 			)
 		]
@@ -197,7 +200,7 @@ class TorrentsPageTests: XCTestCase {
 		"54MB of 5.6GB"
 	}
 	
-	private var anyDownloadSpeed: String {
+	private var anySpeed: String {
 		"567Kb/s"
 	}
 	
