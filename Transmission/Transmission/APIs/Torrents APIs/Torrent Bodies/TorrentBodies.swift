@@ -117,6 +117,16 @@ extension TorrentBodies {
 }
 
 extension TorrentBodies {
+	private struct TorrentStopAllBody: Encodable {
+		let method: String = "torrent-stop"
+	}
+	
+	public static func stopAll() -> Data {
+		try! JSONEncoder().encode(TorrentStopAllBody())
+	}
+}
+
+extension TorrentBodies {
 	private struct TorrentStartBody: Encodable {
 		init(id: Int) {
 			arguments = Arguments(ids: [id])

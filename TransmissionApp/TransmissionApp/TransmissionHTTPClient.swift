@@ -58,6 +58,18 @@ final class TransmissionHTTPClient {
 			.eraseToAnyPublisher()
 	}
 	
+	static func makeTorrentStopAllPublisher(server: Server) -> AnyPublisher<Void, Error> {
+		return httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: TorrentBodies.stopAll(),
+				additionalHeader: headers(server.credentials)
+			)
+			.tryMap(Logger.log)
+			.tryMap(TorrentStopMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
 	static func makeTorrentRemovePublisher(
 		server: Server,
 		id: Int,

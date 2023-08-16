@@ -121,6 +121,16 @@ extension TorrentBodiesTests {
 }
 
 extension TorrentBodiesTests {
+	func test_torrentStopAll_httpBody() {
+		let expectedBody = #"{"method":"torrent-stop"}"#.data(using: .utf8)
+		
+		let httpBody = TorrentBodies.stopAll()
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+}
+
+extension TorrentBodiesTests {
 	func test_torrentStart_httpBody() {
 		let expectedBody = #"{"method":"torrent-start","arguments":{"ids":[1]}}"#.data(using: .utf8)
 		
