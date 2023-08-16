@@ -29,18 +29,10 @@ final class TorrentsPagePresentationAdapter {
 		}.store(in: &currentServerCancellable)
 	}
 	
-	
+	private var workItems: [DispatchWorkItem] = []
 	private var cancellables = Set<AnyCancellable>()
-	private var addTorrentCancellable = Set<AnyCancellable>()
-	private var stopTorrentCancellable = Set<AnyCancellable>()
 	private var pollingRateCancellable = Set<AnyCancellable>()
-	private var startTorrentCancellable = Set<AnyCancellable>()
 	private var currentServerCancellable = Set<AnyCancellable>()
-	private var deleteTorrentCancellable = Set<AnyCancellable>()
-	private var stopAllTorrentCancellable = Set<AnyCancellable>()
-	private var startAllTorrentCancellable = Set<AnyCancellable>()
-	private var deleteAllTorrentCancellable = Set<AnyCancellable>()
-	private var setDownloadLimitCancellable = Set<AnyCancellable>()
 	
 	private var sessionIdHandler: (String) -> Void
 	
@@ -74,7 +66,7 @@ final class TorrentsPagePresentationAdapter {
 			receiveValue: { [weak self] _ in
 				self?.loadData()
 			}
-		).store(in: &startTorrentCancellable)
+		).store(in: &cancellables)
 	}
 	
 	func startAll() {
@@ -105,7 +97,7 @@ final class TorrentsPagePresentationAdapter {
 				receiveValue: { [weak self] _ in
 					self?.loadData()
 				}
-			).store(in: &startAllTorrentCancellable)
+			).store(in: &cancellables)
 	}
 	
 	func stop(_ id: Int) {
@@ -136,7 +128,7 @@ final class TorrentsPagePresentationAdapter {
 			receiveValue: { [weak self] _ in
 				self?.loadData()
 			}
-		).store(in: &stopTorrentCancellable)
+		).store(in: &cancellables)
 	}
 	
 	func stopAll() {
@@ -167,7 +159,7 @@ final class TorrentsPagePresentationAdapter {
 			receiveValue: { [weak self] _ in
 				self?.loadData()
 			}
-		).store(in: &stopAllTorrentCancellable)
+		).store(in: &cancellables)
 	}
 	
 	func selectedLink(_ link: String) {
@@ -205,7 +197,7 @@ final class TorrentsPagePresentationAdapter {
 			receiveValue: { [weak self] _ in
 				self?.loadData()
 			}
-		).store(in: &addTorrentCancellable)
+		).store(in: &cancellables)
 	}
 	
 	func selectedFile(_ url: URL) {
@@ -250,7 +242,7 @@ final class TorrentsPagePresentationAdapter {
 			receiveValue: { [weak self] _ in
 				self?.loadData()
 			}
-		).store(in: &addTorrentCancellable)
+		).store(in: &cancellables)
 	}
 	
 	func delete(_ id: Int, _ deleteLocalData: Bool) {
@@ -285,7 +277,7 @@ final class TorrentsPagePresentationAdapter {
 			receiveValue: { [weak self] _ in
 				self?.loadData()
 			}
-		).store(in: &deleteTorrentCancellable)
+		).store(in: &cancellables)
 	}
 	
 	func deleteAll(_ deleteLocalData: Bool) {
@@ -319,7 +311,7 @@ final class TorrentsPagePresentationAdapter {
 			receiveValue: { [weak self] _ in
 				self?.loadData()
 			}
-		).store(in: &deleteAllTorrentCancellable)
+		).store(in: &cancellables)
 	}
 	
 	func setDownloadLimit(_ enabled: Bool) {
@@ -353,16 +345,18 @@ final class TorrentsPagePresentationAdapter {
 			receiveValue: { [weak self] _ in
 				self?.loadData()
 			}
-		).store(in: &setDownloadLimitCancellable)
+		).store(in: &cancellables)
 	}
 	
 	func loadData() {
+		workItems.forEach { $0.cancel() }
+		workItems.removeAll()
+		cancellables.removeAll()
 		guard let server = UserDefaultsHandler.shared.currentServer else {
 			torrentsPageViewModel.newValues(TorrentsPageViewModel.serverNotSet())
 			return
 		}
-		var cancellable: AnyCancellable?
-		cancellable = TransmissionHTTPClient.makeRemoteTorrentsLoader(server: server)
+		TransmissionHTTPClient.makeRemoteTorrentsLoader(server: server)
 		.dispatchOnMainQueue()
 		.sink(
 			receiveCompletion: { [weak self] completion in
@@ -409,15 +403,13 @@ final class TorrentsPagePresentationAdapter {
 					alertMessageVisible: false
 				)
 				self?.torrentsPageViewModel.newValues(viewModel)
-				DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.seconds(UserDefaultsHandler.shared.pollingRate)) { [weak self] in
-					if let cancellable, self?.cancellables.contains(cancellable) == true {
-						self?.cancellables.remove(cancellable)
-						self?.loadData()
-					}
+				let workItem = DispatchWorkItem { [weak self] in
+					self?.loadData()
 				}
+				self?.workItems.append(workItem)
+				DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.seconds(UserDefaultsHandler.shared.pollingRate), execute: workItem)
 			}
-		)
-		cancellable?.store(in: &cancellables)
+		).store(in: &cancellables)
 	}
 }
 
