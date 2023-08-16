@@ -108,6 +108,34 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentsPagePresenter.emptyTorrentListMessage, localized("EMPTY_TORRENT_LIST_MESSAGE", table: table))
 	}
 	
+	func test_lockTo_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.lockTo, localized("LOCK_TO", table: table))
+	}
+	
+	func test_up_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.up, localized("UP", table: table))
+	}
+	
+	func test_down_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.down, localized("DOWN", table: table))
+	}
+	
+	func test_unlockSpeedLimit_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.unlockSpeedLimit, localized("UNLOCK_SPEED_LIMIT", table: table))
+	}
+	
+	func test_stopAll_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.stopAll, localized("STOP_ALL", table: table))
+	}
+	
+	func test_startAll_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.startAll, localized("START_ALL", table: table))
+	}
+	
+	func test_removeAll_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.removeAll, localized("REMOVE_ALL", table: table))
+	}
+	
 //	func test_map_createsViewModel() {
 //		let title = "Title"
 //		let isLoading = false

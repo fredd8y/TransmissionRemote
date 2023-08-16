@@ -45,3 +45,10 @@
 "MISSING_SERVER_ERROR" = "Missing server";
 "EMPTY_TORRENT_LIST_MESSAGE" = "No torrent found, to add one press the '+' button";
 "UNKNOWN_DOWNLOAD_TIME" = "unknown time";
+"LOCK_TO" = "Lock to";
+"UP" = "up";
+"DOWN" = "down";
+"UNLOCK_SPEED_LIMIT" = "Unlock speed limit";
+"STOP_ALL" = "Stop all";
+"START_ALL" = "Start all";
+"REMOVE_ALL" = "Remove all";

@@ -130,8 +130,8 @@ final class TransmissionHTTPClient {
 			.eraseToAnyPublisher()
 	}
 	
-	static func makeRemoteTorrentsLoader(server: Server) -> AnyPublisher<(Int, [Torrent]), Error> {
-		var freeDiskSpace: Int = -1
+	static func makeRemoteTorrentsLoader(server: Server) -> AnyPublisher<(Session, [Torrent]), Error> {
+		var receivedSession: Session?
 		return httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
@@ -143,7 +143,7 @@ final class TransmissionHTTPClient {
 			.tryMap(SessionGetMapper.map)
 			.flatMap { session in
 				Future { promise in
-					freeDiskSpace = session.downloadDirFreeSpace
+					receivedSession = session
 					httpClient.post(
 						APIsEndpoint.post.url(baseURL: server.baseURL),
 						body: TorrentBodies.get(TorrentField.minimumTorrentField),
@@ -155,8 +155,9 @@ final class TransmissionHTTPClient {
 			}
 			.tryMap(Logger.log)
 			.tryMap(TorrentGetMapper.map)
-			.flatMap { torrents in
-				Just((freeDiskSpace, torrents)).setFailureType(to: Error.self)
+			.tryMap { torrents in
+				guard let receivedSession else { throw SessionGetMapper.Error.invalidData }
+				return (receivedSession, torrents)
 			}
 			.eraseToAnyPublisher()
 	}

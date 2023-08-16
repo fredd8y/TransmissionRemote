@@ -224,12 +224,71 @@ public final class TorrentsPagePresenter {
 			comment: "Message to show when torrent list is empty")
 	}
 	
+	public static var lockTo: String {
+		NSLocalizedString(
+			"LOCK_TO",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Lock to")
+	}
+	
+	public static var up: String {
+		NSLocalizedString(
+			"UP",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Up")
+	}
+	
+	public static var down: String {
+		NSLocalizedString(
+			"DOWN",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Down")
+	}
+	
+	public static var unlockSpeedLimit: String {
+		NSLocalizedString(
+			"UNLOCK_SPEED_LIMIT",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Button description to unlock speed limit")
+	}
+	
+	public static var stopAll: String {
+		NSLocalizedString(
+			"STOP_ALL",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Button description to stop all torrent")
+	}
+	
+	public static var startAll: String {
+		NSLocalizedString(
+			"START_ALL",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Button description to start all torrent")
+	}
+	
+	public static var removeAll: String {
+		NSLocalizedString(
+			"REMOVE_ALL",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Button description to remove all torrent")
+	}
+	
 	public static func map(
 		title: String,
 		isLoading: Bool,
 		error: String?,
 		uploadSpeed: Int,
 		downloadSpeed: Int,
+		temporaryUploadSpeed: Int,
+		temporaryDownloadSpeed: Int,
+		temporarySpeedEnabled: Bool,
 		torrents: [Torrent],
 		freeDiskSpace: Int?,
 		emptyMessage: String?,
@@ -243,6 +302,9 @@ public final class TorrentsPagePresenter {
 			error: error,
 			uploadSpeed: uploadSpeed.speed,
 			downloadSpeed: downloadSpeed.speed,
+			temporaryUploadSpeed: temporaryUploadSpeed.speed,
+			temporaryDownloadSpeed: temporaryDownloadSpeed.speed,
+			temporarySpeedEnabled: temporarySpeedEnabled,
 			torrents: torrents.map {
 				TorrentPresenter.map($0)
 			},

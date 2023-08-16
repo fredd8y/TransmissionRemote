@@ -256,15 +256,18 @@ final class TorrentsPagePresentationAdapter {
 					}
 				}
 			},
-			receiveValue: { [weak self] (downloadDirFreeSpace, torrents) in
+			receiveValue: { [weak self] (session, torrents) in
 				let viewModel = TorrentsPagePresenter.map(
 					title: TorrentsPagePresenter.title,
 					isLoading: false,
 					error: nil,
 					uploadSpeed: torrents.reduce(0) { $0 + $1.rateUpload },
 					downloadSpeed: torrents.reduce(0) { $0 + $1.rateDownload },
+					temporaryUploadSpeed: session.altSpeedUp,
+					temporaryDownloadSpeed: session.altSpeedDown,
+					temporarySpeedEnabled: session.altSpeedEnabled,
 					torrents: torrents,
-					freeDiskSpace: downloadDirFreeSpace,
+					freeDiskSpace: session.downloadDirFreeSpace,
 					emptyMessage: torrents.count > 0 ? nil : TorrentsPagePresenter.emptyTorrentListMessage,
 					canAddTorrent: true,
 					alertMessage: nil,
@@ -290,6 +293,9 @@ private extension TorrentsPageViewModel {
 		error = viewModel.error
 		uploadSpeed = viewModel.uploadSpeed
 		downloadSpeed = viewModel.downloadSpeed
+		temporaryUploadSpeed = viewModel.temporaryUploadSpeed
+		temporaryDownloadSpeed = viewModel.temporaryDownloadSpeed
+		temporarySpeedEnabled = viewModel.temporarySpeedEnabled
 		torrents = viewModel.torrents
 		freeDiskSpace = viewModel.freeDiskSpace
 		emptyMessage = viewModel.emptyMessage

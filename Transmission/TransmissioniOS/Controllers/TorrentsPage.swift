@@ -121,6 +121,40 @@ public struct TorrentsPage: View {
 			.toolbar {
 				if viewModel.canAddTorrent {
 					ToolbarItemGroup(placement: .navigationBarTrailing) {
+						Menu {
+							Button {
+								
+							} label: {
+								if viewModel.temporarySpeedEnabled {
+									Text(TorrentsPagePresenter.unlockSpeedLimit)
+									Image(systemName: "lock.open.fill")
+								} else {
+									Text("\(TorrentsPagePresenter.lockTo) \(viewModel.temporaryUploadSpeed) \(TorrentsPagePresenter.up), \(viewModel.temporaryDownloadSpeed) \(TorrentsPagePresenter.down)")
+									Image(systemName: "lock.fill")
+								}
+							}
+							Button {
+								
+							} label: {
+								Text(TorrentsPagePresenter.stopAll)
+								Image(systemName: "stop.fill")
+							}
+							Button {
+								
+							} label: {
+								Text(TorrentsPagePresenter.startAll)
+								Image(systemName: "play.fill")
+							}
+							Button(role: .destructive) {
+								
+							} label: {
+								Text(TorrentsPagePresenter.removeAll)
+								Image(systemName: "xmark")
+							}
+						} label: {
+							Image(systemName: "ellipsis.circle")
+								.foregroundColor(.primary)
+						}
 						Button {
 							torrentTypeDialogPresented.toggle()
 						} label: {
@@ -130,24 +164,44 @@ public struct TorrentsPage: View {
 					}
 				}
 				ToolbarItemGroup(placement: .bottomBar) {
-					Image(systemName: "arrow.up")
-						.resizable()
-						.scaledToFit()
-						.foregroundColor(.red)
-						.frame(width: 16, height: 16)
-						.padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+					HStack(spacing: 0) {
+						if viewModel.temporarySpeedEnabled {
+							Image(systemName: "lock.fill")
+								.resizable()
+								.scaledToFit()
+								.foregroundColor(.red)
+								.frame(width: 16, height: 16)
+								.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+						}
+						Image(systemName: "arrow.up")
+							.resizable()
+							.scaledToFit()
+							.foregroundColor(.red)
+							.frame(width: 16, height: 16)
+							.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4))
+					}
 					Text(viewModel.uploadSpeed)
 						.font(.subheadline)
 					Spacer()
 					Text(viewModel.freeDiskSpace)
 						.font(.caption)
 					Spacer()
-					Image(systemName: "arrow.down")
-						.resizable()
-						.scaledToFit()
-						.foregroundColor(.green)
-						.frame(width: 16, height: 16)
-						.padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+					HStack(spacing: 0) {
+						if viewModel.temporarySpeedEnabled {
+							Image(systemName: "lock.fill")
+								.resizable()
+								.scaledToFit()
+								.foregroundColor(.green)
+								.frame(width: 16, height: 16)
+								.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+						}
+						Image(systemName: "arrow.down")
+							.resizable()
+							.scaledToFit()
+							.foregroundColor(.green)
+							.frame(width: 16, height: 16)
+							.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4))
+					}
 					Text(viewModel.downloadSpeed)
 						.font(.subheadline)
 				}
@@ -272,6 +326,9 @@ struct TorrentsPage_Previews: PreviewProvider {
 				error: nil,
 				uploadSpeed: "5,5 Mb/s",
 				downloadSpeed: "5,5 Mb/s",
+				temporaryUploadSpeed: "50 Kb/s",
+				temporaryDownloadSpeed: "50 Kb/s",
+				temporarySpeedEnabled: false,
 				torrents: [
 					TorrentViewModel(
 						id: 1,

@@ -70,8 +70,24 @@ class TorrentsPageTests: XCTestCase {
 	
 	// MARK: - Helpers
 	
-	private func makeSUT(torrents: [TorrentViewModel], error: String? = nil, emptyMessage: String? = nil, canAddTorrent: Bool = true, isLoading: Bool = false) -> TorrentsPage {
-		TorrentsPage(viewModel: viewModel(withTorrents: torrents, andError: error, emptyMessage: emptyMessage, canAddTorrent: canAddTorrent, isLoading: isLoading))
+	private func makeSUT(
+		torrents: [TorrentViewModel],
+		error: String? = nil,
+		emptyMessage: String? = nil,
+		canAddTorrent: Bool = true,
+		isLoading: Bool = false,
+		temporarySpeedEnabled: Bool = false
+	) -> TorrentsPage {
+		TorrentsPage(
+			viewModel: viewModel(
+				withTorrents: torrents,
+				andError: error,
+				emptyMessage: emptyMessage,
+				canAddTorrent: canAddTorrent,
+				isLoading: isLoading,
+				temporarySpeedEnabled: temporarySpeedEnabled
+			)
+		)
 	}
 	
 	private func viewModel(
@@ -81,7 +97,8 @@ class TorrentsPageTests: XCTestCase {
 		canAddTorrent: Bool = true,
 		alertMessage: String? = nil,
 		alertMessageVisible: Bool = false,
-		isLoading: Bool = false
+		isLoading: Bool = false,
+		temporarySpeedEnabled: Bool = false
 	) -> TorrentsPageViewModel {
 		TorrentsPageViewModel(
 			title: "Title",
@@ -89,6 +106,9 @@ class TorrentsPageTests: XCTestCase {
 			error: error,
 			uploadSpeed: "5,5 MB/s",
 			downloadSpeed: "5,5 MB/s",
+			temporaryUploadSpeed: "5,5 MB/s",
+			temporaryDownloadSpeed: "5,5 MB/s",
+			temporarySpeedEnabled: temporarySpeedEnabled,
 			torrents: torrents,
 			freeDiskSpace: "256,0 GB",
 			emptyMessage: emptyMessage,

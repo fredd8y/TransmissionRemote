@@ -45,3 +45,10 @@
 "MISSING_SERVER_ERROR" = "Server non disponibile";
 "EMPTY_TORRENT_LIST_MESSAGE" = "Nessun torrent attivo, per aggiungerne premi il pulsante '+' in alto";
 "UNKNOWN_DOWNLOAD_TIME" = "tempo sconosciuto";
+"LOCK_TO" = "Limita a";
+"UP" = "up";
+"DOWN" = "down";
+"UNLOCK_SPEED_LIMIT" = "Sblocca limite velocità";
+"STOP_ALL" = "Stop tutti";
+"START_ALL" = "Start tutti";
+"REMOVE_ALL" = "Rimuovi tutti";
