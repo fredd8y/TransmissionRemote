@@ -134,3 +134,13 @@ extension TorrentBodies {
 		try! JSONEncoder().encode(TorrentStartBody(id: id))
 	}
 }
+
+extension TorrentBodies {
+	private struct TorrentStartAllBody: Encodable {
+		let method: String = "torrent-start"
+	}
+	
+	public static func startAll() -> Data {
+		try! JSONEncoder().encode(TorrentStartAllBody())
+	}
+}

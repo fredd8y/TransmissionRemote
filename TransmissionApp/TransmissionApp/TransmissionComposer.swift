@@ -42,6 +42,10 @@ final class TransmissionComposer {
 		torrentsPage.stop = torrentsPagePresentationAdapter.stop
 		torrentsPage.start = torrentsPagePresentationAdapter.start
 		torrentsPage.selectedLink = torrentsPagePresentationAdapter.selectedLink
+//		torrentsPage.stopAll = torrentsPagePresentationAdapter.stopAll
+		torrentsPage.startAll = torrentsPagePresentationAdapter.startAll
+//		torrentsPage.setDownloadLimit = torrentsPagePresentationAdapter.setDownloadLimit
+//		torrentsPage.deleteAll = torrentsPagePresentationAdapter.deleteAll
 		
 		return torrentsPage
 	}

@@ -35,6 +35,7 @@ final class TorrentsPagePresentationAdapter {
 	private var stopTorrentCancellable = Set<AnyCancellable>()
 	private var pollingRateCancellable = Set<AnyCancellable>()
 	private var startTorrentCancellable = Set<AnyCancellable>()
+	private var startAllTorrentCancellable = Set<AnyCancellable>()
 	private var currentServerCancellable = Set<AnyCancellable>()
 	private var deleteTorrentCancellable = Set<AnyCancellable>()
 	
@@ -72,6 +73,38 @@ final class TorrentsPagePresentationAdapter {
 			}
 		).store(in: &stopTorrentCancellable)
 	}
+	
+	func startAll() {
+		guard let server = UserDefaultsHandler.shared.currentServer else {
+			torrentsPageViewModel.alertMessage = TorrentsPagePresenter.missingServerError
+			torrentsPageViewModel.alertMessageVisible = true
+			return
+		}
+		TransmissionHTTPClient.makeTorrentStartAllPublisher(server: server)
+			.dispatchOnMainQueue()
+			.sink(
+				receiveCompletion: { [weak self] completion in
+					switch completion {
+					case .finished: break
+					case .failure(let error):
+						if let _error = error as? TorrentStartMapper.Error {
+							switch _error {
+							case .failed(let explanation):
+								self?.torrentsPageViewModel.alertMessage = explanation
+								self?.torrentsPageViewModel.alertMessageVisible = true
+							case .invalidData:
+								self?.torrentsPageViewModel.alertMessage = TorrentsPagePresenter.genericError
+								self?.torrentsPageViewModel.alertMessageVisible = true
+							}
+						}
+					}
+				},
+				receiveValue: { [weak self] _ in
+					self?.loadData()
+				}
+			).store(in: &startAllTorrentCancellable)
+	}
+	
 	func stop(_ id: Int) {
 		guard let server = UserDefaultsHandler.shared.currentServer else {
 			torrentsPageViewModel.alertMessage = TorrentsPagePresenter.missingServerError
