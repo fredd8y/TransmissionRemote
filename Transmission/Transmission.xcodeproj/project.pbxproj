@@ -87,6 +87,7 @@
 		7B7871AD2A8D7E4B005A16D6 /* CREDITS_PAGE_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7871AA2A8D7E4B005A16D6 /* CREDITS_PAGE_light_extraExtraExtraLarge.png */; };
 		7B7871AE2A8D7E4B005A16D6 /* CREDITS_PAGE_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7871AB2A8D7E4B005A16D6 /* CREDITS_PAGE_dark.png */; };
 		7B7871AF2A8D7E4B005A16D6 /* CREDITS_PAGE_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7871AC2A8D7E4B005A16D6 /* CREDITS_PAGE_light.png */; };
+		7B7871B12A8D8132005A16D6 /* CreditsPageLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7871B02A8D8132005A16D6 /* CreditsPageLocalizationTests.swift */; };
 		7B80FC812A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B80FC762A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_dark.png */; };
 		7B80FC822A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B80FC772A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_light.png */; };
 		7B80FC832A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B80FC782A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_light.png */; };
@@ -288,6 +289,7 @@
 		7B7871AA2A8D7E4B005A16D6 /* CREDITS_PAGE_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CREDITS_PAGE_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
 		7B7871AB2A8D7E4B005A16D6 /* CREDITS_PAGE_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CREDITS_PAGE_dark.png; sourceTree = "<group>"; };
 		7B7871AC2A8D7E4B005A16D6 /* CREDITS_PAGE_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CREDITS_PAGE_light.png; sourceTree = "<group>"; };
+		7B7871B02A8D8132005A16D6 /* CreditsPageLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsPageLocalizationTests.swift; sourceTree = "<group>"; };
 		7B80FC762A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_dark.png; sourceTree = "<group>"; };
 		7B80FC772A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_light.png; sourceTree = "<group>"; };
 		7B80FC782A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_light.png; sourceTree = "<group>"; };
@@ -711,6 +713,7 @@
 			isa = PBXGroup;
 			children = (
 				7B7871A82A8D7D54005A16D6 /* CreditsPagePresenterTests.swift */,
+				7B7871B02A8D8132005A16D6 /* CreditsPageLocalizationTests.swift */,
 			);
 			path = CreditsPage;
 			sourceTree = "<group>";
@@ -1582,6 +1585,7 @@
 				7BC3ABDD2A76C2A500B054DB /* SharedServerTests.swift in Sources */,
 				7B6CD5F12A7253F100E81983 /* SettingsLocalizationTests.swift in Sources */,
 				7B65875E2A0D846500317EBE /* URLProtocolStub.swift in Sources */,
+				7B7871B12A8D8132005A16D6 /* CreditsPageLocalizationTests.swift in Sources */,
 				7BB10EAD2A7D229700F275EF /* TorrentStartMapperTests.swift in Sources */,
 				7B6CD5EF2A7253E500E81983 /* SettingsPresenterTests.swift in Sources */,
 				7B9305B42A0F99CB005EBE56 /* APIsEndpointTests.swift in Sources */,
