@@ -96,6 +96,14 @@ public final class TorrentsPagePresenter {
 			comment: "Message for delete torrent alert")
 	}
 	
+	public static var deleteAllTorrentAlertMessage: String {
+		NSLocalizedString(
+			"DELETE_ALL_TORRENT_ALERT_MESSAGE",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Message for delete all torrent alert")
+	}
+	
 	public static var deleteLocalData: String {
 		NSLocalizedString(
 			"DELETE_LOCAL_DATA",

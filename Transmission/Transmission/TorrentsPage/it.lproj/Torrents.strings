@@ -24,6 +24,7 @@
 "GENERIC_ERROR" = "Errore sconosciuto";
 "DELETE_TORRENT_ALERT_TITLE" = "Rimuovi";
 "DELETE_TORRENT_ALERT_MESSAGE" = "Vuoi rimuovere anche i dati del torrent?";
+"DELETE_ALL_TORRENT_ALERT_MESSAGE" = "Vuoi anche rimuovere i dati di tutti torrent?";
 "DELETE_LOCAL_DATA" = "Rimuovi dati torrent";
 "KEEP_LOCAL_DATA" = "Mantieni dati torrent";
 "CANCEL" = "Annulla";

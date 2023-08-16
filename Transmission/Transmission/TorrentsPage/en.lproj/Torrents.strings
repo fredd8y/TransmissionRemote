@@ -24,6 +24,7 @@
 "GENERIC_ERROR" = "Unknown error";
 "DELETE_TORRENT_ALERT_TITLE" = "Deleting";
 "DELETE_TORRENT_ALERT_MESSAGE" = "Do you want to also remove torrent data?";
+"DELETE_ALL_TORRENT_ALERT_MESSAGE" = "Do you want to also remove all torrent data?";
 "DELETE_LOCAL_DATA" = "Remove torrent data";
 "KEEP_LOCAL_DATA" = "Keep torrent data";
 "CANCEL" = "Cancel";

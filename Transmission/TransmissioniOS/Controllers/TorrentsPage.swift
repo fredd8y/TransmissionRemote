@@ -19,27 +19,37 @@ public struct TorrentsPage: View {
 	
 	@State private var alertPresented: Bool = false
 	
-	@State private var fileImporterPresented: Bool = false
-	
 	@State private var linkAlertPresented: Bool = false
+	
+	@State private var fileImporterPresented: Bool = false
 	
 	@State private var torrentTypeDialogPresented: Bool = false
 	
 	@State private var torrentRemoveAlertPresented: Bool = false
 	
+	@State private var torrentRemoveAllAlertPresented: Bool = false
+	
 	@State private var deletingTorrentId: Int = -1
 	
 	@State private var link: String = ""
 	
-	public var loadData: (() -> Void)?
-	
 	public var stop: ((Int) -> Void)?
+	
+	public var stopAll: (() -> Void)?
 	
 	public var start: ((Int) -> Void)?
 	
-	public var selectedLink: ((String) -> Void)?
+	public var startAll: (() -> Void)?
+	
+	public var loadData: (() -> Void)?
 	
 	public var selectedFile: ((URL) -> Void)?
+	
+	public var selectedLink: ((String) -> Void)?
+	
+	public var setDownloadLimit: ((Bool) -> Void)?
+	
+	public var deleteAll: ((_ deleteLocalData: Bool) -> Void)?
 	
 	public var delete: ((_ id: Int, _ deleteLocalData: Bool) -> Void)?
 	
@@ -123,7 +133,7 @@ public struct TorrentsPage: View {
 					ToolbarItemGroup(placement: .navigationBarTrailing) {
 						Menu {
 							Button {
-								
+								setDownloadLimit?(!viewModel.temporarySpeedEnabled)
 							} label: {
 								if viewModel.temporarySpeedEnabled {
 									Text(TorrentsPagePresenter.unlockSpeedLimit)
@@ -134,19 +144,19 @@ public struct TorrentsPage: View {
 								}
 							}
 							Button {
-								
+								stopAll?()
 							} label: {
 								Text(TorrentsPagePresenter.stopAll)
 								Image(systemName: "stop.fill")
 							}
 							Button {
-								
+								startAll?()
 							} label: {
 								Text(TorrentsPagePresenter.startAll)
 								Image(systemName: "play.fill")
 							}
 							Button(role: .destructive) {
-								
+								torrentRemoveAllAlertPresented.toggle()
 							} label: {
 								Text(TorrentsPagePresenter.removeAll)
 								Image(systemName: "xmark")
@@ -294,6 +304,28 @@ public struct TorrentsPage: View {
 				},
 				message: {
 					Text(TorrentsPagePresenter.deleteTorrentAlertMessage)
+				}
+			)
+			.alert(
+				TorrentsPagePresenter.deleteTorrentAlertTitle,
+				isPresented: $torrentRemoveAllAlertPresented,
+				actions: {
+					Button {
+						deleteAll?(false)
+					} label: {
+						Text(TorrentsPagePresenter.keepLocalData)
+					}
+					Button(role: .destructive) {
+						deleteAll?(true)
+					} label: {
+						Text(TorrentsPagePresenter.deleteLocalData)
+					}
+					Button(role: .cancel) {} label: {
+						Text(TorrentsPagePresenter.cancel)
+					}
+				},
+				message: {
+					Text(TorrentsPagePresenter.deleteAllTorrentAlertMessage)
 				}
 			)
 		}

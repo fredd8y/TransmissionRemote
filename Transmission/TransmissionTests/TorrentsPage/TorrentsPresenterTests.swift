@@ -60,6 +60,10 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentsPagePresenter.deleteTorrentAlertMessage, localized("DELETE_TORRENT_ALERT_MESSAGE", table: table))
 	}
 	
+	func test_deleteAllTorrentAlertMessage_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.deleteAllTorrentAlertMessage, localized("DELETE_ALL_TORRENT_ALERT_MESSAGE", table: table))
+	}
+	
 	func test_deleteLocalData_isLocalized() {
 		XCTAssertEqual(TorrentsPagePresenter.deleteLocalData, localized("DELETE_LOCAL_DATA", table: table))
 	}
