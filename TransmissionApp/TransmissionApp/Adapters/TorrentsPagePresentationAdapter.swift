@@ -74,7 +74,7 @@ final class TorrentsPagePresentationAdapter {
 			receiveValue: { [weak self] _ in
 				self?.loadData()
 			}
-		).store(in: &stopTorrentCancellable)
+		).store(in: &startTorrentCancellable)
 	}
 	
 	func startAll() {
