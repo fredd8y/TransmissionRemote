@@ -40,6 +40,14 @@ class TorrentsPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENTS_PAGE_LIST_WITH_CONTENT_light_extraExtraExtraLarge")
 	}
 	
+	func test_listWithContentAndSpeedLimit() {
+		let sut = makeSUT(torrents: listWithContent(), temporarySpeedEnabled: true)
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light_extraExtraExtraLarge")
+	}
+	
 	func test_listWithItemError() {
 		let sut = makeSUT(torrents: listWithItemError())
 		

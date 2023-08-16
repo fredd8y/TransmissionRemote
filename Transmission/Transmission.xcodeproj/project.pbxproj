@@ -74,6 +74,9 @@
 		7B6EDC292A6531CB00264EF2 /* APIEndToEndConfigurationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EDC282A6531CB00264EF2 /* APIEndToEndConfigurationsTests.swift */; };
 		7B6EDC2C2A65346D00264EF2 /* TransmissionAPIEndToEndTests+Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EDC2B2A65346D00264EF2 /* TransmissionAPIEndToEndTests+Secrets.swift */; };
 		7B6EDC2D2A65463600264EF2 /* EndToEndTestConfigurations.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7B4907B62A6524CB00C75819 /* EndToEndTestConfigurations.xcconfig */; };
+		7B7871842A8D0C3A005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7871812A8D0C39005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light.png */; };
+		7B7871852A8D0C3A005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7871822A8D0C39005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_dark.png */; };
+		7B7871862A8D0C3A005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B7871832A8D0C3A005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light_extraExtraExtraLarge.png */; };
 		7B80FC812A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B80FC762A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_dark.png */; };
 		7B80FC822A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B80FC772A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_light.png */; };
 		7B80FC832A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B80FC782A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_light.png */; };
@@ -261,6 +264,9 @@
 		7B6CD5F32A725E4100E81983 /* TorrentsPresentation+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorrentsPresentation+Localized.swift"; sourceTree = "<group>"; };
 		7B6EDC282A6531CB00264EF2 /* APIEndToEndConfigurationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndToEndConfigurationsTests.swift; sourceTree = "<group>"; };
 		7B6EDC2B2A65346D00264EF2 /* TransmissionAPIEndToEndTests+Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransmissionAPIEndToEndTests+Secrets.swift"; sourceTree = "<group>"; };
+		7B7871812A8D0C39005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light.png; sourceTree = "<group>"; };
+		7B7871822A8D0C39005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_dark.png; sourceTree = "<group>"; };
+		7B7871832A8D0C3A005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
 		7B80FC762A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_dark.png; sourceTree = "<group>"; };
 		7B80FC772A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_light.png; sourceTree = "<group>"; };
 		7B80FC782A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_light.png; sourceTree = "<group>"; };
@@ -543,6 +549,9 @@
 				7B80FC802A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_dark.png */,
 				7B80FC782A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_light.png */,
 				7B80FC7B2A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_light_extraExtraExtraLarge.png */,
+				7B7871822A8D0C39005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_dark.png */,
+				7B7871812A8D0C39005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light.png */,
+				7B7871832A8D0C3A005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light_extraExtraExtraLarge.png */,
 				7B2324ED2A76614200836B02 /* SERVER_PAGE_EMPTY_LIST_dark.png */,
 				7B2324EF2A76614200836B02 /* SERVER_PAGE_EMPTY_LIST_light.png */,
 				7B2324EE2A76614200836B02 /* SERVER_PAGE_EMPTY_LIST_light_extraExtraExtraLarge.png */,
@@ -1340,6 +1349,7 @@
 				7B80FC882A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_light_extraExtraExtraLarge.png in Resources */,
 				7B80FC832A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_light.png in Resources */,
 				7BD81BA12A7B03640039877F /* SERVER_DETAIL_PAGE_PORT_ERROR_light.png in Resources */,
+				7B7871842A8D0C3A005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light.png in Resources */,
 				7B2324FA2A76630D00836B02 /* SERVER_PAGE_LIST_WITH_CONTENT_light.png in Resources */,
 				7B80FC822A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_light.png in Resources */,
 				7BD2368B2A77BA0300AF75A9 /* SERVER_DETAIL_PAGE_light.png in Resources */,
@@ -1350,6 +1360,7 @@
 				7B2324D62A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light_extraExtraExtraLarge.png in Resources */,
 				7BD81B9C2A7B03640039877F /* SERVER_DETAIL_PAGE_PASSWORD_ERROR_light_extraExtraExtraLarge.png in Resources */,
 				7BD236832A77B6D100AF75A9 /* SERVER_DETAIL_PAGE_EMPTY_light_extraExtraExtraLarge.png in Resources */,
+				7B7871862A8D0C3A005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light_extraExtraExtraLarge.png in Resources */,
 				7BD81B9A2A7B03640039877F /* SERVER_DETAIL_PAGE_IP_ERROR_light.png in Resources */,
 				7BD236892A77BA0300AF75A9 /* SERVER_DETAIL_PAGE_light_extraExtraExtraLarge.png in Resources */,
 				7B80FC8B2A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_dark.png in Resources */,
@@ -1368,6 +1379,7 @@
 				7BD81BA02A7B03640039877F /* SERVER_DETAIL_PAGE_IP_ERROR_dark.png in Resources */,
 				7BD81BA32A7B03640039877F /* SERVER_DETAIL_PAGE_SERVER_NAME_ERROR_light.png in Resources */,
 				7B80FC812A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_dark.png in Resources */,
+				7B7871852A8D0C3A005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_dark.png in Resources */,
 				7BF3BB4D2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png in Resources */,
 				7B80FC932A7262D600A6DAB6 /* SETTINGS_PAGE_light.png in Resources */,
 				7BD81B9D2A7B03640039877F /* SERVER_DETAIL_PAGE_USERNAME_ERROR_light_extraExtraExtraLarge.png in Resources */,
