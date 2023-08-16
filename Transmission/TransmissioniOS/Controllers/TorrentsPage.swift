@@ -199,6 +199,7 @@ public struct TorrentsPage: View {
 				ToolbarItemGroup(placement: .navigationBarLeading) {
 					if viewModel.temporarySpeedEnabled {
 						Image(assetName: "turtle")
+							.renderingMode(.template)
 							.resizable()
 							.frame(width: 30, height: 30)
 					}

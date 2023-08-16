@@ -11,9 +11,7 @@ import Transmission
 public struct SettingsPage: View {
 	
 	@ObservedObject var viewModel: SettingsPageViewModel
-	
-	@State private var tabBarVisibility: Visibility = .visible
-	
+		
 	private var serverPage: ServerPage
 	
 	public init(viewModel: SettingsPageViewModel, serverPage: ServerPage) {
@@ -50,7 +48,12 @@ public struct SettingsPage: View {
 							.font(.caption2)
 					}
 				}
-
+				NavigationLink {
+					CreditsPage()
+				} label: {
+					Text("Credits")
+						.font(.subheadline)
+				}
 			}
 			.listStyle(.insetGrouped)
 			.navigationTitle(viewModel.title)
