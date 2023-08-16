@@ -40,6 +40,7 @@ final class TorrentsPagePresentationAdapter {
 	private var currentServerCancellable = Set<AnyCancellable>()
 	private var deleteTorrentCancellable = Set<AnyCancellable>()
 	private var deleteAllTorrentCancellable = Set<AnyCancellable>()
+	private var setDownloadLimitCancellable = Set<AnyCancellable>()
 	
 	private var sessionIdHandler: (String) -> Void
 	
@@ -319,6 +320,40 @@ final class TorrentsPagePresentationAdapter {
 				self?.loadData()
 			}
 		).store(in: &deleteAllTorrentCancellable)
+	}
+	
+	func setDownloadLimit(_ enabled: Bool) {
+		guard let server = UserDefaultsHandler.shared.currentServer else {
+			torrentsPageViewModel.alertMessage = TorrentsPagePresenter.missingServerError
+			torrentsPageViewModel.alertMessageVisible = true
+			return
+		}
+		TransmissionHTTPClient.makeSetDownloadLimitEnabled(
+			enabled: enabled,
+			server: server
+		)
+		.dispatchOnMainQueue()
+		.sink(
+			receiveCompletion: { [weak self] completion in
+				switch completion {
+				case .finished: break
+				case .failure(let error):
+					if let _error = error as? SessionSetMapper.Error {
+						switch _error {
+						case .failed(let explanation):
+							self?.torrentsPageViewModel.alertMessage = explanation
+							self?.torrentsPageViewModel.alertMessageVisible = true
+						case .invalidData:
+							self?.torrentsPageViewModel.alertMessage = TorrentsPagePresenter.genericError
+							self?.torrentsPageViewModel.alertMessageVisible = true
+						}
+					}
+				}
+			},
+			receiveValue: { [weak self] _ in
+				self?.loadData()
+			}
+		).store(in: &setDownloadLimitCancellable)
 	}
 	
 	func loadData() {

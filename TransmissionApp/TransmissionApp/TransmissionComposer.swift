@@ -36,16 +36,17 @@ final class TransmissionComposer {
 		)
 		
 		var torrentsPage = TorrentsPage(viewModel: viewModel)
-		torrentsPage.loadData = torrentsPagePresentationAdapter.loadData
-		torrentsPage.selectedFile = torrentsPagePresentationAdapter.selectedFile
-		torrentsPage.delete = torrentsPagePresentationAdapter.delete
+		
 		torrentsPage.stop = torrentsPagePresentationAdapter.stop
 		torrentsPage.start = torrentsPagePresentationAdapter.start
-		torrentsPage.selectedLink = torrentsPagePresentationAdapter.selectedLink
+		torrentsPage.delete = torrentsPagePresentationAdapter.delete
 		torrentsPage.stopAll = torrentsPagePresentationAdapter.stopAll
+		torrentsPage.loadData = torrentsPagePresentationAdapter.loadData
 		torrentsPage.startAll = torrentsPagePresentationAdapter.startAll
-//		torrentsPage.setDownloadLimit = torrentsPagePresentationAdapter.setDownloadLimit
 		torrentsPage.deleteAll = torrentsPagePresentationAdapter.deleteAll
+		torrentsPage.selectedFile = torrentsPagePresentationAdapter.selectedFile
+		torrentsPage.selectedLink = torrentsPagePresentationAdapter.selectedLink
+		torrentsPage.setDownloadLimit = torrentsPagePresentationAdapter.setDownloadLimit
 		
 		return torrentsPage
 	}

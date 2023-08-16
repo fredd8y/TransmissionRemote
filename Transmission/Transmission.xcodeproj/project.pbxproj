@@ -161,6 +161,8 @@
 		7BF3BB4D2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF3BB4B2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png */; };
 		7BF3BB4E2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF3BB4C2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png */; };
 		7BFEB63E2A8CB838003D8985 /* ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEB63D2A8CB838003D8985 /* ConditionalModifier.swift */; };
+		7BFEB6412A8CFD11003D8985 /* SessionSetMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEB6402A8CFD11003D8985 /* SessionSetMapper.swift */; };
+		7BFEB6442A8CFD73003D8985 /* SessionSetMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEB6432A8CFD73003D8985 /* SessionSetMapperTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -348,6 +350,8 @@
 		7BF3BB4B2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png; sourceTree = "<group>"; };
 		7BF3BB4C2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png; sourceTree = "<group>"; };
 		7BFEB63D2A8CB838003D8985 /* ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalModifier.swift; sourceTree = "<group>"; };
+		7BFEB6402A8CFD11003D8985 /* SessionSetMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSetMapper.swift; sourceTree = "<group>"; };
+		7BFEB6432A8CFD73003D8985 /* SessionSetMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSetMapperTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -944,6 +948,7 @@
 		7BC960D52A12D0EF0030B5E0 /* Session APIs */ = {
 			isa = PBXGroup;
 			children = (
+				7BFEB63F2A8CFC9D003D8985 /* SessionSetMapper */,
 				7B83381D2A0F9E110052F7EC /* Session Bodies */,
 				7B8338382A1016B20052F7EC /* Session Get API */,
 				7BD9A1F22A630D3300B6380A /* Session Stats API */,
@@ -956,6 +961,7 @@
 			children = (
 				7B83381E2A0F9E210052F7EC /* Session Bodies */,
 				7B83383B2A1120A40052F7EC /* Session Get API */,
+				7BFEB6422A8CFD5F003D8985 /* Session Set API */,
 				7BD9A1EE2A630C6900B6380A /* Session Stats API */,
 			);
 			path = "Session APIs";
@@ -1128,6 +1134,22 @@
 				7B6EDC2B2A65346D00264EF2 /* TransmissionAPIEndToEndTests+Secrets.swift */,
 			);
 			path = TransmissionAPIEndToEndTests;
+			sourceTree = "<group>";
+		};
+		7BFEB63F2A8CFC9D003D8985 /* SessionSetMapper */ = {
+			isa = PBXGroup;
+			children = (
+				7BFEB6402A8CFD11003D8985 /* SessionSetMapper.swift */,
+			);
+			path = SessionSetMapper;
+			sourceTree = "<group>";
+		};
+		7BFEB6422A8CFD5F003D8985 /* Session Set API */ = {
+			isa = PBXGroup;
+			children = (
+				7BFEB6432A8CFD73003D8985 /* SessionSetMapperTests.swift */,
+			);
+			path = "Session Set API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1437,6 +1459,7 @@
 				7B2324E42A753EB600836B02 /* ServerPageViewModel.swift in Sources */,
 				7B8CB81B2A66C111001A4D90 /* TorrentsPagePresenter.swift in Sources */,
 				7BD9A1FD2A6311F600B6380A /* Stats.swift in Sources */,
+				7BFEB6412A8CFD11003D8985 /* SessionSetMapper.swift in Sources */,
 				7B8CB81F2A66C19E001A4D90 /* TorrentViewModel.swift in Sources */,
 				7B8338292A0FA19F0052F7EC /* SessionBodies.swift in Sources */,
 				7B2325172A76891A00836B02 /* ServerDetailPageViewModel.swift in Sources */,
@@ -1491,6 +1514,7 @@
 				7B4599CA2A67E9A600189C16 /* SharedPresentationHelpers.swift in Sources */,
 				7B4599C32A67DA0400189C16 /* TorrentsPresenterTests.swift in Sources */,
 				7BA01FEB2A80ADD800FBB43D /* UserDefaultsHandlerTests.swift in Sources */,
+				7BFEB6442A8CFD73003D8985 /* SessionSetMapperTests.swift in Sources */,
 				7B4599BC2A67CBBE00189C16 /* SharedLocalizationTestHelpers.swift in Sources */,
 				7B4599C82A67E95200189C16 /* TorrentPresenterTests.swift in Sources */,
 				7B4DFB712A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift in Sources */,

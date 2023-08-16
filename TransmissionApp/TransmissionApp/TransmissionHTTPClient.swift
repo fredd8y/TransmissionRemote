@@ -202,6 +202,21 @@ final class TransmissionHTTPClient {
 			.eraseToAnyPublisher()
 	}
 	
+	static func makeSetDownloadLimitEnabled(
+		enabled: Bool,
+		server: Server
+	) -> AnyPublisher<Void, Error> {
+		return httpClient.postPublisher(
+			url: APIsEndpoint.post.url(baseURL: server.baseURL),
+			body: SessionBodies.setDownloadLimit(enabled: enabled),
+			additionalHeader: headers(server.credentials)
+		)
+		.mapError(TransmissionHTTPClient.handleError)
+		.tryMap(Logger.log)
+		.tryMap(SessionSetMapper.map)
+		.eraseToAnyPublisher()
+	}
+	
 	static func handleError(_ error: Error) -> Error {
 		guard (error as NSError).code == -1001 else {
 			return SessionGetMapper.Error.invalidData

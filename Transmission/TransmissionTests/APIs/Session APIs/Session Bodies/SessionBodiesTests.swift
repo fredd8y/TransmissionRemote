@@ -26,4 +26,20 @@ final class SessionBodiesTests: XCTestCase {
 		XCTAssertEqual(expectedBody, httpBody)
 	}
 	
+	func test_setDownloadLimitEnable_httpBody() {
+		let expectedBody = #"{"method":"session-set","arguments":{"alt-speed-enabled":true}}"#.data(using: .utf8)
+		
+		let httpBody = SessionBodies.setDownloadLimit(enabled: true)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
+	func test_setDownloadLimitDisable_httpBody() {
+		let expectedBody = #"{"method":"session-set","arguments":{"alt-speed-enabled":false}}"#.data(using: .utf8)
+		
+		let httpBody = SessionBodies.setDownloadLimit(enabled: false)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
 }

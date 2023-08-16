@@ -35,4 +35,8 @@ extension Int {
 	var speed: String {
 		byteSize + "/s"
 	}
+	
+	var kilobyteSpeed: String {
+		(self * 1024).byteSize + "/s"
+	}
 }

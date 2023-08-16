@@ -310,8 +310,8 @@ public final class TorrentsPagePresenter {
 			error: error,
 			uploadSpeed: uploadSpeed.speed,
 			downloadSpeed: downloadSpeed.speed,
-			temporaryUploadSpeed: temporaryUploadSpeed.speed,
-			temporaryDownloadSpeed: temporaryDownloadSpeed.speed,
+			temporaryUploadSpeed: temporaryUploadSpeed.kilobyteSpeed,
+			temporaryDownloadSpeed: temporaryDownloadSpeed.kilobyteSpeed,
 			temporarySpeedEnabled: temporarySpeedEnabled,
 			torrents: torrents.map {
 				TorrentPresenter.map($0)
