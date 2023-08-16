@@ -131,7 +131,8 @@ public final class TorrentPresenter {
 			completionPercentage: torrent.percentDone,
 			completionPercentageString: percentageString(torrent.percentDone),
 			downloaded: "\(Int(Double(torrent.totalSize) * torrent.percentDone).byteSize) \(of) \(torrent.totalSize.byteSize)",
-			downloadSpeed: torrent.rateDownload.byteSize,
+			uploadSpeed: torrent.rateUpload.speed,
+			downloadSpeed: torrent.rateDownload.speed,
 			status: viewModelStatus(torrent.status)
 		)
 	}

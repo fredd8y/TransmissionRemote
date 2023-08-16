@@ -95,31 +95,54 @@ public struct TorrentsPage: View {
 										Text(torrent.completionPercentageString)
 											.font(.caption2)
 									}
-									Text(torrent.error ?? torrent.description)
-										.font(.caption2)
-										.foregroundColor(torrent.error == nil ? .primary : .red)
-										.contextMenu {
-											Button(role: .destructive) {
-												deletingTorrentId = torrent.id
-												torrentRemoveAlertPresented.toggle()
-											} label: {
-												Text(TorrentsPagePresenter.remove)
+									HStack {
+										Text(torrent.error ?? torrent.description)
+											.font(.caption2)
+											.foregroundColor(torrent.error == nil ? .primary : .red)
+											.contextMenu {
+												Button(role: .destructive) {
+													deletingTorrentId = torrent.id
+													torrentRemoveAlertPresented.toggle()
+												} label: {
+													Text(TorrentsPagePresenter.remove)
+												}
+												switch torrent.status {
+												case .running, .completed:
+													Button {
+														stop?(torrent.id)
+													} label: {
+														Text(TorrentsPagePresenter.stop)
+													}
+												case .stopped:
+													Button {
+														start?(torrent.id)
+													} label: {
+														Text(TorrentsPagePresenter.start)
+													}
+												}
 											}
-											switch torrent.status {
-											case .running, .completed:
-												Button {
-													stop?(torrent.id)
-												} label: {
-													Text(TorrentsPagePresenter.stop)
-												}
-											case .stopped:
-												Button {
-													start?(torrent.id)
-												} label: {
-													Text(TorrentsPagePresenter.start)
-												}
+										Spacer()
+										VStack(alignment: .trailing, spacing: 4) {
+											HStack(spacing: 2) {
+												Text(torrent.uploadSpeed)
+													.font(.caption2)
+												Image(systemName: "arrow.up")
+													.resizable()
+													.scaledToFit()
+													.foregroundColor(.red)
+													.frame(width: 8, height: 8)
+											}
+											HStack(spacing: 2) {
+												Text(torrent.downloadSpeed)
+													.font(.caption2)
+												Image(systemName: "arrow.down")
+													.resizable()
+													.scaledToFit()
+													.foregroundColor(.green)
+													.frame(width: 8, height: 8)
 											}
 										}
+									}
 								}
 							}
 						}.listStyle(.insetGrouped)
@@ -173,45 +196,32 @@ public struct TorrentsPage: View {
 						}
 					}
 				}
-				ToolbarItemGroup(placement: .bottomBar) {
-					HStack(spacing: 0) {
-						if viewModel.temporarySpeedEnabled {
-							Image(systemName: "lock.fill")
-								.resizable()
-								.scaledToFit()
-								.foregroundColor(.red)
-								.frame(width: 16, height: 16)
-								.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-						}
-						Image(systemName: "arrow.up")
+				ToolbarItemGroup(placement: .navigationBarLeading) {
+					if viewModel.temporarySpeedEnabled {
+						Image(assetName: "turtle")
 							.resizable()
-							.scaledToFit()
-							.foregroundColor(.red)
-							.frame(width: 16, height: 16)
-							.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4))
+							.frame(width: 30, height: 30)
 					}
+				}
+				ToolbarItemGroup(placement: .bottomBar) {
+					Image(systemName: "arrow.up")
+						.resizable()
+						.scaledToFit()
+						.foregroundColor(.red)
+						.frame(width: 16, height: 16)
+						.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4))
 					Text(viewModel.uploadSpeed)
 						.font(.subheadline)
 					Spacer()
 					Text(viewModel.freeDiskSpace)
 						.font(.caption)
 					Spacer()
-					HStack(spacing: 0) {
-						if viewModel.temporarySpeedEnabled {
-							Image(systemName: "lock.fill")
-								.resizable()
-								.scaledToFit()
-								.foregroundColor(.green)
-								.frame(width: 16, height: 16)
-								.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-						}
-						Image(systemName: "arrow.down")
-							.resizable()
-							.scaledToFit()
-							.foregroundColor(.green)
-							.frame(width: 16, height: 16)
-							.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4))
-					}
+					Image(systemName: "arrow.down")
+						.resizable()
+						.scaledToFit()
+						.foregroundColor(.green)
+						.frame(width: 16, height: 16)
+						.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4))
 					Text(viewModel.downloadSpeed)
 						.font(.subheadline)
 				}
@@ -360,7 +370,7 @@ struct TorrentsPage_Previews: PreviewProvider {
 				downloadSpeed: "5,5 Mb/s",
 				temporaryUploadSpeed: "50 Kb/s",
 				temporaryDownloadSpeed: "50 Kb/s",
-				temporarySpeedEnabled: false,
+				temporarySpeedEnabled: true,
 				torrents: [
 					TorrentViewModel(
 						id: 1,
@@ -370,17 +380,19 @@ struct TorrentsPage_Previews: PreviewProvider {
 						completionPercentage: 0.5,
 						completionPercentageString: "50%",
 						downloaded: "5,4GB of 7,8GB",
-						downloadSpeed: "-",
+						uploadSpeed: "450,00 KB/s",
+						downloadSpeed: "450,00 KB/s",
 						status: .running
 					),
 					TorrentViewModel(
 						id: 2,
 						name: "another name",
-						description: "ETA: 7h 12m 12s",
+						description: "Seeding",
 						completionPercentage: 1,
 						completionPercentageString: "100%",
 						downloaded: "5,4GB of 7,8GB",
-						downloadSpeed: "5,6MB",
+						uploadSpeed: "5,60 MB/s",
+						downloadSpeed: "5,60 MB/s",
 						status: .completed
 					)
 				],
