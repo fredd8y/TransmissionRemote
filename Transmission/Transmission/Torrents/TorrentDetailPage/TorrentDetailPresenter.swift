@@ -100,7 +100,7 @@ public class TorrentDetailPresenter {
 	public static func map(_ torrentDetail: TorrentDetail) -> TorrentDetailViewModel {
 		return TorrentDetailViewModel(
 			name: torrentDetail.name,
-			percentageCompleted: (torrentDetail.percentageAvailability * 100).round() ?? "-" + "%",
+			percentageCompleted: ((torrentDetail.percentageAvailability * 100).round() ?? "-") + "%",
 			uploaded: torrentDetail.uploaded.byteSize,
 			ratio: torrentDetail.ratio.round() ?? "-",
 			downloaded: torrentDetail.downloaded.byteSize,

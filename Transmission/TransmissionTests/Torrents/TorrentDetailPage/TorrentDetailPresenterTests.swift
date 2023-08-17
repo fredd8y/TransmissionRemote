@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import Transmission
+@testable import Transmission
 
 final class TorrentDetailPresenterTests: XCTorrentTestCase {
 	
@@ -56,4 +56,53 @@ final class TorrentDetailPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentDetailPresenter.unknown, localized("UNKNOWN", table: table))
 	}
 	
+	func test_map_createsViewModel() {
+		
+		let name = "a name"
+		let percentageAvailability = 0.97
+		let uploaded = 1234567
+		let ratio = 0.19
+		let downloaded = 1234567
+		let state = Status.downloading
+		let startDate = 1234567
+		let eta = 1234567
+		let lastActivity = 1234567
+		let error = "any error"
+		let size = 1234567
+		let location = "any url"
+		let hash = "qwertyuiop1234567890"
+		let isPrivate = true
+		
+		let viewModel = TorrentDetailPresenter.map(TorrentDetail(
+			name: name,
+			percentageAvailability: percentageAvailability,
+			uploaded: uploaded,
+			ratio: ratio,
+			downloaded: downloaded,
+			state: state,
+			startDate: startDate,
+			eta: eta,
+			lastActivity: lastActivity,
+			error: error,
+			size: size,
+			location: location,
+			hash: hash,
+			isPrivate: isPrivate
+		))
+		
+		XCTAssertEqual(viewModel.name, name)
+		XCTAssertEqual(viewModel.percentageCompleted, "97,00%")
+		XCTAssertEqual(viewModel.uploaded, "1,18 MB")
+		XCTAssertEqual(viewModel.ratio, "0,19")
+		XCTAssertEqual(viewModel.downloaded, "1,18 MB")
+		XCTAssertEqual(viewModel.state, "Downloading")
+		XCTAssertEqual(viewModel.runningTime, "in 2 weeks")
+		XCTAssertEqual(viewModel.remainingTime, "Download will be completed in 2 weeks")
+		XCTAssertEqual(viewModel.lastActivity, "in 2 weeks")
+		XCTAssertEqual(viewModel.error, error)
+		XCTAssertEqual(viewModel.size, "1,18 MB")
+		XCTAssertEqual(viewModel.location, location)
+		XCTAssertEqual(viewModel.hash, hash)
+		XCTAssertEqual(viewModel.privacy, "Private torrent")
+	}
 }
