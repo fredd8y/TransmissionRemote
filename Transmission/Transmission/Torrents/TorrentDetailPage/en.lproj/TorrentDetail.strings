@@ -1,0 +1,19 @@
+/* 
+  TorrentDetail.strings
+  Transmission
+
+  Created by Federico Arvat on 17/08/23.
+  
+*/
+
+"DOWNLOAD_COMPLETED_IN" = "Download will be completed";
+"PRIVATE_TORRENT" = "Private torrent";
+"PUBLIC_TORRENT" = "Public torrent";
+"STOPPED" = "Stopped";
+"QUEUED_VERIFY_LOCAL_DATA" = "Queued to verify local data";
+"VERIFYING_LOCAL_DATA" = "Verifying local data";
+"QUEUED_DOWNLOAD" = "Queued download";
+"DOWNLOADING" = "Downloading";
+"QUEUED_TO_SEED" = "Queued to seed";
+"SEEDING" = "Seeding";
+"UNKNOWN" = "Unknown";
