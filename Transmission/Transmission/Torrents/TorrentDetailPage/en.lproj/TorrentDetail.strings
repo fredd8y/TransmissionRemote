@@ -30,3 +30,6 @@
 "LOCATION" = "Location";
 "HASH" = "Hash";
 "PRIVACY" = "Privacy";
+"ACTIVITY_SECTION_HEADER" = "Activity";
+"DETAILS_SECTION_HEADER" = "Details";
+"TITLE" = "Details";

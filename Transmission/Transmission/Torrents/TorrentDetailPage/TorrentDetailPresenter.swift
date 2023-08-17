@@ -9,6 +9,13 @@ import Foundation
 
 public class TorrentDetailPresenter {
 	
+	public static var title: String {
+		NSLocalizedString(
+			"TITLE",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Page title")
+	}
 	public static var downloadCompletedIn: String {
 		NSLocalizedString(
 			"DOWNLOAD_COMPLETED_IN",
@@ -102,7 +109,7 @@ public class TorrentDetailPresenter {
 			"NAME",
 			tableName: "TorrentDetail",
 			bundle: Bundle(for: TorrentDetailPresenter.self),
-			comment: "Unknown torrent description")
+			comment: "Name field description")
 	}
 	
 	public static var percentageCompleted: String {
@@ -110,7 +117,7 @@ public class TorrentDetailPresenter {
 			"AVAILABILITY",
 			tableName: "TorrentDetail",
 			bundle: Bundle(for: TorrentDetailPresenter.self),
-			comment: "Unknown torrent description")
+			comment: "Percentage completed field description")
 	}
 	
 	public static var uploaded: String {
@@ -118,7 +125,7 @@ public class TorrentDetailPresenter {
 			"UPLOADED",
 			tableName: "TorrentDetail",
 			bundle: Bundle(for: TorrentDetailPresenter.self),
-			comment: "Unknown torrent description")
+			comment: "Uploaded field description")
 	}
 	
 	public static var downloaded: String {
@@ -126,7 +133,7 @@ public class TorrentDetailPresenter {
 			"DOWNLOADED",
 			tableName: "TorrentDetail",
 			bundle: Bundle(for: TorrentDetailPresenter.self),
-			comment: "Unknown torrent description")
+			comment: "Downloaded field description")
 	}
 	
 	public static var state: String {
@@ -134,7 +141,7 @@ public class TorrentDetailPresenter {
 			"STATE",
 			tableName: "TorrentDetail",
 			bundle: Bundle(for: TorrentDetailPresenter.self),
-			comment: "Unknown torrent description")
+			comment: "State field description")
 	}
 	
 	public static var runningTime: String {
@@ -142,7 +149,7 @@ public class TorrentDetailPresenter {
 			"RUNNING_TIME",
 			tableName: "TorrentDetail",
 			bundle: Bundle(for: TorrentDetailPresenter.self),
-			comment: "Unknown torrent description")
+			comment: "Running time field description")
 	}
 	
 	public static var remainingTime: String {
@@ -150,7 +157,7 @@ public class TorrentDetailPresenter {
 			"REMAINING_TIME",
 			tableName: "TorrentDetail",
 			bundle: Bundle(for: TorrentDetailPresenter.self),
-			comment: "Unknown torrent description")
+			comment: "Remaining time field description")
 	}
 	
 	public static var lastActivity: String {
@@ -158,7 +165,7 @@ public class TorrentDetailPresenter {
 			"LAST_ACTIVITY",
 			tableName: "TorrentDetail",
 			bundle: Bundle(for: TorrentDetailPresenter.self),
-			comment: "Unknown torrent description")
+			comment: "Last activity field description")
 	}
 	
 	public static var error: String {
@@ -166,7 +173,7 @@ public class TorrentDetailPresenter {
 			"ERROR",
 			tableName: "TorrentDetail",
 			bundle: Bundle(for: TorrentDetailPresenter.self),
-			comment: "Unknown torrent description")
+			comment: "Error field description")
 	}
 	
 	public static var size: String {
@@ -174,7 +181,7 @@ public class TorrentDetailPresenter {
 			"SIZE",
 			tableName: "TorrentDetail",
 			bundle: Bundle(for: TorrentDetailPresenter.self),
-			comment: "Unknown torrent description")
+			comment: "Size field description")
 	}
 	
 	public static var location: String {
@@ -182,7 +189,7 @@ public class TorrentDetailPresenter {
 			"LOCATION",
 			tableName: "TorrentDetail",
 			bundle: Bundle(for: TorrentDetailPresenter.self),
-			comment: "Unknown torrent description")
+			comment: "Location field description")
 	}
 	
 	public static var hash: String {
@@ -190,7 +197,7 @@ public class TorrentDetailPresenter {
 			"HASH",
 			tableName: "TorrentDetail",
 			bundle: Bundle(for: TorrentDetailPresenter.self),
-			comment: "Unknown torrent description")
+			comment: "Hash field description")
 	}
 	
 	public static var privacy: String {
@@ -198,7 +205,23 @@ public class TorrentDetailPresenter {
 			"PRIVACY",
 			tableName: "TorrentDetail",
 			bundle: Bundle(for: TorrentDetailPresenter.self),
-			comment: "Unknown torrent description")
+			comment: "Privacy field description")
+	}
+	
+	public static var activitySectionHeader: String {
+		NSLocalizedString(
+			"ACTIVITY_SECTION_HEADER",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Activity section header title")
+	}
+	
+	public static var detailsSectionHeader: String {
+		NSLocalizedString(
+			"DETAILS_SECTION_HEADER",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Details section header title")
 	}
 	
 	public static func map(_ torrentDetail: TorrentDetail) -> TorrentDetailViewModel {

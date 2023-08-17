@@ -108,6 +108,18 @@ final class TorrentDetailPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentDetailPresenter.privacy, localized("PRIVACY", table: table))
 	}
 	
+	func test_title_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.title, localized("TITLE", table: table))
+	}
+	
+	func test_activitySectionHeader_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.activitySectionHeader, localized("ACTIVITY_SECTION_HEADER", table: table))
+	}
+	
+	func test_detailsSectionHeader_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.detailsSectionHeader, localized("DETAILS_SECTION_HEADER", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let name = "a name"
 		let percentageAvailability = 0.97

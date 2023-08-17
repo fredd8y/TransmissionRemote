@@ -15,7 +15,7 @@ struct TorrentDetailPage: View {
     var body: some View {
 		NavigationStack {
 			List {
-				Section("Activity") {
+				Section(TorrentDetailPresenter.activitySectionHeader) {
 					item(title: TorrentDetailPresenter.name, value: viewModel.name)
 					item(title: TorrentDetailPresenter.percentageCompleted, value: viewModel.percentageCompleted)
 					item(title: TorrentDetailPresenter.uploaded, value: viewModel.uploaded)
@@ -26,14 +26,14 @@ struct TorrentDetailPage: View {
 					item(title: TorrentDetailPresenter.lastActivity, value: viewModel.lastActivity)
 					item(title: TorrentDetailPresenter.error, value: viewModel.error)
 				}
-				Section("Details") {
+				Section(TorrentDetailPresenter.detailsSectionHeader) {
 					item(title: TorrentDetailPresenter.size, value: viewModel.size)
 					item(title: TorrentDetailPresenter.location, value: viewModel.location)
 					item(title: TorrentDetailPresenter.hash, value: viewModel.hash)
 					item(title: TorrentDetailPresenter.privacy, value: viewModel.privacy)
 				}
 			}
-			.navigationTitle("Detail")
+			.navigationTitle(TorrentDetailPresenter.title)
 			.navigationBarTitleDisplayMode(.inline)
 		}
     }
