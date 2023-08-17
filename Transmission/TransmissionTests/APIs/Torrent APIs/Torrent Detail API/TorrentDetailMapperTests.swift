@@ -28,5 +28,12 @@ class TorrentDetailMapperTests: XCTestCase {
 			try TorrentDetailMapper.map(json, from: HTTPURLResponse(statusCode: 200))
 		)
 	}
+	
+	func test_map_throwsErrorOn200HTTPResponseWithEmptyJSON() throws {
+		XCTAssertThrowsError(
+			try TorrentDetailMapper.map(Data(), from: HTTPURLResponse(statusCode: 200))
+		)
+	}
+	
 }
 
