@@ -46,6 +46,16 @@ class TorrentDetailMapperTests: XCTestCase {
 		)
 	}
 
+	func test_map_throwsErrorOnResponseWithMoreThanOneTorrent() throws {
+		let noTorrentResponse = makeResponseWithMoreThanOneTorrent()
+		
+		let json = makeJSON(fromDictionary: noTorrentResponse)
+		
+		XCTAssertThrowsError(
+			try TorrentDetailMapper.map(json, from: HTTPURLResponse(statusCode: 200))
+		)
+	}
+
 	func test_map_deliversTorrentDetailOn200HTTPResponseWithValidJSON() {
 		let torrentDetail = makeTorrentDetail()
 
@@ -195,4 +205,176 @@ class TorrentDetailMapperTests: XCTestCase {
 		return json
 	}
 	
+	private func makeResponseWithMoreThanOneTorrent() -> [String: Any] {
+		let json: [String: Any] = [
+			"arguments": [
+				"torrents": [
+					[
+						"name": "name",
+						"downloadDir": "location",
+						"error": 0,
+						"errorString": "error",
+						"eta": 1234567,
+						"hashString": "hash",
+						"uploadRatio": 0.09,
+						"uploadedEver": 1234567,
+						"percentDone": 0.0987,
+						"rateDownload": 213213,
+						"rateUpload": 321321,
+						"totalSize": 1234567,
+						"isPrivate": false,
+						"status": 4,
+						"activityDate": 1692258808,
+						"corruptEver": 0,
+						"desiredAvailable": 0,
+						"downloadedEver": 3002549145,
+						"fileStats": [
+							[
+								"bytesCompleted": 2957324288,
+								"priority": 0,
+								"wanted": true
+							]
+						],
+						"haveUnchecked": 0,
+						"haveValid": 2957324288,
+						"id": 18,
+						"peers": [
+							[
+								"address": "2001:470:e01f:700::30",
+								"clientIsChoked": true,
+								"clientIsInterested": false,
+								"clientName": "qBittorrent 4.2.5",
+								"flagStr": "T?EH",
+								"isDownloadingFrom": false,
+								"isEncrypted": true,
+								"isIncoming": false,
+								"isUTP": true,
+								"isUploadingTo": false,
+								"peerIsChoked": false,
+								"peerIsInterested": false,
+								"port": 51413,
+								"progress": 0,
+								"rateToClient": 0,
+								"rateToPeer": 0
+							]
+						],
+						"startDate": 1692197318,
+						"trackerStats": [
+							[
+								"announce": "udp://tracker.opentrackr.org:1337/announce",
+								"announceState": 1,
+								"downloadCount": 11495,
+								"hasAnnounced": true,
+								"hasScraped": true,
+								"host": "udp://tracker.opentrackr.org:1337",
+								"id": 0,
+								"isBackup": false,
+								"lastAnnouncePeerCount": 80,
+								"lastAnnounceResult": "Success",
+								"lastAnnounceStartTime": 1692258508,
+								"lastAnnounceSucceeded": true,
+								"lastAnnounceTime": 1692258508,
+								"lastAnnounceTimedOut": false,
+								"lastScrapeResult": "",
+								"lastScrapeStartTime": 1692258581,
+								"lastScrapeSucceeded": true,
+								"lastScrapeTime": 1692258581,
+								"lastScrapeTimedOut": false,
+								"leecherCount": 6,
+								"nextAnnounceTime": 1692260351,
+								"nextScrapeTime": 1692260390,
+								"scrape": "udp://tracker.opentrackr.org:1337/scrape",
+								"scrapeState": 1,
+								"seederCount": 487,
+								"tier": 0
+							]
+						]
+					],
+					[
+						"name": "name",
+						"downloadDir": "location",
+						"error": 0,
+						"errorString": "error",
+						"eta": 1234567,
+						"hashString": "hash",
+						"uploadRatio": 0.09,
+						"uploadedEver": 1234567,
+						"percentDone": 0.0987,
+						"rateDownload": 213213,
+						"rateUpload": 321321,
+						"totalSize": 1234567,
+						"isPrivate": false,
+						"status": 4,
+						"activityDate": 1692258808,
+						"corruptEver": 0,
+						"desiredAvailable": 0,
+						"downloadedEver": 3002549145,
+						"fileStats": [
+							[
+								"bytesCompleted": 2957324288,
+								"priority": 0,
+								"wanted": true
+							]
+						],
+						"haveUnchecked": 0,
+						"haveValid": 2957324288,
+						"id": 18,
+						"peers": [
+							[
+								"address": "2001:470:e01f:700::30",
+								"clientIsChoked": true,
+								"clientIsInterested": false,
+								"clientName": "qBittorrent 4.2.5",
+								"flagStr": "T?EH",
+								"isDownloadingFrom": false,
+								"isEncrypted": true,
+								"isIncoming": false,
+								"isUTP": true,
+								"isUploadingTo": false,
+								"peerIsChoked": false,
+								"peerIsInterested": false,
+								"port": 51413,
+								"progress": 0,
+								"rateToClient": 0,
+								"rateToPeer": 0
+							]
+						],
+						"startDate": 1692197318,
+						"trackerStats": [
+							[
+								"announce": "udp://tracker.opentrackr.org:1337/announce",
+								"announceState": 1,
+								"downloadCount": 11495,
+								"hasAnnounced": true,
+								"hasScraped": true,
+								"host": "udp://tracker.opentrackr.org:1337",
+								"id": 0,
+								"isBackup": false,
+								"lastAnnouncePeerCount": 80,
+								"lastAnnounceResult": "Success",
+								"lastAnnounceStartTime": 1692258508,
+								"lastAnnounceSucceeded": true,
+								"lastAnnounceTime": 1692258508,
+								"lastAnnounceTimedOut": false,
+								"lastScrapeResult": "",
+								"lastScrapeStartTime": 1692258581,
+								"lastScrapeSucceeded": true,
+								"lastScrapeTime": 1692258581,
+								"lastScrapeTimedOut": false,
+								"leecherCount": 6,
+								"nextAnnounceTime": 1692260351,
+								"nextScrapeTime": 1692260390,
+								"scrape": "udp://tracker.opentrackr.org:1337/scrape",
+								"scrapeState": 1,
+								"seederCount": 487,
+								"tier": 0
+							]
+						]
+					]
+				]
+			],
+			"result": "success"
+		]
+		return json
+	}
 }
