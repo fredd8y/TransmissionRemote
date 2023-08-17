@@ -1,3 +1,6 @@
+[![CI_iOS](https://github.com/fredd8y/TransmissionRemote/actions/workflows/CI_iOS.yml/badge.svg)](https://github.com/fredd8y/TransmissionRemote/actions/workflows/CI_iOS.yml)
+[![CI_macOS](https://github.com/fredd8y/TransmissionRemote/actions/workflows/CI_macOS.yml/badge.svg)](https://github.com/fredd8y/TransmissionRemote/actions/workflows/CI_macOS.yml)
+
 # TransmissionRemote
 Transmission is an app for iPhone that work as a Transmission Remote Controller, it aims to have iOS native look and feel and to follow iOS human interface guidelines.
 
