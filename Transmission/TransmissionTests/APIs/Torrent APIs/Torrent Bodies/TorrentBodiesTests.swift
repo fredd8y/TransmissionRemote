@@ -30,6 +30,17 @@ extension TorrentBodiesTests {
 	}
 	
 }
+extension TorrentBodiesTests {
+	
+	func test_torrentGetDetail_httpBody() {
+		let expectedBody = #"{"method":"torrent-get","arguments":{"ids":[1],"fields":["field1","field2","field3"]}}"#.data(using: .utf8)
+		
+		let httpBody = TorrentBodies.detail(id: 1, fields: ["field1", "field2", "field3"])
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
+}
 
 extension TorrentBodiesTests {
 	
