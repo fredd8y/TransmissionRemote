@@ -36,7 +36,15 @@ class TorrentDetailMapperTests: XCTestCase {
 		)
 	}
 
-	// ADD TEST FOR EMPTY TORRENT ARRAY OR MULTIPLE TORRENT
+	func test_map_throwsErrorOnMissingTorrent() throws {
+		let noTorrentResponse = makeResponseWithoutTorrent()
+		
+		let json = makeJSON(fromDictionary: noTorrentResponse)
+		
+		XCTAssertThrowsError(
+			try TorrentDetailMapper.map(json, from: HTTPURLResponse(statusCode: 200))
+		)
+	}
 
 	func test_map_deliversTorrentDetailOn200HTTPResponseWithValidJSON() {
 		let torrentDetail = makeTorrentDetail()
@@ -51,8 +59,6 @@ class TorrentDetailMapperTests: XCTestCase {
 			XCTFail("Expected no exception, got \(error.localizedDescription) instead")
 		}
 	}
-
-	// MARK: Private
 
 	// MARK: - Helpers
 
@@ -178,4 +184,15 @@ class TorrentDetailMapperTests: XCTestCase {
 		]
 		return (torrentDetail, json)
 	}
+	
+	private func makeResponseWithoutTorrent() -> [String: Any] {
+		let json: [String: Any] = [
+			"arguments": [
+				"torrents": []
+			],
+			"result": "success"
+		]
+		return json
+	}
+	
 }
