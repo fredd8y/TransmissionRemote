@@ -8,11 +8,15 @@
 import SwiftUI
 import Transmission
 
-struct TorrentDetailPage: View {
+public struct TorrentDetailPage: View {
+	
+	public init(viewModel: TorrentDetailViewModel) {
+		self.viewModel = viewModel
+	}
 	
 	@ObservedObject var viewModel: TorrentDetailViewModel
 	
-    var body: some View {
+    public var body: some View {
 		NavigationStack {
 			List {
 				Section(TorrentDetailPresenter.activitySectionHeader) {
