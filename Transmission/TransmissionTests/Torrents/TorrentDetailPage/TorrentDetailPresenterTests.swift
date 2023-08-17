@@ -57,7 +57,6 @@ final class TorrentDetailPresenterTests: XCTorrentTestCase {
 	}
 	
 	func test_map_createsViewModel() {
-		
 		let name = "a name"
 		let percentageAvailability = 0.97
 		let uploaded = 1234567
