@@ -97,6 +97,110 @@ public class TorrentDetailPresenter {
 			comment: "Unknown torrent description")
 	}
 	
+	public static var name: String {
+		NSLocalizedString(
+			"NAME",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Unknown torrent description")
+	}
+	
+	public static var percentageCompleted: String {
+		NSLocalizedString(
+			"AVAILABILITY",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Unknown torrent description")
+	}
+	
+	public static var uploaded: String {
+		NSLocalizedString(
+			"UPLOADED",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Unknown torrent description")
+	}
+	
+	public static var downloaded: String {
+		NSLocalizedString(
+			"DOWNLOADED",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Unknown torrent description")
+	}
+	
+	public static var state: String {
+		NSLocalizedString(
+			"STATE",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Unknown torrent description")
+	}
+	
+	public static var runningTime: String {
+		NSLocalizedString(
+			"RUNNING_TIME",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Unknown torrent description")
+	}
+	
+	public static var remainingTime: String {
+		NSLocalizedString(
+			"REMAINING_TIME",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Unknown torrent description")
+	}
+	
+	public static var lastActivity: String {
+		NSLocalizedString(
+			"LAST_ACTIVITY",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Unknown torrent description")
+	}
+	
+	public static var error: String {
+		NSLocalizedString(
+			"ERROR",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Unknown torrent description")
+	}
+	
+	public static var size: String {
+		NSLocalizedString(
+			"SIZE",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Unknown torrent description")
+	}
+	
+	public static var location: String {
+		NSLocalizedString(
+			"LOCATION",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Unknown torrent description")
+	}
+	
+	public static var hash: String {
+		NSLocalizedString(
+			"HASH",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Unknown torrent description")
+	}
+	
+	public static var privacy: String {
+		NSLocalizedString(
+			"PRIVACY",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Unknown torrent description")
+	}
+	
 	public static func map(_ torrentDetail: TorrentDetail) -> TorrentDetailViewModel {
 		return TorrentDetailViewModel(
 			name: torrentDetail.name,

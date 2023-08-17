@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class TorrentDetailViewModel {
+public class TorrentDetailViewModel: ObservableObject {
 	
 	public init(
 		name: String,
@@ -41,19 +41,19 @@ public class TorrentDetailViewModel {
 		self.privacy = privacy
 	}
 	
-	let name: String
-	let percentageCompleted: String
-	let uploaded: String
-	let ratio: String
-	let downloaded: String
-	let state: String
-	let runningTime: String
-	let remainingTime: String
-	let lastActivity: String
-	let error: String
-	let size: String
-	let location: String
-	let hash: String
-	let privacy: String
+	@Published public var name: String
+	@Published public var percentageCompleted: String
+	@Published public var uploaded: String
+	@Published public var ratio: String
+	@Published public var downloaded: String
+	@Published public var state: String
+	@Published public var runningTime: String
+	@Published public var remainingTime: String
+	@Published public var lastActivity: String
+	@Published public var error: String
+	@Published public var size: String
+	@Published public var location: String
+	@Published public var hash: String
+	@Published public var privacy: String
 	
 }

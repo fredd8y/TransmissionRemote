@@ -17,3 +17,16 @@
 "QUEUED_TO_SEED" = "Queued to seed";
 "SEEDING" = "Seeding";
 "UNKNOWN" = "Unknown";
+"NAME" = "Name";
+"AVAILABILITY" = "Availability";
+"UPLOADED" = "Uploaded";
+"DOWNLOADED" = "Downloaded";
+"STATE" = "State";
+"RUNNING_TIME" = "Running time";
+"REMAINING_TIME" = "Remaining time";
+"LAST_ACTIVITY" = "Last activity";
+"ERROR" = "Error";
+"SIZE" = "Size";
+"LOCATION" = "Location";
+"HASH" = "Hash";
+"PRIVACY" = "Privacy";

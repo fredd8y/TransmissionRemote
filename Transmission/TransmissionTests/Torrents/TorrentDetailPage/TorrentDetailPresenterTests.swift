@@ -56,6 +56,58 @@ final class TorrentDetailPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentDetailPresenter.unknown, localized("UNKNOWN", table: table))
 	}
 	
+	func test_name_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.name, localized("NAME", table: table))
+	}
+	
+	func test_percentageCompleted_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.percentageCompleted, localized("AVAILABILITY", table: table))
+	}
+	
+	func test_uploaded_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.uploaded, localized("UPLOADED", table: table))
+	}
+	
+	func test_downloaded_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.downloaded, localized("DOWNLOADED", table: table))
+	}
+	
+	func test_state_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.state, localized("STATE", table: table))
+	}
+	
+	func test_runningTime_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.runningTime, localized("RUNNING_TIME", table: table))
+	}
+	
+	func test_remainingTime_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.remainingTime, localized("REMAINING_TIME", table: table))
+	}
+	
+	func test_lastActivity_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.lastActivity, localized("LAST_ACTIVITY", table: table))
+	}
+	
+	func test_error_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.error, localized("ERROR", table: table))
+	}
+	
+	func test_size_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.size, localized("SIZE", table: table))
+	}
+	
+	func test_location_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.location, localized("LOCATION", table: table))
+	}
+	
+	func test_hash_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.hash, localized("HASH", table: table))
+	}
+	
+	func test_privacy_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.privacy, localized("PRIVACY", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let name = "a name"
 		let percentageAvailability = 0.97

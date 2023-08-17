@@ -17,3 +17,16 @@
 "QUEUED_TO_SEED" = "In coda per il seeding";
 "SEEDING" = "Seeding";
 "UNKNOWN" = "Sconosciuto";
+"NAME" = "Nome";
+"AVAILABILITY" = "Disponibilità";
+"UPLOADED" = "Uploaded";
+"DOWNLOADED" = "Downloaded";
+"STATE" = "Stato";
+"RUNNING_TIME" = "Tempo di attività";
+"REMAINING_TIME" = "Tempo rimanente";
+"LAST_ACTIVITY" = "Ultima attività";
+"ERROR" = "Errore";
+"SIZE" = "Dimensione";
+"LOCATION" = "Posizione";
+"HASH" = "Hash";
+"PRIVACY" = "Privacy";
