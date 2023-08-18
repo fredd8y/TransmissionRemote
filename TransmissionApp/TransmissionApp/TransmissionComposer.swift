@@ -36,13 +36,15 @@ final class TransmissionComposer {
 				TransmissionHTTPClient.sessionId = sessionId
 			}
 		)
-		let torrentDetailPagePresentationAdapter = TorrentDetailPagePresentationAdapter(torrentDetailPageViewModel: .empty())
 		
 		torrentsPage.stop = torrentsPagePresentationAdapter.stop
 		torrentsPage.start = torrentsPagePresentationAdapter.start
 		torrentsPage.delete = torrentsPagePresentationAdapter.delete
 		torrentsPage.stopAll = torrentsPagePresentationAdapter.stopAll
-		torrentsPage.onAppear = torrentsPagePresentationAdapter.loadData
+		torrentsPage.onAppear = {
+			torrentDetailPages.removeAll()
+			torrentsPagePresentationAdapter.loadData()
+		}
 		torrentsPage.startAll = torrentsPagePresentationAdapter.startAll
 		torrentsPage.onRefresh = torrentsPagePresentationAdapter.loadData
 		torrentsPage.deleteAll = torrentsPagePresentationAdapter.deleteAll
@@ -51,15 +53,35 @@ final class TransmissionComposer {
 		torrentsPage.onDisappear = torrentsPagePresentationAdapter.stopLoadingData
 		torrentsPage.onOpenDetail = torrentsPagePresentationAdapter.stopLoadingData
 		torrentsPage.setDownloadLimit = torrentsPagePresentationAdapter.setDownloadLimit
+		torrentsPage.selectedTorrent = torrentDetailPage
 		
-		torrentsPage.selectedTorrent = { id in
+		return torrentsPage
+	}
+	
+	private static var torrentDetailPages: [Int: TorrentDetailPage] = [:]
+	
+	private static func torrentDetailPage(_ id: Int) -> TorrentDetailPage {
+		// This is a workaround that has to be done due to a bug in SwiftUI that cause a multiple call on
+		// navigationDestination(for:) in this case inside TorrentsPage. This method being called multiple
+		// times cause a problem in the ViewModel/View binding causing the page to not receive the viewModel update.
+		// To avoid this behaviour I've created a map to return the previously created TorrentDetailPage if available.
+		// This workaround is done with the help of this stackoverflow answer:
+		// https://stackoverflow.com/a/74722075/9539895
+		// This torrentDetailPages map has to be cleaned when the TorrentDetailPage is being dismissed,
+		// otherwise if you open and close a lot of torrent detail you end up having a lot of old pages in memory
+		// that are no longer necessary. To free this map we use the
+		// onAppear method that the TorrentsPage expose, given the fact that when the TorrentsPage is visible the
+		// TorrentDetailPage must be dismissed because is the only entry point
+		if let torrentDetailPage = torrentDetailPages[id] {
+			return torrentDetailPage
+		} else {
+			let torrentDetailPagePresentationAdapter = TorrentDetailPagePresentationAdapter(torrentDetailPageViewModel: .empty())
 			var torrentDetailPage = torrentDetailPagePresentationAdapter.showTorrentDetail(id)
 			torrentDetailPage.onAppear = torrentDetailPagePresentationAdapter.loadData
 			torrentDetailPage.onDisappear = torrentDetailPagePresentationAdapter.stopLoadingData
+			torrentDetailPages[id] = torrentDetailPage
 			return torrentDetailPage
 		}
-		
-		return torrentsPage
 	}
 	
 	private static func settingsPage(serverPage: ServerPage) -> SettingsPage {
