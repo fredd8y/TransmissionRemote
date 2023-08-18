@@ -22,7 +22,7 @@
 "UPLOADED" = "Uploaded";
 "DOWNLOADED" = "Downloaded";
 "STATE" = "Stato";
-"RUNNING_TIME" = "Tempo di attività";
+"RUNNING_TIME" = "Aggiunto";
 "REMAINING_TIME" = "Tempo rimanente";
 "LAST_ACTIVITY" = "Ultima attività";
 "ERROR" = "Errore";
@@ -33,3 +33,5 @@
 "ACTIVITY_SECTION_HEADER" = "Attività";
 "DETAILS_SECTION_HEADER" = "Dettagli";
 "TITLE" = "Dettagli";
+"COMPLETED" = "Completato";
+"NONE" = "Nessuno";

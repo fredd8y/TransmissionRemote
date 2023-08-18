@@ -224,7 +224,23 @@ public class TorrentDetailPresenter {
 			comment: "Details section header title")
 	}
 	
-	public static func map(_ torrentDetail: TorrentDetail) -> TorrentDetailPageViewModel {
+	public static var completed: String {
+		NSLocalizedString(
+			"COMPLETED",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Completed description")
+	}
+	
+	public static var none: String {
+		NSLocalizedString(
+			"NONE",
+			tableName: "TorrentDetail",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "None description")
+	}
+	
+	public static func map(_ torrentDetail: TorrentDetail, referenceDate: Date = Date()) -> TorrentDetailPageViewModel {
 		return TorrentDetailPageViewModel(
 			name: torrentDetail.name,
 			percentageCompleted: ((torrentDetail.percentageAvailability * 100).round() ?? "-") + "%",
@@ -232,10 +248,10 @@ public class TorrentDetailPresenter {
 			ratio: torrentDetail.ratio.round() ?? "-",
 			downloaded: torrentDetail.downloaded.byteSize,
 			state: torrentDetail.state.value,
-			runningTime: relativeEta(torrentDetail.startDate),
-			remainingTime: "\(downloadCompletedIn) \(relativeEta(torrentDetail.eta))",
-			lastActivity: relativeEta(torrentDetail.lastActivity),
-			error: torrentDetail.error,
+			runningTime: relativeEta(torrentDetail.startDate - Int(referenceDate.timeIntervalSince1970)),
+			remainingTime: torrentDetail.eta > 0 ? relativeEta(torrentDetail.eta) : completed,
+			lastActivity: relativeEta(torrentDetail.lastActivity - Int(referenceDate.timeIntervalSince1970)),
+			error: torrentDetail.error.isEmpty ? none : torrentDetail.error,
 			size: torrentDetail.size.byteSize,
 			location: torrentDetail.location,
 			hash: torrentDetail.hash,
@@ -244,7 +260,6 @@ public class TorrentDetailPresenter {
 	}
 	
 	private static func relativeEta(_ value: Int) -> String {
-		guard value > 0 else { return "ERROR" }
 		let relativeDateFormatter = RelativeDateTimeFormatter()
 		relativeDateFormatter.locale = .current
 		relativeDateFormatter.calendar = .current

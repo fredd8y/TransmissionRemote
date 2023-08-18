@@ -120,6 +120,14 @@ final class TorrentDetailPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentDetailPresenter.detailsSectionHeader, localized("DETAILS_SECTION_HEADER", table: table))
 	}
 	
+	func test_completed_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.completed, localized("COMPLETED", table: table))
+	}
+	
+	func test_none_isLocalized() {
+		XCTAssertEqual(TorrentDetailPresenter.none, localized("NONE", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let name = "a name"
 		let percentageAvailability = 0.97
@@ -127,9 +135,9 @@ final class TorrentDetailPresenterTests: XCTorrentTestCase {
 		let ratio = 0.19
 		let downloaded = 1234567
 		let state = Status.downloading
-		let startDate = 1234567
+		let startDate = 1692361373
 		let eta = 1234567
-		let lastActivity = 1234567
+		let lastActivity = 1692361373
 		let error = "any error"
 		let size = 1234567
 		let location = "any url"
@@ -151,7 +159,7 @@ final class TorrentDetailPresenterTests: XCTorrentTestCase {
 			location: location,
 			hash: hash,
 			isPrivate: isPrivate
-		))
+		), referenceDate: Date(timeIntervalSince1970: 1692367725))
 		
 		XCTAssertEqual(viewModel.name, name)
 		XCTAssertEqual(viewModel.percentageCompleted, "97,00%")
@@ -159,9 +167,9 @@ final class TorrentDetailPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(viewModel.ratio, "0,19")
 		XCTAssertEqual(viewModel.downloaded, "1,18 MB")
 		XCTAssertEqual(viewModel.state, "Downloading")
-		XCTAssertEqual(viewModel.runningTime, "in 2 weeks")
-		XCTAssertEqual(viewModel.remainingTime, "Download will be completed in 2 weeks")
-		XCTAssertEqual(viewModel.lastActivity, "in 2 weeks")
+		XCTAssertEqual(viewModel.runningTime, "1 hour ago")
+		XCTAssertEqual(viewModel.remainingTime, "in 2 weeks")
+		XCTAssertEqual(viewModel.lastActivity, "1 hour ago")
 		XCTAssertEqual(viewModel.error, error)
 		XCTAssertEqual(viewModel.size, "1,18 MB")
 		XCTAssertEqual(viewModel.location, location)
