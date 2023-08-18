@@ -27,10 +27,8 @@ final class TransmissionComposer {
 	
 	private static func torrentsPage() -> TorrentsPage {
 		let torrentsPageViewModel = TorrentsPageViewModel.loading()
-		let torrentDetailPageViewModel = TorrentDetailPageViewModel.empty()
 		
 		var torrentsPage = TorrentsPage(viewModel: torrentsPageViewModel)
-		var torrentDetailPage = TorrentDetailPage(viewModel: torrentDetailPageViewModel)
 
 		let torrentsPagePresentationAdapter = TorrentsPagePresentationAdapter(
 			torrentsPageViewModel: torrentsPageViewModel,
@@ -38,7 +36,7 @@ final class TransmissionComposer {
 				TransmissionHTTPClient.sessionId = sessionId
 			}
 		)
-		let torrentDetailPagePresentationAdapter = TorrentDetailPagePresentationAdapter(torrentDetailPageViewModel: torrentDetailPageViewModel)
+		let torrentDetailPagePresentationAdapter = TorrentDetailPagePresentationAdapter(torrentDetailPageViewModel: .empty())
 		
 		torrentsPage.stop = torrentsPagePresentationAdapter.stop
 		torrentsPage.start = torrentsPagePresentationAdapter.start
@@ -53,13 +51,13 @@ final class TransmissionComposer {
 		torrentsPage.onDisappear = torrentsPagePresentationAdapter.stopLoadingData
 		torrentsPage.onOpenDetail = torrentsPagePresentationAdapter.stopLoadingData
 		torrentsPage.setDownloadLimit = torrentsPagePresentationAdapter.setDownloadLimit
+		
 		torrentsPage.selectedTorrent = { id in
-			torrentDetailPagePresentationAdapter.selectedTorrent(id)
+			var torrentDetailPage = torrentDetailPagePresentationAdapter.showTorrentDetail(id)
+			torrentDetailPage.onAppear = torrentDetailPagePresentationAdapter.loadData
+			torrentDetailPage.onDisappear = torrentDetailPagePresentationAdapter.stopLoadingData
 			return torrentDetailPage
 		}
-		
-		torrentDetailPage.onAppear = torrentDetailPagePresentationAdapter.loadData
-		torrentDetailPage.onDisappear = torrentDetailPagePresentationAdapter.stopLoadingData
 		
 		return torrentsPage
 	}

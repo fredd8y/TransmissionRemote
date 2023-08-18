@@ -23,8 +23,9 @@ final class TorrentDetailPagePresentationAdapter {
 	private var workItems: [DispatchWorkItem] = []
 	private var cancellables = Set<AnyCancellable>()
 	
-	func selectedTorrent(_ id: Int) {
+	func showTorrentDetail(_ id: Int) -> TorrentDetailPage {
 		self.id = id
+		return TorrentDetailPage(viewModel: torrentDetailPageViewModel)
 	}
 	
 	func stopLoadingData() {
