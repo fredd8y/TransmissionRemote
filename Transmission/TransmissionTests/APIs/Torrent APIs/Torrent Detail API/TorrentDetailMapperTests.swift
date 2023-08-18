@@ -151,7 +151,7 @@ class TorrentDetailMapperTests: XCTestCase {
 								"peerIsChoked": false,
 								"peerIsInterested": false,
 								"port": 51413,
-								"progress": 0,
+								"progress": 0.54,
 								"rateToClient": 0,
 								"rateToPeer": 0
 							]
@@ -253,7 +253,7 @@ class TorrentDetailMapperTests: XCTestCase {
 								"peerIsChoked": false,
 								"peerIsInterested": false,
 								"port": 51413,
-								"progress": 0,
+								"progress": 0.98,
 								"rateToClient": 0,
 								"rateToPeer": 0
 							]
@@ -334,7 +334,7 @@ class TorrentDetailMapperTests: XCTestCase {
 								"peerIsChoked": false,
 								"peerIsInterested": false,
 								"port": 51413,
-								"progress": 0,
+								"progress": 0.87,
 								"rateToClient": 0,
 								"rateToPeer": 0
 							]

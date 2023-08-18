@@ -10,35 +10,45 @@ import Transmission
 
 public struct TorrentDetailPage: View {
 	
-	public init(viewModel: TorrentDetailViewModel) {
+	public init(viewModel: TorrentDetailPageViewModel) {
 		self.viewModel = viewModel
 	}
 	
-	@ObservedObject var viewModel: TorrentDetailViewModel
+	@Environment(\.isPresented) public var isPresented
+	
+	@ObservedObject var viewModel: TorrentDetailPageViewModel
+	
+	public var onAppear: (() -> Void)?
+	
+	public var onDisappear: (() -> Void)?
 	
     public var body: some View {
-		NavigationStack {
-			List {
-				Section(TorrentDetailPresenter.activitySectionHeader) {
-					item(title: TorrentDetailPresenter.name, value: viewModel.name)
-					item(title: TorrentDetailPresenter.percentageCompleted, value: viewModel.percentageCompleted)
-					item(title: TorrentDetailPresenter.uploaded, value: viewModel.uploaded)
-					item(title: TorrentDetailPresenter.downloaded, value: viewModel.downloaded)
-					item(title: TorrentDetailPresenter.state, value: viewModel.state)
-					item(title: TorrentDetailPresenter.runningTime, value: viewModel.runningTime)
-					item(title: TorrentDetailPresenter.remainingTime, value: viewModel.remainingTime)
-					item(title: TorrentDetailPresenter.lastActivity, value: viewModel.lastActivity)
-					item(title: TorrentDetailPresenter.error, value: viewModel.error)
-				}
-				Section(TorrentDetailPresenter.detailsSectionHeader) {
-					item(title: TorrentDetailPresenter.size, value: viewModel.size)
-					item(title: TorrentDetailPresenter.location, value: viewModel.location)
-					item(title: TorrentDetailPresenter.hash, value: viewModel.hash)
-					item(title: TorrentDetailPresenter.privacy, value: viewModel.privacy)
-				}
+		List {
+			Section(TorrentDetailPresenter.activitySectionHeader) {
+				item(title: TorrentDetailPresenter.name, value: viewModel.name)
+				item(title: TorrentDetailPresenter.percentageCompleted, value: viewModel.percentageCompleted)
+				item(title: TorrentDetailPresenter.uploaded, value: viewModel.uploaded)
+				item(title: TorrentDetailPresenter.downloaded, value: viewModel.downloaded)
+				item(title: TorrentDetailPresenter.state, value: viewModel.state)
+				item(title: TorrentDetailPresenter.runningTime, value: viewModel.runningTime)
+				item(title: TorrentDetailPresenter.remainingTime, value: viewModel.remainingTime)
+				item(title: TorrentDetailPresenter.lastActivity, value: viewModel.lastActivity)
+				item(title: TorrentDetailPresenter.error, value: viewModel.error)
 			}
-			.navigationTitle(TorrentDetailPresenter.title)
-			.navigationBarTitleDisplayMode(.inline)
+			Section(TorrentDetailPresenter.detailsSectionHeader) {
+				item(title: TorrentDetailPresenter.size, value: viewModel.size)
+				item(title: TorrentDetailPresenter.location, value: viewModel.location)
+				item(title: TorrentDetailPresenter.hash, value: viewModel.hash)
+				item(title: TorrentDetailPresenter.privacy, value: viewModel.privacy)
+			}
+		}
+		.navigationTitle(TorrentDetailPresenter.title)
+		.navigationBarTitleDisplayMode(.inline)
+		.onAppear {
+			onAppear?()
+		}
+		.onDisappear {
+			onDisappear?()
 		}
     }
 	
@@ -55,7 +65,7 @@ public struct TorrentDetailPage: View {
 struct TorrentDetailPage_Previews: PreviewProvider {
     static var previews: some View {
 		TorrentDetailPage(
-			viewModel: TorrentDetailViewModel(
+			viewModel: TorrentDetailPageViewModel(
 				name: "Torrent name",
 				percentageCompleted: "56,98%",
 				uploaded: "123,00 MB",

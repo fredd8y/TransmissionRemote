@@ -224,8 +224,8 @@ public class TorrentDetailPresenter {
 			comment: "Details section header title")
 	}
 	
-	public static func map(_ torrentDetail: TorrentDetail) -> TorrentDetailViewModel {
-		return TorrentDetailViewModel(
+	public static func map(_ torrentDetail: TorrentDetail) -> TorrentDetailPageViewModel {
+		return TorrentDetailPageViewModel(
 			name: torrentDetail.name,
 			percentageCompleted: ((torrentDetail.percentageAvailability * 100).round() ?? "-") + "%",
 			uploaded: torrentDetail.uploaded.byteSize,

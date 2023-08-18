@@ -24,7 +24,6 @@ final class TorrentsPagePresentationAdapter {
 		}.store(in: &pollingRateCancellable)
 		UserDefaultsHandler.shared.currentServerPublisher.dropFirst().sink { [weak self] _ in
 			self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.loading())
-			self?.cancellables.removeAll()
 			self?.loadData()
 		}.store(in: &currentServerCancellable)
 	}
@@ -348,10 +347,12 @@ final class TorrentsPagePresentationAdapter {
 		).store(in: &cancellables)
 	}
 	
+	func stopLoadingData() {
+		cancelCurrentLoadingTasks()
+	}
+	
 	func loadData() {
-		workItems.forEach { $0.cancel() }
-		workItems.removeAll()
-		cancellables.removeAll()
+		cancelCurrentLoadingTasks()
 		guard let server = UserDefaultsHandler.shared.currentServer else {
 			torrentsPageViewModel.newValues(TorrentsPageViewModel.serverNotSet())
 			return
@@ -410,6 +411,12 @@ final class TorrentsPagePresentationAdapter {
 				DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.seconds(UserDefaultsHandler.shared.pollingRate), execute: workItem)
 			}
 		).store(in: &cancellables)
+	}
+	
+	private func cancelCurrentLoadingTasks() {
+		workItems.forEach { $0.cancel() }
+		workItems.removeAll()
+		cancellables.removeAll()
 	}
 }
 

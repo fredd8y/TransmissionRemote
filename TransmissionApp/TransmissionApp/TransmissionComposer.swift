@@ -26,27 +26,40 @@ final class TransmissionComposer {
 	}
 	
 	private static func torrentsPage() -> TorrentsPage {
-		let viewModel = TorrentsPageViewModel.loading()
+		let torrentsPageViewModel = TorrentsPageViewModel.loading()
+		let torrentDetailPageViewModel = TorrentDetailPageViewModel.empty()
 		
+		var torrentsPage = TorrentsPage(viewModel: torrentsPageViewModel)
+		var torrentDetailPage = TorrentDetailPage(viewModel: torrentDetailPageViewModel)
+
 		let torrentsPagePresentationAdapter = TorrentsPagePresentationAdapter(
-			torrentsPageViewModel: viewModel,
+			torrentsPageViewModel: torrentsPageViewModel,
 			sessionIdHandler: { sessionId in
 				TransmissionHTTPClient.sessionId = sessionId
 			}
 		)
-		
-		var torrentsPage = TorrentsPage(viewModel: viewModel)
+		let torrentDetailPagePresentationAdapter = TorrentDetailPagePresentationAdapter(torrentDetailPageViewModel: torrentDetailPageViewModel)
 		
 		torrentsPage.stop = torrentsPagePresentationAdapter.stop
 		torrentsPage.start = torrentsPagePresentationAdapter.start
 		torrentsPage.delete = torrentsPagePresentationAdapter.delete
 		torrentsPage.stopAll = torrentsPagePresentationAdapter.stopAll
-		torrentsPage.loadData = torrentsPagePresentationAdapter.loadData
+		torrentsPage.onAppear = torrentsPagePresentationAdapter.loadData
 		torrentsPage.startAll = torrentsPagePresentationAdapter.startAll
+		torrentsPage.onRefresh = torrentsPagePresentationAdapter.loadData
 		torrentsPage.deleteAll = torrentsPagePresentationAdapter.deleteAll
 		torrentsPage.selectedFile = torrentsPagePresentationAdapter.selectedFile
 		torrentsPage.selectedLink = torrentsPagePresentationAdapter.selectedLink
+		torrentsPage.onDisappear = torrentsPagePresentationAdapter.stopLoadingData
+		torrentsPage.onOpenDetail = torrentsPagePresentationAdapter.stopLoadingData
 		torrentsPage.setDownloadLimit = torrentsPagePresentationAdapter.setDownloadLimit
+		torrentsPage.selectedTorrent = { id in
+			torrentDetailPagePresentationAdapter.selectedTorrent(id)
+			return torrentDetailPage
+		}
+		
+		torrentDetailPage.onAppear = torrentDetailPagePresentationAdapter.loadData
+		torrentDetailPage.onDisappear = torrentDetailPagePresentationAdapter.stopLoadingData
 		
 		return torrentsPage
 	}

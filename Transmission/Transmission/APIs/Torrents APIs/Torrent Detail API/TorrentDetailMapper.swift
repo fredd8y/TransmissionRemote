@@ -77,7 +77,7 @@ public enum TorrentDetailMapper {
 					let peerIsChoked: Bool
 					let peerIsInterested: Bool
 					let port: Int
-					let progress: Int
+					let progress: Double
 					let rateToClient: Int
 					let rateToPeer: Int
 				}

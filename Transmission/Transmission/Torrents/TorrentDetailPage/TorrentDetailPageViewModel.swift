@@ -1,5 +1,5 @@
 //
-//  TorrentDetailViewModel.swift
+//  TorrentDetailPageViewModel.swift
 //  Transmission
 //
 //  Created by Federico Arvat on 17/08/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class TorrentDetailViewModel: ObservableObject {
+public class TorrentDetailPageViewModel: ObservableObject {
 	
 	public init(
 		name: String,
