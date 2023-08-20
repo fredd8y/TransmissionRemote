@@ -192,6 +192,10 @@
 		7BDF91F52A920A830041E0CC /* TorrentPeers.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BDF91F72A920A830041E0CC /* TorrentPeers.strings */; };
 		7BDF91FB2A920F1F0041E0CC /* TorrentPeersPagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF91FA2A920F1F0041E0CC /* TorrentPeersPagePresenterTests.swift */; };
 		7BDF91FD2A920F300041E0CC /* TorrentPeersLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF91FC2A920F300041E0CC /* TorrentPeersLocalizationTests.swift */; };
+		7BDF91FF2A9210440041E0CC /* TorrentPeersPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF91FE2A9210440041E0CC /* TorrentPeersPage.swift */; };
+		7BDF92032A9212EE0041E0CC /* TorrentPeersMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF92022A9212EE0041E0CC /* TorrentPeersMapper.swift */; };
+		7BDF92062A92143F0041E0CC /* TorrentPeersMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF92052A92143F0041E0CC /* TorrentPeersMapperTests.swift */; };
+		7BDF92082A9214D50041E0CC /* TorrentPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF92072A9214D50041E0CC /* TorrentPeer.swift */; };
 		7BF3BB4D2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF3BB4B2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png */; };
 		7BF3BB4E2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF3BB4C2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png */; };
 		7BFEB63E2A8CB838003D8985 /* ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEB63D2A8CB838003D8985 /* ConditionalModifier.swift */; };
@@ -418,6 +422,10 @@
 		7BDF91F82A920A850041E0CC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/TorrentPeers.strings; sourceTree = "<group>"; };
 		7BDF91FA2A920F1F0041E0CC /* TorrentPeersPagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentPeersPagePresenterTests.swift; sourceTree = "<group>"; };
 		7BDF91FC2A920F300041E0CC /* TorrentPeersLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentPeersLocalizationTests.swift; sourceTree = "<group>"; };
+		7BDF91FE2A9210440041E0CC /* TorrentPeersPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentPeersPage.swift; sourceTree = "<group>"; };
+		7BDF92022A9212EE0041E0CC /* TorrentPeersMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentPeersMapper.swift; sourceTree = "<group>"; };
+		7BDF92052A92143F0041E0CC /* TorrentPeersMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentPeersMapperTests.swift; sourceTree = "<group>"; };
+		7BDF92072A9214D50041E0CC /* TorrentPeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentPeer.swift; sourceTree = "<group>"; };
 		7BF3BB4B2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png; sourceTree = "<group>"; };
 		7BF3BB4C2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png; sourceTree = "<group>"; };
 		7BFEB63D2A8CB838003D8985 /* ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalModifier.swift; sourceTree = "<group>"; };
@@ -909,6 +917,7 @@
 				7BB10EA22A7D063400F275EF /* Torrent Stop API */,
 				7BB10EA82A7D225700F275EF /* Torrent Start API */,
 				7B7871B22A8E0D30005A16D6 /* Torrent Detail API */,
+				7BDF92002A9212D50041E0CC /* Torrent Peers API */,
 			);
 			path = "Torrents APIs";
 			sourceTree = "<group>";
@@ -952,6 +961,7 @@
 				7B23250A2A7685F300836B02 /* ServerDetailPage.swift */,
 				7B78719A2A8D7A5B005A16D6 /* CreditsPage.swift */,
 				7B7871D22A8E62B1005A16D6 /* TorrentDetailPage.swift */,
+				7BDF91FE2A9210440041E0CC /* TorrentPeersPage.swift */,
 				7BDF91EC2A8FBC430041E0CC /* TorrentDetailTabContainer.swift */,
 			);
 			path = Controllers;
@@ -1164,6 +1174,7 @@
 				7BB10EA52A7D06CD00F275EF /* Torrent Stop API */,
 				7BB10EAB2A7D228600F275EF /* Torrent Start API */,
 				7B7871B82A8E1018005A16D6 /* Torrent Detail API */,
+				7BDF92042A92142B0041E0CC /* Torrent Peers API */,
 			);
 			path = "Torrent APIs";
 			sourceTree = "<group>";
@@ -1343,6 +1354,31 @@
 				7BDF91FC2A920F300041E0CC /* TorrentPeersLocalizationTests.swift */,
 			);
 			path = TorrentPeersPage;
+			sourceTree = "<group>";
+		};
+		7BDF92002A9212D50041E0CC /* Torrent Peers API */ = {
+			isa = PBXGroup;
+			children = (
+				7BDF92012A9212E30041E0CC /* Models */,
+				7BDF92022A9212EE0041E0CC /* TorrentPeersMapper.swift */,
+			);
+			path = "Torrent Peers API";
+			sourceTree = "<group>";
+		};
+		7BDF92012A9212E30041E0CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7BDF92072A9214D50041E0CC /* TorrentPeer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7BDF92042A92142B0041E0CC /* Torrent Peers API */ = {
+			isa = PBXGroup;
+			children = (
+				7BDF92052A92143F0041E0CC /* TorrentPeersMapperTests.swift */,
+			);
+			path = "Torrent Peers API";
 			sourceTree = "<group>";
 		};
 		7BFEB63F2A8CFC9D003D8985 /* SessionSetMapper */ = {
@@ -1644,6 +1680,7 @@
 				7BFEB63E2A8CB838003D8985 /* ConditionalModifier.swift in Sources */,
 				7B7871972A8D7585005A16D6 /* AssetImage.swift in Sources */,
 				7B78719B2A8D7A5B005A16D6 /* CreditsPage.swift in Sources */,
+				7BDF91FF2A9210440041E0CC /* TorrentPeersPage.swift in Sources */,
 				7B23250B2A7685F300836B02 /* ServerDetailPage.swift in Sources */,
 				7B8CB8432A66CAE2001A4D90 /* TorrentsPage.swift in Sources */,
 				7B7871D32A8E62B1005A16D6 /* TorrentDetailPage.swift in Sources */,
@@ -1697,6 +1734,7 @@
 				7B2325172A76891A00836B02 /* ServerDetailPageViewModel.swift in Sources */,
 				7B6CD5EC2A72539B00E81983 /* Server.swift in Sources */,
 				7B4599C62A67E92E00189C16 /* TorrentPresenter.swift in Sources */,
+				7BDF92082A9214D50041E0CC /* TorrentPeer.swift in Sources */,
 				7B8338432A1128A10052F7EC /* Session.swift in Sources */,
 				7BA01FC52A7D497E00FBB43D /* SharedAPIsConstants.swift in Sources */,
 				7B9305AF2A0F997B005EBE56 /* APIsEndpoint.swift in Sources */,
@@ -1718,6 +1756,7 @@
 				7BB10EAA2A7D226700F275EF /* TorrentStartMapper.swift in Sources */,
 				7B4DFB732A15394F007E9C63 /* Torrent.swift in Sources */,
 				7B6CD5E42A72532400E81983 /* SettingsPageViewModel.swift in Sources */,
+				7BDF92032A9212EE0041E0CC /* TorrentPeersMapper.swift in Sources */,
 				7B6CD5D42A716D7400E81983 /* Int+Byte.swift in Sources */,
 				7BD236912A780AD400AF75A9 /* ServerDetailPageDataModel.swift in Sources */,
 				7B6CD5E22A72531800E81983 /* SettingsPagePresenter.swift in Sources */,
@@ -1749,6 +1788,7 @@
 				7BB10EAD2A7D229700F275EF /* TorrentStartMapperTests.swift in Sources */,
 				7B6CD5EF2A7253E500E81983 /* SettingsPresenterTests.swift in Sources */,
 				7B9305B42A0F99CB005EBE56 /* APIsEndpointTests.swift in Sources */,
+				7BDF92062A92143F0041E0CC /* TorrentPeersMapperTests.swift in Sources */,
 				7B7871A92A8D7D54005A16D6 /* CreditsPagePresenterTests.swift in Sources */,
 				7B6587612A0D846500317EBE /* URLSessionHTTPClientTests.swift in Sources */,
 				7B65875F2A0D846500317EBE /* XCTestCase+MemoryLeakTracking.swift in Sources */,
