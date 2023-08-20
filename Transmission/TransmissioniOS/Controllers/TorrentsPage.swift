@@ -55,7 +55,7 @@ public struct TorrentsPage: View {
 	
 	public var setDownloadLimit: ((Bool) -> Void)?
 	
-	public var selectedTorrent: ((Int) -> TorrentDetailPage)?
+	public var selectedTorrent: ((Int) -> TorrentDetailTabContainer)?
 	
 	public var deleteAll: ((_ deleteLocalData: Bool) -> Void)?
 	

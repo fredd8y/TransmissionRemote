@@ -16,6 +16,7 @@ public class TorrentDetailPresenter {
 			bundle: Bundle(for: TorrentDetailPresenter.self),
 			comment: "Page title")
 	}
+	
 	public static var downloadCompletedIn: String {
 		NSLocalizedString(
 			"DOWNLOAD_COMPLETED_IN",
