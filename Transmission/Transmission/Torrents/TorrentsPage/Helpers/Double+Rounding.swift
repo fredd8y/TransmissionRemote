@@ -11,7 +11,6 @@ extension Double {
 	func round(fractionDigit: Int = 2) -> String? {
 		let numberFormatter = NumberFormatter()
 		numberFormatter.numberStyle = .decimal
-		numberFormatter.usesSignificantDigits = false
 		numberFormatter.roundingMode = .halfDown
 		numberFormatter.minimumFractionDigits = 2
 		numberFormatter.maximumFractionDigits = 2
