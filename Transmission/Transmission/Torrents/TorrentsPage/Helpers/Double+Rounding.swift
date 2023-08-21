@@ -12,6 +12,7 @@ extension Double {
 		let numberFormatter = NumberFormatter()
 		numberFormatter.numberStyle = .decimal
 		numberFormatter.roundingMode = .halfDown
+		numberFormatter.decimalSeparator = ","
 		numberFormatter.minimumFractionDigits = 2
 		numberFormatter.maximumFractionDigits = 2
 		return numberFormatter.string(from: self as NSNumber)

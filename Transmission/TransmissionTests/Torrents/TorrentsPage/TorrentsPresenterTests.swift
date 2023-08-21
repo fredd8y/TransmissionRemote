@@ -176,16 +176,16 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		)
 
 		XCTAssertEqual(viewModel.title, title)
-//		XCTAssertEqual(viewModel.isLoading, isLoading)
-//		XCTAssertEqual(viewModel.error, error)
-//		XCTAssertEqual(viewModel.downloadSpeed, "1,18 MB/s")
-//		XCTAssertEqual(viewModel.uploadSpeed, "1,18 MB/s")
-//		XCTAssertEqual(viewModel.torrents.count, 2)
-//		XCTAssertEqual(viewModel.freeDiskSpace, "\(TorrentsPagePresenter.freeSpace) 1,18 MB")
-//		XCTAssertEqual(viewModel.emptyMessage, emptyMessage)
-//		XCTAssertEqual(viewModel.canAddTorrent, canAddTorrent)
-//		XCTAssertEqual(viewModel.alertMessage, alertMessage)
-//		XCTAssertEqual(viewModel.alertMessageVisible, alertMessageVisibile)
+		XCTAssertEqual(viewModel.isLoading, isLoading)
+		XCTAssertEqual(viewModel.error, error)
+		XCTAssertEqual(viewModel.downloadSpeed, "1,18 MB/s")
+		XCTAssertEqual(viewModel.uploadSpeed, "1,18 MB/s")
+		XCTAssertEqual(viewModel.torrents.count, 2)
+		XCTAssertEqual(viewModel.freeDiskSpace, "\(TorrentsPagePresenter.freeSpace) 1,18 MB")
+		XCTAssertEqual(viewModel.emptyMessage, emptyMessage)
+		XCTAssertEqual(viewModel.canAddTorrent, canAddTorrent)
+		XCTAssertEqual(viewModel.alertMessage, alertMessage)
+		XCTAssertEqual(viewModel.alertMessageVisible, alertMessageVisibile)
 	}
 }
 
