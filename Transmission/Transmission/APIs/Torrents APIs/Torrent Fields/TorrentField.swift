@@ -104,31 +104,20 @@ public enum TorrentField {
 	
 	public static var torrentDetailField: [String] {
 		return [
-			id,
 			eta,
 			name,
-			error,
-			peers,
 			status,
 			startDate,
 			isPrivate,
 			totalSize,
-			fileStats,
-			haveValid,
 			hashString,
-			rateUpload,
 			downloadDir,
 			uploadRatio,
 			errorString,
 			percentDone,
-			corruptEver,
 			uploadedEver,
-			rateDownload,
 			activityDate,
-			trackerStats,
-			haveUnchecked,
-			downloadedEver,
-			desiredAvailable
+			downloadedEver
 		]
 	}
 	
