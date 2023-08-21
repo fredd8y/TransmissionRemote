@@ -34,6 +34,72 @@ extension TorrentBodies {
 
 extension TorrentBodies {
 	
+	private struct TorrentGetDetailBody: Encodable {
+		init(_ id: Int, _ fields: [String]) {
+			arguments = Arguments(ids: [id], fields: fields)
+		}
+		
+		let method: String = "torrent-get"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let ids: [Int]
+			let fields: [String]
+		}
+	}
+	
+	public static func detail(id: Int, fields: [String]) -> Data {
+		try! JSONEncoder().encode(TorrentGetDetailBody(id, fields))
+	}
+	
+}
+
+extension TorrentBodies {
+	
+	private struct TorrentPeersBody: Encodable {
+		init(_ id: Int, _ fields: [String]) {
+			arguments = Arguments(ids: [id], fields: fields)
+		}
+		
+		let method: String = "torrent-get"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let ids: [Int]
+			let fields: [String]
+		}
+	}
+	
+	public static func peers(id: Int, fields: [String]) -> Data {
+		try! JSONEncoder().encode(TorrentPeersBody(id, fields))
+	}
+	
+}
+
+extension TorrentBodies {
+	
+	private struct TorrentTrackersBody: Encodable {
+		init(_ id: Int, _ fields: [String]) {
+			arguments = Arguments(ids: [id], fields: fields)
+		}
+		
+		let method: String = "torrent-get"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let ids: [Int]
+			let fields: [String]
+		}
+	}
+	
+	public static func trackers(id: Int, fields: [String]) -> Data {
+		try! JSONEncoder().encode(TorrentTrackersBody(id, fields))
+	}
+	
+}
+
+extension TorrentBodies {
+	
 	private struct TorrentAddBody: Encodable {
 		struct MissingTorrentSource: Error {}
 		struct InvalidTorrentFilePath: Error {}

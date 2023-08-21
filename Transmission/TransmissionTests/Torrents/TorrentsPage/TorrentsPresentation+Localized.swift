@@ -9,7 +9,7 @@ import XCTest
 import Transmission
 
 class XCTorrentTestCase: XCTestCase {
-	func anyTorrentWithStatus(_ status: Torrent.Status) -> Torrent {
+	func anyTorrentWithStatus(_ status: Status) -> Torrent {
 		Torrent(
 			name: "a name",
 			error: 0,

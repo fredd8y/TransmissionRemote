@@ -1,0 +1,15 @@
+/* 
+  TorrentTrackers.strings
+  Transmission
+
+  Created by Federico Arvat on 21/08/23.
+  
+*/
+
+"TITLE" = "Trackers";
+"LAST_ANNOUNCE" = "Last announce";
+"NEXT_ANNOUNCE" = "Next announce";
+"LAST_SCRAPE" = "Last scrape";
+"SEEDERS" = "Seeders";
+"LEECHERS" = "Leechers";
+"DOWNLOADS" = "Downloads";

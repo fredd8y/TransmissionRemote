@@ -1,0 +1,37 @@
+/* 
+  TorrentDetail.strings
+  Transmission
+
+  Created by Federico Arvat on 17/08/23.
+  
+*/
+
+"DOWNLOAD_COMPLETED_IN" = "Il download sarà completato";
+"PRIVATE_TORRENT" = "Torrent privato";
+"PUBLIC_TORRENT" = "Torrent pubblico";
+"STOPPED" = "In pausa";
+"QUEUED_VERIFY_LOCAL_DATA" = "In coda per verifica dati locali";
+"VERIFYING_LOCAL_DATA" = "Verificando dati locali";
+"QUEUED_DOWNLOAD" = "In coda per il download";
+"DOWNLOADING" = "In download";
+"QUEUED_TO_SEED" = "In coda per il seeding";
+"SEEDING" = "Seeding";
+"UNKNOWN" = "Sconosciuto";
+"NAME" = "Nome";
+"AVAILABILITY" = "Disponibilità";
+"UPLOADED" = "Uploaded";
+"DOWNLOADED" = "Downloaded";
+"STATE" = "Stato";
+"RUNNING_TIME" = "Aggiunto";
+"REMAINING_TIME" = "Tempo rimanente";
+"LAST_ACTIVITY" = "Ultima attività";
+"ERROR" = "Errore";
+"SIZE" = "Dimensione";
+"LOCATION" = "Posizione";
+"HASH" = "Hash";
+"PRIVACY" = "Privacy";
+"ACTIVITY_SECTION_HEADER" = "Attività";
+"DETAILS_SECTION_HEADER" = "Dettagli";
+"TITLE" = "Dettagli";
+"COMPLETED" = "Completato";
+"NONE" = "Nessuno";

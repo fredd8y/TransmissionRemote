@@ -140,46 +140,52 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentsPagePresenter.removeAll, localized("REMOVE_ALL", table: table))
 	}
 	
-//	func test_map_createsViewModel() {
-//		let title = "Title"
-//		let isLoading = false
-//		let error = "a error"
-//		let uploadSpeed = 1234576
-//		let downloadSpeed = 1234567
-//		let torrent1 = anyTorrentWithoutError()
-//		let torrent2 = anyTorrentWithError()
-//		let torrents = [torrent1, torrent2]
-//		let freeDiskSpace = 1234567
-//		let emptyMessage = "a message"
-//		let canAddTorrent = true
-//		let alertMessage = "alert message"
-//		let alertMessageVisibile = false
-//
-//		let viewModel = TorrentsPagePresenter.map(
-//			title: title,
-//			isLoading: isLoading,
-//			error: error,
-//			uploadSpeed: uploadSpeed,
-//			downloadSpeed: downloadSpeed,
-//			torrents: torrents,
-//			freeDiskSpace: freeDiskSpace,
-//			emptyMessage: emptyMessage,
-//			canAddTorrent: canAddTorrent,
-//			alertMessage: alertMessage,
-//			alertMessageVisible: alertMessageVisibile
-//		)
-//
-//		XCTAssertEqual(viewModel.title, title)
-//		XCTAssertEqual(viewModel.isLoading, isLoading)
-//		XCTAssertEqual(viewModel.error, error)
-//		XCTAssertEqual(viewModel.downloadSpeed, "1,18 MB/s")
-//		XCTAssertEqual(viewModel.uploadSpeed, "1,18 MB/s")
-//		XCTAssertEqual(viewModel.torrents.count, 2)
-//		XCTAssertEqual(viewModel.freeDiskSpace, "\(TorrentsPagePresenter.freeSpace) 1,18 MB")
-//		XCTAssertEqual(viewModel.emptyMessage, emptyMessage)
-//		XCTAssertEqual(viewModel.canAddTorrent, canAddTorrent)
-//		XCTAssertEqual(viewModel.alertMessage, alertMessage)
-//		XCTAssertEqual(viewModel.alertMessageVisible, alertMessageVisibile)
-//	}
+	func test_map_createsViewModel() {
+		let title = "Title"
+		let isLoading = false
+		let error = "a error"
+		let uploadSpeed = 1234576
+		let downloadSpeed = 1234567
+		let temporaryUploadSpeed = 50
+		let temporaryDownloadSpeed = 50
+		let temporarySpeedEnabled = true
+		let torrent1 = anyTorrentWithoutError()
+		let torrent2 = anyTorrentWithError()
+		let torrents = [torrent1, torrent2]
+		let freeDiskSpace = 1234567
+		let emptyMessage = "a message"
+		let canAddTorrent = true
+		let alertMessage = "alert message"
+		let alertMessageVisibile = false
+
+		let viewModel = TorrentsPagePresenter.map(
+			title: title,
+			isLoading: isLoading,
+			error: error,
+			uploadSpeed: uploadSpeed,
+			downloadSpeed: downloadSpeed,
+			temporaryUploadSpeed: temporaryUploadSpeed,
+			temporaryDownloadSpeed: temporaryDownloadSpeed,
+			temporarySpeedEnabled: temporarySpeedEnabled,
+			torrents: torrents,
+			freeDiskSpace: freeDiskSpace,
+			emptyMessage: emptyMessage,
+			canAddTorrent: canAddTorrent,
+			alertMessage: alertMessage,
+			alertMessageVisible: alertMessageVisibile
+		)
+
+		XCTAssertEqual(viewModel.title, title)
+		XCTAssertEqual(viewModel.isLoading, isLoading)
+		XCTAssertEqual(viewModel.error, error)
+		XCTAssertEqual(viewModel.downloadSpeed, "1,18 MB/s")
+		XCTAssertEqual(viewModel.uploadSpeed, "1,18 MB/s")
+		XCTAssertEqual(viewModel.torrents.count, 2)
+		XCTAssertEqual(viewModel.freeDiskSpace, "\(TorrentsPagePresenter.freeSpace) 1,18 MB")
+		XCTAssertEqual(viewModel.emptyMessage, emptyMessage)
+		XCTAssertEqual(viewModel.canAddTorrent, canAddTorrent)
+		XCTAssertEqual(viewModel.alertMessage, alertMessage)
+		XCTAssertEqual(viewModel.alertMessageVisible, alertMessageVisibile)
+	}
 }
 

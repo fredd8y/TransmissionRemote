@@ -137,7 +137,7 @@ public final class TorrentPresenter {
 		)
 	}
 	
-	static func viewModelStatus(_ status: Torrent.Status) -> TorrentViewModel.Status {
+	static func viewModelStatus(_ status: Status) -> TorrentViewModel.Status {
 		switch status {
 		case .stopped:
 			return .stopped

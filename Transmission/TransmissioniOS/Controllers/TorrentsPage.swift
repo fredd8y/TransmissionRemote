@@ -41,20 +41,30 @@ public struct TorrentsPage: View {
 	
 	public var startAll: (() -> Void)?
 	
-	public var loadData: (() -> Void)?
+	public var onAppear: (() -> Void)?
+	
+	public var onRefresh: (() -> Void)?
+	
+	public var onDisappear: (() -> Void)?
+	
+	public var onOpenDetail: (() -> Void)?
 	
 	public var selectedFile: ((URL) -> Void)?
-	
+		
 	public var selectedLink: ((String) -> Void)?
 	
 	public var setDownloadLimit: ((Bool) -> Void)?
+	
+	public var selectedTorrent: ((Int) -> TorrentDetailTabContainer)?
 	
 	public var deleteAll: ((_ deleteLocalData: Bool) -> Void)?
 	
 	public var delete: ((_ id: Int, _ deleteLocalData: Bool) -> Void)?
 	
+	@State var path = [Int]()
+	
     public var body: some View {
-		NavigationStack {
+		NavigationStack(path: $path) {
 			VStack {
 				if let error = viewModel.error {
 					HStack {
@@ -84,73 +94,29 @@ public struct TorrentsPage: View {
 					} else {
 						List {
 							ForEach(viewModel.torrents) { torrent in
-								VStack(alignment: .leading) {
-									Text(torrent.name)
-										.font(.subheadline)
-									Text(torrent.downloaded)
-										.font(.caption2)
-									HStack {
-										ProgressView(value: torrent.completionPercentage)
-											.tint(progressBarColor(torrent))
-										Text(torrent.completionPercentageString)
-											.font(.caption2)
-									}
-									HStack {
-										Text(torrent.error ?? torrent.description)
-											.font(.caption2)
-											.foregroundColor(torrent.error == nil ? .primary : .red)
-											.contextMenu {
-												Button(role: .destructive) {
-													deletingTorrentId = torrent.id
-													torrentRemoveAlertPresented.toggle()
-												} label: {
-													Text(TorrentsPagePresenter.remove)
-												}
-												switch torrent.status {
-												case .running, .completed:
-													Button {
-														stop?(torrent.id)
-													} label: {
-														Text(TorrentsPagePresenter.stop)
-													}
-												case .stopped:
-													Button {
-														start?(torrent.id)
-													} label: {
-														Text(TorrentsPagePresenter.start)
-													}
-												}
-											}
-										Spacer()
-										VStack(alignment: .trailing, spacing: 4) {
-											HStack(spacing: 2) {
-												Text(torrent.uploadSpeed)
-													.font(.caption2)
-												Image(systemName: "arrow.up")
-													.resizable()
-													.scaledToFit()
-													.foregroundColor(.red)
-													.frame(width: 8, height: 8)
-											}
-											HStack(spacing: 2) {
-												Text(torrent.downloadSpeed)
-													.font(.caption2)
-												Image(systemName: "arrow.down")
-													.resizable()
-													.scaledToFit()
-													.foregroundColor(.green)
-													.frame(width: 8, height: 8)
-											}
-										}
-									}
+								Button {
+									onOpenDetail?()
+									path = [torrent.id]
+								} label: {
+									torrentItem(torrent)
 								}
 							}
-						}.listStyle(.insetGrouped)
+						}
+						.listStyle(.insetGrouped)
 					}
 				}
 			}
 			.navigationTitle(viewModel.title)
 			.navigationBarTitleDisplayMode(.inline)
+			.navigationDestination(for: Int.self) { id in
+				selectedTorrent?(id)
+			}
+			.onAppear {
+				onAppear?()
+			}
+			.onDisappear {
+				onDisappear?()
+			}
 			.toolbar {
 				if viewModel.canAddTorrent {
 					ToolbarItemGroup(placement: .navigationBarTrailing) {
@@ -340,12 +306,9 @@ public struct TorrentsPage: View {
 				}
 			)
 		}
-		.onLoad {
-			loadData?()
-		}
 		.if(viewModel.error != nil) { navigationStack in
 			navigationStack.refreshable {
-				loadData?()
+				onRefresh?()
 			}
 		}
 	}
@@ -356,6 +319,74 @@ public struct TorrentsPage: View {
 		case .completed: return .green
 		case .running: return .blue
 		case .stopped: return .gray
+		}
+	}
+	
+	private func torrentItem(_ torrent: TorrentViewModel) -> some View {
+		VStack(alignment: .leading) {
+			Text(torrent.name)
+				.font(.subheadline)
+				.foregroundColor(.primary)
+			Text(torrent.downloaded)
+				.font(.caption2)
+				.foregroundColor(.primary)
+			HStack {
+				ProgressView(value: torrent.completionPercentage)
+					.tint(progressBarColor(torrent))
+				Text(torrent.completionPercentageString)
+					.font(.caption2)
+					.foregroundColor(.primary)
+			}
+			HStack {
+				Text(torrent.error ?? torrent.description)
+					.font(.caption2)
+					.foregroundColor(torrent.error == nil ? .primary : .red)
+					.contextMenu {
+						Button(role: .destructive) {
+							deletingTorrentId = torrent.id
+							torrentRemoveAlertPresented.toggle()
+						} label: {
+							Text(TorrentsPagePresenter.remove)
+						}
+						switch torrent.status {
+						case .running, .completed:
+							Button {
+								stop?(torrent.id)
+							} label: {
+								Text(TorrentsPagePresenter.stop)
+							}
+						case .stopped:
+							Button {
+								start?(torrent.id)
+							} label: {
+								Text(TorrentsPagePresenter.start)
+							}
+						}
+					}
+				Spacer()
+				VStack(alignment: .trailing, spacing: 4) {
+					HStack(spacing: 2) {
+						Text(torrent.uploadSpeed)
+							.font(.caption2)
+							.foregroundColor(.primary)
+						Image(systemName: "arrow.up")
+							.resizable()
+							.scaledToFit()
+							.foregroundColor(.red)
+							.frame(width: 8, height: 8)
+					}
+					HStack(spacing: 2) {
+						Text(torrent.downloadSpeed)
+							.font(.caption2)
+							.foregroundColor(.primary)
+						Image(systemName: "arrow.down")
+							.resizable()
+							.scaledToFit()
+							.foregroundColor(.green)
+							.frame(width: 8, height: 8)
+					}
+				}
+			}
 		}
 	}
 }

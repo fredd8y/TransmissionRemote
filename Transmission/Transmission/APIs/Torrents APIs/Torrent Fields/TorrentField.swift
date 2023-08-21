@@ -88,17 +88,44 @@ public enum TorrentField {
 	
 	public static var minimumTorrentField: [String] {
 		return [
+			id,
+			eta,
 			name,
 			error,
-			errorString,
-			eta,
-			id,
-			isFinished,
-			percentDone,
-			rateDownload,
-			rateUpload,
+			status,
 			totalSize,
-			status
+			rateUpload,
+			isFinished,
+			errorString,
+			percentDone,
+			rateDownload
 		]
+	}
+	
+	public static var torrentDetailField: [String] {
+		return [
+			eta,
+			name,
+			status,
+			startDate,
+			isPrivate,
+			totalSize,
+			hashString,
+			downloadDir,
+			uploadRatio,
+			errorString,
+			percentDone,
+			uploadedEver,
+			activityDate,
+			downloadedEver
+		]
+	}
+	
+	public static var torrentPeers: [String] {
+		return [peers]
+	}
+	
+	public static var torrentTrackers: [String] {
+		return [trackerStats]
 	}
 }

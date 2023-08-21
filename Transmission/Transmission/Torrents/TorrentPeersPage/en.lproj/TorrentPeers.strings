@@ -1,0 +1,12 @@
+/* 
+  TorrentPeers.strings
+  Transmission
+
+  Created by Federico Arvat on 20/08/23.
+  
+*/
+
+"TITLE" = "Peers";
+"PERCENTAGE" = "Percentage";
+"STATUS" = "Status";
+"CLIENT" = "Client name";
