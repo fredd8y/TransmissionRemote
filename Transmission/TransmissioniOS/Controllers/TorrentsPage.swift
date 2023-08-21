@@ -326,13 +326,16 @@ public struct TorrentsPage: View {
 		VStack(alignment: .leading) {
 			Text(torrent.name)
 				.font(.subheadline)
+				.foregroundColor(.primary)
 			Text(torrent.downloaded)
 				.font(.caption2)
+				.foregroundColor(.primary)
 			HStack {
 				ProgressView(value: torrent.completionPercentage)
 					.tint(progressBarColor(torrent))
 				Text(torrent.completionPercentageString)
 					.font(.caption2)
+					.foregroundColor(.primary)
 			}
 			HStack {
 				Text(torrent.error ?? torrent.description)
@@ -365,6 +368,7 @@ public struct TorrentsPage: View {
 					HStack(spacing: 2) {
 						Text(torrent.uploadSpeed)
 							.font(.caption2)
+							.foregroundColor(.primary)
 						Image(systemName: "arrow.up")
 							.resizable()
 							.scaledToFit()
@@ -374,6 +378,7 @@ public struct TorrentsPage: View {
 					HStack(spacing: 2) {
 						Text(torrent.downloadSpeed)
 							.font(.caption2)
+							.foregroundColor(.primary)
 						Image(systemName: "arrow.down")
 							.resizable()
 							.scaledToFit()

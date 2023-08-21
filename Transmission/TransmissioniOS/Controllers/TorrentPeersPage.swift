@@ -29,17 +29,17 @@ public struct TorrentPeersPage: View {
 				Section(peer.address) {
 					VStack(alignment: .leading) {
 						HStack {
-							Text("Percentage")
+							Text(TorrentPeersPagePresenter.percentage)
 							Spacer()
 							Text(peer.percentage)
 						}
 						HStack {
-							Text("Status")
+							Text(TorrentPeersPagePresenter.status)
 							Spacer()
 							Text(peer.status)
 						}
 						HStack {
-							Text("Client")
+							Text(TorrentPeersPagePresenter.client)
 							Spacer()
 							Text(peer.client)
 						}

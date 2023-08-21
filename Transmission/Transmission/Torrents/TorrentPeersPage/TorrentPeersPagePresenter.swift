@@ -17,6 +17,30 @@ public class TorrentPeersPagePresenter {
 			comment: "Page title")
 	}
 	
+	public static var percentage: String {
+		NSLocalizedString(
+			"PERCENTAGE",
+			tableName: "TorrentPeers",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Item percentage description")
+	}
+	
+	public static var status: String {
+		NSLocalizedString(
+			"STATUS",
+			tableName: "TorrentPeers",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Item status description")
+	}
+	
+	public static var client: String {
+		NSLocalizedString(
+			"CLIENT",
+			tableName: "TorrentPeers",
+			bundle: Bundle(for: TorrentDetailPresenter.self),
+			comment: "Item client description")
+	}
+	
 	public static func map(_ torrentPeers: [TorrentPeer]) -> TorrentPeersPageViewModel {
 		TorrentPeersPageViewModel(
 			peers: torrentPeers.map {

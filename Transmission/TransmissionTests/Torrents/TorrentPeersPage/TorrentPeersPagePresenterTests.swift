@@ -16,6 +16,18 @@ final class TorrentPeersPagePresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentPeersPagePresenter.title, localized("TITLE", table: table))
 	}
 	
+	func test_percentage_isLocalized() {
+		XCTAssertEqual(TorrentPeersPagePresenter.percentage, localized("PERCENTAGE", table: table))
+	}
+	
+	func test_status_isLocalized() {
+		XCTAssertEqual(TorrentPeersPagePresenter.status, localized("STATUS", table: table))
+	}
+	
+	func test_client_isLocalized() {
+		XCTAssertEqual(TorrentPeersPagePresenter.client, localized("CLIENT", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let progress = 0.97
 		let status = "Status1"

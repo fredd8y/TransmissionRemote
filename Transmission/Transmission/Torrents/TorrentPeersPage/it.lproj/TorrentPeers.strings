@@ -7,3 +7,6 @@
 */
 
 "TITLE" = "Peers";
+"PERCENTAGE" = "Percentuale";
+"STATUS" = "Stato";
+"CLIENT" = "Nome client";

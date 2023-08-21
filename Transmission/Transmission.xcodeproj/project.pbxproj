@@ -826,6 +826,7 @@
 				7B6CD5DF2A72529100E81983 /* TorrentsPage */,
 				7B7871C02A8E3052005A16D6 /* TorrentDetailPage */,
 				7BDF91EE2A920A3B0041E0CC /* TorrentPeersPage */,
+				7BDF92192A935CD80041E0CC /* TorrentTrackerPage */,
 			);
 			path = Torrents;
 			sourceTree = "<group>";
@@ -1394,6 +1395,13 @@
 				7BDF92052A92143F0041E0CC /* TorrentPeersMapperTests.swift */,
 			);
 			path = "Torrent Peers API";
+			sourceTree = "<group>";
+		};
+		7BDF92192A935CD80041E0CC /* TorrentTrackerPage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TorrentTrackerPage;
 			sourceTree = "<group>";
 		};
 		7BFEB63F2A8CFC9D003D8985 /* SessionSetMapper */ = {
