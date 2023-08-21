@@ -88,8 +88,8 @@ public final class TorrentPresenter {
 			comment: "Description to show when download time is undefined")
 	}
 	
-	static func percentageString(_ value: Double) -> String {
-		((value * 100).round() ?? "-") + "%"
+	static func percentageString(_ value: Double, decimalSeparator: String? = nil) -> String {
+		((value * 100).round(decimalSeparator: decimalSeparator) ?? "-") + "%"
 	}
 	
 	static func relativeEta(_ value: Int) -> String {
@@ -122,17 +122,17 @@ public final class TorrentPresenter {
 		}
 	}
 	
-	public static func map(_ torrent: Torrent) -> TorrentViewModel {
+	public static func map(_ torrent: Torrent, decimalSeparator: String? = nil) -> TorrentViewModel {
 		return TorrentViewModel(
 			id: torrent.id,
 			name: torrent.name,
 			error: torrent.errorString != "" ? torrent.errorString : nil,
 			description: torrentStatusDescription(torrent),
 			completionPercentage: torrent.percentDone,
-			completionPercentageString: percentageString(torrent.percentDone),
-			downloaded: "\(Int(Double(torrent.totalSize) * torrent.percentDone).byteSize) \(of) \(torrent.totalSize.byteSize)",
-			uploadSpeed: torrent.rateUpload.speed,
-			downloadSpeed: torrent.rateDownload.speed,
+			completionPercentageString: percentageString(torrent.percentDone, decimalSeparator: decimalSeparator),
+			downloaded: "\(Int(Double(torrent.totalSize) * torrent.percentDone).byteSize(decimalSeparator: decimalSeparator)) \(of) \(torrent.totalSize.byteSize(decimalSeparator: decimalSeparator))",
+			uploadSpeed: torrent.rateUpload.speed(decimalSeparator: decimalSeparator),
+			downloadSpeed: torrent.rateDownload.speed(decimalSeparator: decimalSeparator),
 			status: viewModelStatus(torrent.status)
 		)
 	}

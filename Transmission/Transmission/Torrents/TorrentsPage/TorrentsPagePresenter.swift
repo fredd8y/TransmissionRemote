@@ -302,21 +302,22 @@ public final class TorrentsPagePresenter {
 		emptyMessage: String?,
 		canAddTorrent: Bool,
 		alertMessage: String?,
-		alertMessageVisible: Bool
+		alertMessageVisible: Bool,
+		decimalSeparator: String? = nil
 	) -> TorrentsPageViewModel {
 		return TorrentsPageViewModel(
 			title: title,
 			isLoading: isLoading,
 			error: error,
-			uploadSpeed: uploadSpeed.speed,
-			downloadSpeed: downloadSpeed.speed,
-			temporaryUploadSpeed: temporaryUploadSpeed.kilobyteSpeed,
-			temporaryDownloadSpeed: temporaryDownloadSpeed.kilobyteSpeed,
+			uploadSpeed: uploadSpeed.speed(decimalSeparator: decimalSeparator),
+			downloadSpeed: downloadSpeed.speed(decimalSeparator: decimalSeparator),
+			temporaryUploadSpeed: temporaryUploadSpeed.kilobyteSpeed(decimalSeparator: decimalSeparator),
+			temporaryDownloadSpeed: temporaryDownloadSpeed.kilobyteSpeed(decimalSeparator: decimalSeparator),
 			temporarySpeedEnabled: temporarySpeedEnabled,
 			torrents: torrents.map {
 				TorrentPresenter.map($0)
 			},
-			freeDiskSpace: "\(TorrentsPagePresenter.freeSpace) \(freeDiskSpace?.byteSize ?? "-")",
+			freeDiskSpace: "\(TorrentsPagePresenter.freeSpace) \(freeDiskSpace?.byteSize(decimalSeparator: decimalSeparator) ?? "-")",
 			emptyMessage: emptyMessage,
 			canAddTorrent: canAddTorrent,
 			alertMessage: alertMessage,

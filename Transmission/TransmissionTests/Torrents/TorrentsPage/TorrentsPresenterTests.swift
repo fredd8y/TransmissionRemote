@@ -172,7 +172,8 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 			emptyMessage: emptyMessage,
 			canAddTorrent: canAddTorrent,
 			alertMessage: alertMessage,
-			alertMessageVisible: alertMessageVisibile
+			alertMessageVisible: alertMessageVisibile,
+			decimalSeparator: ","
 		)
 
 		XCTAssertEqual(viewModel.title, title)

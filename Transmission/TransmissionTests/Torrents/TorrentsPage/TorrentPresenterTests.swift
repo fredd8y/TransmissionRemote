@@ -55,7 +55,7 @@ final class TorrentPresenterTests: XCTorrentTestCase {
 	func test_map_createsViewModelWithNilError() {
 		let torrent = anyTorrentWithoutError()
 		
-		let viewModel = TorrentPresenter.map(torrent)
+		let viewModel = TorrentPresenter.map(torrent, decimalSeparator: ",")
 		
 		XCTAssertEqual(viewModel.error, nil)
 	}
@@ -63,7 +63,7 @@ final class TorrentPresenterTests: XCTorrentTestCase {
 	func test_map_createsViewModelWithError() {
 		let torrent = anyTorrentWithError()
 		
-		let viewModel = TorrentPresenter.map(torrent)
+		let viewModel = TorrentPresenter.map(torrent, decimalSeparator: ",")
 		
 		XCTAssertEqual(viewModel.error, torrent.errorString)
 	}
