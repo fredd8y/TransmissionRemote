@@ -199,8 +199,8 @@ public struct TorrentsPage: View {
 				onCompletion: { result in
 					switch result {
 					case .failure(let error):
-						// TODO: show error message
-						print(error)
+						viewModel.alertMessage = error.localizedDescription
+						viewModel.alertMessageVisible.toggle()
 					case let .success(url):
 						selectedFile?(url)
 					}
