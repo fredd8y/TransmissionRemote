@@ -247,7 +247,7 @@ public class TorrentDetailPresenter {
 			errorMessage: nil,
 			percentageCompleted: ((torrentDetail.percentageAvailability * 100).round(decimalSeparator: decimalSeparator) ?? "-") + "%",
 			uploaded: torrentDetail.uploaded.byteSize,
-			ratio: torrentDetail.ratio.round() ?? "-",
+			ratio: torrentDetail.ratio.round(decimalSeparator: decimalSeparator) ?? "-",
 			downloaded: torrentDetail.downloaded.byteSize,
 			state: torrentDetail.state.value,
 			runningTime: relativeEta(torrentDetail.startDate - Int(referenceDate.timeIntervalSince1970)),
