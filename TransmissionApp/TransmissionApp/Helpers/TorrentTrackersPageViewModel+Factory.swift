@@ -10,7 +10,7 @@ import Transmission
 
 extension TorrentTrackersPageViewModel {
 	static func empty() -> TorrentTrackersPageViewModel {
-		TorrentTrackersPageViewModel(trackers: [])
+		TorrentTrackersPageViewModel(trackers: [], errorMessage: nil)
 	}
 	static func error(_ errorMessage: String) -> TorrentTrackersPageViewModel {
 		TorrentTrackersPageViewModel(trackers: [], errorMessage: errorMessage)
