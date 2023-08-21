@@ -13,7 +13,7 @@ public class TorrentPeersPagePresenter {
 		NSLocalizedString(
 			"TITLE",
 			tableName: "TorrentPeers",
-			bundle: Bundle(for: TorrentDetailPresenter.self),
+			bundle: Bundle(for: TorrentPeersPagePresenter.self),
 			comment: "Page title")
 	}
 	
@@ -21,7 +21,7 @@ public class TorrentPeersPagePresenter {
 		NSLocalizedString(
 			"PERCENTAGE",
 			tableName: "TorrentPeers",
-			bundle: Bundle(for: TorrentDetailPresenter.self),
+			bundle: Bundle(for: TorrentPeersPagePresenter.self),
 			comment: "Item percentage description")
 	}
 	
@@ -29,7 +29,7 @@ public class TorrentPeersPagePresenter {
 		NSLocalizedString(
 			"STATUS",
 			tableName: "TorrentPeers",
-			bundle: Bundle(for: TorrentDetailPresenter.self),
+			bundle: Bundle(for: TorrentPeersPagePresenter.self),
 			comment: "Item status description")
 	}
 	
@@ -37,7 +37,7 @@ public class TorrentPeersPagePresenter {
 		NSLocalizedString(
 			"CLIENT",
 			tableName: "TorrentPeers",
-			bundle: Bundle(for: TorrentDetailPresenter.self),
+			bundle: Bundle(for: TorrentPeersPagePresenter.self),
 			comment: "Item client description")
 	}
 	
