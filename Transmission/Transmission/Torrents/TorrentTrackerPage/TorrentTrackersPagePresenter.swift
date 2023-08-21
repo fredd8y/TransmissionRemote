@@ -17,4 +17,29 @@ public class TorrentTrackersPagePresenter {
 			comment: "Page title")
 	}
 	
+	public static func map(_ torrentTrackers: [TorrentTracker], referenceDate: Date = Date()) -> TorrentTrackerPageViewModel {
+		TorrentTrackerPageViewModel(
+			trackers: torrentTrackers.map { tracker in
+				TorrentTrackerPageViewModel.Tracker(
+					id: tracker.id,
+					host: tracker.host,
+					lastAnnounceTime: relativeEta(tracker.lastAnnounceTime - Int(referenceDate.timeIntervalSince1970)),
+					lastAnnouncePeerCount: relativeEta(tracker.lastAnnouncePeerCount - Int(referenceDate.timeIntervalSince1970)),
+					nextAnnounceTime: relativeEta(tracker.nextAnnounceTime - Int(referenceDate.timeIntervalSince1970)),
+					lastScrapeTime: relativeEta(tracker.lastScrapeTime - Int(referenceDate.timeIntervalSince1970)),
+					seederCount: tracker.seederCount.description,
+					leecherCount: tracker.leecherCount.description,
+					downloadCount: tracker.downloadCount.description
+				)
+			}
+		)
+	}
+	
+	private static func relativeEta(_ value: Int) -> String {
+		let relativeDateFormatter = RelativeDateTimeFormatter()
+		relativeDateFormatter.locale = .current
+		relativeDateFormatter.calendar = .current
+		
+		return relativeDateFormatter.localizedString(fromTimeInterval: Double(value))
+	}
 }

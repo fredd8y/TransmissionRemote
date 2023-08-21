@@ -16,4 +16,46 @@ final class TorrentTrackersPagePresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentTrackersPagePresenter.title, localized("TITLE", table: table))
 	}
 	
+	func test_map_createsViewModel() {
+		let id = 1
+		let host = "host"
+		let lastAnnounceTime = 1692361373
+		let lastAnnouncePeerCount = 1692361373
+		let nextAnnounceTime = 1692861373
+		let lastScrapeTime = 1692361373
+		let seederCount = 123
+		let leecherCount = 321
+		let downloadCount = 12345
+		
+		
+		let viewModel = TorrentTrackersPagePresenter.map(
+			[
+				TorrentTracker(
+					id: id,
+					host: host,
+					lastAnnounceTime: lastAnnounceTime,
+					lastAnnouncePeerCount: lastAnnouncePeerCount,
+					nextAnnounceTime: nextAnnounceTime,
+					lastScrapeTime: lastScrapeTime,
+					seederCount: seederCount,
+					leecherCount: leecherCount,
+					downloadCount: downloadCount
+				)
+			],
+			referenceDate: Date(timeIntervalSince1970: 1692367725)
+		)
+
+		let tracker = viewModel.trackers.first!
+		
+		XCTAssertEqual(tracker.id, id)
+		XCTAssertEqual(tracker.host, host)
+		XCTAssertEqual(tracker.lastAnnounceTime, "1 hour ago")
+		XCTAssertEqual(tracker.lastAnnouncePeerCount, "1 hour ago")
+		XCTAssertEqual(tracker.nextAnnounceTime, "in 5 days")
+		XCTAssertEqual(tracker.lastScrapeTime, "1 hour ago")
+		XCTAssertEqual(tracker.seederCount, "123")
+		XCTAssertEqual(tracker.leecherCount, "321")
+		XCTAssertEqual(tracker.downloadCount, "12345")
+	}
+	
 }
