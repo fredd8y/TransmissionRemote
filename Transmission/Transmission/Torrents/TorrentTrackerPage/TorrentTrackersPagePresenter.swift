@@ -17,6 +17,54 @@ public class TorrentTrackersPagePresenter {
 			comment: "Page title")
 	}
 	
+	public static var lastAnnounce: String {
+		NSLocalizedString(
+			"LAST_ANNOUNCE",
+			tableName: "TorrentTrackers",
+			bundle: Bundle(for: TorrentTrackersPagePresenter.self),
+			comment: "Last announce description")
+	}
+	
+	public static var nextAnnounce: String {
+		NSLocalizedString(
+			"NEXT_ANNOUNCE",
+			tableName: "TorrentTrackers",
+			bundle: Bundle(for: TorrentTrackersPagePresenter.self),
+			comment: "Next announce description")
+	}
+	
+	public static var lastScrape: String {
+		NSLocalizedString(
+			"LAST_SCRAPE",
+			tableName: "TorrentTrackers",
+			bundle: Bundle(for: TorrentTrackersPagePresenter.self),
+			comment: "Last scrape description")
+	}
+	
+	public static var seeders: String {
+		NSLocalizedString(
+			"SEEDERS",
+			tableName: "TorrentTrackers",
+			bundle: Bundle(for: TorrentTrackersPagePresenter.self),
+			comment: "Seeders description")
+	}
+	
+	public static var leechers: String {
+		NSLocalizedString(
+			"LEECHERS",
+			tableName: "TorrentTrackers",
+			bundle: Bundle(for: TorrentTrackersPagePresenter.self),
+			comment: "Leechers description")
+	}
+	
+	public static var downloads: String {
+		NSLocalizedString(
+			"DOWNLOADS",
+			tableName: "TorrentTrackers",
+			bundle: Bundle(for: TorrentTrackersPagePresenter.self),
+			comment: "Downloads description")
+	}
+	
 	public static func map(_ torrentTrackers: [TorrentTracker], referenceDate: Date = Date()) -> TorrentTrackersPageViewModel {
 		TorrentTrackersPageViewModel(
 			trackers: torrentTrackers.map { tracker in

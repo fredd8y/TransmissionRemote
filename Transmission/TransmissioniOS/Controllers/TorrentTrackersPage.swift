@@ -25,42 +25,42 @@ public struct TorrentTrackersPage: View {
 			ForEach(viewModel.trackers, id: \.id) { tracker in
 				Section(tracker.host) {
 					HStack {
-						Text("Last announce")
+						Text(TorrentTrackersPagePresenter.lastAnnounce)
 							.font(.subheadline)
 						Spacer()
 						Text(tracker.lastAnnounceTime)
 							.font(.subheadline)
 					}
 					HStack {
-						Text("Next announce")
+						Text(TorrentTrackersPagePresenter.nextAnnounce)
 							.font(.subheadline)
 						Spacer()
 						Text(tracker.nextAnnounceTime)
 							.font(.subheadline)
 					}
 					HStack {
-						Text("Last scrape")
+						Text(TorrentTrackersPagePresenter.lastScrape)
 							.font(.subheadline)
 						Spacer()
 						Text(tracker.lastScrapeTime)
 							.font(.subheadline)
 					}
 					HStack {
-						Text("Seeders")
+						Text(TorrentTrackersPagePresenter.seeders)
 							.font(.subheadline)
 						Spacer()
 						Text(tracker.seederCount)
 							.font(.subheadline)
 					}
 					HStack {
-						Text("Leechers")
+						Text(TorrentTrackersPagePresenter.leechers)
 							.font(.subheadline)
 						Spacer()
 						Text(tracker.leecherCount)
 							.font(.subheadline)
 					}
 					HStack {
-						Text("Downloads")
+						Text(TorrentTrackersPagePresenter.downloads)
 							.font(.subheadline)
 						Spacer()
 						Text(tracker.downloadCount)

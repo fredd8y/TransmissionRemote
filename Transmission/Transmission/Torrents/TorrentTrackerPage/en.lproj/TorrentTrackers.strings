@@ -7,3 +7,9 @@
 */
 
 "TITLE" = "Trackers";
+"LAST_ANNOUNCE" = "Last announce";
+"NEXT_ANNOUNCE" = "Next announce";
+"LAST_SCRAPE" = "Last scrape";
+"SEEDERS" = "Seeders";
+"LEECHERS" = "Leechers";
+"DOWNLOADS" = "Downloads";
