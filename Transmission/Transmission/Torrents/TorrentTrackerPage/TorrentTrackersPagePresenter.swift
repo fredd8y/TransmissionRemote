@@ -17,10 +17,10 @@ public class TorrentTrackersPagePresenter {
 			comment: "Page title")
 	}
 	
-	public static func map(_ torrentTrackers: [TorrentTracker], referenceDate: Date = Date()) -> TorrentTrackerPageViewModel {
-		TorrentTrackerPageViewModel(
+	public static func map(_ torrentTrackers: [TorrentTracker], referenceDate: Date = Date()) -> TorrentTrackersPageViewModel {
+		TorrentTrackersPageViewModel(
 			trackers: torrentTrackers.map { tracker in
-				TorrentTrackerPageViewModel.Tracker(
+				TorrentTrackersPageViewModel.Tracker(
 					id: tracker.id,
 					host: tracker.host,
 					lastAnnounceTime: relativeEta(tracker.lastAnnounceTime - Int(referenceDate.timeIntervalSince1970)),

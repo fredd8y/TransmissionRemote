@@ -209,6 +209,7 @@
 		7BDF922C2A9360E90041E0CC /* TorrentTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF922B2A9360E90041E0CC /* TorrentTracker.swift */; };
 		7BDF922E2A9360F20041E0CC /* TorrentTrackersMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF922D2A9360F20041E0CC /* TorrentTrackersMapper.swift */; };
 		7BDF92312A9362EB0041E0CC /* TorrentTrackersMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF92302A9362EB0041E0CC /* TorrentTrackersMapperTests.swift */; };
+		7BDF92332A937DB30041E0CC /* TorrentTrackersPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF92322A937DB30041E0CC /* TorrentTrackersPage.swift */; };
 		7BF3BB4D2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF3BB4B2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png */; };
 		7BF3BB4E2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF3BB4C2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png */; };
 		7BFEB63E2A8CB838003D8985 /* ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEB63D2A8CB838003D8985 /* ConditionalModifier.swift */; };
@@ -453,6 +454,7 @@
 		7BDF922B2A9360E90041E0CC /* TorrentTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentTracker.swift; sourceTree = "<group>"; };
 		7BDF922D2A9360F20041E0CC /* TorrentTrackersMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentTrackersMapper.swift; sourceTree = "<group>"; };
 		7BDF92302A9362EB0041E0CC /* TorrentTrackersMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentTrackersMapperTests.swift; sourceTree = "<group>"; };
+		7BDF92322A937DB30041E0CC /* TorrentTrackersPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentTrackersPage.swift; sourceTree = "<group>"; };
 		7BF3BB4B2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png; sourceTree = "<group>"; };
 		7BF3BB4C2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png; sourceTree = "<group>"; };
 		7BFEB63D2A8CB838003D8985 /* ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalModifier.swift; sourceTree = "<group>"; };
@@ -997,6 +999,7 @@
 				7B78719A2A8D7A5B005A16D6 /* CreditsPage.swift */,
 				7B7871D22A8E62B1005A16D6 /* TorrentDetailPage.swift */,
 				7BDF91FE2A9210440041E0CC /* TorrentPeersPage.swift */,
+				7BDF92322A937DB30041E0CC /* TorrentTrackersPage.swift */,
 				7BDF91EC2A8FBC430041E0CC /* TorrentDetailTabContainer.swift */,
 			);
 			path = Controllers;
@@ -1765,6 +1768,7 @@
 				7BFEB63E2A8CB838003D8985 /* ConditionalModifier.swift in Sources */,
 				7B7871972A8D7585005A16D6 /* AssetImage.swift in Sources */,
 				7B78719B2A8D7A5B005A16D6 /* CreditsPage.swift in Sources */,
+				7BDF92332A937DB30041E0CC /* TorrentTrackersPage.swift in Sources */,
 				7BDF91FF2A9210440041E0CC /* TorrentPeersPage.swift in Sources */,
 				7B23250B2A7685F300836B02 /* ServerDetailPage.swift in Sources */,
 				7B8CB8432A66CAE2001A4D90 /* TorrentsPage.swift in Sources */,

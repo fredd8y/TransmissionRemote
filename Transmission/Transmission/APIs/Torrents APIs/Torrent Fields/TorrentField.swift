@@ -124,4 +124,8 @@ public enum TorrentField {
 	public static var torrentPeers: [String] {
 		return [peers]
 	}
+	
+	public static var torrentTrackers: [String] {
+		return [trackerStats]
+	}
 }

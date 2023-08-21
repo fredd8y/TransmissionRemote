@@ -27,7 +27,6 @@ final class TorrentTrackersPagePresenterTests: XCTorrentTestCase {
 		let leecherCount = 321
 		let downloadCount = 12345
 		
-		
 		let viewModel = TorrentTrackersPagePresenter.map(
 			[
 				TorrentTracker(

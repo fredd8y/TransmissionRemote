@@ -1,5 +1,5 @@
 //
-//  TorrentTrackerPageViewModel.swift
+//  TorrentTrackersPageViewModel.swift
 //  Transmission
 //
 //  Created by Federico Arvat on 21/08/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class TorrentTrackerPageViewModel: ObservableObject {
+public class TorrentTrackersPageViewModel: ObservableObject {
 	
 	public init(trackers: [Tracker]) {
 		self.trackers = trackers

@@ -12,8 +12,6 @@ public struct TorrentPeersPage: View {
 	
 	public init(viewModel: TorrentPeersPageViewModel) {
 		self.viewModel = viewModel
-		UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(assetName: "pageControlCurrentPageIndicatorTintColor")
-		UIPageControl.appearance().pageIndicatorTintColor = UIColor(assetName: "pageControlPageIndicatorTintColor")
 	}
 	
 	@ObservedObject var viewModel: TorrentPeersPageViewModel
@@ -30,18 +28,24 @@ public struct TorrentPeersPage: View {
 					VStack(alignment: .leading) {
 						HStack {
 							Text(TorrentPeersPagePresenter.percentage)
+								.font(.subheadline)
 							Spacer()
 							Text(peer.percentage)
+								.font(.subheadline)
 						}
 						HStack {
 							Text(TorrentPeersPagePresenter.status)
+								.font(.subheadline)
 							Spacer()
 							Text(peer.status)
+								.font(.subheadline)
 						}
 						HStack {
 							Text(TorrentPeersPagePresenter.client)
+								.font(.subheadline)
 							Spacer()
 							Text(peer.client)
+								.font(.subheadline)
 						}
 					}
 				}
