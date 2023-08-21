@@ -21,50 +21,65 @@ public struct TorrentTrackersPage: View {
 	public var onDisappear: (() -> Void)?
 	
 	public  var body: some View {
-		List {
-			ForEach(viewModel.trackers, id: \.id) { tracker in
-				Section(tracker.host) {
-					HStack {
-						Text(TorrentTrackersPagePresenter.lastAnnounce)
-							.font(.subheadline)
-						Spacer()
-						Text(tracker.lastAnnounceTime)
-							.font(.subheadline)
-					}
-					HStack {
-						Text(TorrentTrackersPagePresenter.nextAnnounce)
-							.font(.subheadline)
-						Spacer()
-						Text(tracker.nextAnnounceTime)
-							.font(.subheadline)
-					}
-					HStack {
-						Text(TorrentTrackersPagePresenter.lastScrape)
-							.font(.subheadline)
-						Spacer()
-						Text(tracker.lastScrapeTime)
-							.font(.subheadline)
-					}
-					HStack {
-						Text(TorrentTrackersPagePresenter.seeders)
-							.font(.subheadline)
-						Spacer()
-						Text(tracker.seederCount)
-							.font(.subheadline)
-					}
-					HStack {
-						Text(TorrentTrackersPagePresenter.leechers)
-							.font(.subheadline)
-						Spacer()
-						Text(tracker.leecherCount)
-							.font(.subheadline)
-					}
-					HStack {
-						Text(TorrentTrackersPagePresenter.downloads)
-							.font(.subheadline)
-						Spacer()
-						Text(tracker.downloadCount)
-							.font(.subheadline)
+		VStack {
+			if let errorMessage = viewModel.errorMessage {
+				HStack {
+					Spacer()
+					Text(errorMessage)
+						.font(.subheadline)
+						.foregroundColor(Color.white)
+						.padding()
+						.multilineTextAlignment(.center)
+					Spacer()
+				}.background { Color.red }
+				Spacer()
+			} else {
+				List {
+					ForEach(viewModel.trackers, id: \.id) { tracker in
+						Section(tracker.host) {
+							HStack {
+								Text(TorrentTrackersPagePresenter.lastAnnounce)
+									.font(.subheadline)
+								Spacer()
+								Text(tracker.lastAnnounceTime)
+									.font(.subheadline)
+							}
+							HStack {
+								Text(TorrentTrackersPagePresenter.nextAnnounce)
+									.font(.subheadline)
+								Spacer()
+								Text(tracker.nextAnnounceTime)
+									.font(.subheadline)
+							}
+							HStack {
+								Text(TorrentTrackersPagePresenter.lastScrape)
+									.font(.subheadline)
+								Spacer()
+								Text(tracker.lastScrapeTime)
+									.font(.subheadline)
+							}
+							HStack {
+								Text(TorrentTrackersPagePresenter.seeders)
+									.font(.subheadline)
+								Spacer()
+								Text(tracker.seederCount)
+									.font(.subheadline)
+							}
+							HStack {
+								Text(TorrentTrackersPagePresenter.leechers)
+									.font(.subheadline)
+								Spacer()
+								Text(tracker.leecherCount)
+									.font(.subheadline)
+							}
+							HStack {
+								Text(TorrentTrackersPagePresenter.downloads)
+									.font(.subheadline)
+								Spacer()
+								Text(tracker.downloadCount)
+									.font(.subheadline)
+							}
+						}
 					}
 				}
 			}
@@ -97,7 +112,8 @@ struct TorrentTrackersPage_Previews: PreviewProvider {
 						leecherCount: "32",
 						downloadCount: "12345"
 					)
-				]
+				],
+				errorMessage: nil
 			)
 		)
 	}

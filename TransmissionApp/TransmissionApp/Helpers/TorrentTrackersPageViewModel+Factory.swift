@@ -12,5 +12,8 @@ extension TorrentTrackersPageViewModel {
 	static func empty() -> TorrentTrackersPageViewModel {
 		TorrentTrackersPageViewModel(trackers: [])
 	}
+	static func error(_ errorMessage: String) -> TorrentTrackersPageViewModel {
+		TorrentTrackersPageViewModel(trackers: [], errorMessage: errorMessage)
+	}
 }
 

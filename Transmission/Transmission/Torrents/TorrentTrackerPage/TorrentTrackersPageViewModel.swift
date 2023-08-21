@@ -9,11 +9,13 @@ import Foundation
 
 public class TorrentTrackersPageViewModel: ObservableObject {
 	
-	public init(trackers: [Tracker]) {
+	public init(trackers: [Tracker], errorMessage: String?) {
 		self.trackers = trackers
+		self.errorMessage = errorMessage
 	}
 	
 	@Published public var trackers: [Tracker]
+	@Published public var errorMessage: String?
 	
 	public class Tracker {
 		public init(

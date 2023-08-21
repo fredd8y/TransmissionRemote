@@ -18,9 +18,17 @@ class TorrentTrackersPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENT_TRACKERS_PAGE_light_extraExtraExtraLarge")
 	}
 	
+	func test_torrentDetailPageWithErrorMessage() {
+		let sut = makeSUT(errorMessage: "Error message")
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENT_TRACKERS_PAGE_WITH_ERROR_MESSAGE_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENT_TRACKERS_PAGE_WITH_ERROR_MESSAGE_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENT_TRACKERS_PAGE_WITH_ERROR_MESSAGE_light_extraExtraExtraLarge")
+	}
+	
 	// MARK: - Helpers
 	
-	private func makeSUT() -> TorrentTrackersPage {
+	private func makeSUT(errorMessage: String? = nil) -> TorrentTrackersPage {
 		TorrentTrackersPage(
 			viewModel: TorrentTrackersPageViewModel(
 				trackers: [
@@ -46,7 +54,8 @@ class TorrentTrackersPageTests: XCTestCase {
 						leecherCount: "32",
 						downloadCount: "12345"
 					)
-				]
+				],
+				errorMessage: errorMessage
 			)
 		)
 	}

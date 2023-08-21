@@ -79,7 +79,8 @@ public class TorrentTrackersPagePresenter {
 					leecherCount: tracker.leecherCount.description,
 					downloadCount: tracker.downloadCount.description
 				)
-			}
+			},
+			errorMessage: nil
 		)
 	}
 	
