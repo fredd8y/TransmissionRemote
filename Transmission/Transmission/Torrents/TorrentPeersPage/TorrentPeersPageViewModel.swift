@@ -24,10 +24,10 @@ public class TorrentPeersPageViewModel: ObservableObject {
 			self.client = client
 		}
 		
-		let percentage: String
-		let status: String
-		let address: String
-		let client: String
+		public let percentage: String
+		public let status: String
+		public let address: String
+		public let client: String
 		
 	}
 	

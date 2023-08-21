@@ -79,7 +79,14 @@ final class TransmissionComposer {
 			var torrentDetailPage = torrentDetailPagePresentationAdapter.showTorrentDetail(id)
 			torrentDetailPage.onAppear = torrentDetailPagePresentationAdapter.loadData
 			torrentDetailPage.onDisappear = torrentDetailPagePresentationAdapter.stopLoadingData
-			let torrentDetailContainer = TorrentDetailTabContainer(torrentDetailPage: torrentDetailPage, torrentPeersPage: TorrentPeersPage())
+			let torrentPeersPagePresentationAdapter = TorrentPeersPagePresentationAdapter(torrentPeersPageViewModel: .empty())
+			var torrentPeersPage = torrentPeersPagePresentationAdapter.showTorrentPeers(id)
+			torrentPeersPage.onAppear = torrentPeersPagePresentationAdapter.loadData
+			torrentPeersPage.onDisappear = torrentPeersPagePresentationAdapter.stopLoadingData
+			let torrentDetailContainer = TorrentDetailTabContainer(
+				torrentDetailPage: torrentDetailPage,
+				torrentPeersPage: torrentPeersPage
+			)
 			torrentDetailContainers[id] = torrentDetailContainer
 			return torrentDetailContainer
 		}

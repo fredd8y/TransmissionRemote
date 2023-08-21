@@ -196,6 +196,7 @@
 		7BDF92032A9212EE0041E0CC /* TorrentPeersMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF92022A9212EE0041E0CC /* TorrentPeersMapper.swift */; };
 		7BDF92062A92143F0041E0CC /* TorrentPeersMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF92052A92143F0041E0CC /* TorrentPeersMapperTests.swift */; };
 		7BDF92082A9214D50041E0CC /* TorrentPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF92072A9214D50041E0CC /* TorrentPeer.swift */; };
+		7BDF92102A9350800041E0CC /* AssetColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF920F2A9350800041E0CC /* AssetColor.swift */; };
 		7BF3BB4D2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF3BB4B2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png */; };
 		7BF3BB4E2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF3BB4C2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png */; };
 		7BFEB63E2A8CB838003D8985 /* ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEB63D2A8CB838003D8985 /* ConditionalModifier.swift */; };
@@ -426,6 +427,7 @@
 		7BDF92022A9212EE0041E0CC /* TorrentPeersMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentPeersMapper.swift; sourceTree = "<group>"; };
 		7BDF92052A92143F0041E0CC /* TorrentPeersMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentPeersMapperTests.swift; sourceTree = "<group>"; };
 		7BDF92072A9214D50041E0CC /* TorrentPeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentPeer.swift; sourceTree = "<group>"; };
+		7BDF920F2A9350800041E0CC /* AssetColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetColor.swift; sourceTree = "<group>"; };
 		7BF3BB4B2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png; sourceTree = "<group>"; };
 		7BF3BB4C2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png; sourceTree = "<group>"; };
 		7BFEB63D2A8CB838003D8985 /* ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalModifier.swift; sourceTree = "<group>"; };
@@ -750,6 +752,7 @@
 			isa = PBXGroup;
 			children = (
 				7B7871962A8D7585005A16D6 /* AssetImage.swift */,
+				7BDF920F2A9350800041E0CC /* AssetColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1675,6 +1678,7 @@
 			files = (
 				7B6CD5DA2A724D5A00E81983 /* SettingsPage.swift in Sources */,
 				7BDF91ED2A8FBC430041E0CC /* TorrentDetailTabContainer.swift in Sources */,
+				7BDF92102A9350800041E0CC /* AssetColor.swift in Sources */,
 				7B6CD5D82A724CD200E81983 /* TabContainer.swift in Sources */,
 				7BB229D12A813BE100F2408F /* DidLoadModifier.swift in Sources */,
 				7BFEB63E2A8CB838003D8985 /* ConditionalModifier.swift in Sources */,

@@ -151,6 +151,21 @@ final class TransmissionHTTPClient {
 			.eraseToAnyPublisher()
 	}
 	
+	static func makeTorrentPeersLoader(
+		id: Int,
+		server: Server
+	) -> AnyPublisher<[TorrentPeer], Error> {
+		return httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: TorrentBodies.peers(id: id, fields: TorrentField.torrentPeers),
+				additionalHeader: headers(server.credentials)
+			)
+			.tryMap(Logger.log)
+			.tryMap(TorrentPeersMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
 	static func makeTorrentAddPublisher(
 		server: Server,
 		startWhenAdded: Bool,

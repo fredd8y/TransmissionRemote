@@ -131,4 +131,8 @@ public enum TorrentField {
 			desiredAvailable
 		]
 	}
+	
+	public static var torrentPeers: [String] {
+		return [peers]
+	}
 }
