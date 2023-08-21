@@ -22,30 +22,45 @@ public struct TorrentPeersPage: View {
 	
 	
 	public  var body: some View {
-		List {
-			ForEach(viewModel.peers, id: \.address) { peer in
-				Section(peer.address) {
-					VStack(alignment: .leading) {
-						HStack {
-							Text(TorrentPeersPagePresenter.percentage)
-								.font(.subheadline)
-							Spacer()
-							Text(peer.percentage)
-								.font(.subheadline)
-						}
-						HStack {
-							Text(TorrentPeersPagePresenter.status)
-								.font(.subheadline)
-							Spacer()
-							Text(peer.status)
-								.font(.subheadline)
-						}
-						HStack {
-							Text(TorrentPeersPagePresenter.client)
-								.font(.subheadline)
-							Spacer()
-							Text(peer.client)
-								.font(.subheadline)
+		VStack {
+			if let errorMessage = viewModel.errorMessage {
+				HStack {
+					Spacer()
+					Text(errorMessage)
+						.font(.subheadline)
+						.foregroundColor(Color.white)
+						.padding()
+						.multilineTextAlignment(.center)
+					Spacer()
+				}.background { Color.red }
+				Spacer()
+			} else {
+				List {
+					ForEach(viewModel.peers, id: \.address) { peer in
+						Section(peer.address) {
+							VStack(alignment: .leading) {
+								HStack {
+									Text(TorrentPeersPagePresenter.percentage)
+										.font(.subheadline)
+									Spacer()
+									Text(peer.percentage)
+										.font(.subheadline)
+								}
+								HStack {
+									Text(TorrentPeersPagePresenter.status)
+										.font(.subheadline)
+									Spacer()
+									Text(peer.status)
+										.font(.subheadline)
+								}
+								HStack {
+									Text(TorrentPeersPagePresenter.client)
+										.font(.subheadline)
+									Spacer()
+									Text(peer.client)
+										.font(.subheadline)
+								}
+							}
 						}
 					}
 				}
@@ -74,7 +89,8 @@ struct TorrentPeersPage_Previews: PreviewProvider {
 						address: "Address",
 						client: "Client"
 					)
-				]
+				],
+				errorMessage: nil
 			)
 		)
 	}

@@ -40,13 +40,11 @@ final class TorrentPeersPagePresentationAdapter {
 		TransmissionHTTPClient.makeTorrentPeersLoader(id: id, server: server)
 			.dispatchOnMainQueue()
 			.sink(
-				receiveCompletion: { completion in
+				receiveCompletion: { [weak self] completion in
 					switch completion {
-					case .finished:
-						break
+					case .finished: break
 					case .failure(let error):
-						print(error)
-						break
+						self?.torrentPeersPageViewModel.newValues(TorrentPeersPageViewModel.error(error.localizedDescription))
 					}
 				},
 				receiveValue: { [weak self] torrentPeers in
@@ -73,5 +71,6 @@ final class TorrentPeersPagePresentationAdapter {
 private extension TorrentPeersPageViewModel {
 	func newValues(_ viewModel: TorrentPeersPageViewModel) {
 		peers = viewModel.peers
+		errorMessage = viewModel.errorMessage
 	}
 }

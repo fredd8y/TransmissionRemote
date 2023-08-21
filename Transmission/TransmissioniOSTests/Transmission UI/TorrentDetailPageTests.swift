@@ -17,6 +17,7 @@ class TorrentDetailPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENT_DETAIL_PAGE_dark")
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENT_DETAIL_PAGE_light_extraExtraExtraLarge")
 	}
+	
 	func test_torrentDetailPageWithErrorMessage() {
 		let sut = makeSUT(errorMessage: "Error message")
 		

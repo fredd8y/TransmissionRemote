@@ -10,6 +10,9 @@ import Transmission
 
 extension TorrentPeersPageViewModel {
 	static func empty() -> TorrentPeersPageViewModel {
-		TorrentPeersPageViewModel(peers: [])
+		TorrentPeersPageViewModel(peers: [], errorMessage: nil)
+	}
+	static func error(_ errorMessage: String) -> TorrentPeersPageViewModel {
+		TorrentPeersPageViewModel(peers: [], errorMessage: errorMessage)
 	}
 }

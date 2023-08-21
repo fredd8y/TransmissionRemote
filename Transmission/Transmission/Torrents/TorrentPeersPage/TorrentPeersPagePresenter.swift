@@ -50,7 +50,8 @@ public class TorrentPeersPagePresenter {
 					address: $0.address,
 					client: $0.clientName
 				)
-			}
+			},
+			errorMessage: nil
 		)
 	}
 }

@@ -9,11 +9,13 @@ import Foundation
 
 public class TorrentPeersPageViewModel: ObservableObject {
 	
-	public init(peers: [Peer]) {
+	public init(peers: [Peer], errorMessage: String?) {
 		self.peers = peers
+		self.errorMessage = errorMessage
 	}
 	
 	@Published public var peers: [Peer]
+	@Published public var errorMessage: String?
 	
 	public class Peer {
 		
