@@ -41,11 +41,11 @@ public class TorrentPeersPagePresenter {
 			comment: "Item client description")
 	}
 	
-	public static func map(_ torrentPeers: [TorrentPeer]) -> TorrentPeersPageViewModel {
+	public static func map(_ torrentPeers: [TorrentPeer], decimalSeparator: String? = nil) -> TorrentPeersPageViewModel {
 		TorrentPeersPageViewModel(
 			peers: torrentPeers.map {
 				TorrentPeersPageViewModel.Peer(
-					percentage: (($0.progress * 100).round() ?? "-") + "%",
+					percentage: (($0.progress * 100).round(decimalSeparator: decimalSeparator) ?? "-") + "%",
 					status: $0.status,
 					address: $0.address,
 					client: $0.clientName

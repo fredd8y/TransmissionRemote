@@ -159,7 +159,7 @@ final class TorrentDetailPresenterTests: XCTorrentTestCase {
 			location: location,
 			hash: hash,
 			isPrivate: isPrivate
-		), referenceDate: Date(timeIntervalSince1970: 1692367725))
+		), referenceDate: Date(timeIntervalSince1970: 1692367725), decimalSeparator: ",")
 		
 		XCTAssertEqual(viewModel.name, name)
 		XCTAssertEqual(viewModel.percentageCompleted, "97,00%")

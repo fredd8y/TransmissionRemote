@@ -41,7 +41,7 @@ final class TorrentPeersPagePresenterTests: XCTorrentTestCase {
 				address: address,
 				clientName: clientName
 			)
-		])
+		], decimalSeparator: ",")
 		
 		XCTAssertEqual(viewModel.peers.first?.percentage, "97,00%")
 		XCTAssertEqual(viewModel.peers.first?.status, status)
