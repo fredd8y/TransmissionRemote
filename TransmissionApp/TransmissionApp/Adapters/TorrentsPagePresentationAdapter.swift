@@ -19,12 +19,8 @@ final class TorrentsPagePresentationAdapter {
 	) {
 		self.torrentsPageViewModel = torrentsPageViewModel
 		self.sessionIdHandler = sessionIdHandler
-		UserDefaultsHandler.shared.pollingRatePublisher.sink { [weak self] _ in
-			self?.loadData()
-		}.store(in: &pollingRateCancellable)
 		UserDefaultsHandler.shared.currentServerPublisher.dropFirst().sink { [weak self] _ in
 			self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.loading())
-			self?.loadData()
 		}.store(in: &currentServerCancellable)
 	}
 	

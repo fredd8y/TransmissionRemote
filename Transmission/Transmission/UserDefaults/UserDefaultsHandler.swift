@@ -60,12 +60,9 @@ public class UserDefaultsHandler {
 	public var pollingRate: Int {
 		didSet {
 			setPollingRate(pollingRate)
-			pollingRatePublisher.send(pollingRate)
 		}
 	}
-	
-	public let pollingRatePublisher = PassthroughSubject<Int, Never>()
-	
+		
 	public var currentServer: Server? {
 		didSet {
 			if let currentServer {
