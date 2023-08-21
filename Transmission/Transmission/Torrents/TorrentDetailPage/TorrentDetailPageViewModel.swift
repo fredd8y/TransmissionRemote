@@ -11,6 +11,7 @@ public class TorrentDetailPageViewModel: ObservableObject {
 	
 	public init(
 		name: String,
+		errorMessage: String?,
 		percentageCompleted: String,
 		uploaded: String,
 		ratio: String,
@@ -26,6 +27,7 @@ public class TorrentDetailPageViewModel: ObservableObject {
 		privacy: String
 	) {
 		self.name = name
+		self.errorMessage = errorMessage
 		self.percentageCompleted = percentageCompleted
 		self.uploaded = uploaded
 		self.ratio = ratio
@@ -42,6 +44,7 @@ public class TorrentDetailPageViewModel: ObservableObject {
 	}
 	
 	@Published public var name: String
+	@Published public var errorMessage: String?
 	@Published public var percentageCompleted: String
 	@Published public var uploaded: String
 	@Published public var ratio: String

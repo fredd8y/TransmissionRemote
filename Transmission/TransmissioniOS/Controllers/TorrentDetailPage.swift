@@ -23,23 +23,38 @@ public struct TorrentDetailPage: View {
 	public var onDisappear: (() -> Void)?
 	
     public var body: some View {
-		List {
-			Section(TorrentDetailPresenter.activitySectionHeader) {
-				item(title: TorrentDetailPresenter.name, value: viewModel.name)
-				item(title: TorrentDetailPresenter.percentageCompleted, value: viewModel.percentageCompleted)
-				item(title: TorrentDetailPresenter.uploaded, value: viewModel.uploaded)
-				item(title: TorrentDetailPresenter.downloaded, value: viewModel.downloaded)
-				item(title: TorrentDetailPresenter.state, value: viewModel.state)
-				item(title: TorrentDetailPresenter.runningTime, value: viewModel.runningTime)
-				item(title: TorrentDetailPresenter.remainingTime, value: viewModel.remainingTime)
-				item(title: TorrentDetailPresenter.lastActivity, value: viewModel.lastActivity)
-				item(title: TorrentDetailPresenter.error, value: viewModel.error)
-			}
-			Section(TorrentDetailPresenter.detailsSectionHeader) {
-				item(title: TorrentDetailPresenter.size, value: viewModel.size)
-				item(title: TorrentDetailPresenter.location, value: viewModel.location)
-				item(title: TorrentDetailPresenter.hash, value: viewModel.hash)
-				item(title: TorrentDetailPresenter.privacy, value: viewModel.privacy)
+		VStack {
+			if let errorMessage = viewModel.errorMessage {
+				HStack {
+					Spacer()
+					Text(errorMessage)
+						.font(.subheadline)
+						.foregroundColor(Color.white)
+						.padding()
+						.multilineTextAlignment(.center)
+					Spacer()
+				}.background { Color.red }
+				Spacer()
+			} else {
+				List {
+					Section(TorrentDetailPresenter.activitySectionHeader) {
+						item(title: TorrentDetailPresenter.name, value: viewModel.name)
+						item(title: TorrentDetailPresenter.percentageCompleted, value: viewModel.percentageCompleted)
+						item(title: TorrentDetailPresenter.uploaded, value: viewModel.uploaded)
+						item(title: TorrentDetailPresenter.downloaded, value: viewModel.downloaded)
+						item(title: TorrentDetailPresenter.state, value: viewModel.state)
+						item(title: TorrentDetailPresenter.runningTime, value: viewModel.runningTime)
+						item(title: TorrentDetailPresenter.remainingTime, value: viewModel.remainingTime)
+						item(title: TorrentDetailPresenter.lastActivity, value: viewModel.lastActivity)
+						item(title: TorrentDetailPresenter.error, value: viewModel.error)
+					}
+					Section(TorrentDetailPresenter.detailsSectionHeader) {
+						item(title: TorrentDetailPresenter.size, value: viewModel.size)
+						item(title: TorrentDetailPresenter.location, value: viewModel.location)
+						item(title: TorrentDetailPresenter.hash, value: viewModel.hash)
+						item(title: TorrentDetailPresenter.privacy, value: viewModel.privacy)
+					}
+				}
 			}
 		}
 		.navigationTitle(TorrentDetailPresenter.title)
@@ -67,6 +82,7 @@ struct TorrentDetailPage_Previews: PreviewProvider {
 		TorrentDetailPage(
 			viewModel: TorrentDetailPageViewModel(
 				name: "Torrent name",
+				errorMessage: nil,
 				percentageCompleted: "56,98%",
 				uploaded: "123,00 MB",
 				ratio: "0,09",

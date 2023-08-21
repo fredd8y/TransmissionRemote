@@ -244,6 +244,7 @@ public class TorrentDetailPresenter {
 	public static func map(_ torrentDetail: TorrentDetail, referenceDate: Date = Date(), decimalSeparator: String? = nil) -> TorrentDetailPageViewModel {
 		return TorrentDetailPageViewModel(
 			name: torrentDetail.name,
+			errorMessage: nil,
 			percentageCompleted: ((torrentDetail.percentageAvailability * 100).round(decimalSeparator: decimalSeparator) ?? "-") + "%",
 			uploaded: torrentDetail.uploaded.byteSize,
 			ratio: torrentDetail.ratio.round() ?? "-",

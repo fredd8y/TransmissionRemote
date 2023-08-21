@@ -40,13 +40,11 @@ final class TorrentDetailPagePresentationAdapter {
 		TransmissionHTTPClient.makeTorrentDetailLoader(id: id, server: server)
 			.dispatchOnMainQueue()
 			.sink(
-				receiveCompletion: { completion in
+				receiveCompletion: { [weak self] completion in
 					switch completion {
-					case .finished:
-						break
+					case .finished: break
 					case .failure(let error):
-						print(error)
-						break
+						self?.torrentDetailPageViewModel.newValues(.apiError(error.localizedDescription))
 					}
 				},
 				receiveValue: { [weak self] torrentDetail in
@@ -73,6 +71,7 @@ final class TorrentDetailPagePresentationAdapter {
 private extension TorrentDetailPageViewModel {
 	func newValues(_ viewModel: TorrentDetailPageViewModel) {
 		name = viewModel.name
+		errorMessage = viewModel.errorMessage
 		percentageCompleted = viewModel.percentageCompleted
 		uploaded = viewModel.uploaded
 		ratio = viewModel.ratio

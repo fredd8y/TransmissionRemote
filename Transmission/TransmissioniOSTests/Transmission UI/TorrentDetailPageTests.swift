@@ -17,13 +17,21 @@ class TorrentDetailPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENT_DETAIL_PAGE_dark")
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENT_DETAIL_PAGE_light_extraExtraExtraLarge")
 	}
+	func test_torrentDetailPageWithErrorMessage() {
+		let sut = makeSUT(errorMessage: "Error message")
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENT_DETAIL_PAGE_WITH_ERROR_MESSAGE_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENT_DETAIL_PAGE_WITH_ERROR_MESSAGE_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENT_DETAIL_PAGE_WITH_ERROR_MESSAGE_light_extraExtraExtraLarge")
+	}
 	
 	// MARK: - Helpers
 	
-	private func makeSUT() -> TorrentDetailPage {
+	private func makeSUT(errorMessage: String? = nil) -> TorrentDetailPage {
 		TorrentDetailPage(
 			viewModel: TorrentDetailPageViewModel(
 				name: "Torrent name",
+				errorMessage: errorMessage,
 				percentageCompleted: "56,98%",
 				uploaded: "123,00 MB",
 				ratio: "0,09",
