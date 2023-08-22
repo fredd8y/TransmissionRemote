@@ -8,124 +8,81 @@
 import Foundation
 
 public enum TorrentField {
-	static let activityDate = "activityDate"
-	static let addedDate = "addedDate"
-	static let availability = "availability"
-	static let bandwidthPriority = "bandwidthPriority"
-	static let comment = "comment"
-	static let corruptEver = "corruptEver"
-	static let creator = "creator"
-	static let dateCreated = "dateCreated"
-	static let desiredAvailable = "desiredAvailable"
-	static let doneDate = "doneDate"
-	static let downloadDir = "downloadDir"
-	static let downloadedEver = "downloadedEver"
-	static let downloadLimit = "downloadLimit"
-	static let downloadLimited = "downloadLimited"
-	static let editDate = "editDate"
-	static let error = "error"
-	static let errorString = "errorString"
-	static let eta = "eta"
-	static let etaIdle = "etaIdle"
-	static let file = "file"
-	static let files = "files"
-	static let fileStats = "fileStats"
-	static let group = "group"
-	static let hashString = "hashString"
-	static let haveUnchecked = "haveUnchecked"
-	static let haveValid = "haveValid"
-	static let honorsSessionLimits = "honorsSessionLimits"
-	static let id = "id"
-	static let isFinished = "isFinished"
-	static let isPrivate = "isPrivate"
-	static let isStalled = "isStalled"
-	static let labels = "labels"
-	static let leftUntilDone = "leftUntilDone"
-	static let magnetLink = "magnetLink"
-	static let manualAnnounceTime = "manualAnnounceTime"
-	static let maxConnectedPeers = "maxConnectedPeers"
-	static let metadataPercentComplete = "metadataPercentComplete"
-	static let name = "name"
-	static let peer = "peer"
-	static let peers = "peers"
-	static let peersConnected = "peersConnected"
-	static let peersFrom = "peersFrom"
-	static let peersGettingFromUs = "peersGettingFromUs"
-	static let peersSendingToUs = "peersSendingToUs"
-	static let percentComplete = "percentComplete"
-	static let percentDone = "percentDone"
-	static let pieces = "pieces"
-	static let pieceCount = "pieceCount"
-	static let pieceSize = "pieceSize"
-	static let priorities = "priorities"
-	static let primary = "primary"
-	static let queuePosition = "queuePosition"
-	static let rateDownload = "rateDownload"
-	static let rateUpload = "rateUpload"
-	static let recheckProgress = "recheckProgress"
-	static let secondsDownloading = "secondsDownloading"
-	static let secondsSeeding = "secondsSeeding"
-	static let seedIdleLimit = "seedIdleLimit"
-	static let seedIdleMode = "seedIdleMode"
-	static let seedRatioLimit = "seedRatioLimit"
-	static let seedRatioMode = "seedRatioMode"
-	static let sequentialDownload = "sequentialDownload"
-	static let sizeWhenDone = "sizeWhenDone"
-	static let startDate = "startDate"
-	static let status = "status"
-	static let trackers = "trackers"
-	static let trackerList = "trackerList"
-	static let trackerStats = "trackerStats"
-	static let totalSize = "totalSize"
-	static let torrentFile = "torrentFile"
-	static let uploadedEver = "uploadedEver"
-	static let uploadLimit = "uploadLimit"
-	static let uploadLimited = "uploadLimited"
-	static let uploadRatio = "uploadRatio"
-	static let wanted = "wanted"
-	static let webseeds = "webseeds"
-	static let webseedsSendingToU = "webseedsSendingToU"
-	
-	public static var minimumTorrentField: [String] {
-		return [
-			id,
-			eta,
-			name,
-			error,
-			status,
-			totalSize,
-			rateUpload,
-			isFinished,
-			errorString,
-			percentDone,
-			rateDownload
-		]
-	}
-	
-	public static var torrentDetailField: [String] {
-		return [
-			eta,
-			name,
-			status,
-			startDate,
-			isPrivate,
-			totalSize,
-			hashString,
-			downloadDir,
-			uploadRatio,
-			errorString,
-			percentDone,
-			uploadedEver,
-			activityDate,
-			downloadedEver
-		]
-	}
-	
-	public static var torrentPeers: [String] {
-		return [peers]
-	}
-	
-	public static var torrentTrackers: [String] {
-		return [trackerStats]
-	}
+	public static let activityDate = "activityDate"
+	public static let addedDate = "addedDate"
+	public static let availability = "availability"
+	public static let bandwidthPriority = "bandwidthPriority"
+	public static let comment = "comment"
+	public static let corruptEver = "corruptEver"
+	public static let creator = "creator"
+	public static let dateCreated = "dateCreated"
+	public static let desiredAvailable = "desiredAvailable"
+	public static let doneDate = "doneDate"
+	public static let downloadDir = "downloadDir"
+	public static let downloadedEver = "downloadedEver"
+	public static let downloadLimit = "downloadLimit"
+	public static let downloadLimited = "downloadLimited"
+	public static let editDate = "editDate"
+	public static let error = "error"
+	public static let errorString = "errorString"
+	public static let eta = "eta"
+	public static let etaIdle = "etaIdle"
+	public static let file = "file"
+	public static let files = "files"
+	public static let fileStats = "fileStats"
+	public static let group = "group"
+	public static let hashString = "hashString"
+	public static let haveUnchecked = "haveUnchecked"
+	public static let haveValid = "haveValid"
+	public static let honorsSessionLimits = "honorsSessionLimits"
+	public static let id = "id"
+	public static let isFinished = "isFinished"
+	public static let isPrivate = "isPrivate"
+	public static let isStalled = "isStalled"
+	public static let labels = "labels"
+	public static let leftUntilDone = "leftUntilDone"
+	public static let magnetLink = "magnetLink"
+	public static let manualAnnounceTime = "manualAnnounceTime"
+	public static let maxConnectedPeers = "maxConnectedPeers"
+	public static let metadataPercentComplete = "metadataPercentComplete"
+	public static let name = "name"
+	public static let peer = "peer"
+	public static let peers = "peers"
+	public static let peersConnected = "peersConnected"
+	public static let peersFrom = "peersFrom"
+	public static let peersGettingFromUs = "peersGettingFromUs"
+	public static let peersSendingToUs = "peersSendingToUs"
+	public static let percentComplete = "percentComplete"
+	public static let percentDone = "percentDone"
+	public static let pieces = "pieces"
+	public static let pieceCount = "pieceCount"
+	public static let pieceSize = "pieceSize"
+	public static let priorities = "priorities"
+	public static let primary = "primary"
+	public static let queuePosition = "queuePosition"
+	public static let rateDownload = "rateDownload"
+	public static let rateUpload = "rateUpload"
+	public static let recheckProgress = "recheckProgress"
+	public static let secondsDownloading = "secondsDownloading"
+	public static let secondsSeeding = "secondsSeeding"
+	public static let seedIdleLimit = "seedIdleLimit"
+	public static let seedIdleMode = "seedIdleMode"
+	public static let seedRatioLimit = "seedRatioLimit"
+	public static let seedRatioMode = "seedRatioMode"
+	public static let sequentialDownload = "sequentialDownload"
+	public static let sizeWhenDone = "sizeWhenDone"
+	public static let startDate = "startDate"
+	public static let status = "status"
+	public static let trackers = "trackers"
+	public static let trackerList = "trackerList"
+	public static let trackerStats = "trackerStats"
+	public static let totalSize = "totalSize"
+	public static let torrentFile = "torrentFile"
+	public static let uploadedEver = "uploadedEver"
+	public static let uploadLimit = "uploadLimit"
+	public static let uploadLimited = "uploadLimited"
+	public static let uploadRatio = "uploadRatio"
+	public static let wanted = "wanted"
+	public static let webseeds = "webseeds"
+	public static let webseedsSendingToU = "webseedsSendingToU"
 }
