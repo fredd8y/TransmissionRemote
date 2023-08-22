@@ -8,9 +8,7 @@
 import Foundation
 import Transmission
 
-final class Headers {
-	
-	private init() {}
+enum Headers {
 	
 	static func headers(_ credentials: (username: String, password: String)?) -> [String: String] {
 		var headers: [String: String] = [:]
