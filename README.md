@@ -22,6 +22,9 @@ Features included currently:
 - Start and stop torrent download
 - Support multiple server
 - Download folder available free space
+- Show torrent info
+- Show torrent peers info
+- Show trackers info
 
 This list of features will be constantly updated as more feature will be implemented.
 
