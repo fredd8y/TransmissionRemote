@@ -25,7 +25,7 @@ final class TorrentsSettingsPresenterTests: XCTestCase {
 		let idleSeedingLimitedEnabled = true
 		let idleSeedingLimit = 30
 		
-		let viewModel = TorrentsSettingsPagePresenter.map(
+		let viewModel = TorrentsSettingsPagePresenter.map(torrentsSettings:TorrentsSettings(
 			downloadDir: downloadDir,
 			startAddedTorrents: startAddedTorrents,
 			renamePartialFiles: renamePartialFiles,
@@ -33,7 +33,7 @@ final class TorrentsSettingsPresenterTests: XCTestCase {
 			seedRatioLimit: seedRatioLimit,
 			idleSeedingLimitedEnabled: idleSeedingLimitedEnabled,
 			idleSeedingLimit: idleSeedingLimit
-		)
+		))
 		
 		XCTAssertEqual(downloadDir, viewModel.downloadDir)
 		XCTAssertEqual(startAddedTorrents, viewModel.startAddedTorrents)

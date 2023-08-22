@@ -18,23 +18,15 @@ public class TorrentsSettingsPagePresenter {
 			comment: "Torrents settings page title")
 	}
 	
-	public static func map(
-		downloadDir: String,
-		startAddedTorrents: Bool,
-		renamePartialFiles: Bool,
-		seedRatioLimited: Bool,
-		seedRatioLimit: Int,
-		idleSeedingLimitedEnabled: Bool,
-		idleSeedingLimit: Int
-	) -> TorrentsSettingsPageViewModel {
+	public static func map(torrentsSettings: TorrentsSettings) -> TorrentsSettingsPageViewModel {
 		TorrentsSettingsPageViewModel(
-			downloadDir: downloadDir,
-			startAddedTorrents: startAddedTorrents,
-			renamePartialFiles: renamePartialFiles,
-			seedRatioLimited: seedRatioLimited,
-			seedRatioLimit: seedRatioLimit.description,
-			idleSeedingLimitedEnabled: idleSeedingLimitedEnabled,
-			idleSeedingLimit: idleSeedingLimit.description
+			downloadDir: torrentsSettings.downloadDir,
+			startAddedTorrents: torrentsSettings.startAddedTorrents,
+			renamePartialFiles: torrentsSettings.renamePartialFiles,
+			seedRatioLimited: torrentsSettings.seedRatioLimited,
+			seedRatioLimit: torrentsSettings.seedRatioLimit.description,
+			idleSeedingLimitedEnabled: torrentsSettings.idleSeedingLimitedEnabled,
+			idleSeedingLimit: torrentsSettings.idleSeedingLimit.description
 		)
 	}
 }
