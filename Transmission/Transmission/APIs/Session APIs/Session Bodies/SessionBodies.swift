@@ -13,6 +13,27 @@ public class SessionBodies {
 }
 
 extension SessionBodies {
+	
+	private struct SessionGetBody: Encodable {
+		init(_ fields: [String]) {
+			arguments = Arguments(fields: fields)
+		}
+		
+		let method: String = "session-get"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let fields: [String]
+		}
+	}
+	
+	public static func get(fields: [String]) -> Data {
+		try! JSONEncoder().encode(SessionGetBody(fields))
+	}
+	
+}
+
+extension SessionBodies {
 	private struct SetDownloadLimit: Encodable {
 		init(enabled: Bool) {
 			arguments = Arguments(altSpeedEnabled: enabled)

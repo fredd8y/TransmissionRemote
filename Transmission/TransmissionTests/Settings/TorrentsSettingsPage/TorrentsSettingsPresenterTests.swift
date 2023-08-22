@@ -43,4 +43,5 @@ final class TorrentsSettingsPresenterTests: XCTestCase {
 		XCTAssertEqual(idleSeedingLimitedEnabled, viewModel.idleSeedingLimitedEnabled)
 		XCTAssertEqual(idleSeedingLimit.description, viewModel.idleSeedingLimit)
 	}
+	
 }

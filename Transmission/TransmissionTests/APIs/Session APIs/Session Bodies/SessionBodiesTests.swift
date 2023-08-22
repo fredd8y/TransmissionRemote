@@ -18,6 +18,14 @@ final class SessionBodiesTests: XCTestCase {
 		XCTAssertEqual(expectedBody, httpBody)
 	}
 	
+	func test_sessionGet_httpBodyWithFields() {
+		let expectedBody = #"{"method":"session-get","arguments":{"fields":["field1","field2","field3"]}}"#.data(using: .utf8)
+		
+		let httpBody = SessionBodies.get(fields: ["field1", "field2", "field3"])
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
 	func test_sessionStats_httpBody() {
 		let expectedBody = #"{"method": "session-stats"}"#
 		
