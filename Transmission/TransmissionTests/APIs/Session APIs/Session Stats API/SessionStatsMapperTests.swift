@@ -5,9 +5,9 @@
 //  Created by Federico Arvat on 15/07/23.
 //
 
-import Foundation
 
 import XCTest
+import Foundation
 import Transmission
 
 class SessionStatsMapperTests: XCTestCase {
@@ -32,7 +32,7 @@ class SessionStatsMapperTests: XCTestCase {
 	
 	func test_map_throwsErrorOn200HTTPResponseWithEmptyJSON() throws {
 		XCTAssertThrowsError(
-			try TorrentGetMapper.map(Data(), from: HTTPURLResponse(statusCode: 200))
+			try SessionStatsMapper.map(Data(), from: HTTPURLResponse(statusCode: 200))
 		)
 	}
 	
