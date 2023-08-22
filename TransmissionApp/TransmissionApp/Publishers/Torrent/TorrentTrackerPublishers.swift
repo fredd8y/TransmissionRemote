@@ -19,7 +19,7 @@ enum TorrentTrackerPublishers {
 		return TransmissionHTTPClient.httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: TorrentBodies.trackers(id: id, fields: TorrentField.torrentTrackers),
+				body: TorrentBodies.get(id: id, fields: TorrentField.torrentTrackers),
 				additionalHeader: Headers.headers(server.credentials)
 			)
 			.tryMap(Logger.log)

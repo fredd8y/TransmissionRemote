@@ -28,7 +28,7 @@ enum TorrentLoadPublishers {
 					receivedSession = session
 					TransmissionHTTPClient.httpClient.post(
 						APIsEndpoint.post.url(baseURL: server.baseURL),
-						body: TorrentBodies.get(TorrentField.minimumTorrentField),
+						body: TorrentBodies.get(id: nil, fields: TorrentField.minimumTorrentField),
 						additionalHeader: Headers.headers(server.credentials)
 					) { result in
 						promise(result)
