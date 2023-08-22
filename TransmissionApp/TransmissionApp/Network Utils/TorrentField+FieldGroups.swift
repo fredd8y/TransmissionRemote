@@ -10,7 +10,7 @@ import Transmission
 
 extension TorrentField {
 	static var minimumTorrentField: [String] {
-		return [
+		[
 			id,
 			eta,
 			name,
@@ -26,7 +26,7 @@ extension TorrentField {
 	}
 	
 	static var torrentDetailField: [String] {
-		return [
+		[
 			eta,
 			name,
 			status,
@@ -45,10 +45,10 @@ extension TorrentField {
 	}
 	
 	static var torrentPeers: [String] {
-		return [peers]
+		[peers]
 	}
 	
 	static var torrentTrackers: [String] {
-		return [trackerStats]
+		[trackerStats]
 	}
 }
