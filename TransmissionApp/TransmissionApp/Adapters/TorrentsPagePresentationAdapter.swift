@@ -39,7 +39,7 @@ final class TorrentsPagePresentationAdapter {
 			torrentsPageViewModel.alertMessageVisible = true
 			return
 		}
-		TransmissionHTTPClient.makeTorrentStartPublisher(server: server, id: id)
+		TorrentStartPublishers.makeTorrentStartPublisher(server: server, id: id)
 		.dispatchOnMainQueue()
 		.sink(
 			receiveCompletion: { [weak self] completion in
@@ -70,7 +70,7 @@ final class TorrentsPagePresentationAdapter {
 			torrentsPageViewModel.alertMessageVisible = true
 			return
 		}
-		TransmissionHTTPClient.makeTorrentStartAllPublisher(server: server)
+		TorrentStartPublishers.makeTorrentStartAllPublisher(server: server)
 			.dispatchOnMainQueue()
 			.sink(
 				receiveCompletion: { [weak self] completion in
@@ -101,7 +101,7 @@ final class TorrentsPagePresentationAdapter {
 			torrentsPageViewModel.alertMessageVisible = true
 			return
 		}
-		TransmissionHTTPClient.makeTorrentStopPublisher(server: server, id: id)
+		TorrentStopPublishers.makeTorrentStopPublisher(server: server, id: id)
 		.dispatchOnMainQueue()
 		.sink(
 			receiveCompletion: { [weak self] completion in
@@ -132,7 +132,7 @@ final class TorrentsPagePresentationAdapter {
 			torrentsPageViewModel.alertMessageVisible = true
 			return
 		}
-		TransmissionHTTPClient.makeTorrentStopAllPublisher(server: server)
+		TorrentStopPublishers.makeTorrentStopAllPublisher(server: server)
 		.dispatchOnMainQueue()
 		.sink(
 			receiveCompletion: { [weak self] completion in
@@ -163,7 +163,7 @@ final class TorrentsPagePresentationAdapter {
 			torrentsPageViewModel.alertMessageVisible = true
 			return
 		}
-		TransmissionHTTPClient.makeLinkAddPublisher(
+		TorrentAddPublishers.makeLinkAddPublisher(
 			server: server,
 			startWhenAdded: true,
 			link: link
@@ -206,7 +206,7 @@ final class TorrentsPagePresentationAdapter {
 			torrentsPageViewModel.alertMessageVisible = true
 			return
 		}
-		TransmissionHTTPClient.makeTorrentAddPublisher(
+		TorrentAddPublishers.makeTorrentAddPublisher(
 			server: server,
 			startWhenAdded: true,
 			torrentFilePath: url.absoluteString
@@ -246,7 +246,7 @@ final class TorrentsPagePresentationAdapter {
 			torrentsPageViewModel.alertMessageVisible = true
 			return
 		}
-		TransmissionHTTPClient.makeTorrentRemovePublisher(
+		TorrentRemovePublishers.makeTorrentRemovePublisher(
 			server: server,
 			id: id,
 			deleteLocalData: deleteLocalData
@@ -281,7 +281,7 @@ final class TorrentsPagePresentationAdapter {
 			torrentsPageViewModel.alertMessageVisible = true
 			return
 		}
-		TransmissionHTTPClient.makeTorrentRemoveAllPublisher(
+		TorrentRemovePublishers.makeTorrentRemoveAllPublisher(
 			server: server,
 			deleteLocalData: deleteLocalData
 		)
@@ -315,7 +315,7 @@ final class TorrentsPagePresentationAdapter {
 			torrentsPageViewModel.alertMessageVisible = true
 			return
 		}
-		TransmissionHTTPClient.makeSetDownloadLimitEnabled(
+		SessionSettingsPublishers.makeSetDownloadLimitEnabled(
 			enabled: enabled,
 			server: server
 		)
@@ -353,7 +353,7 @@ final class TorrentsPagePresentationAdapter {
 			torrentsPageViewModel.newValues(TorrentsPageViewModel.serverNotSet())
 			return
 		}
-		TransmissionHTTPClient.makeRemoteTorrentsLoader(server: server)
+		TorrentLoadPublishers.makeRemoteTorrentsLoader(server: server)
 		.dispatchOnMainQueue()
 		.sink(
 			receiveCompletion: { [weak self] completion in

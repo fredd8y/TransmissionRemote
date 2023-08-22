@@ -9,10 +9,8 @@ import Combine
 import Foundation
 import Transmission
 
-final class ServerPublishers {
-	
-	private init() {}
-	
+enum ServerPublishers {
+		
 	enum Error: Swift.Error {
 		case readError
 		case writeError

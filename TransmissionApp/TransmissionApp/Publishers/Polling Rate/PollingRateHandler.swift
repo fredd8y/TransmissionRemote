@@ -9,9 +9,7 @@ import Combine
 import Foundation
 import Transmission
 
-final class PollingRateHandler {
-	
-	private init() {}
+enum PollingRateHandler {
 	
 	static var pollingRateList = [2, 5, 10, 30]
 	

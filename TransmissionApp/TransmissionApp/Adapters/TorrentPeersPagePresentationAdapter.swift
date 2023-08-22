@@ -37,7 +37,7 @@ final class TorrentPeersPagePresentationAdapter {
 		guard let server = UserDefaultsHandler.shared.currentServer else {
 			return
 		}
-		TransmissionHTTPClient.makeTorrentPeersLoader(id: id, server: server)
+		TorrentPeersPublishers.makeTorrentPeersLoader(id: id, server: server)
 			.dispatchOnMainQueue()
 			.sink(
 				receiveCompletion: { [weak self] completion in

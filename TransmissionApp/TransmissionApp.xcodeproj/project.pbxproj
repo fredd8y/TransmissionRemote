@@ -13,6 +13,32 @@
 		7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */; };
 		7B7871D52A8E6B37005A16D6 /* TorrentDetailPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7871D42A8E6B37005A16D6 /* TorrentDetailPagePresentationAdapter.swift */; };
 		7B7871D72A8E6F5D005A16D6 /* TorrentDetailPageViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7871D62A8E6F5D005A16D6 /* TorrentDetailPageViewModel+Factory.swift */; };
+		7B8075B02A94AF62003F0B17 /* TorrentStartPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075AF2A94AF62003F0B17 /* TorrentStartPublishers.swift */; };
+		7B8075B32A94AFFF003F0B17 /* Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075B22A94AFFF003F0B17 /* Headers.swift */; };
+		7B8075B52A94B0C4003F0B17 /* TorrentTrackerPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075B42A94B0C4003F0B17 /* TorrentTrackerPublishers.swift */; };
+		7B8075B72A94B11A003F0B17 /* TorrentDetailPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075B62A94B11A003F0B17 /* TorrentDetailPublishers.swift */; };
+		7B8075B92A94B123003F0B17 /* Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075B22A94AFFF003F0B17 /* Headers.swift */; };
+		7B8075BD2A94B170003F0B17 /* TorrentPeersPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075BC2A94B170003F0B17 /* TorrentPeersPublishers.swift */; };
+		7B8075BF2A94B1D9003F0B17 /* TorrentStopPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075BE2A94B1D9003F0B17 /* TorrentStopPublishers.swift */; };
+		7B8075C12A94B20D003F0B17 /* TorrentRemovePublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075C02A94B20D003F0B17 /* TorrentRemovePublishers.swift */; };
+		7B8075C32A94B245003F0B17 /* TorrentAddPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075C22A94B245003F0B17 /* TorrentAddPublishers.swift */; };
+		7B8075C52A94B2AC003F0B17 /* TorrentLoadPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075C42A94B2AC003F0B17 /* TorrentLoadPublishers.swift */; };
+		7B8075CB2A94B344003F0B17 /* SessionSettingsPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075CA2A94B344003F0B17 /* SessionSettingsPublishers.swift */; };
+		7B8075CE2A94B3B1003F0B17 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075CD2A94B3B1003F0B17 /* ErrorHandler.swift */; };
+		7B8075D12A94B4D6003F0B17 /* Server+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075D02A94B4D6003F0B17 /* Server+Utils.swift */; };
+		7B8075D92A94B575003F0B17 /* TorrentStopPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075BE2A94B1D9003F0B17 /* TorrentStopPublishers.swift */; };
+		7B8075DA2A94B575003F0B17 /* TorrentStartPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075AF2A94AF62003F0B17 /* TorrentStartPublishers.swift */; };
+		7B8075DB2A94B575003F0B17 /* TorrentRemovePublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075C02A94B20D003F0B17 /* TorrentRemovePublishers.swift */; };
+		7B8075DC2A94B575003F0B17 /* TorrentPeersPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075BC2A94B170003F0B17 /* TorrentPeersPublishers.swift */; };
+		7B8075DD2A94B575003F0B17 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075CD2A94B3B1003F0B17 /* ErrorHandler.swift */; };
+		7B8075DE2A94B575003F0B17 /* Server+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075D02A94B4D6003F0B17 /* Server+Utils.swift */; };
+		7B8075DF2A94B575003F0B17 /* TorrentDetailPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075B62A94B11A003F0B17 /* TorrentDetailPublishers.swift */; };
+		7B8075E02A94B575003F0B17 /* TorrentAddPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075C22A94B245003F0B17 /* TorrentAddPublishers.swift */; };
+		7B8075E12A94B575003F0B17 /* ServerPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C4C2A72A648001206A8 /* ServerPublishers.swift */; };
+		7B8075E22A94B575003F0B17 /* TorrentLoadPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075C42A94B2AC003F0B17 /* TorrentLoadPublishers.swift */; };
+		7B8075E32A94B575003F0B17 /* TorrentTrackerPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075B42A94B0C4003F0B17 /* TorrentTrackerPublishers.swift */; };
+		7B8075E42A94B575003F0B17 /* PollingRateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C5D2A742CF7001206A8 /* PollingRateHandler.swift */; };
+		7B8075E52A94B5AF003F0B17 /* SessionSettingsPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8075CA2A94B344003F0B17 /* SessionSettingsPublishers.swift */; };
 		7BA01FD82A7E9A8700FBB43D /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FD72A7E9A8700FBB43D /* Keychain.swift */; };
 		7BA01FDA2A7EA0D500FBB43D /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FD92A7EA0D500FBB43D /* KeychainTests.swift */; };
 		7BA01FDC2A7EB68A00FBB43D /* Cipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FDB2A7EB68A00FBB43D /* Cipher.swift */; };
@@ -31,9 +57,7 @@
 		7BB229DD2A81477700F2408F /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FE12A7FEF4800FBB43D /* Data+.swift */; };
 		7BB229DE2A81477700F2408F /* TransmissionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8132A6C158100B36367 /* TransmissionApp.swift */; };
 		7BB229DF2A81477700F2408F /* TransmissionComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8442A6E3FE200B36367 /* TransmissionComposer.swift */; };
-		7BB229E02A81477700F2408F /* PollingRateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C5D2A742CF7001206A8 /* PollingRateHandler.swift */; };
 		7BB229E12A81477700F2408F /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FD72A7E9A8700FBB43D /* Keychain.swift */; };
-		7BB229E22A81477700F2408F /* ServerPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C4C2A72A648001206A8 /* ServerPublishers.swift */; };
 		7BB229E32A81477700F2408F /* ServerFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4BB74E2A7A77F100A68EF5 /* ServerFile.swift */; };
 		7BB229E52A81477700F2408F /* ServerDetailPageViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD2368E2A77C9B900AF75A9 /* ServerDetailPageViewModel+Factory.swift */; };
 		7BB229E62A81477700F2408F /* TorrentsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D8492A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift */; };
@@ -121,6 +145,18 @@
 		7B6CD5CC2A71221B00E81983 /* Combine+MainQueueDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+MainQueueDispatcher.swift"; sourceTree = "<group>"; };
 		7B7871D42A8E6B37005A16D6 /* TorrentDetailPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentDetailPagePresentationAdapter.swift; sourceTree = "<group>"; };
 		7B7871D62A8E6F5D005A16D6 /* TorrentDetailPageViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorrentDetailPageViewModel+Factory.swift"; sourceTree = "<group>"; };
+		7B8075AF2A94AF62003F0B17 /* TorrentStartPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentStartPublishers.swift; sourceTree = "<group>"; };
+		7B8075B22A94AFFF003F0B17 /* Headers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Headers.swift; sourceTree = "<group>"; };
+		7B8075B42A94B0C4003F0B17 /* TorrentTrackerPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentTrackerPublishers.swift; sourceTree = "<group>"; };
+		7B8075B62A94B11A003F0B17 /* TorrentDetailPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentDetailPublishers.swift; sourceTree = "<group>"; };
+		7B8075BC2A94B170003F0B17 /* TorrentPeersPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentPeersPublishers.swift; sourceTree = "<group>"; };
+		7B8075BE2A94B1D9003F0B17 /* TorrentStopPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentStopPublishers.swift; sourceTree = "<group>"; };
+		7B8075C02A94B20D003F0B17 /* TorrentRemovePublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentRemovePublishers.swift; sourceTree = "<group>"; };
+		7B8075C22A94B245003F0B17 /* TorrentAddPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentAddPublishers.swift; sourceTree = "<group>"; };
+		7B8075C42A94B2AC003F0B17 /* TorrentLoadPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentLoadPublishers.swift; sourceTree = "<group>"; };
+		7B8075CA2A94B344003F0B17 /* SessionSettingsPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSettingsPublishers.swift; sourceTree = "<group>"; };
+		7B8075CD2A94B3B1003F0B17 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		7B8075D02A94B4D6003F0B17 /* Server+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server+Utils.swift"; sourceTree = "<group>"; };
 		7BA01FD72A7E9A8700FBB43D /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		7BA01FD92A7EA0D500FBB43D /* KeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
 		7BA01FDB2A7EB68A00FBB43D /* Cipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cipher.swift; sourceTree = "<group>"; };
@@ -200,6 +236,73 @@
 			path = Logger;
 			sourceTree = "<group>";
 		};
+		7B8075AE2A94AF49003F0B17 /* Publishers */ = {
+			isa = PBXGroup;
+			children = (
+				7B8075C92A94B323003F0B17 /* Session */,
+				7B8075C82A94B30E003F0B17 /* Polling Rate */,
+				7B8075C72A94B307003F0B17 /* Server */,
+				7B8075C62A94B2FC003F0B17 /* Torrent */,
+			);
+			path = Publishers;
+			sourceTree = "<group>";
+		};
+		7B8075B12A94AFE8003F0B17 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				7B8075B22A94AFFF003F0B17 /* Headers.swift */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		7B8075C62A94B2FC003F0B17 /* Torrent */ = {
+			isa = PBXGroup;
+			children = (
+				7B8075BE2A94B1D9003F0B17 /* TorrentStopPublishers.swift */,
+				7B8075AF2A94AF62003F0B17 /* TorrentStartPublishers.swift */,
+				7B8075C02A94B20D003F0B17 /* TorrentRemovePublishers.swift */,
+				7B8075B42A94B0C4003F0B17 /* TorrentTrackerPublishers.swift */,
+				7B8075B62A94B11A003F0B17 /* TorrentDetailPublishers.swift */,
+				7B8075BC2A94B170003F0B17 /* TorrentPeersPublishers.swift */,
+				7B8075C22A94B245003F0B17 /* TorrentAddPublishers.swift */,
+				7B8075C42A94B2AC003F0B17 /* TorrentLoadPublishers.swift */,
+			);
+			path = Torrent;
+			sourceTree = "<group>";
+		};
+		7B8075C72A94B307003F0B17 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				7BBF3C4C2A72A648001206A8 /* ServerPublishers.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		7B8075C82A94B30E003F0B17 /* Polling Rate */ = {
+			isa = PBXGroup;
+			children = (
+				7BBF3C5D2A742CF7001206A8 /* PollingRateHandler.swift */,
+			);
+			path = "Polling Rate";
+			sourceTree = "<group>";
+		};
+		7B8075C92A94B323003F0B17 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				7B8075CA2A94B344003F0B17 /* SessionSettingsPublishers.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		7B8075CC2A94B3A4003F0B17 /* Network Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7B8075CD2A94B3B1003F0B17 /* ErrorHandler.swift */,
+				7B8075D02A94B4D6003F0B17 /* Server+Utils.swift */,
+			);
+			path = "Network Utils";
+			sourceTree = "<group>";
+		};
 		7BA01FD62A7E9A5600FBB43D /* Password */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,16 +336,17 @@
 		7BC0D8122A6C158100B36367 /* TransmissionApp */ = {
 			isa = PBXGroup;
 			children = (
+				7B8075CC2A94B3A4003F0B17 /* Network Utils */,
 				7BA01FD62A7E9A5600FBB43D /* Password */,
 				7B4BB74D2A7A77DC00A68EF5 /* Server File */,
 				7B6CD5C92A7104F500E81983 /* Logger */,
 				7BC0D8462A6E614D00B36367 /* Adapters */,
 				7BC0D8412A6E3C3700B36367 /* Helpers */,
+				7B8075B12A94AFE8003F0B17 /* Headers */,
+				7B8075AE2A94AF49003F0B17 /* Publishers */,
 				7BC0D8132A6C158100B36367 /* TransmissionApp.swift */,
 				7BC0D8442A6E3FE200B36367 /* TransmissionComposer.swift */,
 				7BC0D84D2A6EA90000B36367 /* TransmissionHTTPClient.swift */,
-				7BBF3C4C2A72A648001206A8 /* ServerPublishers.swift */,
-				7BBF3C5D2A742CF7001206A8 /* PollingRateHandler.swift */,
 				7BC0D8172A6C158300B36367 /* Assets.xcassets */,
 				7BC0D8192A6C158300B36367 /* Preview Content */,
 			);
@@ -439,8 +543,11 @@
 			files = (
 				7BB229D42A81477700F2408F /* SettingsPageViewModel+Factory.swift in Sources */,
 				7BDF92362A9381300041E0CC /* TorrentTrackersPagePresentationAdapter.swift in Sources */,
+				7B8075E52A94B5AF003F0B17 /* SessionSettingsPublishers.swift in Sources */,
 				7BB229D52A81477700F2408F /* TransmissionHTTPClient.swift in Sources */,
 				7BB229D62A81477700F2408F /* Cipher.swift in Sources */,
+				7B8075DA2A94B575003F0B17 /* TorrentStartPublishers.swift in Sources */,
+				7B8075E02A94B575003F0B17 /* TorrentAddPublishers.swift in Sources */,
 				7BB229D72A81477700F2408F /* SettingsPagePresentationAdapter.swift in Sources */,
 				7BB229D82A81477700F2408F /* TorrentsPageViewModel+Factory.swift in Sources */,
 				7BB229D92A81477700F2408F /* Combine+MainQueueDispatcher.swift in Sources */,
@@ -448,19 +555,28 @@
 				7BB229DB2A81477700F2408F /* ServerDetailPagePresentationAdapter.swift in Sources */,
 				7BB229F72A8148CF00F2408F /* Combine+Publishers_Dev.swift in Sources */,
 				7BB229DC2A81477700F2408F /* ServerPagePresentationAdapter.swift in Sources */,
+				7B8075DE2A94B575003F0B17 /* Server+Utils.swift in Sources */,
 				7BDF920B2A934C200041E0CC /* TorrentPeersPagePresentationAdapter.swift in Sources */,
 				7BDF920E2A934CA70041E0CC /* TorrentPeersPageViewModel+Factory.swift in Sources */,
+				7B8075DC2A94B575003F0B17 /* TorrentPeersPublishers.swift in Sources */,
+				7B8075D92A94B575003F0B17 /* TorrentStopPublishers.swift in Sources */,
 				7BB229DD2A81477700F2408F /* Data+.swift in Sources */,
+				7B8075E22A94B575003F0B17 /* TorrentLoadPublishers.swift in Sources */,
 				7BB229DE2A81477700F2408F /* TransmissionApp.swift in Sources */,
+				7B8075DB2A94B575003F0B17 /* TorrentRemovePublishers.swift in Sources */,
 				7BDF91E02A8E72AC0041E0CC /* TorrentDetailPagePresentationAdapter.swift in Sources */,
 				7BB229DF2A81477700F2408F /* TransmissionComposer.swift in Sources */,
-				7BB229E02A81477700F2408F /* PollingRateHandler.swift in Sources */,
+				7B8075E32A94B575003F0B17 /* TorrentTrackerPublishers.swift in Sources */,
 				7BB229E12A81477700F2408F /* Keychain.swift in Sources */,
 				7BDF91E12A8E72BB0041E0CC /* TorrentDetailPageViewModel+Factory.swift in Sources */,
+				7B8075B92A94B123003F0B17 /* Headers.swift in Sources */,
 				7BDF92392A93827B0041E0CC /* TorrentTrackersPageViewModel+Factory.swift in Sources */,
-				7BB229E22A81477700F2408F /* ServerPublishers.swift in Sources */,
+				7B8075DF2A94B575003F0B17 /* TorrentDetailPublishers.swift in Sources */,
 				7BB229E32A81477700F2408F /* ServerFile.swift in Sources */,
 				7BB229E52A81477700F2408F /* ServerDetailPageViewModel+Factory.swift in Sources */,
+				7B8075DD2A94B575003F0B17 /* ErrorHandler.swift in Sources */,
+				7B8075E12A94B575003F0B17 /* ServerPublishers.swift in Sources */,
+				7B8075E42A94B575003F0B17 /* PollingRateHandler.swift in Sources */,
 				7BB229E62A81477700F2408F /* TorrentsPagePresentationAdapter.swift in Sources */,
 				7BB229E72A81477700F2408F /* ServerPageViewModel+Factory.swift in Sources */,
 			);
@@ -472,7 +588,10 @@
 			files = (
 				7BBF3C5C2A742B6E001206A8 /* SettingsPageViewModel+Factory.swift in Sources */,
 				7BDF92352A9381300041E0CC /* TorrentTrackersPagePresentationAdapter.swift in Sources */,
+				7B8075B72A94B11A003F0B17 /* TorrentDetailPublishers.swift in Sources */,
+				7B8075C12A94B20D003F0B17 /* TorrentRemovePublishers.swift in Sources */,
 				7BC0D84E2A6EA90000B36367 /* TransmissionHTTPClient.swift in Sources */,
+				7B8075CE2A94B3B1003F0B17 /* ErrorHandler.swift in Sources */,
 				7BA01FDC2A7EB68A00FBB43D /* Cipher.swift in Sources */,
 				7BBF3C4B2A729554001206A8 /* SettingsPagePresentationAdapter.swift in Sources */,
 				7BB229FD2A8149DC00F2408F /* Logger.swift in Sources */,
@@ -480,21 +599,30 @@
 				7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */,
 				7BDF920D2A934C3F0041E0CC /* TorrentPeersPageViewModel+Factory.swift in Sources */,
 				7BD2368D2A77BA8200AF75A9 /* ServerDetailPagePresentationAdapter.swift in Sources */,
+				7B8075BF2A94B1D9003F0B17 /* TorrentStopPublishers.swift in Sources */,
 				7BB229F82A8148D200F2408F /* Combine+Publishers.swift in Sources */,
 				7B2325042A766E6800836B02 /* ServerPagePresentationAdapter.swift in Sources */,
 				7BDF920A2A93464A0041E0CC /* TorrentPeersPagePresentationAdapter.swift in Sources */,
 				7BA01FE22A7FEF4800FBB43D /* Data+.swift in Sources */,
+				7B8075B52A94B0C4003F0B17 /* TorrentTrackerPublishers.swift in Sources */,
 				7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */,
+				7B8075C52A94B2AC003F0B17 /* TorrentLoadPublishers.swift in Sources */,
 				7B7871D52A8E6B37005A16D6 /* TorrentDetailPagePresentationAdapter.swift in Sources */,
 				7BC0D8452A6E3FE200B36367 /* TransmissionComposer.swift in Sources */,
+				7B8075BD2A94B170003F0B17 /* TorrentPeersPublishers.swift in Sources */,
 				7BBF3C5E2A742CF7001206A8 /* PollingRateHandler.swift in Sources */,
+				7B8075C32A94B245003F0B17 /* TorrentAddPublishers.swift in Sources */,
 				7BA01FD82A7E9A8700FBB43D /* Keychain.swift in Sources */,
 				7B7871D72A8E6F5D005A16D6 /* TorrentDetailPageViewModel+Factory.swift in Sources */,
+				7B8075B32A94AFFF003F0B17 /* Headers.swift in Sources */,
+				7B8075CB2A94B344003F0B17 /* SessionSettingsPublishers.swift in Sources */,
 				7BDF92382A93827B0041E0CC /* TorrentTrackersPageViewModel+Factory.swift in Sources */,
 				7BBF3C4D2A72A648001206A8 /* ServerPublishers.swift in Sources */,
 				7B4BB74F2A7A77F100A68EF5 /* ServerFile.swift in Sources */,
 				7BD2368F2A77C9B900AF75A9 /* ServerDetailPageViewModel+Factory.swift in Sources */,
+				7B8075B02A94AF62003F0B17 /* TorrentStartPublishers.swift in Sources */,
 				7BC0D84A2A6E63D500B36367 /* TorrentsPagePresentationAdapter.swift in Sources */,
+				7B8075D12A94B4D6003F0B17 /* Server+Utils.swift in Sources */,
 				7B2325022A766DEC00836B02 /* ServerPageViewModel+Factory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
