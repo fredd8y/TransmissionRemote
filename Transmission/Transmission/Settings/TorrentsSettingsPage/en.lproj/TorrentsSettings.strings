@@ -1,0 +1,9 @@
+/* 
+  TorrentsSettings.strings
+  Transmission
+
+  Created by Federico Arvat on 22/08/23.
+  
+*/
+
+"TORRENTS_SETTINGS_PAGE_TITLE" = "Torrents settings";
