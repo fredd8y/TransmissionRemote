@@ -22,16 +22,16 @@ final class TorrentsSettingsPresenterTests: XCTestCase {
 		let renamePartialFiles = true
 		let seedRatioLimited = true
 		let seedRatioLimit = 2
-		let idleSeedingLimitedEnabled = true
+		let idleSeedingLimitEnabled = true
 		let idleSeedingLimit = 30
 		
-		let viewModel = TorrentsSettingsPagePresenter.map(torrentsSettings:TorrentsSettings(
+		let viewModel = TorrentsSettingsPagePresenter.map(TorrentsSettings(
 			downloadDir: downloadDir,
 			startAddedTorrents: startAddedTorrents,
 			renamePartialFiles: renamePartialFiles,
 			seedRatioLimited: seedRatioLimited,
 			seedRatioLimit: seedRatioLimit,
-			idleSeedingLimitedEnabled: idleSeedingLimitedEnabled,
+			idleSeedingLimitEnabled: idleSeedingLimitEnabled,
 			idleSeedingLimit: idleSeedingLimit
 		))
 		
@@ -40,7 +40,7 @@ final class TorrentsSettingsPresenterTests: XCTestCase {
 		XCTAssertEqual(renamePartialFiles, viewModel.renamePartialFiles)
 		XCTAssertEqual(seedRatioLimited, viewModel.seedRatioLimited)
 		XCTAssertEqual(seedRatioLimit.description, viewModel.seedRatioLimit)
-		XCTAssertEqual(idleSeedingLimitedEnabled, viewModel.idleSeedingLimitedEnabled)
+		XCTAssertEqual(idleSeedingLimitEnabled, viewModel.idleSeedingLimitEnabled)
 		XCTAssertEqual(idleSeedingLimit.description, viewModel.idleSeedingLimit)
 	}
 	

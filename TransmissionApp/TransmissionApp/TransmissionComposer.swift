@@ -101,15 +101,23 @@ final class TransmissionComposer {
 	}
 	
 	private static func settingsPage(serverPage: ServerPage) -> SettingsPage {
-		let viewModel = SettingsPageViewModel.empty()
+		let settingsPageViewModel = SettingsPageViewModel.empty()
 		
 		let settingsPagePresentationAdapter = SettingsPagePresentationAdapter(
-			settingsViewModel: viewModel
+			settingsViewModel: settingsPageViewModel
 		)
+				
+		let torrentsSettingsPagePresenterAdapter = TorrentsSettingsPagePresentationAdapter()
 		
-		var settingsPage = SettingsPage(viewModel: viewModel, serverPage: serverPage)
+		var settingsPage = SettingsPage(viewModel: settingsPageViewModel, serverPage: serverPage)
 		settingsPage.loadData = settingsPagePresentationAdapter.loadData
 		settingsPage.pollingRateSelected = settingsPagePresentationAdapter.selectedPollingRate
+		settingsPage.torrentsSettingsSelected = {
+			var torrentsSettingsPage = torrentsSettingsPagePresenterAdapter.showTorrentsSettingsPage()
+			torrentsSettingsPage.onAppear = torrentsSettingsPagePresenterAdapter.loadData
+			torrentsSettingsPage.onDisappear = torrentsSettingsPagePresenterAdapter.stopLoadingData
+			return torrentsSettingsPage
+		}
 		return settingsPage
 	}
 	

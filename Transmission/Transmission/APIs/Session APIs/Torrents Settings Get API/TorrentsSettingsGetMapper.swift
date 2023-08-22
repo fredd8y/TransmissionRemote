@@ -30,16 +30,16 @@ public enum TorrentsSettingsGetMapper {
 			let renamePartialFiles: Bool
 			let seedRatioLimited: Bool
 			let seedRatioLimit: Int
-			let idleSeedingLimitedEnabled: Bool
+			let idleSeedingLimitEnabled: Bool
 			let idleSeedingLimit: Int
 			
 			enum CodingKeys: String, CodingKey {
 				case downloadDir = "download-dir"
 				case startAddedTorrents = "start-added-torrents"
 				case renamePartialFiles = "rename-partial-files"
-				case seedRatioLimited = "seed-ratio-limited"
-				case seedRatioLimit = "seed-ratio-limit"
-				case idleSeedingLimitedEnabled = "idle-seeding-limited-enabled"
+				case seedRatioLimited = "seedRatioLimited"
+				case seedRatioLimit = "seedRatioLimit"
+				case idleSeedingLimitEnabled = "idle-seeding-limit-enabled"
 				case idleSeedingLimit = "idle-seeding-limit"
 			}
 		}
@@ -51,7 +51,7 @@ public enum TorrentsSettingsGetMapper {
 				renamePartialFiles: arguments.renamePartialFiles,
 				seedRatioLimited: arguments.seedRatioLimited,
 				seedRatioLimit: arguments.seedRatioLimit,
-				idleSeedingLimitedEnabled: arguments.idleSeedingLimitedEnabled,
+				idleSeedingLimitEnabled: arguments.idleSeedingLimitEnabled,
 				idleSeedingLimit: arguments.idleSeedingLimit
 			)
 		}

@@ -57,7 +57,7 @@ class TorrentsSettingsGetMapperTests: XCTestCase {
 		let renamePartialFiles = true
 		let seedRatioLimited = true
 		let seedRatioLimit = 3
-		let idleSeedingLimitedEnabled = true
+		let idleSeedingLimitEnabled = true
 		let idleSeedingLimit = 20
 		
 		let torrentsSettings = TorrentsSettings(
@@ -66,7 +66,7 @@ class TorrentsSettingsGetMapperTests: XCTestCase {
 			renamePartialFiles: renamePartialFiles,
 			seedRatioLimited: seedRatioLimited,
 			seedRatioLimit: seedRatioLimit,
-			idleSeedingLimitedEnabled: idleSeedingLimitedEnabled,
+			idleSeedingLimitEnabled: idleSeedingLimitEnabled,
 			idleSeedingLimit: idleSeedingLimit
 		)
 		
@@ -75,9 +75,9 @@ class TorrentsSettingsGetMapperTests: XCTestCase {
 				"download-dir": downloadDir,
 				"start-added-torrents": startAddedTorrents,
 				"rename-partial-files": renamePartialFiles,
-				"seed-ratio-limited": seedRatioLimited,
-				"seed-ratio-limit": seedRatioLimit,
-				"idle-seeding-limited-enabled": idleSeedingLimitedEnabled,
+				"seedRatioLimited": seedRatioLimited,
+				"seedRatioLimit": seedRatioLimit,
+				"idle-seeding-limit-enabled": idleSeedingLimitEnabled,
 				"idle-seeding-limit": idleSeedingLimit
 			]
 		]

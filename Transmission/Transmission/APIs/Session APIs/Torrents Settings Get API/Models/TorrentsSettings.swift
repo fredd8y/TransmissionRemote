@@ -14,7 +14,7 @@ public struct TorrentsSettings: Equatable {
 		renamePartialFiles: Bool,
 		seedRatioLimited: Bool,
 		seedRatioLimit: Int,
-		idleSeedingLimitedEnabled: Bool,
+		idleSeedingLimitEnabled: Bool,
 		idleSeedingLimit: Int
 	) {
 		self.downloadDir = downloadDir
@@ -22,7 +22,7 @@ public struct TorrentsSettings: Equatable {
 		self.renamePartialFiles = renamePartialFiles
 		self.seedRatioLimited = seedRatioLimited
 		self.seedRatioLimit = seedRatioLimit
-		self.idleSeedingLimitedEnabled = idleSeedingLimitedEnabled
+		self.idleSeedingLimitEnabled = idleSeedingLimitEnabled
 		self.idleSeedingLimit = idleSeedingLimit
 	}
 	
@@ -31,6 +31,6 @@ public struct TorrentsSettings: Equatable {
 	public let renamePartialFiles: Bool
 	public let seedRatioLimited: Bool
 	public let seedRatioLimit: Int
-	public let idleSeedingLimitedEnabled: Bool
+	public let idleSeedingLimitEnabled: Bool
 	public let idleSeedingLimit: Int
 }
