@@ -17,4 +17,24 @@ public class TorrentsSettingsPagePresenter {
 			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
 			comment: "Torrents settings page title")
 	}
+	
+	public static func map(
+		downloadDir: String,
+		startAddedTorrents: Bool,
+		renamePartialFiles: Bool,
+		seedRatioLimited: Bool,
+		seedRatioLimit: Int,
+		idleSeedingLimitedEnabled: Bool,
+		idleSeedingLimit: Int
+	) -> TorrentsSettingsPageViewModel {
+		TorrentsSettingsPageViewModel(
+			downloadDir: downloadDir,
+			startAddedTorrents: startAddedTorrents,
+			renamePartialFiles: renamePartialFiles,
+			seedRatioLimited: seedRatioLimited,
+			seedRatioLimit: seedRatioLimit.description,
+			idleSeedingLimitedEnabled: idleSeedingLimitedEnabled,
+			idleSeedingLimit: idleSeedingLimit.description
+		)
+	}
 }
