@@ -50,4 +50,36 @@ final class SessionBodiesTests: XCTestCase {
 		XCTAssertEqual(expectedBody, httpBody)
 	}
 	
+	func test_setStartAddedTorrentEnable_httpBody() {
+		let expectedBody = #"{"method":"session-set","arguments":{"start-added-torrents":true}}"#.data(using: .utf8)
+		
+		let httpBody = SessionBodies.setStartAddedTorrents(enabled: true)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
+	func test_setStartAddedTorrentDisable_httpBody() {
+		let expectedBody = #"{"method":"session-set","arguments":{"start-added-torrents":false}}"#.data(using: .utf8)
+		
+		let httpBody = SessionBodies.setStartAddedTorrents(enabled: false)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
+	func test_setRenamePartialFilesEnable_httpBody() {
+		let expectedBody = #"{"method":"session-set","arguments":{"rename-partial-files":true}}"#.data(using: .utf8)
+		
+		let httpBody = SessionBodies.setRenamePartialFiles(enabled: true)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
+	func test_setRenamePartialFilesDisable_httpBody() {
+		let expectedBody = #"{"method":"session-set","arguments":{"rename-partial-files":false}}"#.data(using: .utf8)
+		
+		let httpBody = SessionBodies.setRenamePartialFiles(enabled: false)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
 }

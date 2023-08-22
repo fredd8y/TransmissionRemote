@@ -14,6 +14,56 @@ public class SessionBodies {
 
 extension SessionBodies {
 	
+	private struct SetRenamePartialFileBody: Encodable {
+		init(_ renamePartialFiles: Bool) {
+			arguments = Arguments(renamePartialFiles: renamePartialFiles)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let renamePartialFiles: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case renamePartialFiles = "rename-partial-files"
+			}
+		}
+	}
+	
+	public static func setRenamePartialFiles(enabled: Bool) -> Data {
+		try! JSONEncoder().encode(SetRenamePartialFileBody(enabled))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetStartAddedTorrentsBody: Encodable {
+		init(_ startAddedTorrents: Bool) {
+			arguments = Arguments(startAddedTorrents: startAddedTorrents)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let startAddedTorrents: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case startAddedTorrents = "start-added-torrents"
+			}
+		}
+	}
+	
+	public static func setStartAddedTorrents(enabled: Bool) -> Data {
+		try! JSONEncoder().encode(SetStartAddedTorrentsBody(enabled))
+	}
+	
+}
+
+extension SessionBodies {
+	
 	private struct SessionGetBody: Encodable {
 		init(_ fields: [String]) {
 			arguments = Arguments(fields: fields)

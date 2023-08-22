@@ -28,17 +28,5 @@ enum SessionSettingsPublishers {
 			.eraseToAnyPublisher()
 	}
 	
-	static func makeTorrentsSettingsGetPublisher(server: Server) -> AnyPublisher<TorrentsSettings, Error> {
-		return TransmissionHTTPClient.httpClient
-			.postPublisher(
-				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: SessionBodies.get(fields: SessionField.torrentsSettings),
-				additionalHeader: Headers.headers(server.credentials)
-			)
-			.tryMap(Logger.log)
-			.tryMap(TorrentsSettingsGetMapper.map)
-			.eraseToAnyPublisher()
-	}
-	
 }
 

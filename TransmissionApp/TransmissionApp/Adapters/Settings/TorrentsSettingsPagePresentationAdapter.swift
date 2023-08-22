@@ -6,60 +6,75 @@
 //
 
 import Combine
+import SwiftUI
 import Foundation
 import Transmission
 import TransmissioniOS
 
 class TorrentsSettingsPagePresentationAdapter {
 	
-	private var torrentsSettingsViewModel: TorrentsSettingsPageViewModel!
+	@ObservedObject private var torrentsSettingsViewModel: TorrentsSettingsPageViewModel = .loading()
 		
-	private var workItems: [DispatchWorkItem] = []
 	private var cancellables = Set<AnyCancellable>()
 	
-	func showTorrentsSettingsPage() -> TorrentsSettingsPage {
-		let viewModel = TorrentsSettingsPageViewModel.loading()
-		torrentsSettingsViewModel = viewModel
-		return TorrentsSettingsPage(viewModel: viewModel)
+	func setRenamePartialFiles(_ enabled: Bool) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		TorrentsSettingsPublishers.makeRenamePartialFilesSetPublisher(enabled: enabled, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
 	}
 	
-	func stopLoadingData() {
-		cancelCurrentLoadingTasks()
+	func setStartAddedTorrent(_ enabled: Bool) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		TorrentsSettingsPublishers.makeStartAddedTorrentSetPublisher(enabled: enabled, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
 	}
 	
 	func loadData() {
 		cancelCurrentLoadingTasks()
-		guard let server = UserDefaultsHandler.shared.currentServer else {
-			return
-		}
-		SessionSettingsPublishers.makeTorrentsSettingsGetPublisher(server: server)
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		TorrentsSettingsPublishers.makeTorrentsSettingsGetPublisher(server: server)
 			.dispatchOnMainQueue()
 			.sink(
 				receiveCompletion: { [weak self] completion in
 					switch completion {
 					case .finished: break
 					case .failure(let error):
-						self?.torrentsSettingsViewModel.newValues(TorrentsSettingsPageViewModel.error(error.localizedDescription))
+						self?.torrentsSettingsViewModel.newValues(.error(error.localizedDescription))
 					}
 				},
 				receiveValue: { [weak self] torrentsSettings in
 					let viewModel = TorrentsSettingsPagePresenter.map(torrentsSettings)
 					self?.torrentsSettingsViewModel.newValues(viewModel)
-					let workItem = DispatchWorkItem { [weak self] in
-						self?.loadData()
-					}
-					self?.workItems.append(workItem)
-					DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.seconds(UserDefaultsHandler.shared.pollingRate), execute: workItem)
 				}
-			)
-			.store(in: &cancellables)
+			).store(in: &cancellables)
+	}
+	
+	func showTorrentsSettingsPage() -> TorrentsSettingsPage {
+		TorrentsSettingsPage(viewModel: torrentsSettingsViewModel)
+	}
+	
+	func stopLoadingData() {
+		cancelCurrentLoadingTasks()
 	}
 	
 	private func cancelCurrentLoadingTasks() {
-		workItems.forEach { $0.cancel() }
-		workItems.removeAll()
 		cancellables.removeAll()
 	}
+	
+	private func receiveCompletion(_ completion: Subscribers.Completion<Error>) {
+		switch completion {
+		case .finished: break
+		case .failure(let error):
+			torrentsSettingsViewModel.newValues(.error(error.localizedDescription))
+		}
+	}
+	
+	private func receiveValue() {
+		loadData()
+	}
+	
 }
 
 private extension TorrentsSettingsPageViewModel {

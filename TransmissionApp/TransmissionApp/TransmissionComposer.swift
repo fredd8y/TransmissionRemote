@@ -115,7 +115,10 @@ final class TransmissionComposer {
 		settingsPage.torrentsSettingsSelected = {
 			var torrentsSettingsPage = torrentsSettingsPagePresenterAdapter.showTorrentsSettingsPage()
 			torrentsSettingsPage.onAppear = torrentsSettingsPagePresenterAdapter.loadData
+			torrentsSettingsPage.onRefresh = torrentsSettingsPagePresenterAdapter.loadData
 			torrentsSettingsPage.onDisappear = torrentsSettingsPagePresenterAdapter.stopLoadingData
+			torrentsSettingsPage.onStartAddedTorrentChange = torrentsSettingsPagePresenterAdapter.setStartAddedTorrent
+			torrentsSettingsPage.onRenamePartialFilesChange = torrentsSettingsPagePresenterAdapter.setRenamePartialFiles
 			return torrentsSettingsPage
 		}
 		return settingsPage

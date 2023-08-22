@@ -18,7 +18,13 @@ public struct TorrentsSettingsPage: View {
 	
 	public var onAppear: (() -> Void)?
 	
+	public var onRefresh: (() -> Void)?
+	
 	public var onDisappear: (() -> Void)?
+	
+	public var onStartAddedTorrentChange: ((Bool) -> Void)?
+	
+	public var onRenamePartialFilesChange: ((Bool) -> Void)?
 	
     public var body: some View {
 		VStack {
@@ -84,6 +90,17 @@ public struct TorrentsSettingsPage: View {
 		}
 		.onDisappear {
 			onDisappear?()
+		}
+		.onChange(of: viewModel.startAddedTorrents) { newValue in
+			onStartAddedTorrentChange?(newValue)
+		}
+		.onChange(of: viewModel.renamePartialFiles) { newValue in
+			onRenamePartialFilesChange?(newValue)
+		}
+		.if(viewModel.errorMessage != nil) { vStack in
+			vStack.refreshable {
+				onRefresh?()
+			}
 		}
     }
 }
