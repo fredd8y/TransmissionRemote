@@ -48,6 +48,22 @@ public class SettingsPagePresenter {
 			comment: "Title for server not available ")
 	}
 	
+	public static var credits: String {
+		NSLocalizedString(
+			"CREDITS",
+			tableName: "Settings",
+			bundle: Bundle(for: SettingsPagePresenter.self),
+			comment: "Credits description")
+	}
+	
+	public static var torrentsSettings: String {
+		NSLocalizedString(
+			"TORRENTS_SETTINGS",
+			tableName: "Settings",
+			bundle: Bundle(for: SettingsPagePresenter.self),
+			comment: "Torrent settings description")
+	}
+	
 	public static func map(
 		title: String,
 		pollingRateTitle: String,

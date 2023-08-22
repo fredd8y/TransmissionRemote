@@ -32,6 +32,10 @@ final class SettingsPresenterTests: XCTestCase {
 		XCTAssertEqual(SettingsPagePresenter.serverNotAvailable, localized("SERVER_NOT_AVAILABLE", table: table))
 	}
 	
+	func test_credits_isLocalized() {
+		XCTAssertEqual(SettingsPagePresenter.credits, localized("CREDITS", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Settings"
 		let pollingRateTitle = "Update interval"

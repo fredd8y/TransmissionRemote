@@ -11,3 +11,5 @@
 "POLLING_RATE_TITLE" = "Update interval";
 "SERVER_TITLE" = "Server";
 "SERVER_NOT_AVAILABLE" = "Not available";
+"CREDITS" = "Credits";
+"TORRENTS_SETTINGS" = "Torrents settings";

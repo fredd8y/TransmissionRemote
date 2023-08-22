@@ -49,9 +49,15 @@ public struct SettingsPage: View {
 					}
 				}
 				NavigationLink {
+					
+				} label: {
+					Text(SettingsPagePresenter.torrentsSettings)
+						.font(.subheadline)
+				}
+				NavigationLink {
 					CreditsPage()
 				} label: {
-					Text("Credits")
+					Text(SettingsPagePresenter.credits)
 						.font(.subheadline)
 				}
 			}
