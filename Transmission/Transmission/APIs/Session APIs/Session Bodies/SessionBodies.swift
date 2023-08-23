@@ -14,6 +14,106 @@ public class SessionBodies {
 
 extension SessionBodies {
 	
+	private struct SetSeedRatioLimitedBody: Encodable {
+		init(_ seedRatioLimited: Bool) {
+			arguments = Arguments(seedRatioLimited: seedRatioLimited)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let seedRatioLimited: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case seedRatioLimited = "seedRatioLimited"
+			}
+		}
+	}
+	
+	public static func setSeedRatioLimited(enabled: Bool) -> Data {
+		try! JSONEncoder().encode(SetSeedRatioLimitedBody(enabled))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetSeedRatioLimitBody: Encodable {
+		init(_ seedRatioLimit: Int) {
+			arguments = Arguments(seedRatioLimit: seedRatioLimit)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let seedRatioLimit: Int
+			
+			enum CodingKeys: String, CodingKey {
+				case seedRatioLimit = "seedRatioLimit"
+			}
+		}
+	}
+	
+	public static func setSeedRatioLimit(limit: Int) -> Data {
+		try! JSONEncoder().encode(SetSeedRatioLimitBody(limit))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetIdleSeedingLimitEnabledBody: Encodable {
+		init(_ idleSeedingLimitEnabled: Bool) {
+			arguments = Arguments(idleSeedingLimitEnabled: idleSeedingLimitEnabled)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let idleSeedingLimitEnabled: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case idleSeedingLimitEnabled = "idle-seeding-limit-enabled"
+			}
+		}
+	}
+	
+	public static func setIdleSeedingLimitEnabled(enabled: Bool) -> Data {
+		try! JSONEncoder().encode(SetIdleSeedingLimitEnabledBody(enabled))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetIdleSeedingLimitBody: Encodable {
+		init(_ idleSeedingLimit: Int) {
+			arguments = Arguments(idleSeedingLimit: idleSeedingLimit)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let idleSeedingLimit: Int
+			
+			enum CodingKeys: String, CodingKey {
+				case idleSeedingLimit = "idle-seeding-limit"
+			}
+		}
+	}
+	
+	public static func setIdleSeedingLimit(limit: Int) -> Data {
+		try! JSONEncoder().encode(SetIdleSeedingLimitBody(limit))
+	}
+	
+}
+
+extension SessionBodies {
+	
 	private struct SetRenamePartialFileBody: Encodable {
 		init(_ renamePartialFiles: Bool) {
 			arguments = Arguments(renamePartialFiles: renamePartialFiles)

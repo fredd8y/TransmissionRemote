@@ -56,4 +56,68 @@ enum TorrentsSettingsPublishers {
 			.eraseToAnyPublisher()
 	}
 	
+	static func makeSeedRatioLimitedSetPublisher(
+		enabled: Bool,
+		server: Server
+	) -> AnyPublisher<Void, Error> {
+		return TransmissionHTTPClient.httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: SessionBodies.setSeedRatioLimited(enabled: enabled),
+				additionalHeader: Headers.headers(server.credentials)
+			)
+			.mapError(ErrorHandler.handleError)
+			.tryMap(Logger.log)
+			.tryMap(SessionSetMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
+	static func makeSeedRatioLimitSetPublisher(
+		limit: Int,
+		server: Server
+	) -> AnyPublisher<Void, Error> {
+		return TransmissionHTTPClient.httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: SessionBodies.setSeedRatioLimit(limit: limit),
+				additionalHeader: Headers.headers(server.credentials)
+			)
+			.mapError(ErrorHandler.handleError)
+			.tryMap(Logger.log)
+			.tryMap(SessionSetMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
+	static func makeIdleSeedingLimitEnabledSetPublisher(
+		enabled: Bool,
+		server: Server
+	) -> AnyPublisher<Void, Error> {
+		return TransmissionHTTPClient.httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: SessionBodies.setIdleSeedingLimitEnabled(enabled: enabled),
+				additionalHeader: Headers.headers(server.credentials)
+			)
+			.mapError(ErrorHandler.handleError)
+			.tryMap(Logger.log)
+			.tryMap(SessionSetMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
+	static func makeIdleSeedingLimitSetPublisher(
+		limit: Int,
+		server: Server
+	) -> AnyPublisher<Void, Error> {
+		return TransmissionHTTPClient.httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: SessionBodies.setIdleSeedingLimit(limit: limit),
+				additionalHeader: Headers.headers(server.credentials)
+			)
+			.mapError(ErrorHandler.handleError)
+			.tryMap(Logger.log)
+			.tryMap(SessionSetMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
 }

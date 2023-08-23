@@ -117,8 +117,12 @@ final class TransmissionComposer {
 			torrentsSettingsPage.onAppear = torrentsSettingsPagePresenterAdapter.loadData
 			torrentsSettingsPage.onRefresh = torrentsSettingsPagePresenterAdapter.loadData
 			torrentsSettingsPage.onDisappear = torrentsSettingsPagePresenterAdapter.stopLoadingData
+			torrentsSettingsPage.onSeedRatioLimitChange = torrentsSettingsPagePresenterAdapter.setSeedRatioLimit
+			torrentsSettingsPage.onIdleSeedingLimitChange = torrentsSettingsPagePresenterAdapter.setIdleSeedingLimit
+			torrentsSettingsPage.onSeedRatioLimitedChange = torrentsSettingsPagePresenterAdapter.setSeedRatioLimited
 			torrentsSettingsPage.onStartAddedTorrentChange = torrentsSettingsPagePresenterAdapter.setStartAddedTorrent
 			torrentsSettingsPage.onRenamePartialFilesChange = torrentsSettingsPagePresenterAdapter.setRenamePartialFiles
+			torrentsSettingsPage.onIdleSeedingLimitEnabledChange = torrentsSettingsPagePresenterAdapter.setIdleSeedingLimitEnabled
 			return torrentsSettingsPage
 		}
 		return settingsPage

@@ -39,4 +39,6 @@ public class TorrentsSettingsPageViewModel: ObservableObject {
 	@Published public var idleSeedingLimit: String
 	@Published public var errorMessage: String?
 	@Published public var isLoading: Bool
+	@Published public var seedRatioLimitError: Bool = false
+	@Published public var idleSeedingLimitError: Bool = false
 }

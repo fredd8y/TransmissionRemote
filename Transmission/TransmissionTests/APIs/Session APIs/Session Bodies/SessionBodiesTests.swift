@@ -82,4 +82,52 @@ final class SessionBodiesTests: XCTestCase {
 		XCTAssertEqual(expectedBody, httpBody)
 	}
 	
+	func test_setSeedRatioLimitedEnable_httpBody() {
+		let expectedBody = #"{"method":"session-set","arguments":{"seedRatioLimited":true}}"#.data(using: .utf8)
+		
+		let httpBody = SessionBodies.setSeedRatioLimited(enabled: true)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
+	func test_setSeedRatioLimitedDisable_httpBody() {
+		let expectedBody = #"{"method":"session-set","arguments":{"seedRatioLimited":false}}"#.data(using: .utf8)
+		
+		let httpBody = SessionBodies.setSeedRatioLimited(enabled: false)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
+	func test_setSeedRatioLimit_httpBody() {
+		let expectedBody = #"{"method":"session-set","arguments":{"seedRatioLimit":3}}"#.data(using: .utf8)
+		
+		let httpBody = SessionBodies.setSeedRatioLimit(limit: 3)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
+	func test_setIdleSeedingLimitEnabledEnable_httpBody() {
+		let expectedBody = #"{"method":"session-set","arguments":{"idle-seeding-limit-enabled":true}}"#.data(using: .utf8)
+		
+		let httpBody = SessionBodies.setIdleSeedingLimitEnabled(enabled: true)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
+	func test_setIdleSeedingLimitEnabledDisable_httpBody() {
+		let expectedBody = #"{"method":"session-set","arguments":{"idle-seeding-limit-enabled":false}}"#.data(using: .utf8)
+		
+		let httpBody = SessionBodies.setIdleSeedingLimitEnabled(enabled: false)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
+	func test_setIdleSeedingLimit_httpBody() {
+		let expectedBody = #"{"method":"session-set","arguments":{"idle-seeding-limit":30}}"#.data(using: .utf8)
+		
+		let httpBody = SessionBodies.setIdleSeedingLimit(limit: 30)
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
 }

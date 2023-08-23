@@ -17,6 +17,44 @@ class TorrentsSettingsPagePresentationAdapter {
 		
 	private var cancellables = Set<AnyCancellable>()
 	
+	func setSeedRatioLimited(_ enabled: Bool) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		TorrentsSettingsPublishers.makeSeedRatioLimitedSetPublisher(enabled: enabled, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
+	func setSeedRatioLimit(_ newLimit: String) {
+		torrentsSettingsViewModel.seedRatioLimitError = false
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		guard let limit = Int(newLimit) else {
+			torrentsSettingsViewModel.seedRatioLimitError = true
+			return
+		}
+		TorrentsSettingsPublishers.makeSeedRatioLimitSetPublisher(limit: limit, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
+	func setIdleSeedingLimitEnabled(_ enabled: Bool) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		TorrentsSettingsPublishers.makeIdleSeedingLimitEnabledSetPublisher(enabled: enabled, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
+	func setIdleSeedingLimit(_ newLimit: String) {
+		torrentsSettingsViewModel.seedRatioLimitError = false
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		guard let limit = Int(newLimit) else {
+			torrentsSettingsViewModel.idleSeedingLimitError = true
+			return
+		}
+		TorrentsSettingsPublishers.makeIdleSeedingLimitSetPublisher(limit: limit, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
 	func setRenamePartialFiles(_ enabled: Bool) {
 		guard let server = UserDefaultsHandler.shared.currentServer else { return }
 		TorrentsSettingsPublishers.makeRenamePartialFilesSetPublisher(enabled: enabled, server: server)
@@ -71,9 +109,7 @@ class TorrentsSettingsPagePresentationAdapter {
 		}
 	}
 	
-	private func receiveValue() {
-		loadData()
-	}
+	private func receiveValue() {}
 	
 }
 

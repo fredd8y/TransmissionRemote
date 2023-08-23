@@ -5,6 +5,7 @@
 //  Created by Federico Arvat on 22/08/23.
 //
 
+import Combine
 import SwiftUI
 import Transmission
 
@@ -13,6 +14,10 @@ public struct TorrentsSettingsPage: View {
 	public init(viewModel: TorrentsSettingsPageViewModel) {
 		self.viewModel = viewModel
 	}
+	
+	@FocusState private var seedRatioLimitFocused: Bool
+	
+	@FocusState private var idleSeedingLimitFocused: Bool
 	
 	@ObservedObject private var viewModel: TorrentsSettingsPageViewModel
 	
@@ -25,6 +30,14 @@ public struct TorrentsSettingsPage: View {
 	public var onStartAddedTorrentChange: ((Bool) -> Void)?
 	
 	public var onRenamePartialFilesChange: ((Bool) -> Void)?
+	
+	public var onSeedRatioLimitedChange: ((Bool) -> Void)?
+	
+	public var onSeedRatioLimitChange: ((String) -> Void)?
+	
+	public var onIdleSeedingLimitEnabledChange: ((Bool) -> Void)?
+	
+	public var onIdleSeedingLimitChange: ((String) -> Void)?
 	
     public var body: some View {
 		VStack {
@@ -53,10 +66,14 @@ public struct TorrentsSettingsPage: View {
 							Toggle(isOn: $viewModel.startAddedTorrents) {
 								Text("Start when added")
 									.font(.subheadline)
+							}.onChange(of: viewModel.startAddedTorrents) { newValue in
+								onStartAddedTorrentChange?(newValue)
 							}
 							Toggle(isOn: $viewModel.renamePartialFiles) {
 								Text("Append \".part\" to incomplete files names")
 									.font(.subheadline)
+							}.onChange(of: viewModel.renamePartialFiles) { newValue in
+								onRenamePartialFilesChange?(newValue)
 							}
 						}
 						Section("Seeding") {
@@ -66,20 +83,53 @@ public struct TorrentsSettingsPage: View {
 										.font(.subheadline)
 									TextField("Ratio", text: $viewModel.seedRatioLimit)
 										.textFieldStyle(.roundedBorder)
+										.keyboardType(.numberPad)
 										.disabled(!viewModel.seedRatioLimited)
+										.focused($seedRatioLimitFocused)
+									if viewModel.seedRatioLimitError {
+										Text("Must be a number")
+											.font(.caption2)
+											.foregroundColor(.red)
+									}
 								}
+							}.onChange(of: viewModel.seedRatioLimited) { newValue in
+								onSeedRatioLimitedChange?(newValue)
 							}
 							Toggle(isOn: $viewModel.idleSeedingLimitEnabled) {
 								VStack(alignment: .leading, spacing: 8) {
-									Text("Stop seeding if idle for (min")
+									Text("Stop seeding if idle for (min)")
 										.font(.subheadline)
 									TextField("Ratio", text: $viewModel.idleSeedingLimit)
 										.textFieldStyle(.roundedBorder)
+										.keyboardType(.numberPad)
 										.disabled(!viewModel.idleSeedingLimitEnabled)
+										.focused($idleSeedingLimitFocused)
+									if viewModel.idleSeedingLimitError {
+										Text("Must be a number")
+											.font(.caption2)
+											.foregroundColor(.red)
+									}
+								}
+							}.onChange(of: viewModel.idleSeedingLimitEnabled) { newValue in
+								onIdleSeedingLimitEnabledChange?(newValue)
+							}
+						}
+					}
+					.listStyle(.insetGrouped)
+					.toolbar {
+						ToolbarItemGroup(placement: .keyboard) {
+							Spacer()
+							Button("Conferma") {
+								if idleSeedingLimitFocused {
+									idleSeedingLimitFocused.toggle()
+									onIdleSeedingLimitChange?(viewModel.idleSeedingLimit)
+								} else if seedRatioLimitFocused {
+									seedRatioLimitFocused.toggle()
+									onSeedRatioLimitChange?(viewModel.seedRatioLimit)
 								}
 							}
 						}
-					}.listStyle(.insetGrouped)
+					}
 				}
 			}
 		}
@@ -90,12 +140,6 @@ public struct TorrentsSettingsPage: View {
 		}
 		.onDisappear {
 			onDisappear?()
-		}
-		.onChange(of: viewModel.startAddedTorrents) { newValue in
-			onStartAddedTorrentChange?(newValue)
-		}
-		.onChange(of: viewModel.renamePartialFiles) { newValue in
-			onRenamePartialFilesChange?(newValue)
 		}
 		.if(viewModel.errorMessage != nil) { vStack in
 			vStack.refreshable {
