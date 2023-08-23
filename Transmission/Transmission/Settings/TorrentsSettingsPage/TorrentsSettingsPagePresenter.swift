@@ -100,7 +100,9 @@ public class TorrentsSettingsPagePresenter {
 			idleSeedingLimitEnabled: torrentsSettings.idleSeedingLimitEnabled,
 			idleSeedingLimit: torrentsSettings.idleSeedingLimit.description,
 			errorMessage: nil,
-			isLoading: false
+			isLoading: false,
+			seedRatioLimitError: false,
+			idleSeedingLimitError: false
 		)
 	}
 }

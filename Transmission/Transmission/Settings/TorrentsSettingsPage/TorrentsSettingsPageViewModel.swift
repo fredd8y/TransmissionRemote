@@ -17,7 +17,9 @@ public class TorrentsSettingsPageViewModel: ObservableObject {
 		idleSeedingLimitEnabled: Bool,
 		idleSeedingLimit: String,
 		errorMessage: String?,
-		isLoading: Bool
+		isLoading: Bool,
+		seedRatioLimitError: Bool,
+		idleSeedingLimitError: Bool
 	) {
 		self.downloadDir = downloadDir
 		self.startAddedTorrents = startAddedTorrents
@@ -28,6 +30,8 @@ public class TorrentsSettingsPageViewModel: ObservableObject {
 		self.idleSeedingLimit = idleSeedingLimit
 		self.errorMessage = errorMessage
 		self.isLoading = isLoading
+		self.seedRatioLimitError = isLoading
+		self.idleSeedingLimitError = isLoading
 	}
 	
 	@Published public var downloadDir: String
@@ -39,6 +43,6 @@ public class TorrentsSettingsPageViewModel: ObservableObject {
 	@Published public var idleSeedingLimit: String
 	@Published public var errorMessage: String?
 	@Published public var isLoading: Bool
-	@Published public var seedRatioLimitError: Bool = false
-	@Published public var idleSeedingLimitError: Bool = false
+	@Published public var seedRatioLimitError: Bool
+	@Published public var idleSeedingLimitError: Bool
 }

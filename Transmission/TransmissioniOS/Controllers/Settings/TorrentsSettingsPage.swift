@@ -170,7 +170,9 @@ struct TorrentsSettingsPage_Previews: PreviewProvider {
 			idleSeedingLimitEnabled: true,
 			idleSeedingLimit: "31",
 			errorMessage: nil,
-			isLoading: false
+			isLoading: false,
+			seedRatioLimitError: false,
+			idleSeedingLimitError: false
 		))
     }
 }
