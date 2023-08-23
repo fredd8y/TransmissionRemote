@@ -17,6 +17,13 @@ class TorrentsSettingsPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_dark")
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_light_extraExtraExtraLarge")
 	}
+	func test_settingsPageWithAllToggleOff() {
+		let sut = makeSUTWithAllToggleOff()
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_OFF_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light_extraExtraExtraLarge")
+	}
 	
 	// MARK: - Helpers
 	
@@ -28,6 +35,22 @@ class TorrentsSettingsPageTests: XCTestCase {
 			seedRatioLimited: true,
 			seedRatioLimit: "3",
 			idleSeedingLimitEnabled: true,
+			idleSeedingLimit: "30",
+			errorMessage: nil,
+			isLoading: false,
+			seedRatioLimitError: false,
+			idleSeedingLimitError: false
+		))
+	}
+	
+	private func makeSUTWithAllToggleOff() -> TorrentsSettingsPage {
+		TorrentsSettingsPage(viewModel: TorrentsSettingsPageViewModel(
+			downloadDir: "a download dir",
+			startAddedTorrents: false,
+			renamePartialFiles: false,
+			seedRatioLimited: false,
+			seedRatioLimit: "3",
+			idleSeedingLimitEnabled: false,
 			idleSeedingLimit: "30",
 			errorMessage: nil,
 			isLoading: false,
