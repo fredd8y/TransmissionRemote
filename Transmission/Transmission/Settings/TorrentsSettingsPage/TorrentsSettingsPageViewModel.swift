@@ -30,8 +30,8 @@ public class TorrentsSettingsPageViewModel: ObservableObject {
 		self.idleSeedingLimit = idleSeedingLimit
 		self.errorMessage = errorMessage
 		self.isLoading = isLoading
-		self.seedRatioLimitError = isLoading
-		self.idleSeedingLimitError = isLoading
+		self.seedRatioLimitError = seedRatioLimitError
+		self.idleSeedingLimitError = idleSeedingLimitError
 	}
 	
 	@Published public var downloadDir: String

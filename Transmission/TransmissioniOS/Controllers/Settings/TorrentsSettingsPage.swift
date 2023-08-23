@@ -126,7 +126,7 @@ public struct TorrentsSettingsPage: View {
 					.toolbar {
 						ToolbarItemGroup(placement: .keyboard) {
 							Spacer()
-							Button("Conferma") {
+							Button(TorrentsSettingsPagePresenter.confirmButtonTitle) {
 								if idleSeedingLimitFocused {
 									idleSeedingLimitFocused.toggle()
 									onIdleSeedingLimitChange?(viewModel.idleSeedingLimit)
