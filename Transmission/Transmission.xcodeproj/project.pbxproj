@@ -47,6 +47,10 @@
 		7B23490A2A94E22E00BD5834 /* SessionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2349092A94E22E00BD5834 /* SessionField.swift */; };
 		7B23490E2A94E5A800BD5834 /* TorrentsSettingsGetMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B23490D2A94E5A800BD5834 /* TorrentsSettingsGetMapperTests.swift */; };
 		7B23F0102A94EDBB008E00FF /* TorrentsSettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B23F00F2A94EDBB008E00FF /* TorrentsSettingsPage.swift */; };
+		7B23F0222A969019008E00FF /* TorrentsSettingsPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B23F0212A969019008E00FF /* TorrentsSettingsPageTests.swift */; };
+		7B23F0262A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B23F0232A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_light.png */; };
+		7B23F0272A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B23F0242A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_light_extraExtraExtraLarge.png */; };
+		7B23F0282A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B23F0252A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_dark.png */; };
 		7B3690F42A69DC0C000E130B /* TorrentsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3690F32A69DC0C000E130B /* TorrentsPageViewModel.swift */; };
 		7B3690F72A69E0A7000E130B /* Double+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3690F62A69E0A7000E130B /* Double+Rounding.swift */; };
 		7B4599B22A66DD2600189C16 /* Transmission.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCC4CFA2A0D41BC004A8297 /* Transmission.framework */; };
@@ -305,6 +309,10 @@
 		7B2349092A94E22E00BD5834 /* SessionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionField.swift; sourceTree = "<group>"; };
 		7B23490D2A94E5A800BD5834 /* TorrentsSettingsGetMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsSettingsGetMapperTests.swift; sourceTree = "<group>"; };
 		7B23F00F2A94EDBB008E00FF /* TorrentsSettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsSettingsPage.swift; sourceTree = "<group>"; };
+		7B23F0212A969019008E00FF /* TorrentsSettingsPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsSettingsPageTests.swift; sourceTree = "<group>"; };
+		7B23F0232A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_light.png; sourceTree = "<group>"; };
+		7B23F0242A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		7B23F0252A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_dark.png; sourceTree = "<group>"; };
 		7B3690F32A69DC0C000E130B /* TorrentsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsPageViewModel.swift; sourceTree = "<group>"; };
 		7B3690F62A69E0A7000E130B /* Double+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounding.swift"; sourceTree = "<group>"; };
 		7B4599B92A67CB7C00189C16 /* TorrentsLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsLocalizationTests.swift; sourceTree = "<group>"; };
@@ -759,14 +767,15 @@
 		7B4599CD2A68108A00189C16 /* Transmission UI */ = {
 			isa = PBXGroup;
 			children = (
-				7BDF92112A93580F0041E0CC /* TorrentPeersPageTests.swift */,
-				7BDF91E22A8FB5E40041E0CC /* TorrentDetailPageTests.swift */,
-				7BDF923A2A93853C0041E0CC /* TorrentTrackersPageTests.swift */,
-				7B4599CE2A68109900189C16 /* TorrentsPageTests.swift */,
+				7B78719C2A8D7BEE005A16D6 /* CreditsPageTests.swift */,
 				7B2325072A7685D500836B02 /* ServerDetailPageTests.swift */,
 				7B2324D72A753C2300836B02 /* ServerPageTests.swift */,
 				7B80FC8E2A72624200A6DAB6 /* SettingsPageTests.swift */,
-				7B78719C2A8D7BEE005A16D6 /* CreditsPageTests.swift */,
+				7BDF91E22A8FB5E40041E0CC /* TorrentDetailPageTests.swift */,
+				7BDF92112A93580F0041E0CC /* TorrentPeersPageTests.swift */,
+				7B4599CE2A68109900189C16 /* TorrentsPageTests.swift */,
+				7BDF923A2A93853C0041E0CC /* TorrentTrackersPageTests.swift */,
+				7B23F0212A969019008E00FF /* TorrentsSettingsPageTests.swift */,
 				7B4599D72A6819EC00189C16 /* snapshots */,
 			);
 			path = "Transmission UI";
@@ -825,6 +834,9 @@
 				7B8075A32A93ADB0003F0B17 /* TORRENT_DETAIL_PAGE_WITH_ERROR_MESSAGE_dark.png */,
 				7B8075A22A93ADB0003F0B17 /* TORRENT_DETAIL_PAGE_WITH_ERROR_MESSAGE_light.png */,
 				7B8075A42A93ADB0003F0B17 /* TORRENT_DETAIL_PAGE_WITH_ERROR_MESSAGE_light_extraExtraExtraLarge.png */,
+				7B23F0252A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_dark.png */,
+				7B23F0232A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_light.png */,
+				7B23F0242A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_light_extraExtraExtraLarge.png */,
 				7B2324ED2A76614200836B02 /* SERVER_PAGE_EMPTY_LIST_dark.png */,
 				7B2324EF2A76614200836B02 /* SERVER_PAGE_EMPTY_LIST_light.png */,
 				7B2324EE2A76614200836B02 /* SERVER_PAGE_EMPTY_LIST_light_extraExtraExtraLarge.png */,
@@ -1843,6 +1855,7 @@
 				7B80FC852A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_dark.png in Resources */,
 				7B2324D62A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light_extraExtraExtraLarge.png in Resources */,
 				7BD81B9C2A7B03640039877F /* SERVER_DETAIL_PAGE_PASSWORD_ERROR_light_extraExtraExtraLarge.png in Resources */,
+				7B23F0282A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_dark.png in Resources */,
 				7BD236832A77B6D100AF75A9 /* SERVER_DETAIL_PAGE_EMPTY_light_extraExtraExtraLarge.png in Resources */,
 				7B7871862A8D0C3A005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light_extraExtraExtraLarge.png in Resources */,
 				7BD81B9A2A7B03640039877F /* SERVER_DETAIL_PAGE_IP_ERROR_light.png in Resources */,
@@ -1859,6 +1872,7 @@
 				7BD81BA42A7B03640039877F /* SERVER_DETAIL_PAGE_PASSWORD_ERROR_dark.png in Resources */,
 				7BF3BB4E2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_dark.png in Resources */,
 				7BD81B992A7B03640039877F /* SERVER_DETAIL_PAGE_PORT_ERROR_dark.png in Resources */,
+				7B23F0272A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_light_extraExtraExtraLarge.png in Resources */,
 				7B7871AF2A8D7E4B005A16D6 /* CREDITS_PAGE_light.png in Resources */,
 				7BD81B982A7B03640039877F /* SERVER_DETAIL_PAGE_SERVER_NAME_ERROR_dark.png in Resources */,
 				7B8075A62A93ADB0003F0B17 /* TORRENT_DETAIL_PAGE_WITH_ERROR_MESSAGE_dark.png in Resources */,
@@ -1881,6 +1895,7 @@
 				7BDF92412A9385E00041E0CC /* TORRENT_TRACKERS_PAGE_light_extraExtraExtraLarge.png in Resources */,
 				7B2324F82A7662F300836B02 /* SERVER_PAGE_LIST_WITH_CONTENT_light_extraExtraExtraLarge.png in Resources */,
 				7B2324F72A7662F300836B02 /* SERVER_PAGE_LIST_WITH_CONTENT_dark.png in Resources */,
+				7B23F0262A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_light.png in Resources */,
 				7B80FC922A7262D600A6DAB6 /* SETTINGS_PAGE_dark.png in Resources */,
 				7B8075AC2A93B0D3003F0B17 /* TORRENT_TRACKERS_PAGE_WITH_ERROR_MESSAGE_dark.png in Resources */,
 				7B8075AB2A93B0D3003F0B17 /* TORRENT_TRACKERS_PAGE_WITH_ERROR_MESSAGE_light_extraExtraExtraLarge.png in Resources */,
@@ -1953,6 +1968,7 @@
 				7BDF92122A93580F0041E0CC /* TorrentPeersPageTests.swift in Sources */,
 				7BDF923B2A93853C0041E0CC /* TorrentTrackersPageTests.swift in Sources */,
 				7B4599D22A68170300189C16 /* View+TestHelpers.swift in Sources */,
+				7B23F0222A969019008E00FF /* TorrentsSettingsPageTests.swift in Sources */,
 				7B4599D62A68184100189C16 /* UIViewController+Snapshot.swift in Sources */,
 				7B2325092A7685D700836B02 /* ServerDetailPageTests.swift in Sources */,
 				7B2324D82A753C2300836B02 /* ServerPageTests.swift in Sources */,
