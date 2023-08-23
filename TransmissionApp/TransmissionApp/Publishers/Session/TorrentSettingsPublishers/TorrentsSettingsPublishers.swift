@@ -24,6 +24,22 @@ enum TorrentsSettingsPublishers {
 			.eraseToAnyPublisher()
 	}
 	
+	static func makeDownloadDirSetPublisher(
+		downloadDir: String,
+		server: Server
+	) -> AnyPublisher<Void, Error> {
+		return TransmissionHTTPClient.httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: SessionBodies.setDownloadDir(downloadDir: downloadDir),
+				additionalHeader: Headers.headers(server.credentials)
+			)
+			.mapError(ErrorHandler.handleError)
+			.tryMap(Logger.log)
+			.tryMap(SessionSetMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
 	static func makeStartAddedTorrentSetPublisher(
 		enabled: Bool,
 		server: Server

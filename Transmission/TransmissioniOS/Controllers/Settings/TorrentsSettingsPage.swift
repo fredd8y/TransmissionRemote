@@ -15,6 +15,8 @@ public struct TorrentsSettingsPage: View {
 		self.viewModel = viewModel
 	}
 	
+	@FocusState private var downloadDirFocused: Bool
+	
 	@FocusState private var seedRatioLimitFocused: Bool
 	
 	@FocusState private var idleSeedingLimitFocused: Bool
@@ -26,6 +28,8 @@ public struct TorrentsSettingsPage: View {
 	public var onRefresh: (() -> Void)?
 	
 	public var onDisappear: (() -> Void)?
+	
+	public var onDownloadDirChange: ((String) -> Void)?
 	
 	public var onStartAddedTorrentChange: ((Bool) -> Void)?
 	
@@ -57,37 +61,40 @@ public struct TorrentsSettingsPage: View {
 					Spacer()
 				} else {
 					List {
-						Section("Downloading") {
+						Section(TorrentsSettingsPagePresenter.downloadingHeader) {
 							VStack(alignment: .leading, spacing: 8) {
-								Text("Download to")
-									.font(.caption2)
-								TextField("Download to", text: $viewModel.downloadDir)
+								Text(TorrentsSettingsPagePresenter.downloadTo)
+									.font(.subheadline)
+								TextField(TorrentsSettingsPagePresenter.downloadTo, text: $viewModel.downloadDir)
+									.keyboardType(.URL)
+									.textFieldStyle(.roundedBorder)
+									.focused($seedRatioLimitFocused)
 							}
 							Toggle(isOn: $viewModel.startAddedTorrents) {
-								Text("Start when added")
+								Text(TorrentsSettingsPagePresenter.startWhenAdded)
 									.font(.subheadline)
 							}.onChange(of: viewModel.startAddedTorrents) { newValue in
 								onStartAddedTorrentChange?(newValue)
 							}
 							Toggle(isOn: $viewModel.renamePartialFiles) {
-								Text("Append \".part\" to incomplete files names")
+								Text(TorrentsSettingsPagePresenter.incompleteFileNamesExtension)
 									.font(.subheadline)
 							}.onChange(of: viewModel.renamePartialFiles) { newValue in
 								onRenamePartialFilesChange?(newValue)
 							}
 						}
-						Section("Seeding") {
+						Section(TorrentsSettingsPagePresenter.seedingHeader) {
 							Toggle(isOn: $viewModel.seedRatioLimited) {
 								VStack(alignment: .leading, spacing: 8) {
-									Text("Stop seeding at ratio")
+									Text(TorrentsSettingsPagePresenter.stopSeedingAtRatio)
 										.font(.subheadline)
-									TextField("Ratio", text: $viewModel.seedRatioLimit)
+									TextField(TorrentsSettingsPagePresenter.stopSeedingAtRatio, text: $viewModel.seedRatioLimit)
 										.textFieldStyle(.roundedBorder)
 										.keyboardType(.numberPad)
 										.disabled(!viewModel.seedRatioLimited)
 										.focused($seedRatioLimitFocused)
 									if viewModel.seedRatioLimitError {
-										Text("Must be a number")
+										Text(TorrentsSettingsPagePresenter.mustBeANumber)
 											.font(.caption2)
 											.foregroundColor(.red)
 									}
@@ -97,15 +104,15 @@ public struct TorrentsSettingsPage: View {
 							}
 							Toggle(isOn: $viewModel.idleSeedingLimitEnabled) {
 								VStack(alignment: .leading, spacing: 8) {
-									Text("Stop seeding if idle for (min)")
+									Text(TorrentsSettingsPagePresenter.stopSeedingIfIdle)
 										.font(.subheadline)
-									TextField("Ratio", text: $viewModel.idleSeedingLimit)
+									TextField(TorrentsSettingsPagePresenter.stopSeedingIfIdle, text: $viewModel.idleSeedingLimit)
 										.textFieldStyle(.roundedBorder)
 										.keyboardType(.numberPad)
 										.disabled(!viewModel.idleSeedingLimitEnabled)
 										.focused($idleSeedingLimitFocused)
 									if viewModel.idleSeedingLimitError {
-										Text("Must be a number")
+										Text(TorrentsSettingsPagePresenter.mustBeANumber)
 											.font(.caption2)
 											.foregroundColor(.red)
 									}
@@ -126,6 +133,9 @@ public struct TorrentsSettingsPage: View {
 								} else if seedRatioLimitFocused {
 									seedRatioLimitFocused.toggle()
 									onSeedRatioLimitChange?(viewModel.seedRatioLimit)
+								} else if downloadDirFocused {
+									downloadDirFocused.toggle()
+									onDownloadDirChange?(viewModel.downloadDir)
 								}
 							}
 						}

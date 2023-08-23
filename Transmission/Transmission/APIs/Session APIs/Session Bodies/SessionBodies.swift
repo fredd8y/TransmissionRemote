@@ -14,6 +14,31 @@ public class SessionBodies {
 
 extension SessionBodies {
 	
+	private struct SetDownloadDirBody: Encodable {
+		init(_ downloadDir: String) {
+			arguments = Arguments(downloadDir: downloadDir)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let downloadDir: String
+			
+			enum CodingKeys: String, CodingKey {
+				case downloadDir = "download-dir"
+			}
+		}
+	}
+	
+	public static func setDownloadDir(downloadDir: String) -> Data {
+		try! JSONEncoder().encode(SetDownloadDirBody(downloadDir))
+	}
+	
+}
+
+extension SessionBodies {
+	
 	private struct SetSeedRatioLimitedBody: Encodable {
 		init(_ seedRatioLimited: Bool) {
 			arguments = Arguments(seedRatioLimited: seedRatioLimited)

@@ -7,3 +7,12 @@
 */
 
 "TORRENTS_SETTINGS_PAGE_TITLE" = "Torrents settings";
+"DOWNLOADING_HEADER" = "Downloading";
+"DOWNLOAD_TO" = "Download to";
+"START_WHEN_ADDED" = "Start when added";
+"INCOMPLETE_FILE_NAMES_EXTENSION" = "Append \".part\" to incomplete files names";
+"SEEDING_HEADER" = "Seeding";
+"STOP_SEEDING_AT_RATIO" = "Stop seeding at ratio";
+"MUST_BE_A_NUMBER" = "Must be a number";
+"STOP_SEEDING_IF_IDLE" = "Stop seeding if idle for (min)";
+"CONFIRM_BUTTON_TITLE" = "Confirm";

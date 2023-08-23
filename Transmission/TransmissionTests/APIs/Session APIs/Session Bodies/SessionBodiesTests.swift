@@ -130,4 +130,12 @@ final class SessionBodiesTests: XCTestCase {
 		XCTAssertEqual(expectedBody, httpBody)
 	}
 	
+	func test_setDownloadDir_httpBody() {
+		let expectedBody = #"{"method":"session-set","arguments":{"download-dir":"a download dir"}}"#.data(using: .utf8)
+		
+		let httpBody = SessionBodies.setDownloadDir(downloadDir: "a download dir")
+		
+		XCTAssertEqual(expectedBody, httpBody)
+	}
+	
 }

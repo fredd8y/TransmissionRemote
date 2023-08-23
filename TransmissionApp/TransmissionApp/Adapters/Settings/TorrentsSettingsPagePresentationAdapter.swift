@@ -17,6 +17,13 @@ class TorrentsSettingsPagePresentationAdapter {
 		
 	private var cancellables = Set<AnyCancellable>()
 	
+	func setDownloadDir(_ downloadDir: String) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		TorrentsSettingsPublishers.makeDownloadDirSetPublisher(downloadDir: downloadDir, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
 	func setSeedRatioLimited(_ enabled: Bool) {
 		guard let server = UserDefaultsHandler.shared.currentServer else { return }
 		TorrentsSettingsPublishers.makeSeedRatioLimitedSetPublisher(enabled: enabled, server: server)
