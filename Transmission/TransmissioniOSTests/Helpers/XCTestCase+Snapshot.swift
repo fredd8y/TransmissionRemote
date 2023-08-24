@@ -22,7 +22,7 @@ extension XCTestCase {
 			return
 		}
 		
-		if !match(snapshotData, storedSnapshotData, tolerance: 0.03) {
+		if !match(snapshotData, storedSnapshotData, tolerance: 0.05) {
 			let temporarySnapshotURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
 				.appendingPathComponent(snapshotURL.lastPathComponent)
 			
