@@ -34,6 +34,14 @@ class TorrentsSettingsPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENTS_SETTINGS_PAGE_TEXT_FIELD_ERRORS_light_extraExtraExtraLarge")
 	}
 	
+	func test_settingsPageWithDownloadDirError() {
+		let sut = makeSUTWithDownloadDirError()
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "TORRENTS_SETTINGS_PAGE_DOWNLOAD_DIR_ERROR_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "TORRENTS_SETTINGS_PAGE_DOWNLOAD_DIR_ERROR_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "TORRENTS_SETTINGS_PAGE_DOWNLOAD_DIR_ERROR_light_extraExtraExtraLarge")
+	}
+	
 	func test_settingsPageLoading() {
 		let sut = makeSUTLoading()
 		
@@ -56,7 +64,8 @@ class TorrentsSettingsPageTests: XCTestCase {
 			errorMessage: nil,
 			isLoading: false,
 			seedRatioLimitError: false,
-			idleSeedingLimitError: false
+			idleSeedingLimitError: false,
+			downloadDirError: false
 		))
 	}
 	
@@ -72,7 +81,8 @@ class TorrentsSettingsPageTests: XCTestCase {
 			errorMessage: nil,
 			isLoading: false,
 			seedRatioLimitError: false,
-			idleSeedingLimitError: false
+			idleSeedingLimitError: false,
+			downloadDirError: false
 		))
 	}
 	
@@ -88,7 +98,8 @@ class TorrentsSettingsPageTests: XCTestCase {
 			errorMessage: nil,
 			isLoading: false,
 			seedRatioLimitError: true,
-			idleSeedingLimitError: true
+			idleSeedingLimitError: true,
+			downloadDirError: false
 		))
 	}
 	
@@ -104,7 +115,25 @@ class TorrentsSettingsPageTests: XCTestCase {
 			errorMessage: nil,
 			isLoading: true,
 			seedRatioLimitError: true,
-			idleSeedingLimitError: true
+			idleSeedingLimitError: true,
+			downloadDirError: false
+		))
+	}
+	
+	private func makeSUTWithDownloadDirError() -> TorrentsSettingsPage {
+		TorrentsSettingsPage(viewModel: TorrentsSettingsPageViewModel(
+			downloadDir: "a download dir",
+			startAddedTorrents: true,
+			renamePartialFiles: true,
+			seedRatioLimited: true,
+			seedRatioLimit: "3",
+			idleSeedingLimitEnabled: true,
+			idleSeedingLimit: "30",
+			errorMessage: nil,
+			isLoading: false,
+			seedRatioLimitError: false,
+			idleSeedingLimitError: false,
+			downloadDirError: true
 		))
 	}
 }
