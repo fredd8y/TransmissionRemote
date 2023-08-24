@@ -101,15 +101,31 @@ final class TransmissionComposer {
 	}
 	
 	private static func settingsPage(serverPage: ServerPage) -> SettingsPage {
-		let viewModel = SettingsPageViewModel.empty()
+		let settingsPageViewModel = SettingsPageViewModel.empty()
 		
 		let settingsPagePresentationAdapter = SettingsPagePresentationAdapter(
-			settingsViewModel: viewModel
+			settingsViewModel: settingsPageViewModel
 		)
+				
+		let torrentsSettingsPagePresenterAdapter = TorrentsSettingsPagePresentationAdapter()
 		
-		var settingsPage = SettingsPage(viewModel: viewModel, serverPage: serverPage)
+		var settingsPage = SettingsPage(viewModel: settingsPageViewModel, serverPage: serverPage)
 		settingsPage.loadData = settingsPagePresentationAdapter.loadData
 		settingsPage.pollingRateSelected = settingsPagePresentationAdapter.selectedPollingRate
+		settingsPage.torrentsSettingsSelected = {
+			var torrentsSettingsPage = torrentsSettingsPagePresenterAdapter.showTorrentsSettingsPage()
+			torrentsSettingsPage.onAppear = torrentsSettingsPagePresenterAdapter.loadData
+			torrentsSettingsPage.onRefresh = torrentsSettingsPagePresenterAdapter.loadData
+			torrentsSettingsPage.onDisappear = torrentsSettingsPagePresenterAdapter.stopLoadingData
+			torrentsSettingsPage.onDownloadDirChange = torrentsSettingsPagePresenterAdapter.setDownloadDir
+			torrentsSettingsPage.onSeedRatioLimitChange = torrentsSettingsPagePresenterAdapter.setSeedRatioLimit
+			torrentsSettingsPage.onIdleSeedingLimitChange = torrentsSettingsPagePresenterAdapter.setIdleSeedingLimit
+			torrentsSettingsPage.onSeedRatioLimitedChange = torrentsSettingsPagePresenterAdapter.setSeedRatioLimited
+			torrentsSettingsPage.onStartAddedTorrentChange = torrentsSettingsPagePresenterAdapter.setStartAddedTorrent
+			torrentsSettingsPage.onRenamePartialFilesChange = torrentsSettingsPagePresenterAdapter.setRenamePartialFiles
+			torrentsSettingsPage.onIdleSeedingLimitEnabledChange = torrentsSettingsPagePresenterAdapter.setIdleSeedingLimitEnabled
+			return torrentsSettingsPage
+		}
 		return settingsPage
 	}
 	

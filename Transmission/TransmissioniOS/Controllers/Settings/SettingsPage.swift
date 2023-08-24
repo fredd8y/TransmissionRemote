@@ -21,7 +21,11 @@ public struct SettingsPage: View {
 	
 	public var loadData: (() -> Void)?
 	
+	public var torrentsSettingsSelected: (() -> TorrentsSettingsPage)?
+	
 	public var pollingRateSelected: ((_ selectedPollingRate: String, _ pollingRateList: [String]) -> Void)?
+	
+	@State public var torrentsSettingsPresented: Bool = false
 	
     public var body: some View {
 		NavigationStack {
@@ -49,9 +53,15 @@ public struct SettingsPage: View {
 					}
 				}
 				NavigationLink {
+					torrentsSettingsSelected?()
+				} label: {
+					Text(SettingsPagePresenter.torrentsSettings)
+						.font(.subheadline)
+				}
+				NavigationLink {
 					CreditsPage()
 				} label: {
-					Text("Credits")
+					Text(SettingsPagePresenter.credits)
 						.font(.subheadline)
 				}
 			}

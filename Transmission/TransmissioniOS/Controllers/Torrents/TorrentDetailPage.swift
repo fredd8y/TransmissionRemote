@@ -13,9 +13,7 @@ public struct TorrentDetailPage: View {
 	public init(viewModel: TorrentDetailPageViewModel) {
 		self.viewModel = viewModel
 	}
-	
-	@Environment(\.isPresented) public var isPresented
-	
+		
 	@ObservedObject var viewModel: TorrentDetailPageViewModel
 	
 	public var onAppear: (() -> Void)?

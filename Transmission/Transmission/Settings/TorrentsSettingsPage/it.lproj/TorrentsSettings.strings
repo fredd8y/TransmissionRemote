@@ -1,0 +1,19 @@
+/* 
+  TorrentsSettings.strings
+  Transmission
+
+  Created by Federico Arvat on 22/08/23.
+  
+*/
+
+"TORRENTS_SETTINGS_PAGE_TITLE" = "Impostazioni torrents";
+"DOWNLOADING_HEADER" = "Downloading";
+"DOWNLOAD_TO" = "Download in";
+"START_WHEN_ADDED" = "Start quando aggiunto";
+"INCOMPLETE_FILE_NAMES_EXTENSION" = "Aggiungi estensione \".part\" ai file incompleti";
+"SEEDING_HEADER" = "Seeding";
+"STOP_SEEDING_AT_RATIO" = "Stop seeding quando il ratio raggiunge";
+"MUST_BE_A_NUMBER" = "Dev'essere un numero";
+"STOP_SEEDING_IF_IDLE" = "Stop seeding se idle per (min)";
+"CONFIRM_BUTTON_TITLE" = "Conferma";
+"MUST_BE_A_DIRECTORY" = "Deve essere una directory";
