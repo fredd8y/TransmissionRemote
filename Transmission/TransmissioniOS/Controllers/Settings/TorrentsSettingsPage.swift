@@ -68,7 +68,12 @@ public struct TorrentsSettingsPage: View {
 								TextField(TorrentsSettingsPagePresenter.downloadTo, text: $viewModel.downloadDir)
 									.keyboardType(.URL)
 									.textFieldStyle(.roundedBorder)
-									.focused($seedRatioLimitFocused)
+									.focused($downloadDirFocused)
+								if viewModel.downloadDirError {
+									Text(TorrentsSettingsPagePresenter.mustBeADirectory)
+										.font(.caption2)
+										.foregroundColor(.red)
+								}
 							}
 							Toggle(isOn: $viewModel.startAddedTorrents) {
 								Text(TorrentsSettingsPagePresenter.startWhenAdded)
@@ -172,7 +177,8 @@ struct TorrentsSettingsPage_Previews: PreviewProvider {
 			errorMessage: nil,
 			isLoading: false,
 			seedRatioLimitError: false,
-			idleSeedingLimitError: false
+			idleSeedingLimitError: false,
+			downloadDirError: true
 		))
     }
 }

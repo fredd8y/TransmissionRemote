@@ -18,7 +18,12 @@ class TorrentsSettingsPagePresentationAdapter {
 	private var cancellables = Set<AnyCancellable>()
 	
 	func setDownloadDir(_ downloadDir: String) {
+		torrentsSettingsViewModel.downloadDirError = false
 		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		guard let _ = URL(string: downloadDir) else {
+			torrentsSettingsViewModel.downloadDirError = true
+			return
+		}
 		TorrentsSettingsPublishers.makeDownloadDirSetPublisher(downloadDir: downloadDir, server: server)
 			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
 			.store(in: &cancellables)

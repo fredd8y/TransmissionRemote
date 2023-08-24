@@ -16,3 +16,4 @@
 "MUST_BE_A_NUMBER" = "Dev'essere un numero";
 "STOP_SEEDING_IF_IDLE" = "Stop seeding se idle per (min)";
 "CONFIRM_BUTTON_TITLE" = "Conferma";
+"MUST_BE_A_DIRECTORY" = "Deve essere una directory";

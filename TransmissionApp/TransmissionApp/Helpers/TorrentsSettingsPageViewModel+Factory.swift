@@ -21,7 +21,8 @@ extension TorrentsSettingsPageViewModel {
 			errorMessage: nil,
 			isLoading: true,
 			seedRatioLimitError: false,
-			idleSeedingLimitError: false
+			idleSeedingLimitError: false,
+			downloadDirError: false
 		)
 	}
 	static func error(_ errorMessage: String) -> TorrentsSettingsPageViewModel {
@@ -36,7 +37,8 @@ extension TorrentsSettingsPageViewModel {
 			errorMessage: errorMessage,
 			isLoading: false,
 			seedRatioLimitError: false,
-			idleSeedingLimitError: false
+			idleSeedingLimitError: false,
+			downloadDirError: false
 		)
 	}
 }

@@ -74,6 +74,14 @@ public class TorrentsSettingsPagePresenter {
 			comment: "Must be a number error description")
 	}
 
+	public static var mustBeADirectory: String {
+		NSLocalizedString(
+			"MUST_BE_A_DIRECTORY",
+			tableName: "TorrentsSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Must be a directory error description")
+	}
+
 	public static var stopSeedingIfIdle: String {
 		NSLocalizedString(
 			"STOP_SEEDING_IF_IDLE",
@@ -102,7 +110,8 @@ public class TorrentsSettingsPagePresenter {
 			errorMessage: nil,
 			isLoading: false,
 			seedRatioLimitError: false,
-			idleSeedingLimitError: false
+			idleSeedingLimitError: false,
+			downloadDirError: false
 		)
 	}
 }
