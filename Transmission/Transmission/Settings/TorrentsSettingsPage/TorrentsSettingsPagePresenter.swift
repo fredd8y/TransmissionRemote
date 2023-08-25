@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 public class TorrentsSettingsPagePresenter {
 	public static var title: String {
 		NSLocalizedString(
