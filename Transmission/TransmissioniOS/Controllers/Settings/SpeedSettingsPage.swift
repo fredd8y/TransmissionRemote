@@ -22,6 +22,10 @@ public struct SpeedSettingsPage: View {
 	
 	@FocusState private var alternativeDownloadLimitFocused: Bool
 		
+	@Environment(\.isPresented) var isPresented
+	
+	@State private var tabBarVisibility: Visibility = .visible
+	
 	@ObservedObject private var viewModel: SpeedSettingsPageViewModel
 	
 	public var onAppear: (() -> Void)?
@@ -204,11 +208,22 @@ public struct SpeedSettingsPage: View {
 		}
 		.navigationTitle(SpeedSettingsPagePresenter.title)
 		.navigationBarTitleDisplayMode(.inline)
+		.toolbar(tabBarVisibility, for: .tabBar)
 		.onAppear {
 			onAppear?()
 		}
 		.onDisappear {
 			onDisappear?()
+		}
+		.onLoad {
+			withAnimation {
+				tabBarVisibility = .hidden
+			}
+		}
+		.onChange(of: isPresented) { _ in
+			withAnimation {
+				tabBarVisibility = .visible
+			}
 		}
 		.if(viewModel.errorMessage != nil) { vStack in
 			vStack.refreshable {
