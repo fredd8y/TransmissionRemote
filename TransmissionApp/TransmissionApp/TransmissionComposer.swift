@@ -133,6 +133,13 @@ final class TransmissionComposer {
 			speedSettingsPage.onAppear = speedSettingsPagePresentationAdapter.loadData
 			speedSettingsPage.onRefresh = speedSettingsPagePresentationAdapter.loadData
 			speedSettingsPage.onDisappear = speedSettingsPagePresentationAdapter.stopLoadingData
+			speedSettingsPage.onUploadLimitEnabledChange = speedSettingsPagePresentationAdapter.uploadLimitEnabledChange
+			speedSettingsPage.onDownloadLimitEnabledChange = speedSettingsPagePresentationAdapter.downloadLimitEnabledChange
+			speedSettingsPage.onScheduledTimesEnabledChange = speedSettingsPagePresentationAdapter.scheduledTimesEnabledChange
+			speedSettingsPage.onUploadLimit = speedSettingsPagePresentationAdapter.uploadLimit
+			speedSettingsPage.onDownloadLimit = speedSettingsPagePresentationAdapter.downloadLimit
+			speedSettingsPage.onAlternativeUploadLimit = speedSettingsPagePresentationAdapter.alternativeUploadLimit
+			speedSettingsPage.onAlternativeDownloadLimit = speedSettingsPagePresentationAdapter.alternativeDownloadLimit
 			return speedSettingsPage
 		}
 		return settingsPage

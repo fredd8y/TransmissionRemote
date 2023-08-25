@@ -17,6 +17,75 @@ class SpeedSettingsPagePresentationAdapter {
 	
 	private var cancellables = Set<AnyCancellable>()
 	
+	func uploadLimitEnabledChange(_ enabled: Bool) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		SpeedSettingsPublishers.makeUploadLimitEnabledPublisher(enabled: enabled, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
+	func downloadLimitEnabledChange(_ enabled: Bool) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		SpeedSettingsPublishers.makeDownloadLimitEnabledPublisher(enabled: enabled, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
+	func scheduledTimesEnabledChange(_ enabled: Bool) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		SpeedSettingsPublishers.makeScheduledTimesEnabledPublisher(enabled: enabled, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
+	func uploadLimit(_ newLimit: String) {
+		speedSettingsViewModel.uploadLimitError = false
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		guard let limit = Int(newLimit) else {
+			speedSettingsViewModel.uploadLimitError = true
+			return
+		}
+		SpeedSettingsPublishers.makeUploadLimitPublisher(limit: limit, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
+	func downloadLimit(_ newLimit: String) {
+		speedSettingsViewModel.downloadLimitError = false
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		guard let limit = Int(newLimit) else {
+			speedSettingsViewModel.downloadLimitError = true
+			return
+		}
+		SpeedSettingsPublishers.makeDownloadLimitPublisher(limit: limit, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
+	func alternativeUploadLimit(_ newLimit: String) {
+		speedSettingsViewModel.alternativeUploadLimitError = false
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		guard let limit = Int(newLimit) else {
+			speedSettingsViewModel.alternativeUploadLimitError = true
+			return
+		}
+		SpeedSettingsPublishers.makeAlternativeUploadLimitPublisher(limit: limit, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
+	func alternativeDownloadLimit(_ newLimit: String) {
+		speedSettingsViewModel.alternativeDownloadLimitError = false
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		guard let limit = Int(newLimit) else {
+			speedSettingsViewModel.alternativeDownloadLimitError = true
+			return
+		}
+		SpeedSettingsPublishers.makeAlternativeDownloadLimitPublisher(limit: limit, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
 	func loadData() {
 		cancelCurrentLoadingTasks()
 		guard let server = UserDefaultsHandler.shared.currentServer else { return }
@@ -56,6 +125,8 @@ class SpeedSettingsPagePresentationAdapter {
 			speedSettingsViewModel.newValues(.error(error.localizedDescription))
 		}
 	}
+	
+	private func receiveValue() {}
 	
 }
 

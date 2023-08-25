@@ -14,6 +14,181 @@ public class SessionBodies {
 
 extension SessionBodies {
 	
+	private struct SetAlternativeSpeedDownBody: Encodable {
+		init(_ altSpeedDown: Int) {
+			arguments = Arguments(altSpeedDown: altSpeedDown)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let altSpeedDown: Int
+			
+			enum CodingKeys: String, CodingKey {
+				case altSpeedDown = "alt-speed-down"
+			}
+		}
+	}
+	
+	public static func setAltSpeedDown(limit: Int) -> Data {
+		try! JSONEncoder().encode(SetAlternativeSpeedDownBody(limit))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetAlternativeSpeedUpBody: Encodable {
+		init(_ altSpeedUp: Int) {
+			arguments = Arguments(altSpeedUp: altSpeedUp)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let altSpeedUp: Int
+			
+			enum CodingKeys: String, CodingKey {
+				case altSpeedUp = "alt-speed-up"
+			}
+		}
+	}
+	
+	public static func setAltSpeedUp(limit: Int) -> Data {
+		try! JSONEncoder().encode(SetAlternativeSpeedUpBody(limit))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetSpeedLimitDownBody: Encodable {
+		init(_ speedLimitDown: Int) {
+			arguments = Arguments(speedLimitDown: speedLimitDown)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let speedLimitDown: Int
+			
+			enum CodingKeys: String, CodingKey {
+				case speedLimitDown = "speed-limit-down"
+			}
+		}
+	}
+	
+	public static func setSpeedLimitDown(limit: Int) -> Data {
+		try! JSONEncoder().encode(SetSpeedLimitDownBody(limit))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetSpeedLimitUpBody: Encodable {
+		init(_ speedLimitUp: Int) {
+			arguments = Arguments(speedLimitUp: speedLimitUp)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let speedLimitUp: Int
+			
+			enum CodingKeys: String, CodingKey {
+				case speedLimitUp = "speed-limit-up"
+			}
+		}
+	}
+	
+	public static func setSpeedLimitUp(limit: Int) -> Data {
+		try! JSONEncoder().encode(SetSpeedLimitUpBody(limit))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetAltSpeedTimeEnabledBody: Encodable {
+		init(_ altSpeedTimeEnabled: Bool) {
+			arguments = Arguments(altSpeedTimeEnabled: altSpeedTimeEnabled)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let altSpeedTimeEnabled: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case altSpeedTimeEnabled = "alt-speed-time-enabled"
+			}
+		}
+	}
+	
+	public static func setAltSpeedTimeEnabled(enabled: Bool) -> Data {
+		try! JSONEncoder().encode(SetAltSpeedTimeEnabledBody(enabled))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetDownloadLimitEnabledBody: Encodable {
+		init(_ speedLimitDownEnabled: Bool) {
+			arguments = Arguments(speedLimitDownEnabled: speedLimitDownEnabled)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let speedLimitDownEnabled: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case speedLimitDownEnabled = "speed-limit-down-enabled"
+			}
+		}
+	}
+	
+	public static func setDownloadLimitEnabled(enabled: Bool) -> Data {
+		try! JSONEncoder().encode(SetDownloadLimitEnabledBody(enabled))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetUploadLimitEnabledBody: Encodable {
+		init(_ speedLimitUpEnabled: Bool) {
+			arguments = Arguments(speedLimitUpEnabled: speedLimitUpEnabled)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let speedLimitUpEnabled: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case speedLimitUpEnabled = "speed-limit-up-enabled"
+			}
+		}
+	}
+	
+	public static func setUploadLimitEnabled(enabled: Bool) -> Data {
+		try! JSONEncoder().encode(SetUploadLimitEnabledBody(enabled))
+	}
+	
+}
+
+extension SessionBodies {
+	
 	private struct SetDownloadDirBody: Encodable {
 		init(_ downloadDir: String) {
 			arguments = Arguments(downloadDir: downloadDir)

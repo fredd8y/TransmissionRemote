@@ -32,6 +32,8 @@ public struct SpeedSettingsPage: View {
 	
 	public var onUploadLimitEnabledChange: ((Bool) -> Void)?
 	
+	public var onDownloadLimitEnabledChange: ((Bool) -> Void)?
+	
 	public var onScheduledTimesEnabledChange: ((Bool) -> Void)?
 	
 	public var onUploadLimit: ((String) -> Void)?
@@ -101,7 +103,7 @@ public struct SpeedSettingsPage: View {
 									}
 								}
 							}.onChange(of: viewModel.downloadLimitEnabled) { newValue in
-								onUploadLimitEnabledChange?(newValue)
+								onDownloadLimitEnabledChange?(newValue)
 							}
 						}
 						Section("Alternative speed limits") {
