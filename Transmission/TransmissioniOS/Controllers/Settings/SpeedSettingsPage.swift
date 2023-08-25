@@ -44,6 +44,12 @@ public struct SpeedSettingsPage: View {
 	
 	public var onAlternativeDownloadLimit: ((String) -> Void)?
 	
+	public var onAlternativeSpeedTimeBeginChange: ((SpeedSettingsHour) -> Void)?
+	
+	public var onAlternativeSpeedTimeEndChange: ((SpeedSettingsHour) -> Void)?
+	
+	public var onAlternativeSpeedTimeDayChange: ((SpeedSettingsDay) -> Void)?
+	
 	public var dayName: ((SpeedSettingsDay) -> String)?
 	
     public var body: some View {
@@ -145,6 +151,9 @@ public struct SpeedSettingsPage: View {
 									}
 									.font(.subheadline)
 									.disabled(!viewModel.scheduledTimesEnabled)
+									.onChange(of: viewModel.alternativeSpeedTimeBegin) { newValue in
+										onAlternativeSpeedTimeBeginChange?(newValue)
+									}
 									Picker("To", selection: $viewModel.alternativeSpeedTimeEnd) {
 										ForEach(SpeedSettingsHour.allCases, id: \.self) {
 											Text($0.description)
@@ -152,6 +161,9 @@ public struct SpeedSettingsPage: View {
 									}
 									.font(.subheadline)
 									.disabled(!viewModel.scheduledTimesEnabled)
+									.onChange(of: viewModel.alternativeSpeedTimeEnd) { newValue in
+										onAlternativeSpeedTimeEndChange?(newValue)
+									}
 									Picker("On days", selection: $viewModel.alternativeSpeedTimeDay) {
 										ForEach(SpeedSettingsDay.allCases, id: \.self) {
 											Text(dayName?($0) ?? "-")
@@ -159,6 +171,9 @@ public struct SpeedSettingsPage: View {
 									}
 									.font(.subheadline)
 									.disabled(!viewModel.scheduledTimesEnabled)
+									.onChange(of: viewModel.alternativeSpeedTimeDay) { newValue in
+										onAlternativeSpeedTimeDayChange?(newValue)
+									}
 								}
 							}
 						}

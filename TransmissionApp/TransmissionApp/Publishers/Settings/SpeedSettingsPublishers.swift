@@ -23,6 +23,50 @@ enum SpeedSettingsPublishers {
 			.eraseToAnyPublisher()
 	}
 	
+	static func makeAlternativeSpeedTimeBeginChangePublisher(
+		hour: Int,
+		server: Server
+	) -> AnyPublisher<Void, Error> {
+		return TransmissionHTTPClient.httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: SessionBodies.setAlternativeSpeedTimeBegin(hour: hour),
+				additionalHeader: Headers.headers(server.credentials)
+			)
+			.tryMap(Logger.log)
+			.tryMap(SessionSetMapper.map)
+			.eraseToAnyPublisher()
+	}
+	static func makeAlternativeSpeedTimeEndChangePublisher(
+		hour: Int,
+		server: Server
+	) -> AnyPublisher<Void, Error> {
+		return TransmissionHTTPClient.httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: SessionBodies.setAlternativeSpeedTimeEnd(hour: hour),
+				additionalHeader: Headers.headers(server.credentials)
+			)
+			.tryMap(Logger.log)
+			.tryMap(SessionSetMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
+	static func makeAlternativeSpeedTimeDayChangePublisher(
+		day: Int,
+		server: Server
+	) -> AnyPublisher<Void, Error> {
+		return TransmissionHTTPClient.httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: SessionBodies.setAlternativeSpeedTimeDay(day: day),
+				additionalHeader: Headers.headers(server.credentials)
+			)
+			.tryMap(Logger.log)
+			.tryMap(SessionSetMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
 	static func makeUploadLimitEnabledPublisher(
 		enabled: Bool,
 		server: Server

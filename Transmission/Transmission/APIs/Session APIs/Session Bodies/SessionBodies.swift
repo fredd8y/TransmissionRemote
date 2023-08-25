@@ -14,6 +14,79 @@ public class SessionBodies {
 
 extension SessionBodies {
 	
+	private struct SetAlternativeSpeedTimeEndBody: Encodable {
+		init(_ altSpeedTimeEnd: Int) {
+			arguments = Arguments(altSpeedTimeEnd: altSpeedTimeEnd)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let altSpeedTimeEnd: Int
+			
+			enum CodingKeys: String, CodingKey {
+				case altSpeedTimeEnd = "alt-speed-time-end"
+			}
+		}
+	}
+	
+	public static func setAlternativeSpeedTimeEnd(hour: Int) -> Data {
+		try! JSONEncoder().encode(SetAlternativeSpeedTimeEndBody(hour))
+	}
+	
+}
+extension SessionBodies {
+	
+	private struct SetAlternativeSpeedTimeBeginBody: Encodable {
+		init(_ altSpeedTimeBegin: Int) {
+			arguments = Arguments(altSpeedTimeBegin: altSpeedTimeBegin)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let altSpeedTimeBegin: Int
+			
+			enum CodingKeys: String, CodingKey {
+				case altSpeedTimeBegin = "alt-speed-time-begin"
+			}
+		}
+	}
+	
+	public static func setAlternativeSpeedTimeBegin(hour: Int) -> Data {
+		try! JSONEncoder().encode(SetAlternativeSpeedTimeBeginBody(hour))
+	}
+	
+}
+extension SessionBodies {
+	
+	private struct SetAlternativeSpeedTimeDayBody: Encodable {
+		init(_ altSpeedTimeDay: Int) {
+			arguments = Arguments(altSpeedTimeDay: altSpeedTimeDay)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let altSpeedTimeDay: Int
+			
+			enum CodingKeys: String, CodingKey {
+				case altSpeedTimeDay = "alt-speed-time-day"
+			}
+		}
+	}
+	
+	public static func setAlternativeSpeedTimeDay(day: Int) -> Data {
+		try! JSONEncoder().encode(SetAlternativeSpeedTimeDayBody(day))
+	}
+	
+}
+
+extension SessionBodies {
+	
 	private struct SetAlternativeSpeedDownBody: Encodable {
 		init(_ altSpeedDown: Int) {
 			arguments = Arguments(altSpeedDown: altSpeedDown)

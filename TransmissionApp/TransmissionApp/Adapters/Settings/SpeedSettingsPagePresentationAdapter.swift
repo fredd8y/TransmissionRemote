@@ -17,6 +17,27 @@ class SpeedSettingsPagePresentationAdapter {
 	
 	private var cancellables = Set<AnyCancellable>()
 	
+	func alternativeSpeedTimeBeginChange(_ speedSettingsHour: SpeedSettingsHour) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		SpeedSettingsPublishers.makeAlternativeSpeedTimeBeginChangePublisher(hour: speedSettingsHour.rawValue, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
+	func alternativeSpeedTimeEndChange(_ speedSettingsHour: SpeedSettingsHour) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		SpeedSettingsPublishers.makeAlternativeSpeedTimeEndChangePublisher(hour: speedSettingsHour.rawValue, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
+	func alternativeSpeedTimeDayChange(_ speedSettingsDay: SpeedSettingsDay) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		SpeedSettingsPublishers.makeAlternativeSpeedTimeDayChangePublisher(day: speedSettingsDay.rawValue, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
 	func uploadLimitEnabledChange(_ enabled: Bool) {
 		guard let server = UserDefaultsHandler.shared.currentServer else { return }
 		SpeedSettingsPublishers.makeUploadLimitEnabledPublisher(enabled: enabled, server: server)
