@@ -36,7 +36,36 @@ class SpeedSettingsPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "SPEED_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light_extraExtraExtraLarge")
 	}
 	
+	func test_settingsPageLoading() {
+		let sut = makeSUTLoading()
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "SPEED_SETTINGS_PAGE_LOADING_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "SPEED_SETTINGS_PAGE_LOADING_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "SPEED_SETTINGS_PAGE_LOADING_light_extraExtraExtraLarge")
+	}
+	
 	// MARK: - Helpers
+	
+	private func makeSUTLoading() -> SpeedSettingsPage {
+		SpeedSettingsPage(viewModel: SpeedSettingsPageViewModel(
+			isLoading: true,
+			errorMessage: nil,
+			uploadLimitEnabled: false,
+			uploadLimit: "error",
+			uploadLimitError: true,
+			downloadLimitEnabled: false,
+			downloadLimit: "error",
+			downloadLimitError: true,
+			alternativeUploadLimit: "error",
+			alternativeUploadLimitError: true,
+			alternativeDownloadLimit: "error",
+			alternativeDownloadLimitError: true,
+			scheduledTimesEnabled: false,
+			alternativeSpeedTimeBegin: .hour0000,
+			alternativeSpeedTimeDay: .sunday,
+			alternativeSpeedTimeEnd: .hour0000
+		))
+	}
 	
 	private func makeSUTWithAllTextFieldErrorShown() -> SpeedSettingsPage {
 		SpeedSettingsPage(viewModel: SpeedSettingsPageViewModel(
