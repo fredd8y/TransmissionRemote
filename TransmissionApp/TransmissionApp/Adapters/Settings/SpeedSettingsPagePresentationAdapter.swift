@@ -114,6 +114,31 @@ class SpeedSettingsPagePresentationAdapter {
 		cancelCurrentLoadingTasks()
 	}
 	
+	func dayName(_ day: SpeedSettingsDay) -> String {
+		switch day {
+		case .everyday:
+			return SpeedSettingsPagePresenter.everyday
+		case .weekdays:
+			return SpeedSettingsPagePresenter.weekdays
+		case .weekends:
+			return SpeedSettingsPagePresenter.weekends
+		case .sunday:
+			return SpeedSettingsPagePresenter.sunday
+		case .monday:
+			return SpeedSettingsPagePresenter.monday
+		case .tuesday:
+			return SpeedSettingsPagePresenter.tuesday
+		case .wednesday:
+			return SpeedSettingsPagePresenter.wednesday
+		case .thursday:
+			return SpeedSettingsPagePresenter.thursday
+		case .friday:
+			return SpeedSettingsPagePresenter.friday
+		case .saturday:
+			return SpeedSettingsPagePresenter.saturday
+		}
+	}
+	
 	private func cancelCurrentLoadingTasks() {
 		cancellables.removeAll()
 	}

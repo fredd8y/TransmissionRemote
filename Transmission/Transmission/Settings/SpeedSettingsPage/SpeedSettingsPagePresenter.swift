@@ -73,6 +73,86 @@ public class SpeedSettingsPagePresenter {
 			comment: "Confirm button title")
 	}
 	
+	public static var everyday: String {
+		NSLocalizedString(
+			"EVERYDAY",
+			tableName: "SpeedSettings",
+			bundle: Bundle(for: SpeedSettingsPagePresenter.self),
+			comment: "everyday description")
+	}
+	
+	public static var weekdays: String {
+		NSLocalizedString(
+			"WEEKDAYS",
+			tableName: "SpeedSettings",
+			bundle: Bundle(for: SpeedSettingsPagePresenter.self),
+			comment: "weekdays description")
+	}
+	
+	public static var weekends: String {
+		NSLocalizedString(
+			"WEEKENDS",
+			tableName: "SpeedSettings",
+			bundle: Bundle(for: SpeedSettingsPagePresenter.self),
+			comment: "weekends description")
+	}
+	
+	public static var sunday: String {
+		NSLocalizedString(
+			"SUNDAY",
+			tableName: "SpeedSettings",
+			bundle: Bundle(for: SpeedSettingsPagePresenter.self),
+			comment: "sunday description")
+	}
+	
+	public static var monday: String {
+		NSLocalizedString(
+			"MONDAY",
+			tableName: "SpeedSettings",
+			bundle: Bundle(for: SpeedSettingsPagePresenter.self),
+			comment: "monday description")
+	}
+	
+	public static var tuesday: String {
+		NSLocalizedString(
+			"TUESDAY",
+			tableName: "SpeedSettings",
+			bundle: Bundle(for: SpeedSettingsPagePresenter.self),
+			comment: "tuesday description")
+	}
+	
+	public static var wednesday: String {
+		NSLocalizedString(
+			"WEDNESDAY",
+			tableName: "SpeedSettings",
+			bundle: Bundle(for: SpeedSettingsPagePresenter.self),
+			comment: "wednesday description")
+	}
+	
+	public static var thursday: String {
+		NSLocalizedString(
+			"THURSDAY",
+			tableName: "SpeedSettings",
+			bundle: Bundle(for: SpeedSettingsPagePresenter.self),
+			comment: "thursday description")
+	}
+	
+	public static var friday: String {
+		NSLocalizedString(
+			"FRIDAY",
+			tableName: "SpeedSettings",
+			bundle: Bundle(for: SpeedSettingsPagePresenter.self),
+			comment: "friday description")
+	}
+	
+	public static var saturday: String {
+		NSLocalizedString(
+			"SATURDAY",
+			tableName: "SpeedSettings",
+			bundle: Bundle(for: SpeedSettingsPagePresenter.self),
+			comment: "saturday description")
+	}
+	
 	public static func map(_ speedSettings: SpeedSettings) -> SpeedSettingsPageViewModel {
 		SpeedSettingsPageViewModel(
 			isLoading: false,
@@ -88,10 +168,20 @@ public class SpeedSettingsPagePresenter {
 			alternativeDownloadLimit: speedSettings.altSpeedDown.description,
 			alternativeDownloadLimitError: false,
 			scheduledTimesEnabled: speedSettings.altSpeedTimeEnabled,
-			alternativeSpeedTimeBegin: speedSettings.altSpeedTimeBegin.description,
-			alternativeSpeedTimeDay: speedSettings.altSpeedTimeDay.description,
-			alternativeSpeedTimeEnd: speedSettings.altSpeedTimeEnd.description
+			alternativeSpeedTimeBegin: speedSettings.altSpeedTimeBegin.speedSettingsHour ?? .hour0000,
+			alternativeSpeedTimeDay: speedSettings.altSpeedTimeDay.speedSettingsDay ?? .everyday,
+			alternativeSpeedTimeEnd: speedSettings.altSpeedTimeEnd.speedSettingsHour ?? .hour0000
 		)
 	}
 	
+}
+
+private extension Int {
+	var speedSettingsHour: SpeedSettingsHour? {
+		return SpeedSettingsHour(rawValue: self)
+	}
+	
+	var speedSettingsDay: SpeedSettingsDay? {
+		return SpeedSettingsDay(rawValue: self)
+	}
 }

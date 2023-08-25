@@ -14,3 +14,13 @@
 "ALTERNATIVE_SPEED_LIMITS_HEADER" = "Alternative speed limits";
 "ALTERNATIVE_SPEED_DESCRIPTION" = "Override normal speed limits manually or at a scheduled times";
 "CONFIRM" = "Confirm";
+"EVERYDAY" = "Everyday";
+"WEEKDAYS" = "Weekdays";
+"WEEKENDS" = "Weekends";
+"SUNDAY" = "Sunday";
+"MONDAY" = "Monday";
+"TUESDAY" = "Tuesday";
+"WEDNESDAY" = "Wednesday";
+"THURSDAY" = "Thursday";
+"FRIDAY" = "Friday";
+"SATURDAY" = "Saturday";

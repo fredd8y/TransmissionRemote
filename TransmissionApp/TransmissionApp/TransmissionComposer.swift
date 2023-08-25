@@ -140,6 +140,7 @@ final class TransmissionComposer {
 			speedSettingsPage.onDownloadLimit = speedSettingsPagePresentationAdapter.downloadLimit
 			speedSettingsPage.onAlternativeUploadLimit = speedSettingsPagePresentationAdapter.alternativeUploadLimit
 			speedSettingsPage.onAlternativeDownloadLimit = speedSettingsPagePresentationAdapter.alternativeDownloadLimit
+			speedSettingsPage.dayName = speedSettingsPagePresentationAdapter.dayName
 			return speedSettingsPage
 		}
 		return settingsPage

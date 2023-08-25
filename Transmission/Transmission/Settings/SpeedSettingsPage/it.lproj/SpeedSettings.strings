@@ -14,3 +14,13 @@
 "ALTERNATIVE_SPEED_LIMITS_HEADER" = "Limite velocità alternativo";
 "ALTERNATIVE_SPEED_DESCRIPTION" = "Sovrascrivi i normali limti di velocità manualmente o in un determinato intervallo di tempo";
 "CONFIRM" = "Conferma";
+"EVERYDAY" = "Tutti i giorni";
+"WEEKDAYS" = "Giorni feriali";
+"WEEKENDS" = "Weekend";
+"SUNDAY" = "Domenica";
+"MONDAY" = "Lunedì";
+"TUESDAY" = "Martedì";
+"WEDNESDAY" = "Mercoledì";
+"THURSDAY" = "Giovedì";
+"FRIDAY" = "Venerdì";
+"SATURDAY" = "Sabato";

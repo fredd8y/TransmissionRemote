@@ -43,12 +43,8 @@ public struct SpeedSettingsPage: View {
 	public var onAlternativeUploadLimit: ((String) -> Void)?
 	
 	public var onAlternativeDownloadLimit: ((String) -> Void)?
-		
-//	@State private var fromSelection: Int = 0
-//	
-//	@State private var toSelection: Int = 0
-//	
-//	@State private var onDaysSelection: Int = 0
+	
+	public var dayName: ((SpeedSettingsDay) -> String)?
 	
     public var body: some View {
 		VStack {
@@ -135,36 +131,36 @@ public struct SpeedSettingsPage: View {
 										.foregroundColor(.red)
 								}
 							}
-//							VStack(alignment: .leading) {
-//								Toggle(isOn: $viewModel.scheduledTimesEnabled) {
-//									Text("Scheduled times")
-//								}.onChange(of: viewModel.downloadLimitEnabled) { newValue in
-//									onScheduledTimesEnabledChange?(newValue)
-//								}
-//								VStack(alignment: .leading, spacing: 8) {
-//									Picker("From", selection: $fromSelection) {
-//										ForEach(0..<10) {
-//											Text($0.description)
-//										}
-//									}
-//									.font(.subheadline)
-//									.disabled(!viewModel.scheduledTimesEnabled)
-//									Picker("To", selection: $toSelection) {
-//										ForEach(0..<10) {
-//											Text($0.description)
-//										}
-//									}
-//									.font(.subheadline)
-//									.disabled(!viewModel.scheduledTimesEnabled)
-//									Picker("On days", selection: $onDaysSelection) {
-//										ForEach(0..<10) {
-//											Text($0.description)
-//										}
-//									}
-//									.font(.subheadline)
-//									.disabled(!viewModel.scheduledTimesEnabled)
-//								}
-//							}
+							VStack(alignment: .leading) {
+								Toggle(isOn: $viewModel.scheduledTimesEnabled) {
+									Text("Scheduled times")
+								}.onChange(of: viewModel.downloadLimitEnabled) { newValue in
+									onScheduledTimesEnabledChange?(newValue)
+								}
+								VStack(alignment: .leading, spacing: 8) {
+									Picker("From", selection: $viewModel.alternativeSpeedTimeBegin) {
+										ForEach(SpeedSettingsHour.allCases, id: \.self) {
+											Text($0.description)
+										}
+									}
+									.font(.subheadline)
+									.disabled(!viewModel.scheduledTimesEnabled)
+									Picker("To", selection: $viewModel.alternativeSpeedTimeDay) {
+										ForEach(SpeedSettingsHour.allCases, id: \.self) {
+											Text($0.description)
+										}
+									}
+									.font(.subheadline)
+									.disabled(!viewModel.scheduledTimesEnabled)
+									Picker("On days", selection: $viewModel.alternativeSpeedTimeEnd) {
+										ForEach(SpeedSettingsDay.allCases, id: \.self) {
+											Text(dayName?($0) ?? "-")
+										}
+									}
+									.font(.subheadline)
+									.disabled(!viewModel.scheduledTimesEnabled)
+								}
+							}
 						}
 					}
 					.listStyle(.insetGrouped)
@@ -223,9 +219,9 @@ struct SpeedSettingsPage_Previews: PreviewProvider {
 			alternativeDownloadLimit: "100",
 			alternativeDownloadLimitError: false,
 			scheduledTimesEnabled: false,
-			alternativeSpeedTimeBegin: "100",
-			alternativeSpeedTimeDay: "100",
-        	alternativeSpeedTimeEnd: "100"
+			alternativeSpeedTimeBegin: .hour0030,
+			alternativeSpeedTimeDay: .saturday,
+			alternativeSpeedTimeEnd: .hour0145
         ))
 	}
 }

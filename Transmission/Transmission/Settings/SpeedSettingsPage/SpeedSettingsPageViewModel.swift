@@ -22,9 +22,9 @@ public class SpeedSettingsPageViewModel: ObservableObject {
 		alternativeDownloadLimit: String,
 		alternativeDownloadLimitError: Bool,
 		scheduledTimesEnabled: Bool,
-		alternativeSpeedTimeBegin: String,
-		alternativeSpeedTimeDay: String,
-		alternativeSpeedTimeEnd: String
+		alternativeSpeedTimeBegin: SpeedSettingsHour,
+		alternativeSpeedTimeDay: SpeedSettingsDay,
+		alternativeSpeedTimeEnd: SpeedSettingsHour
 	) {
 		self.isLoading = isLoading
 		self.errorMessage = errorMessage
@@ -57,7 +57,7 @@ public class SpeedSettingsPageViewModel: ObservableObject {
 	@Published public var alternativeDownloadLimit: String
 	@Published public var alternativeDownloadLimitError: Bool
 	@Published public var scheduledTimesEnabled: Bool
-	@Published public var alternativeSpeedTimeBegin: String
-	@Published public var alternativeSpeedTimeDay: String
-	@Published public var alternativeSpeedTimeEnd: String
+	@Published public var alternativeSpeedTimeBegin: SpeedSettingsHour
+	@Published public var alternativeSpeedTimeDay: SpeedSettingsDay
+	@Published public var alternativeSpeedTimeEnd: SpeedSettingsHour
 }

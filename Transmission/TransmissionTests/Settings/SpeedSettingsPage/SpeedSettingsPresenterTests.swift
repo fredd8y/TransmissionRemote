@@ -44,12 +44,52 @@ final class SpeedSettingsPresenterTests: XCTestCase {
 		XCTAssertEqual(SpeedSettingsPagePresenter.confirm, localized("CONFIRM", table: table))
 	}
 	
+	func test_everyday_islocalized() {
+		XCTAssertEqual(SpeedSettingsPagePresenter.everyday, localized("EVERYDAY", table: table))
+	}
+	
+	func test_weekdays_islocalized() {
+		XCTAssertEqual(SpeedSettingsPagePresenter.weekdays, localized("WEEKDAYS", table: table))
+	}
+	
+	func test_weekends_islocalized() {
+		XCTAssertEqual(SpeedSettingsPagePresenter.weekends, localized("WEEKENDS", table: table))
+	}
+	
+	func test_sunday_islocalized() {
+		XCTAssertEqual(SpeedSettingsPagePresenter.sunday, localized("SUNDAY", table: table))
+	}
+	
+	func test_monday_islocalized() {
+		XCTAssertEqual(SpeedSettingsPagePresenter.monday, localized("MONDAY", table: table))
+	}
+	
+	func test_tuesday_islocalized() {
+		XCTAssertEqual(SpeedSettingsPagePresenter.tuesday, localized("TUESDAY", table: table))
+	}
+	
+	func test_wednesday_islocalized() {
+		XCTAssertEqual(SpeedSettingsPagePresenter.wednesday, localized("WEDNESDAY", table: table))
+	}
+	
+	func test_thursday_islocalized() {
+		XCTAssertEqual(SpeedSettingsPagePresenter.thursday, localized("THURSDAY", table: table))
+	}
+	
+	func test_friday_islocalized() {
+		XCTAssertEqual(SpeedSettingsPagePresenter.friday, localized("FRIDAY", table: table))
+	}
+	
+	func test_saturday_islocalized() {
+		XCTAssertEqual(SpeedSettingsPagePresenter.saturday, localized("SATURDAY", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let altSpeedDown = 100
-		let altSpeedTimeBegin = 100
-		let altSpeedTimeDay = 100
+		let altSpeedTimeBegin = 15
+		let altSpeedTimeDay = 1
 		let altSpeedTimeEnabled = false
-		let altSpeedTimeEnd = 100
+		let altSpeedTimeEnd = 75
 		let altSpeedUp = 100
 		let speedLimitDownEnabled = true
 		let speedLimitDown = 100
@@ -70,10 +110,10 @@ final class SpeedSettingsPresenterTests: XCTestCase {
 		))
 		
 		XCTAssertEqual(viewModel.alternativeDownloadLimit, "100")
-		XCTAssertEqual(viewModel.alternativeSpeedTimeBegin, "100")
-		XCTAssertEqual(viewModel.alternativeSpeedTimeDay, "100")
+		XCTAssertEqual(viewModel.alternativeSpeedTimeBegin, .hour0015)
+		XCTAssertEqual(viewModel.alternativeSpeedTimeDay, .sunday)
 		XCTAssertEqual(viewModel.scheduledTimesEnabled, false)
-		XCTAssertEqual(viewModel.alternativeSpeedTimeEnd, "100")
+		XCTAssertEqual(viewModel.alternativeSpeedTimeEnd, .hour0115)
 		XCTAssertEqual(viewModel.alternativeUploadLimit, "100")
 		XCTAssertEqual(viewModel.downloadLimitEnabled, true)
 		XCTAssertEqual(viewModel.downloadLimit, "100")
