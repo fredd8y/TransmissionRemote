@@ -7,3 +7,10 @@
 */
 
 "TITLE" = "Impostazioni velocità";
+"SPEED_LIMITS_HEADER" = "Limite veloctià";
+"UPLOAD_TOGGLE_TITLE" = "Upload (KB/s)";
+"MUST_BE_A_NUMBER_ERROR" = "Dev'essere un numero";
+"DOWNLOAD_TOGGLE_TITLE" = "Download (KB/s)";
+"ALTERNATIVE_SPEED_LIMITS_HEADER" = "Limite velocità alternativo";
+"ALTERNATIVE_SPEED_DESCRIPTION" = "Sovrascrivi i normali limti di velocità manualmente o in un determinato intervallo di tempo";
+"CONFIRM" = "Conferma";

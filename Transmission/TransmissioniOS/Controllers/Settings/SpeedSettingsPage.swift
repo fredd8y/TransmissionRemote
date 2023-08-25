@@ -68,18 +68,18 @@ public struct SpeedSettingsPage: View {
 					Spacer()
 				} else {
 					List {
-						Section("Speed limits") {
+						Section(SpeedSettingsPagePresenter.speedLimitsHeader) {
 							Toggle(isOn: $viewModel.uploadLimitEnabled) {
 								VStack(alignment: .leading, spacing: 8) {
-									Text("Upload (KB/s)")
+									Text(SpeedSettingsPagePresenter.uploadToggleTitle)
 										.font(.subheadline)
-									TextField("Upload (KB/s)", text: $viewModel.uploadLimit)
+									TextField(SpeedSettingsPagePresenter.uploadToggleTitle, text: $viewModel.uploadLimit)
 										.textFieldStyle(.roundedBorder)
 										.keyboardType(.numberPad)
 										.disabled(!viewModel.uploadLimitEnabled)
 										.focused($uploadLimitFocused)
 									if viewModel.uploadLimitError {
-										Text("Must be a number")
+										Text(SpeedSettingsPagePresenter.mustBeANumberError)
 											.font(.caption2)
 											.foregroundColor(.red)
 									}
@@ -89,15 +89,15 @@ public struct SpeedSettingsPage: View {
 							}
 							Toggle(isOn: $viewModel.downloadLimitEnabled) {
 								VStack(alignment: .leading, spacing: 8) {
-									Text("Download (KB/s)")
+									Text(SpeedSettingsPagePresenter.downloadToggleTitle)
 										.font(.subheadline)
-									TextField("Download (KB/s)", text: $viewModel.downloadLimit)
+									TextField(SpeedSettingsPagePresenter.downloadToggleTitle, text: $viewModel.downloadLimit)
 										.textFieldStyle(.roundedBorder)
 										.keyboardType(.numberPad)
 										.disabled(!viewModel.downloadLimitEnabled)
 										.focused($downloadLimitFocused)
 									if viewModel.downloadLimitError {
-										Text("Must be a number")
+										Text(SpeedSettingsPagePresenter.mustBeANumberError)
 											.font(.caption2)
 											.foregroundColor(.red)
 									}
@@ -106,31 +106,31 @@ public struct SpeedSettingsPage: View {
 								onDownloadLimitEnabledChange?(newValue)
 							}
 						}
-						Section("Alternative speed limits") {
-							Text("Override normal speed limits manually or at a scheduled times")
+						Section(SpeedSettingsPagePresenter.alternativeSpeedLimitsHeader) {
+							Text(SpeedSettingsPagePresenter.alternativeSpeedDescription)
 								.font(.caption)
 							VStack(alignment: .leading, spacing: 8) {
-								Text("Upload (KB/s)")
+								Text(SpeedSettingsPagePresenter.uploadToggleTitle)
 									.font(.subheadline)
-								TextField("Upload (KB/s)", text: $viewModel.alternativeUploadLimit)
+								TextField(SpeedSettingsPagePresenter.uploadToggleTitle, text: $viewModel.alternativeUploadLimit)
 									.textFieldStyle(.roundedBorder)
 									.keyboardType(.numberPad)
 									.focused($alternativeUploadLimitFocused)
 								if viewModel.alternativeUploadLimitError {
-									Text("Must be a number")
+									Text(SpeedSettingsPagePresenter.mustBeANumberError)
 										.font(.caption2)
 										.foregroundColor(.red)
 								}
 							}
 							VStack(alignment: .leading, spacing: 8) {
-								Text("Download (KB/s)")
+								Text(SpeedSettingsPagePresenter.downloadToggleTitle)
 									.font(.subheadline)
-								TextField("Download (KB/s)", text: $viewModel.alternativeDownloadLimit)
+								TextField(SpeedSettingsPagePresenter.downloadToggleTitle, text: $viewModel.alternativeDownloadLimit)
 									.textFieldStyle(.roundedBorder)
 									.keyboardType(.numberPad)
 									.focused($alternativeDownloadLimitFocused)
 								if viewModel.alternativeDownloadLimitError {
-									Text("Must be a number")
+									Text(SpeedSettingsPagePresenter.mustBeANumberError)
 										.font(.caption2)
 										.foregroundColor(.red)
 								}
@@ -171,7 +171,7 @@ public struct SpeedSettingsPage: View {
 					.toolbar {
 						ToolbarItemGroup(placement: .keyboard) {
 							Spacer()
-							Button("Confirm") {
+							Button(SpeedSettingsPagePresenter.confirm) {
 								if uploadLimitFocused {
 									uploadLimitFocused.toggle()
 									onUploadLimit?(viewModel.uploadLimit)

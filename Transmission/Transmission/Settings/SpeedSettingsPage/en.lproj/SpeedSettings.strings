@@ -7,3 +7,10 @@
 */
 
 "TITLE" = "Speed settings";
+"SPEED_LIMITS_HEADER" = "Speed limits";
+"UPLOAD_TOGGLE_TITLE" = "Upload (KB/s)";
+"MUST_BE_A_NUMBER_ERROR" = "Must be a number";
+"DOWNLOAD_TOGGLE_TITLE" = "Download (KB/s)";
+"ALTERNATIVE_SPEED_LIMITS_HEADER" = "Alternative speed limits";
+"ALTERNATIVE_SPEED_DESCRIPTION" = "Override normal speed limits manually or at a scheduled times";
+"CONFIRM" = "Confirm";

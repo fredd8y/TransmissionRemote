@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SpeedSettings {
+public struct SpeedSettings: Equatable {
 	public init(
 		altSpeedDown: Int,
 		altSpeedTimeBegin: Int,
