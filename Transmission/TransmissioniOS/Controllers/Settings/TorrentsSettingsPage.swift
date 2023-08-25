@@ -178,7 +178,7 @@ struct TorrentsSettingsPage_Previews: PreviewProvider {
 			isLoading: false,
 			seedRatioLimitError: false,
 			idleSeedingLimitError: false,
-			downloadDirError: true
+			downloadDirError: false
 		))
     }
 }

@@ -19,6 +19,8 @@ public class SpeedSettingsPagePresenter {
 	
 	public static func map(_ speedSettings: SpeedSettings) -> SpeedSettingsPageViewModel {
 		SpeedSettingsPageViewModel(
+			isLoading: false,
+			errorMessage: nil,
 			uploadLimitEnabled: speedSettings.speedLimitUpEnabled,
 			uploadLimit: speedSettings.speedLimitUp.description,
 			uploadLimitError: false,

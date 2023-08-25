@@ -107,24 +107,33 @@ final class TransmissionComposer {
 			settingsViewModel: settingsPageViewModel
 		)
 				
-		let torrentsSettingsPagePresenterAdapter = TorrentsSettingsPagePresentationAdapter()
+		let torrentsSettingsPagePresentationAdapter = TorrentsSettingsPagePresentationAdapter()
+		let speedSettingsPagePresentationAdapter = SpeedSettingsPagePresentationAdapter()
 		
 		var settingsPage = SettingsPage(viewModel: settingsPageViewModel, serverPage: serverPage)
 		settingsPage.loadData = settingsPagePresentationAdapter.loadData
 		settingsPage.pollingRateSelected = settingsPagePresentationAdapter.selectedPollingRate
 		settingsPage.torrentsSettingsSelected = {
-			var torrentsSettingsPage = torrentsSettingsPagePresenterAdapter.showTorrentsSettingsPage()
-			torrentsSettingsPage.onAppear = torrentsSettingsPagePresenterAdapter.loadData
-			torrentsSettingsPage.onRefresh = torrentsSettingsPagePresenterAdapter.loadData
-			torrentsSettingsPage.onDisappear = torrentsSettingsPagePresenterAdapter.stopLoadingData
-			torrentsSettingsPage.onDownloadDirChange = torrentsSettingsPagePresenterAdapter.setDownloadDir
-			torrentsSettingsPage.onSeedRatioLimitChange = torrentsSettingsPagePresenterAdapter.setSeedRatioLimit
-			torrentsSettingsPage.onIdleSeedingLimitChange = torrentsSettingsPagePresenterAdapter.setIdleSeedingLimit
-			torrentsSettingsPage.onSeedRatioLimitedChange = torrentsSettingsPagePresenterAdapter.setSeedRatioLimited
-			torrentsSettingsPage.onStartAddedTorrentChange = torrentsSettingsPagePresenterAdapter.setStartAddedTorrent
-			torrentsSettingsPage.onRenamePartialFilesChange = torrentsSettingsPagePresenterAdapter.setRenamePartialFiles
-			torrentsSettingsPage.onIdleSeedingLimitEnabledChange = torrentsSettingsPagePresenterAdapter.setIdleSeedingLimitEnabled
+			var torrentsSettingsPage = torrentsSettingsPagePresentationAdapter.showTorrentsSettingsPage()
+			torrentsSettingsPage.onAppear = torrentsSettingsPagePresentationAdapter.loadData
+			torrentsSettingsPage.onRefresh = torrentsSettingsPagePresentationAdapter.loadData
+			torrentsSettingsPage.onDisappear = torrentsSettingsPagePresentationAdapter.stopLoadingData
+			torrentsSettingsPage.onDownloadDirChange = torrentsSettingsPagePresentationAdapter.setDownloadDir
+			torrentsSettingsPage.onSeedRatioLimitChange = torrentsSettingsPagePresentationAdapter.setSeedRatioLimit
+			torrentsSettingsPage.onIdleSeedingLimitChange = torrentsSettingsPagePresentationAdapter.setIdleSeedingLimit
+			torrentsSettingsPage.onSeedRatioLimitedChange = torrentsSettingsPagePresentationAdapter.setSeedRatioLimited
+			torrentsSettingsPage.onStartAddedTorrentChange = torrentsSettingsPagePresentationAdapter.setStartAddedTorrent
+			torrentsSettingsPage.onRenamePartialFilesChange = torrentsSettingsPagePresentationAdapter.setRenamePartialFiles
+			torrentsSettingsPage.onIdleSeedingLimitEnabledChange = torrentsSettingsPagePresentationAdapter.setIdleSeedingLimitEnabled
 			return torrentsSettingsPage
+		}
+		
+		settingsPage.speedSettingsSelected = {
+			var speedSettingsPage = speedSettingsPagePresentationAdapter.showSpeedSettingsPage()
+			speedSettingsPage.onAppear = speedSettingsPagePresentationAdapter.loadData
+			speedSettingsPage.onRefresh = speedSettingsPagePresentationAdapter.loadData
+			speedSettingsPage.onDisappear = speedSettingsPagePresentationAdapter.stopLoadingData
+			return speedSettingsPage
 		}
 		return settingsPage
 	}

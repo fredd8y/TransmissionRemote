@@ -9,6 +9,8 @@ import SwiftUI
 
 public class SpeedSettingsPageViewModel: ObservableObject {
 	public init(
+		isLoading: Bool,
+		errorMessage: String?,
 		uploadLimitEnabled: Bool,
 		uploadLimit: String,
 		uploadLimitError: Bool,
@@ -24,6 +26,8 @@ public class SpeedSettingsPageViewModel: ObservableObject {
 		alternativeSpeedTimeDay: String,
 		alternativeSpeedTimeEnd: String
 	) {
+		self.isLoading = isLoading
+		self.errorMessage = errorMessage
 		self.uploadLimitEnabled = uploadLimitEnabled
 		self.uploadLimit = uploadLimit
 		self.uploadLimitError = uploadLimitError
@@ -40,6 +44,8 @@ public class SpeedSettingsPageViewModel: ObservableObject {
 		self.alternativeSpeedTimeEnd = alternativeSpeedTimeEnd
 	}
 	
+	@Published public var isLoading: Bool
+	@Published public var errorMessage: String?
 	@Published public var uploadLimitEnabled: Bool
 	@Published public var uploadLimit: String
 	@Published public var uploadLimitError: Bool

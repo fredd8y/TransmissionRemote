@@ -64,6 +64,14 @@ public class SettingsPagePresenter {
 			comment: "Torrent settings description")
 	}
 	
+	public static var speedSettings: String {
+		NSLocalizedString(
+			"SPEED_SETTINGS",
+			tableName: "Settings",
+			bundle: Bundle(for: SettingsPagePresenter.self),
+			comment: "Speed settings description")
+	}
+	
 	public static func map(
 		title: String,
 		pollingRateTitle: String,
