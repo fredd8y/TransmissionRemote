@@ -134,7 +134,7 @@ public struct SpeedSettingsPage: View {
 							VStack(alignment: .leading) {
 								Toggle(isOn: $viewModel.scheduledTimesEnabled) {
 									Text("Scheduled times")
-								}.onChange(of: viewModel.downloadLimitEnabled) { newValue in
+								}.onChange(of: viewModel.scheduledTimesEnabled) { newValue in
 									onScheduledTimesEnabledChange?(newValue)
 								}
 								VStack(alignment: .leading, spacing: 8) {
@@ -145,14 +145,14 @@ public struct SpeedSettingsPage: View {
 									}
 									.font(.subheadline)
 									.disabled(!viewModel.scheduledTimesEnabled)
-									Picker("To", selection: $viewModel.alternativeSpeedTimeDay) {
+									Picker("To", selection: $viewModel.alternativeSpeedTimeEnd) {
 										ForEach(SpeedSettingsHour.allCases, id: \.self) {
 											Text($0.description)
 										}
 									}
 									.font(.subheadline)
 									.disabled(!viewModel.scheduledTimesEnabled)
-									Picker("On days", selection: $viewModel.alternativeSpeedTimeEnd) {
+									Picker("On days", selection: $viewModel.alternativeSpeedTimeDay) {
 										ForEach(SpeedSettingsDay.allCases, id: \.self) {
 											Text(dayName?($0) ?? "-")
 										}

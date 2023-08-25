@@ -24,9 +24,9 @@ extension SpeedSettingsPageViewModel {
 			alternativeDownloadLimit: "-",
 			alternativeDownloadLimitError: false,
 			scheduledTimesEnabled: false,
-			alternativeSpeedTimeBegin: "-",
-			alternativeSpeedTimeDay: "-",
-			alternativeSpeedTimeEnd: "-"
+			alternativeSpeedTimeBegin: .hour0000,
+			alternativeSpeedTimeDay: .everyday,
+			alternativeSpeedTimeEnd: .hour0000
 		)
 	}
 	
@@ -45,9 +45,9 @@ extension SpeedSettingsPageViewModel {
 			alternativeDownloadLimit: "-",
 			alternativeDownloadLimitError: false,
 			scheduledTimesEnabled: false,
-			alternativeSpeedTimeBegin: "-",
-			alternativeSpeedTimeDay: "-",
-			alternativeSpeedTimeEnd: "-"
+			alternativeSpeedTimeBegin: .hour0000,
+			alternativeSpeedTimeDay: .everyday,
+			alternativeSpeedTimeEnd: .hour0000
 		)
 	}
 }
