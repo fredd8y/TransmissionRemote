@@ -13,6 +13,10 @@
 "DOWNLOAD_TOGGLE_TITLE" = "Download (KB/s)";
 "ALTERNATIVE_SPEED_LIMITS_HEADER" = "Alternative speed limits";
 "ALTERNATIVE_SPEED_DESCRIPTION" = "Override normal speed limits manually or at a scheduled times";
+"SCHEDULED_TIMES" = "Scheduled times";
+"FROM" = "From";
+"TO" = "To";
+"ON_DAYS" = "On days";
 "CONFIRM" = "Confirm";
 "EVERYDAY" = "Everyday";
 "WEEKDAYS" = "Weekdays";

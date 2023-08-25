@@ -139,12 +139,12 @@ public struct SpeedSettingsPage: View {
 							}
 							VStack(alignment: .leading) {
 								Toggle(isOn: $viewModel.scheduledTimesEnabled) {
-									Text("Scheduled times")
+									Text(SpeedSettingsPagePresenter.scheduledTimes)
 								}.onChange(of: viewModel.scheduledTimesEnabled) { newValue in
 									onScheduledTimesEnabledChange?(newValue)
 								}
 								VStack(alignment: .leading, spacing: 8) {
-									Picker("From", selection: $viewModel.alternativeSpeedTimeBegin) {
+									Picker(SpeedSettingsPagePresenter.from, selection: $viewModel.alternativeSpeedTimeBegin) {
 										ForEach(SpeedSettingsHour.allCases, id: \.self) {
 											Text($0.description)
 										}
@@ -154,7 +154,7 @@ public struct SpeedSettingsPage: View {
 									.onChange(of: viewModel.alternativeSpeedTimeBegin) { newValue in
 										onAlternativeSpeedTimeBeginChange?(newValue)
 									}
-									Picker("To", selection: $viewModel.alternativeSpeedTimeEnd) {
+									Picker(SpeedSettingsPagePresenter.to, selection: $viewModel.alternativeSpeedTimeEnd) {
 										ForEach(SpeedSettingsHour.allCases, id: \.self) {
 											Text($0.description)
 										}
@@ -164,7 +164,7 @@ public struct SpeedSettingsPage: View {
 									.onChange(of: viewModel.alternativeSpeedTimeEnd) { newValue in
 										onAlternativeSpeedTimeEndChange?(newValue)
 									}
-									Picker("On days", selection: $viewModel.alternativeSpeedTimeDay) {
+									Picker(SpeedSettingsPagePresenter.onDays, selection: $viewModel.alternativeSpeedTimeDay) {
 										ForEach(SpeedSettingsDay.allCases, id: \.self) {
 											Text(dayName?($0) ?? "-")
 										}

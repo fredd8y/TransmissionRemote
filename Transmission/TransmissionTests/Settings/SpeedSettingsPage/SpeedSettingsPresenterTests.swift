@@ -84,6 +84,22 @@ final class SpeedSettingsPresenterTests: XCTestCase {
 		XCTAssertEqual(SpeedSettingsPagePresenter.saturday, localized("SATURDAY", table: table))
 	}
 	
+	func test_scheduledTimes_islocalized() {
+		XCTAssertEqual(SpeedSettingsPagePresenter.scheduledTimes, localized("SCHEDULED_TIMES", table: table))
+	}
+	
+	func test_from_islocalized() {
+		XCTAssertEqual(SpeedSettingsPagePresenter.from, localized("FROM", table: table))
+	}
+	
+	func test_to_islocalized() {
+		XCTAssertEqual(SpeedSettingsPagePresenter.to, localized("TO", table: table))
+	}
+	
+	func test_onDays_islocalized() {
+		XCTAssertEqual(SpeedSettingsPagePresenter.onDays, localized("ON_DAYS", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let altSpeedDown = 100
 		let altSpeedTimeBegin = 15

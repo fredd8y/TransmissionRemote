@@ -13,6 +13,10 @@
 "DOWNLOAD_TOGGLE_TITLE" = "Download (KB/s)";
 "ALTERNATIVE_SPEED_LIMITS_HEADER" = "Limite velocità alternativo";
 "ALTERNATIVE_SPEED_DESCRIPTION" = "Sovrascrivi i normali limti di velocità manualmente o in un determinato intervallo di tempo";
+"SCHEDULED_TIMES" = "Giorni programmati";
+"FROM" = "Da";
+"TO" = "A";
+"ON_DAYS" = "Nei giorni";
 "CONFIRM" = "Conferma";
 "EVERYDAY" = "Tutti i giorni";
 "WEEKDAYS" = "Giorni feriali";

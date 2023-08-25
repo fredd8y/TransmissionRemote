@@ -153,6 +153,38 @@ public class SpeedSettingsPagePresenter {
 			comment: "saturday description")
 	}
 	
+	public static var scheduledTimes: String {
+		NSLocalizedString(
+			"SCHEDULED_TIMES",
+			tableName: "SpeedSettings",
+			bundle: Bundle(for: SpeedSettingsPagePresenter.self),
+			comment: "scheduledTimes description")
+	}
+	
+	public static var from: String {
+		NSLocalizedString(
+			"FROM",
+			tableName: "SpeedSettings",
+			bundle: Bundle(for: SpeedSettingsPagePresenter.self),
+			comment: "from description")
+	}
+	
+	public static var to: String {
+		NSLocalizedString(
+			"TO",
+			tableName: "SpeedSettings",
+			bundle: Bundle(for: SpeedSettingsPagePresenter.self),
+			comment: "to description")
+	}
+	
+	public static var onDays: String {
+		NSLocalizedString(
+			"ON_DAYS",
+			tableName: "SpeedSettings",
+			bundle: Bundle(for: SpeedSettingsPagePresenter.self),
+			comment: "onDays description")
+	}
+	
 	public static func map(_ speedSettings: SpeedSettings) -> SpeedSettingsPageViewModel {
 		SpeedSettingsPageViewModel(
 			isLoading: false,
