@@ -19,6 +19,7 @@ class SpeedSettingsPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "SPEED_SETTINGS_PAGE_ALL_TOGGLE_ON_dark")
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "SPEED_SETTINGS_PAGE_ALL_TOGGLE_ON_light_extraExtraExtraLarge")
 	}
+	
 	func test_settingsPageWithAllToggleOff() {
 		let sut = makeSUTWithAllToggleOff()
 		
@@ -27,7 +28,36 @@ class SpeedSettingsPageTests: XCTestCase {
 		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "SPEED_SETTINGS_PAGE_ALL_TOGGLE_OFF_light_extraExtraExtraLarge")
 	}
 	
+	func test_settingsPageWithAllTextFieldErrorShown() {
+		let sut = makeSUTWithAllTextFieldErrorShown()
+		
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light)), named: "SPEED_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .dark)), named: "SPEED_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_dark")
+		assert(snapshot: sut.snapshot(.iPhone13(style: .light, contentSize: .extraExtraExtraLarge)), named: "SPEED_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light_extraExtraExtraLarge")
+	}
+	
 	// MARK: - Helpers
+	
+	private func makeSUTWithAllTextFieldErrorShown() -> SpeedSettingsPage {
+		SpeedSettingsPage(viewModel: SpeedSettingsPageViewModel(
+			isLoading: false,
+			errorMessage: nil,
+			uploadLimitEnabled: false,
+			uploadLimit: "error",
+			uploadLimitError: true,
+			downloadLimitEnabled: false,
+			downloadLimit: "error",
+			downloadLimitError: true,
+			alternativeUploadLimit: "error",
+			alternativeUploadLimitError: true,
+			alternativeDownloadLimit: "error",
+			alternativeDownloadLimitError: true,
+			scheduledTimesEnabled: false,
+			alternativeSpeedTimeBegin: .hour0000,
+			alternativeSpeedTimeDay: .sunday,
+			alternativeSpeedTimeEnd: .hour0000
+		))
+	}
 	
 	private func makeSUTWithAllToggleOff() -> SpeedSettingsPage {
 		SpeedSettingsPage(viewModel: SpeedSettingsPageViewModel(
@@ -49,6 +79,7 @@ class SpeedSettingsPageTests: XCTestCase {
 			alternativeSpeedTimeEnd: .hour0000
 		))
 	}
+	
 	private func makeSUTWithAllToggleOn() -> SpeedSettingsPage {
 		SpeedSettingsPage(viewModel: SpeedSettingsPageViewModel(
 			isLoading: false,
