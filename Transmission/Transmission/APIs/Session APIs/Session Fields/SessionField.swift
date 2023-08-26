@@ -11,7 +11,7 @@ public enum SessionField {
 	public static let altSpeedDown = "alt-speed-down"
 	public static let altSpeedEnabled = "alt-speed-enabled"
 	public static let altSpeedTimeBegin = "alt-speed-time-begin"
-	public static let altSpeesTimeDay = "alt-speed-time-day"
+	public static let altSpeedTimeDay = "alt-speed-time-day"
 	public static let altSpeedTimeEnabled = "alt-speed-time-enabled"
 	public static let altSpeedTimeEnd = "alt-speed-time-end"
 	public static let altSpeedUp = "alt-speed-up"

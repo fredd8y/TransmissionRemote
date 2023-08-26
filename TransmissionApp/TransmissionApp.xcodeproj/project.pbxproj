@@ -55,6 +55,12 @@
 		7BA01FDE2A7EBA4E00FBB43D /* CipherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FDD2A7EBA4E00FBB43D /* CipherTests.swift */; };
 		7BA01FE02A7FEF1A00FBB43D /* Base16Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FDF2A7FEF1A00FBB43D /* Base16Tests.swift */; };
 		7BA01FE22A7FEF4800FBB43D /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FE12A7FEF4800FBB43D /* Data+.swift */; };
+		7BA7E3452A98A8C000406BBB /* SpeedSettingsPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7E3442A98A8C000406BBB /* SpeedSettingsPublishers.swift */; };
+		7BA7E3462A98A8C000406BBB /* SpeedSettingsPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7E3442A98A8C000406BBB /* SpeedSettingsPublishers.swift */; };
+		7BA7E34C2A98B72A00406BBB /* SpeedSettingsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7E34B2A98B72A00406BBB /* SpeedSettingsPagePresentationAdapter.swift */; };
+		7BA7E34D2A98B72A00406BBB /* SpeedSettingsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7E34B2A98B72A00406BBB /* SpeedSettingsPagePresentationAdapter.swift */; };
+		7BA7E34F2A98B75300406BBB /* SpeedSettingsPageViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7E34E2A98B75300406BBB /* SpeedSettingsPageViewModel+Factory.swift */; };
+		7BA7E3502A98B75300406BBB /* SpeedSettingsPageViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA7E34E2A98B75300406BBB /* SpeedSettingsPageViewModel+Factory.swift */; };
 		7BB229D42A81477700F2408F /* SettingsPageViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF3C5B2A742B6E001206A8 /* SettingsPageViewModel+Factory.swift */; };
 		7BB229D52A81477700F2408F /* TransmissionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0D84D2A6EA90000B36367 /* TransmissionHTTPClient.swift */; };
 		7BB229D62A81477700F2408F /* Cipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA01FDB2A7EB68A00FBB43D /* Cipher.swift */; };
@@ -178,6 +184,9 @@
 		7BA01FDD2A7EBA4E00FBB43D /* CipherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CipherTests.swift; sourceTree = "<group>"; };
 		7BA01FDF2A7FEF1A00FBB43D /* Base16Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base16Tests.swift; sourceTree = "<group>"; };
 		7BA01FE12A7FEF4800FBB43D /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
+		7BA7E3442A98A8C000406BBB /* SpeedSettingsPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedSettingsPublishers.swift; sourceTree = "<group>"; };
+		7BA7E34B2A98B72A00406BBB /* SpeedSettingsPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedSettingsPagePresentationAdapter.swift; sourceTree = "<group>"; };
+		7BA7E34E2A98B75300406BBB /* SpeedSettingsPageViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeedSettingsPageViewModel+Factory.swift"; sourceTree = "<group>"; };
 		7BB229F42A81477700F2408F /* TransmissionAppDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransmissionAppDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BB229F52A81489600F2408F /* Combine+Publishers_Dev.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Publishers_Dev.swift"; sourceTree = "<group>"; };
 		7BB229FC2A8149DC00F2408F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -250,6 +259,7 @@
 			children = (
 				7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */,
 				7B23F0142A94F324008E00FF /* TorrentsSettingsPagePresentationAdapter.swift */,
+				7BA7E34B2A98B72A00406BBB /* SpeedSettingsPagePresentationAdapter.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -261,14 +271,6 @@
 				7B2325032A766E6800836B02 /* ServerPagePresentationAdapter.swift */,
 			);
 			path = Servers;
-			sourceTree = "<group>";
-		};
-		7B23F01D2A95045F008E00FF /* TorrentSettingsPublishers */ = {
-			isa = PBXGroup;
-			children = (
-				7B23F01E2A950471008E00FF /* TorrentsSettingsPublishers.swift */,
-			);
-			path = TorrentSettingsPublishers;
 			sourceTree = "<group>";
 		};
 		7B4BB74D2A7A77DC00A68EF5 /* Server File */ = {
@@ -291,6 +293,7 @@
 		7B8075AE2A94AF49003F0B17 /* Publishers */ = {
 			isa = PBXGroup;
 			children = (
+				7BA7E3432A98A8A900406BBB /* Settings */,
 				7B8075C92A94B323003F0B17 /* Session */,
 				7B8075C82A94B30E003F0B17 /* Polling Rate */,
 				7B8075C72A94B307003F0B17 /* Server */,
@@ -341,7 +344,6 @@
 		7B8075C92A94B323003F0B17 /* Session */ = {
 			isa = PBXGroup;
 			children = (
-				7B23F01D2A95045F008E00FF /* TorrentSettingsPublishers */,
 				7B8075CA2A94B344003F0B17 /* SessionSettingsPublishers.swift */,
 			);
 			path = Session;
@@ -366,6 +368,15 @@
 				7BA01FE12A7FEF4800FBB43D /* Data+.swift */,
 			);
 			path = Password;
+			sourceTree = "<group>";
+		};
+		7BA7E3432A98A8A900406BBB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7B23F01E2A950471008E00FF /* TorrentsSettingsPublishers.swift */,
+				7BA7E3442A98A8C000406BBB /* SpeedSettingsPublishers.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		7BC0D8072A6C158100B36367 = {
@@ -440,6 +451,7 @@
 				7BDF920C2A934C3F0041E0CC /* TorrentPeersPageViewModel+Factory.swift */,
 				7BDF92372A93827B0041E0CC /* TorrentTrackersPageViewModel+Factory.swift */,
 				7B23F0192A94F6B9008E00FF /* TorrentsSettingsPageViewModel+Factory.swift */,
+				7BA7E34E2A98B75300406BBB /* SpeedSettingsPageViewModel+Factory.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -604,6 +616,8 @@
 				7B8075E02A94B575003F0B17 /* TorrentAddPublishers.swift in Sources */,
 				7BB229D72A81477700F2408F /* SettingsPagePresentationAdapter.swift in Sources */,
 				7BB229D82A81477700F2408F /* TorrentsPageViewModel+Factory.swift in Sources */,
+				7BA7E3462A98A8C000406BBB /* SpeedSettingsPublishers.swift in Sources */,
+				7BA7E34D2A98B72A00406BBB /* SpeedSettingsPagePresentationAdapter.swift in Sources */,
 				7BB229D92A81477700F2408F /* Combine+MainQueueDispatcher.swift in Sources */,
 				7BB229DA2A81477700F2408F /* Logger_Dev.swift in Sources */,
 				7BB229DB2A81477700F2408F /* ServerDetailPagePresentationAdapter.swift in Sources */,
@@ -618,6 +632,7 @@
 				7BB229DD2A81477700F2408F /* Data+.swift in Sources */,
 				7B8075E22A94B575003F0B17 /* TorrentLoadPublishers.swift in Sources */,
 				7BB229DE2A81477700F2408F /* TransmissionApp.swift in Sources */,
+				7BA7E3502A98B75300406BBB /* SpeedSettingsPageViewModel+Factory.swift in Sources */,
 				7B8075DB2A94B575003F0B17 /* TorrentRemovePublishers.swift in Sources */,
 				7BDF91E02A8E72AC0041E0CC /* TorrentDetailPagePresentationAdapter.swift in Sources */,
 				7BB229DF2A81477700F2408F /* TransmissionComposer.swift in Sources */,
@@ -654,6 +669,8 @@
 				7BBF3C4B2A729554001206A8 /* SettingsPagePresentationAdapter.swift in Sources */,
 				7BB229FD2A8149DC00F2408F /* Logger.swift in Sources */,
 				7BC0D84C2A6EA20100B36367 /* TorrentsPageViewModel+Factory.swift in Sources */,
+				7BA7E3452A98A8C000406BBB /* SpeedSettingsPublishers.swift in Sources */,
+				7BA7E34C2A98B72A00406BBB /* SpeedSettingsPagePresentationAdapter.swift in Sources */,
 				7B6CD5CD2A71221B00E81983 /* Combine+MainQueueDispatcher.swift in Sources */,
 				7BDF920D2A934C3F0041E0CC /* TorrentPeersPageViewModel+Factory.swift in Sources */,
 				7B2348EA2A94B9AA00BD5834 /* TorrentField+FieldGroups.swift in Sources */,
@@ -668,6 +685,7 @@
 				7BC0D8142A6C158100B36367 /* TransmissionApp.swift in Sources */,
 				7B8075C52A94B2AC003F0B17 /* TorrentLoadPublishers.swift in Sources */,
 				7B7871D52A8E6B37005A16D6 /* TorrentDetailPagePresentationAdapter.swift in Sources */,
+				7BA7E34F2A98B75300406BBB /* SpeedSettingsPageViewModel+Factory.swift in Sources */,
 				7BC0D8452A6E3FE200B36367 /* TransmissionComposer.swift in Sources */,
 				7B8075BD2A94B170003F0B17 /* TorrentPeersPublishers.swift in Sources */,
 				7BBF3C5E2A742CF7001206A8 /* PollingRateHandler.swift in Sources */,

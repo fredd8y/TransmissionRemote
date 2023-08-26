@@ -22,4 +22,19 @@ extension SessionField {
 		]
 	}
 	
+	static var speedSettings: [String] {
+		[
+			altSpeedUp,
+			altSpeedDown,
+			speedLimitUp,
+			speedLimitDown,
+			altSpeedTimeDay,
+			altSpeedTimeEnd,
+			altSpeedTimeBegin,
+			altSpeedTimeEnabled,
+			speedLimitUpEnabled,
+			speedLimitDownEnabled
+		]
+	}
+	
 }

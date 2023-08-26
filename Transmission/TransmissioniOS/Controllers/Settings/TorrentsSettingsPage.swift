@@ -21,6 +21,10 @@ public struct TorrentsSettingsPage: View {
 	
 	@FocusState private var idleSeedingLimitFocused: Bool
 	
+	@Environment(\.isPresented) var isPresented
+	
+	@State private var tabBarVisibility: Visibility = .visible
+	
 	@ObservedObject private var viewModel: TorrentsSettingsPageViewModel
 	
 	public var onAppear: (() -> Void)?
@@ -150,11 +154,22 @@ public struct TorrentsSettingsPage: View {
 		}
 		.navigationTitle(TorrentsSettingsPagePresenter.title)
 		.navigationBarTitleDisplayMode(.inline)
+		.toolbar(tabBarVisibility, for: .tabBar)
 		.onAppear {
 			onAppear?()
 		}
 		.onDisappear {
 			onDisappear?()
+		}
+		.onLoad {
+			withAnimation {
+				tabBarVisibility = .hidden
+			}
+		}
+		.onChange(of: isPresented) { _ in
+			withAnimation {
+				tabBarVisibility = .visible
+			}
 		}
 		.if(viewModel.errorMessage != nil) { vStack in
 			vStack.refreshable {
@@ -178,7 +193,7 @@ struct TorrentsSettingsPage_Previews: PreviewProvider {
 			isLoading: false,
 			seedRatioLimitError: false,
 			idleSeedingLimitError: false,
-			downloadDirError: true
+			downloadDirError: false
 		))
     }
 }

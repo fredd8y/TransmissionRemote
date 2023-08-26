@@ -36,6 +36,14 @@ final class SettingsPresenterTests: XCTestCase {
 		XCTAssertEqual(SettingsPagePresenter.credits, localized("CREDITS", table: table))
 	}
 	
+	func test_torrentsSettings_isLocalized() {
+		XCTAssertEqual(SettingsPagePresenter.torrentsSettings, localized("TORRENTS_SETTINGS", table: table))
+	}
+	
+	func test_speedSettings_isLocalized() {
+		XCTAssertEqual(SettingsPagePresenter.speedSettings, localized("SPEED_SETTINGS", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Settings"
 		let pollingRateTitle = "Update interval"
