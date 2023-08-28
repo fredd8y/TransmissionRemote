@@ -142,4 +142,19 @@ enum PeersSettingsPublishers {
 			.tryMap(SessionSetMapper.map)
 			.eraseToAnyPublisher()
 	}
+	
+	static func makeBlocklistUpdatePublisher(
+		url: String,
+		server: Server
+	) -> AnyPublisher<Void, Error> {
+		return TransmissionHTTPClient.httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: BlocklistBodies.update,
+				additionalHeader: Headers.headers(server.credentials)
+			)
+			.tryMap(Logger.log)
+			.tryMap(BlocklistUpdateMapper.map)
+			.eraseToAnyPublisher()
+	}
 }

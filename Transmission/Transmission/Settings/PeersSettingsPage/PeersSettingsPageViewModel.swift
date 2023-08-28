@@ -9,6 +9,8 @@ import Foundation
 
 public class PeersSettingsPageViewModel: ObservableObject {
 	public init(
+		alertMessage: String?,
+		alertMessageVisible: Bool,
 		errorMessage: String?,
 		isLoading: Bool,
 		peerLimitGlobal: String,
@@ -24,6 +26,8 @@ public class PeersSettingsPageViewModel: ObservableObject {
 		blocklistUrlError: Bool,
 		encryption: PeersSettingsPageViewModel.Encryption
 	) {
+		self.alertMessage = alertMessage
+		self.alertMessageVisible = alertMessageVisible
 		self.errorMessage = errorMessage
 		self.isLoading = isLoading
 		self.peerLimitGlobal = peerLimitGlobal
@@ -40,6 +44,8 @@ public class PeersSettingsPageViewModel: ObservableObject {
 		self.encryption = encryption
 	}
 	
+	@Published public var alertMessage: String?
+	@Published public var alertMessageVisible: Bool
 	@Published public var errorMessage: String?
 	@Published public var isLoading: Bool
 	@Published public var peerLimitGlobal: String

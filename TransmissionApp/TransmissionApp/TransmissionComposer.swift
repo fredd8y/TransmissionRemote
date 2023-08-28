@@ -159,7 +159,7 @@ final class TransmissionComposer {
 			peersSettingsPage.onDhtEnabledChange = peersSettingsPagePresentationAdapter.onDhtEnabledChange
 			peersSettingsPage.onLpdEnabledChange = peersSettingsPagePresentationAdapter.onLpdEnabledChange
 			peersSettingsPage.onBlocklistEnabledChange = peersSettingsPagePresentationAdapter.onBlocklistEnabledChange
-//			peersSettingsPage.onUpdateTapped = peersSettingsPagePresentationAdapter.up
+			peersSettingsPage.onUpdateTapped = peersSettingsPagePresentationAdapter.onBlocklistUpdate
 			peersSettingsPage.onPeerLimitGlobalChange = peersSettingsPagePresentationAdapter.onPeerLimitGlobalChange
 			peersSettingsPage.onPeerLimitPerTorrentChange = peersSettingsPagePresentationAdapter.onPeerLimitPerTorrentChange
 			peersSettingsPage.onBlocklistUrlChange = peersSettingsPagePresentationAdapter.onBlocklistUrlChange

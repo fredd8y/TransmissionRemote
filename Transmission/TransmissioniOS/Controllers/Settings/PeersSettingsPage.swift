@@ -44,7 +44,7 @@ public struct PeersSettingsPage: View {
 	
 	public var onBlocklistEnabledChange: ((Bool) -> Void)?
 	
-	public var onUpdateTapped: (() -> Void)?
+	public var onUpdateTapped: ((String) -> Void)?
 	
 	public var onPeerLimitGlobalChange: ((String) -> Void)?
 	
@@ -145,7 +145,7 @@ public struct PeersSettingsPage: View {
 							VStack(alignment: .leading) {
 								Text(viewModel.blocklistSize)
 								Button {
-									onUpdateTapped?()
+									onUpdateTapped?(viewModel.blocklistUrl)
 								} label: {
 									Text("Update")
 								}
@@ -178,6 +178,20 @@ public struct PeersSettingsPage: View {
 		.navigationTitle(PeersSettingsPagePresenter.title)
 		.navigationBarTitleDisplayMode(.inline)
 		.toolbar(tabBarVisibility, for: .tabBar)
+		.alert(
+			"Error",
+			isPresented: $viewModel.alertMessageVisible,
+			actions: {
+				Button(action: {
+					viewModel.alertMessage = nil
+				}, label: {
+					Text("Ok")
+				})
+			},
+			message: {
+				Text(viewModel.alertMessage ?? "")
+			}
+		)
 		.onAppear {
 			onAppear?()
 		}
@@ -205,6 +219,8 @@ public struct PeersSettingsPage: View {
 struct PeersSettingsPage_Previews: PreviewProvider {
     static var previews: some View {
 		PeersSettingsPage(viewModel: PeersSettingsPageViewModel(
+			alertMessage: nil,
+			alertMessageVisible: false,
 			errorMessage: nil,
 			isLoading: false,
 			peerLimitGlobal: "500",

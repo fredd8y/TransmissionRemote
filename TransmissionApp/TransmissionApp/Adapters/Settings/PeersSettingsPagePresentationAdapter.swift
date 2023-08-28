@@ -17,8 +17,11 @@ class PeersSettingsPagePresentationAdapter {
 	
 	private var cancellables = Set<AnyCancellable>()
 	
-	func onBlocklistUpdate() {
-		
+	func onBlocklistUpdate(_ url: String) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		PeersSettingsPublishers.makeBlocklistUpdatePublisher(url: url, server: server)
+			.sink(receiveCompletion: receiveCompletionAndShowAlertErrorIfNeeded, receiveValue: loadData)
+			.store(in: &cancellables)
 	}
 	
 	func onEncryptionChange(_ encryption: PeersSettingsPageViewModel.Encryption) {
@@ -139,7 +142,36 @@ class PeersSettingsPagePresentationAdapter {
 		switch completion {
 		case .finished: break
 		case .failure(let error):
-			peersSettingsViewModel.newValues(.error(error.localizedDescription))
+			var errorDescription: String = ""
+			guard let _error = error as? SessionSetMapper.Error, case let SessionSetMapper.Error.failed(explanation) = _error else {
+				errorDescription = error.localizedDescription
+				return
+			}
+			errorDescription = explanation
+			Task {
+				await MainActor.run {
+					peersSettingsViewModel.errorMessage = errorDescription
+				}
+			}
+		}
+	}
+	
+	private func receiveCompletionAndShowAlertErrorIfNeeded(_ completion: Subscribers.Completion<Error>) {
+		switch completion {
+		case .finished: break
+		case .failure(let error):
+			var errorDescription: String = ""
+			guard let _error = error as? BlocklistUpdateMapper.Error, case let BlocklistUpdateMapper.Error.failed(explanation) = _error else {
+				errorDescription = error.localizedDescription
+				return
+			}
+			errorDescription = explanation
+			Task {
+				await MainActor.run {
+					peersSettingsViewModel.alertMessage = errorDescription
+					peersSettingsViewModel.alertMessageVisible = true
+				}
+			}
 		}
 	}
 	
@@ -149,6 +181,8 @@ class PeersSettingsPagePresentationAdapter {
 
 private extension PeersSettingsPageViewModel {
 	func newValues(_ viewModel: PeersSettingsPageViewModel) {
+		alertMessage = viewModel.alertMessage
+		alertMessageVisible = viewModel.alertMessageVisible
 		errorMessage = viewModel.errorMessage
 		isLoading = viewModel.isLoading
 		peerLimitGlobal = viewModel.peerLimitGlobal

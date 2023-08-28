@@ -168,7 +168,17 @@ class SpeedSettingsPagePresentationAdapter {
 		switch completion {
 		case .finished: break
 		case .failure(let error):
-			speedSettingsViewModel.newValues(.error(error.localizedDescription))
+			var errorDescription: String = ""
+			guard let _error = error as? SessionSetMapper.Error, case let SessionSetMapper.Error.failed(explanation) = _error else {
+				errorDescription = error.localizedDescription
+				return
+			}
+			errorDescription = explanation
+			Task {
+				await MainActor.run {
+					speedSettingsViewModel.errorMessage = errorDescription
+				}
+			}
 		}
 	}
 	
