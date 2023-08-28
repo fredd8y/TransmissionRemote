@@ -738,8 +738,8 @@
 			isa = PBXGroup;
 			children = (
 				7B8561082A9C8E1D00724B8F /* PeersSettingsPage */,
-				7BA7E32E2A98935D00406BBB /* SpeedSettingsPage */,
 				7B2348FD2A94DCC900BD5834 /* TorrentsSettingsPage */,
+				7BA7E32E2A98935D00406BBB /* SpeedSettingsPage */,
 				7BBF3C572A72B0BA001206A8 /* SettingsPage */,
 			);
 			path = Settings;
@@ -1530,7 +1530,7 @@
 			children = (
 				7B2349082A94E21D00BD5834 /* Session Fields */,
 				7B83381D2A0F9E110052F7EC /* Session Bodies */,
-				7BFEB63F2A8CFC9D003D8985 /* SessionSetMapper */,
+				7BFEB63F2A8CFC9D003D8985 /* Session Set API */,
 				7B8338382A1016B20052F7EC /* Session Get API */,
 				7BD9A1F22A630D3300B6380A /* Session Stats API */,
 				7B2349022A94E18200BD5834 /* Torrents Settings Get API */,
@@ -1814,12 +1814,12 @@
 			path = "Torrent Trackers API";
 			sourceTree = "<group>";
 		};
-		7BFEB63F2A8CFC9D003D8985 /* SessionSetMapper */ = {
+		7BFEB63F2A8CFC9D003D8985 /* Session Set API */ = {
 			isa = PBXGroup;
 			children = (
 				7BFEB6402A8CFD11003D8985 /* SessionSetMapper.swift */,
 			);
-			path = SessionSetMapper;
+			path = "Session Set API";
 			sourceTree = "<group>";
 		};
 		7BFEB6422A8CFD5F003D8985 /* Session Set API */ = {
