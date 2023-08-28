@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class PeersSettings: Equatable, ObservableObject {
+public struct PeersSettings: Equatable {
 	public static func == (lhs: PeersSettings, rhs: PeersSettings) -> Bool {
 		return lhs.peerLimitGlobal == rhs.peerLimitGlobal &&
 		lhs.peerLimitPerTorrent == rhs.peerLimitPerTorrent &&
