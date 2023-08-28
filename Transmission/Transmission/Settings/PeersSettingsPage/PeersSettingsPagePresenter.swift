@@ -63,7 +63,95 @@ public class PeersSettingsPagePresenter {
 			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
 			comment: "Blocklist section header title")
 	}
-
+	
+	public static var maxPeersPerTorrent: String {
+		NSLocalizedString(
+			"MAX_PEERS_PER_TORRENT",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Max peers per torrent textfield description")
+	}
+	
+	public static var maxPeersOverall: String {
+		NSLocalizedString(
+			"MAX_PEERS_OVERALL",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Max peers overall textfield description")
+	}
+	
+	public static var mustBeANumber: String {
+		NSLocalizedString(
+			"MUST_BE_A_NUMBER",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Must be a number error")
+	}
+	
+	public static var encryptionMode: String {
+		NSLocalizedString(
+			"ENCRYPTION_MODE",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Encryption mode picker title")
+	}
+	
+	public static var pexDescription: String {
+		NSLocalizedString(
+			"PEX_DESCRIPTION",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Pex description")
+	}
+	
+	public static var dhtDescription: String {
+		NSLocalizedString(
+			"DHT_DESCRIPTION",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Dht description")
+	}
+	
+	public static var lpdDescription: String {
+		NSLocalizedString(
+			"LPD_DESCRIPTION",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Lpd description")
+	}
+	
+	public static var enableBlocklist: String {
+		NSLocalizedString(
+			"ENABLE_BLOCKLIST",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Enbled blocklist toggle title")
+	}
+	
+	public static var mustBeAnUrl: String {
+		NSLocalizedString(
+			"MUST_BE_AN_URL",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Must be an url error")
+	}
+	
+	public static var update: String {
+		NSLocalizedString(
+			"UPDATE_BUTTON_TITLE",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Update button title")
+	}
+	
+	public static var confirm: String {
+		NSLocalizedString(
+			"CONFIRM_BUTTON_TITLE",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Confirm button keyboard title")
+	}
+	
 	public static func map(_ peersSettings: PeersSettings) -> PeersSettingsPageViewModel {
 		PeersSettingsPageViewModel(
 			alertMessage: nil,

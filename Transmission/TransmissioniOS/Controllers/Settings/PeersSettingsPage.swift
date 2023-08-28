@@ -72,34 +72,34 @@ public struct PeersSettingsPage: View {
 					List {
 						Section(PeersSettingsPagePresenter.connections) {
 							VStack(alignment: .leading, spacing: 8) {
-								Text("Max peers per torrent")
+								Text(PeersSettingsPagePresenter.maxPeersPerTorrent)
 									.font(.subheadline)
-								TextField("Max peers per torrent", text: $viewModel.peerLimitPerTorrent)
+								TextField(PeersSettingsPagePresenter.maxPeersPerTorrent, text: $viewModel.peerLimitPerTorrent)
 									.textFieldStyle(.roundedBorder)
 									.keyboardType(.numberPad)
 									.focused($peerLimitPerTorrentFocused)
 								if viewModel.peerLimitPerTorrentError {
-									Text("Must be a number")
+									Text(PeersSettingsPagePresenter.mustBeANumber)
 										.font(.caption2)
 										.foregroundColor(.red)
 								}
 							}
 							VStack(alignment: .leading, spacing: 8) {
-								Text("Max peers overall")
+								Text(PeersSettingsPagePresenter.maxPeersOverall)
 									.font(.subheadline)
-								TextField("Max peers overall", text: $viewModel.peerLimitGlobal)
+								TextField(PeersSettingsPagePresenter.maxPeersOverall, text: $viewModel.peerLimitGlobal)
 									.textFieldStyle(.roundedBorder)
 									.keyboardType(.numberPad)
 									.focused($peerLimitGlobalFocused)
 								if viewModel.peerLimitGlobalError {
-									Text("Must be a number")
+									Text(PeersSettingsPagePresenter.mustBeANumber)
 										.font(.caption2)
 										.foregroundColor(.red)
 								}
 							}
 						}
 						Section(PeersSettingsPagePresenter.options) {
-							Picker("Encryption mode", selection: $viewModel.encryption) {
+							Picker(PeersSettingsPagePresenter.encryptionMode, selection: $viewModel.encryption) {
 								ForEach(PeersSettingsPageViewModel.Encryption.allCases, id: \.self) {
 									Text(encryptionDescription?($0) ?? "-")
 								}
@@ -109,17 +109,17 @@ public struct PeersSettingsPage: View {
 								onEncryptionChange?(newValue)
 							}
 							Toggle(isOn: $viewModel.pexEnabled) {
-								Text("Use PEX to find more peers")
+								Text(PeersSettingsPagePresenter.pexDescription)
 							}.onChange(of: viewModel.pexEnabled) { newValue in
 								onPexEnabledChange?(newValue)
 							}
 							Toggle(isOn: $viewModel.dhtEnabled) {
-								Text("Use DHT to find more peers")
+								Text(PeersSettingsPagePresenter.dhtDescription)
 							}.onChange(of: viewModel.dhtEnabled) { newValue in
 								onDhtEnabledChange?(newValue)
 							}
 							Toggle(isOn: $viewModel.lpdEnabled) {
-								Text("Use LPD to find more peers")
+								Text(PeersSettingsPagePresenter.lpdDescription)
 							}.onChange(of: viewModel.lpdEnabled) { newValue in
 								onLpdEnabledChange?(newValue)
 							}
@@ -127,17 +127,17 @@ public struct PeersSettingsPage: View {
 						Section(PeersSettingsPagePresenter.blocklist) {
 							VStack(alignment: .leading) {
 								Toggle(isOn: $viewModel.blocklistEnabled) {
-									Text("Enable blocklist")
+									Text(PeersSettingsPagePresenter.enableBlocklist)
 								}.onChange(of: viewModel.blocklistEnabled) { newValue in
 									onBlocklistEnabledChange?(newValue)
 								}
-								TextField("Max peers overall", text: $viewModel.blocklistUrl)
+								TextField(PeersSettingsPagePresenter.maxPeersOverall, text: $viewModel.blocklistUrl)
 									.textFieldStyle(.roundedBorder)
 									.keyboardType(.numberPad)
 									.focused($blocklistUrlFocused)
 									.disabled(!viewModel.blocklistEnabled)
 								if viewModel.blocklistUrlError {
-									Text("Must be an url")
+									Text(PeersSettingsPagePresenter.mustBeAnUrl)
 										.font(.caption2)
 										.foregroundColor(.red)
 								}
@@ -147,7 +147,7 @@ public struct PeersSettingsPage: View {
 								Button {
 									onUpdateTapped?(viewModel.blocklistUrl)
 								} label: {
-									Text("Update")
+									Text(PeersSettingsPagePresenter.update)
 								}
 								.buttonStyle(.bordered)
 								.foregroundColor(.primary)
@@ -159,7 +159,7 @@ public struct PeersSettingsPage: View {
 					.toolbar {
 						ToolbarItemGroup(placement: .keyboard) {
 							Spacer()
-							Button("Confirm") {
+							Button(PeersSettingsPagePresenter.confirm) {
 								if peerLimitGlobalFocused {
 									peerLimitGlobalFocused.toggle()
 									onPeerLimitGlobalChange?(viewModel.peerLimitGlobal)

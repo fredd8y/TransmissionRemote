@@ -13,3 +13,14 @@
 "CONNECTIONS_SECTION_HEADER" = "Connessioni";
 "OPTIONS_SECTION_HEADER" = "Opzioni";
 "BLOCKLIST_SECTION_HEADER" = "Blocklist";
+"MAX_PEERS_PER_TORRENT" = "Max peers per torrent";
+"MAX_PEERS_OVERALL" = "Max peers globali";
+"MUST_BE_A_NUMBER" = "Dev'essere un numero";
+"ENCRYPTION_MODE" = "Modalità crittografia";
+"PEX_DESCRIPTION" = "Usa PEX per trovare ulteriori peers";
+"DHT_DESCRIPTION" = "Usa DHT per trovare ulteriori peers";
+"LPD_DESCRIPTION" = "Usa LPD per trovare ulteriori peers";
+"ENABLE_BLOCKLIST" = "Abilita blocklist";
+"MUST_BE_AN_URL" = "Dev'essere una url";
+"UPDATE_BUTTON_TITLE" = "Aggiorna";
+"CONFIRM_BUTTON_TITLE" = "Conferma";
