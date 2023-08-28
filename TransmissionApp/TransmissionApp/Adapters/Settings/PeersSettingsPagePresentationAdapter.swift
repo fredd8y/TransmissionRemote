@@ -126,11 +126,11 @@ class PeersSettingsPagePresentationAdapter {
 	func encryptionDescription(_ encryptionDescription: PeersSettingsPageViewModel.Encryption) -> String {
 		switch encryptionDescription {
 		case .required:
-			return "REQUIRED"
+			return PeersSettingsPagePresenter.requiredEncryptionDescription
 		case .preferred:
-			return "PREFERRED"
+			return PeersSettingsPagePresenter.preferredEncryptionDescription
 		case .tolerated:
-			return "TOLERATED"
+			return PeersSettingsPagePresenter.toleratedEncryptionDescription
 		}
 	}
 	

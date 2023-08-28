@@ -70,7 +70,7 @@ public struct PeersSettingsPage: View {
 					Spacer()
 				} else {
 					List {
-						Section("Connections") {
+						Section(PeersSettingsPagePresenter.connections) {
 							VStack(alignment: .leading, spacing: 8) {
 								Text("Max peers per torrent")
 									.font(.subheadline)
@@ -98,7 +98,7 @@ public struct PeersSettingsPage: View {
 								}
 							}
 						}
-						Section("Options") {
+						Section(PeersSettingsPagePresenter.options) {
 							Picker("Encryption mode", selection: $viewModel.encryption) {
 								ForEach(PeersSettingsPageViewModel.Encryption.allCases, id: \.self) {
 									Text(encryptionDescription?($0) ?? "-")
@@ -124,7 +124,7 @@ public struct PeersSettingsPage: View {
 								onLpdEnabledChange?(newValue)
 							}
 						}
-						Section("Blocklist") {
+						Section(PeersSettingsPagePresenter.blocklist) {
 							VStack(alignment: .leading) {
 								Toggle(isOn: $viewModel.blocklistEnabled) {
 									Text("Enable blocklist")
@@ -151,6 +151,7 @@ public struct PeersSettingsPage: View {
 								}
 								.buttonStyle(.bordered)
 								.foregroundColor(.primary)
+								.disabled(!viewModel.blocklistEnabled)
 							}
 						}
 					}

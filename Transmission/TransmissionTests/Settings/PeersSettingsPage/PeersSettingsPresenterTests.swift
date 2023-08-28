@@ -16,6 +16,30 @@ final class PeersSettingsPresenterTests: XCTestCase {
 		XCTAssertEqual(PeersSettingsPagePresenter.title, localized("PEERS_SETTINGS_PAGE_TITLE", table: table))
 	}
 	
+	func test_requiredEncryptionDescription_isLocalized() {
+		XCTAssertEqual(PeersSettingsPagePresenter.requiredEncryptionDescription, localized("REQUIRED_ENCRYPTION_DESCRIPTION", table: table))
+	}
+	
+	func test_preferredEncryptionDescription_isLocalized() {
+		XCTAssertEqual(PeersSettingsPagePresenter.preferredEncryptionDescription, localized("PREFERRED_ENCRYPTION_DESCRIPTION", table: table))
+	}
+	
+	func test_toleratedEncryptionDescription_isLocalized() {
+		XCTAssertEqual(PeersSettingsPagePresenter.toleratedEncryptionDescription, localized("TOLERATED_ENCRYPTION_DESCRIPTION", table: table))
+	}
+	
+	func test_connections_isLocalized() {
+		XCTAssertEqual(PeersSettingsPagePresenter.connections, localized("CONNECTIONS_SECTION_HEADER", table: table))
+	}
+	
+	func test_options_isLocalized() {
+		XCTAssertEqual(PeersSettingsPagePresenter.options, localized("OPTIONS_SECTION_HEADER", table: table))
+	}
+	
+	func test_blocklist_isLocalized() {
+		XCTAssertEqual(PeersSettingsPagePresenter.blocklist, localized("BLOCKLIST_SECTION_HEADER", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let peerLimitGlobal = 500
 		let peerLimitPerTorrent = 25

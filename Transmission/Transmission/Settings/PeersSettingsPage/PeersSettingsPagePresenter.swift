@@ -16,6 +16,54 @@ public class PeersSettingsPagePresenter {
 			comment: "Torrents settings page title")
 	}
 
+	public static var requiredEncryptionDescription: String {
+		NSLocalizedString(
+			"REQUIRED_ENCRYPTION_DESCRIPTION",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Required encryption description")
+	}
+
+	public static var preferredEncryptionDescription: String {
+		NSLocalizedString(
+			"PREFERRED_ENCRYPTION_DESCRIPTION",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Preferred encryption description")
+	}
+
+	public static var toleratedEncryptionDescription: String {
+		NSLocalizedString(
+			"TOLERATED_ENCRYPTION_DESCRIPTION",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Tolerated encryption description")
+	}
+	
+	public static var connections: String {
+		NSLocalizedString(
+			"CONNECTIONS_SECTION_HEADER",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Connections section header title")
+	}
+	
+	public static var options: String {
+		NSLocalizedString(
+			"OPTIONS_SECTION_HEADER",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Options section header title")
+	}
+	
+	public static var blocklist: String {
+		NSLocalizedString(
+			"BLOCKLIST_SECTION_HEADER",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Blocklist section header title")
+	}
+
 	public static func map(_ peersSettings: PeersSettings) -> PeersSettingsPageViewModel {
 		PeersSettingsPageViewModel(
 			alertMessage: nil,
