@@ -9,6 +9,8 @@ import Foundation
 
 public class PeersSettingsPageViewModel: ObservableObject {
 	public init(
+		errorMessage: String?,
+		isLoading: Bool,
 		peerLimitGlobal: String,
 		peerLimitGlobalError: Bool,
 		peerLimitPerTorrent: String,
@@ -22,6 +24,8 @@ public class PeersSettingsPageViewModel: ObservableObject {
 		blocklistUrlError: Bool,
 		encryption: PeersSettingsPageViewModel.Encryption
 	) {
+		self.errorMessage = errorMessage
+		self.isLoading = isLoading
 		self.peerLimitGlobal = peerLimitGlobal
 		self.peerLimitGlobalError = peerLimitGlobalError
 		self.peerLimitPerTorrent = peerLimitPerTorrent
@@ -36,7 +40,8 @@ public class PeersSettingsPageViewModel: ObservableObject {
 		self.encryption = encryption
 	}
 	
-	
+	@Published public var errorMessage: String?
+	@Published public var isLoading: Bool
 	@Published public var peerLimitGlobal: String
 	@Published public var peerLimitGlobalError: Bool
 	@Published public var peerLimitPerTorrent: String
@@ -50,7 +55,7 @@ public class PeersSettingsPageViewModel: ObservableObject {
 	@Published public var blocklistUrlError: Bool
 	@Published public var encryption: Encryption
 	
-	public enum Encryption {
+	public enum Encryption: CaseIterable {
 		case required
 		case preferred
 		case tolerated

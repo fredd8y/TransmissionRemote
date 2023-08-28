@@ -18,6 +18,8 @@ public class PeersSettingsPagePresenter {
 
 	public static func map(_ peersSettings: PeersSettings) -> PeersSettingsPageViewModel {
 		PeersSettingsPageViewModel(
+			errorMessage: nil,
+			isLoading: false,
 			peerLimitGlobal: peersSettings.peerLimitGlobal.description,
 			peerLimitGlobalError: false,
 			peerLimitPerTorrent: peersSettings.peerLimitPerTorrent.description,

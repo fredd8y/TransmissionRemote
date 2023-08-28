@@ -37,4 +37,10 @@ extension SessionField {
 		]
 	}
 	
+	static var peersSettings: [String] {
+		[
+					
+		]
+	}
+	
 }
