@@ -25,6 +25,8 @@ public struct SettingsPage: View {
 	
 	public var speedSettingsSelected: (() -> SpeedSettingsPage)?
 	
+	public var peersSettingsSelected: (() -> PeersSettingsPage)?
+	
 	public var pollingRateSelected: ((_ selectedPollingRate: String, _ pollingRateList: [String]) -> Void)?
 	
 	@State public var torrentsSettingsPresented: Bool = false
@@ -64,6 +66,12 @@ public struct SettingsPage: View {
 					speedSettingsSelected?()
 				} label: {
 					Text(SettingsPagePresenter.speedSettings)
+						.font(.subheadline)
+				}
+				NavigationLink {
+					peersSettingsSelected?()
+				} label: {
+					Text(SettingsPagePresenter.peersSettings)
 						.font(.subheadline)
 				}
 				NavigationLink {

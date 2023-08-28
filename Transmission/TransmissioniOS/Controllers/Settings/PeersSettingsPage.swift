@@ -135,6 +135,7 @@ public struct PeersSettingsPage: View {
 									.textFieldStyle(.roundedBorder)
 									.keyboardType(.numberPad)
 									.focused($blocklistUrlFocused)
+									.disabled(!viewModel.blocklistEnabled)
 								if viewModel.blocklistUrlError {
 									Text("Must be an url")
 										.font(.caption2)

@@ -72,6 +72,14 @@ public class SettingsPagePresenter {
 			comment: "Speed settings description")
 	}
 	
+	public static var peersSettings: String {
+		NSLocalizedString(
+			"PEERS_SETTINGS",
+			tableName: "Settings",
+			bundle: Bundle(for: SettingsPagePresenter.self),
+			comment: "Peers settings description")
+	}
+	
 	public static func map(
 		title: String,
 		pollingRateTitle: String,

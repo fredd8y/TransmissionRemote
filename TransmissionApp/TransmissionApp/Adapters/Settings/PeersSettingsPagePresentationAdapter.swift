@@ -17,6 +17,10 @@ class PeersSettingsPagePresentationAdapter {
 	
 	private var cancellables = Set<AnyCancellable>()
 	
+	func onBlocklistUpdate() {
+		
+	}
+	
 	func onEncryptionChange(_ encryption: PeersSettingsPageViewModel.Encryption) {
 		guard let server = UserDefaultsHandler.shared.currentServer else { return }
 		PeersSettingsPublishers.makeEncryptionSetPublisher(value: encryption.peersSettingsValue.rawValue, server: server)
@@ -171,8 +175,3 @@ private extension PeersSettingsPageViewModel.Encryption {
 		}
 	}
 }
-
-//onUpdateTapped
-//onPeerLimitGlobalChange
-//onPeerLimitPerTorrentChange
-//onBlocklistUrlChange
