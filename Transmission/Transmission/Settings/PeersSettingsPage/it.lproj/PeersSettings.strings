@@ -1,0 +1,9 @@
+/* 
+  PeersSettings.strings
+  Transmission
+
+  Created by Federico Arvat on 28/08/23.
+  
+*/
+
+"PEERS_SETTINGS_PAGE_TITLE" = "Impostazioni peers";
