@@ -7,3 +7,5 @@
 */
 
 "NETWORK_SETTINGS_PAGE_TITLE" = "Impostazioni rete";
+"PORT_OPEN" = "Porta aperta";
+"PORT_CLOSED" = "Porta chiusa";

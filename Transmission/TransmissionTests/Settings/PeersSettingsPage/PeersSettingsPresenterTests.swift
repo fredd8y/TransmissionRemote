@@ -96,7 +96,6 @@ final class PeersSettingsPresenterTests: XCTestCase {
 		XCTAssertEqual("\(PeersSettingsPagePresenter.blocklistRulesNumber): 12.345", viewModel.blocklistSize)
 		XCTAssertEqual(blocklistUrl, viewModel.blocklistUrl)
 		XCTAssertEqual(PeersSettingsPageViewModel.Encryption.tolerated, viewModel.encryption)
-		
 	}
 	
 }
