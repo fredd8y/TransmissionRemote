@@ -36,4 +36,64 @@ enum NetworkSettingsPublishers {
 			.eraseToAnyPublisher()
 	}
 	
+	static func makePortRandomOnStartChangePublisher(
+		enabled: Bool,
+		server: Server
+	) -> AnyPublisher<Void, Error> {
+		return TransmissionHTTPClient.httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: SessionBodies.setPortRandomOnStart(enabled: enabled),
+				additionalHeader: Headers.headers(server.credentials)
+			)
+			.tryMap(Logger.log)
+			.tryMap(SessionSetMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
+	static func makePortForwardingChangePublisher(
+		enabled: Bool,
+		server: Server
+	) -> AnyPublisher<Void, Error> {
+		return TransmissionHTTPClient.httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: SessionBodies.setPortForwarding(enabled: enabled),
+				additionalHeader: Headers.headers(server.credentials)
+			)
+			.tryMap(Logger.log)
+			.tryMap(SessionSetMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
+	static func makeUtpEnabledChangePublisher(
+		enabled: Bool,
+		server: Server
+	) -> AnyPublisher<Void, Error> {
+		return TransmissionHTTPClient.httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: SessionBodies.setUtpEnabled(enabled: enabled),
+				additionalHeader: Headers.headers(server.credentials)
+			)
+			.tryMap(Logger.log)
+			.tryMap(SessionSetMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
+	static func makeListeningPortChangePublisher(
+		port: Int,
+		server: Server
+	) -> AnyPublisher<Void, Error> {
+		return TransmissionHTTPClient.httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: SessionBodies.setListeningPort(port: port),
+				additionalHeader: Headers.headers(server.credentials)
+			)
+			.tryMap(Logger.log)
+			.tryMap(SessionSetMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
 }

@@ -96,6 +96,7 @@ public struct NetworkSettingsPage: View {
 						ToolbarItemGroup(placement: .keyboard) {
 							Spacer()
 							Button("Confirm") {
+								listeningPortFocused.toggle()
 								onListeningPortChange?(viewModel.peerPort)
 							}
 						}

@@ -14,6 +14,106 @@ public class SessionBodies {
 
 extension SessionBodies {
 	
+	private struct SetListeningPortBody: Encodable {
+		init(_ peerPort: Int) {
+			arguments = Arguments(peerPort: peerPort)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let peerPort: Int
+			
+			enum CodingKeys: String, CodingKey {
+				case peerPort = "peer-port"
+			}
+		}
+	}
+	
+	public static func setListeningPort(port: Int) -> Data {
+		try! JSONEncoder().encode(SetListeningPortBody(port))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetUtpEnabledBody: Encodable {
+		init(_ utpEnabled: Bool) {
+			arguments = Arguments(utpEnabled: utpEnabled)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let utpEnabled: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case utpEnabled = "utp-enabled"
+			}
+		}
+	}
+	
+	public static func setUtpEnabled(enabled: Bool) -> Data {
+		try! JSONEncoder().encode(SetUtpEnabledBody(enabled))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetPortRandomOnStartBody: Encodable {
+		init(_ peerPortRandomOnStart: Bool) {
+			arguments = Arguments(peerPortRandomOnStart: peerPortRandomOnStart)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let peerPortRandomOnStart: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case peerPortRandomOnStart = "peer-port-random-on-start"
+			}
+		}
+	}
+	
+	public static func setPortRandomOnStart(enabled: Bool) -> Data {
+		try! JSONEncoder().encode(SetPortRandomOnStartBody(enabled))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetPortForwardingBody: Encodable {
+		init(_ portForwardingEnabled: Bool) {
+			arguments = Arguments(portForwardingEnabled: portForwardingEnabled)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let portForwardingEnabled: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case portForwardingEnabled = "port-forwarding-enabled"
+			}
+		}
+	}
+	
+	public static func setPortForwarding(enabled: Bool) -> Data {
+		try! JSONEncoder().encode(SetPortForwardingBody(enabled))
+	}
+	
+}
+
+extension SessionBodies {
+	
 	private struct SetBlocklistUrlBody: Encodable {
 		init(_ blocklistUrl: String) {
 			arguments = Arguments(blocklistUrl: blocklistUrl)

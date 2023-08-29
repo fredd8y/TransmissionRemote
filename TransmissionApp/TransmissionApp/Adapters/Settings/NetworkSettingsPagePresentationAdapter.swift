@@ -17,6 +17,39 @@ class NetworkSettingsPagePresentationAdapter {
 	
 	private var cancellables = Set<AnyCancellable>()
 	
+	func peerPortRandomOnStartChange(_ enabled: Bool) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		NetworkSettingsPublishers.makePortRandomOnStartChangePublisher(enabled: enabled, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
+	func portForwardingEnabledChange(_ enabled: Bool) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		NetworkSettingsPublishers.makePortForwardingChangePublisher(enabled: enabled, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
+	func utpEnabledChange(_ enabled: Bool) {
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		NetworkSettingsPublishers.makeUtpEnabledChangePublisher(enabled: enabled, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
+	func listeningPortChange(_ newPort: String) {
+		networkSettingsViewModel.peerPortError = false
+		guard let server = UserDefaultsHandler.shared.currentServer else { return }
+		guard let port = Int(newPort) else {
+			networkSettingsViewModel.peerPortError = true
+			return
+		}
+		NetworkSettingsPublishers.makeListeningPortChangePublisher(port: port, server: server)
+			.sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+			.store(in: &cancellables)
+	}
+	
 	func loadData() {
 		cancelCurrentLoadingTasks()
 		guard let server = UserDefaultsHandler.shared.currentServer else { return }
