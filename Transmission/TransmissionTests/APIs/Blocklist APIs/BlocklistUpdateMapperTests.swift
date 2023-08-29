@@ -38,15 +38,42 @@ class BlocklistUpdateMapperTests: XCTestCase {
 		}
 	}
 	
+	func test_map_returnSizeWithCorrectJson() throws {
+		let (json, size) = makeCorrectResponse()
+		
+		let jsonData = makeJSON(fromDictionary: json)
+		
+		guard let retrievedSize = try? BlocklistUpdateMapper.map(jsonData, from: HTTPURLResponse(statusCode: 200)) else {
+			XCTFail("Expected success")
+			return
+		}
+		
+		XCTAssertEqual(retrievedSize, size)
+	}
+	
 	// MARK: - Helpers
 	
 	private func makeResponseWithFailure() -> (json: [String: Any], error: String) {
 		let error = "failed for some reason"
 		
 		let json: [String: Any] = [
-			"result": error
+			"result": error,
+			"arguments": [:]
 		]
 		return (json, error)
+	}
+	
+	private func makeCorrectResponse() -> (json: [String: Any], size: Int) {
+		let size = 123456789
+		
+		let json: [String: Any] = [
+			"result": "success",
+			"arguments": [
+				"blocklist-size": size
+			]
+		]
+		
+		return (json, size)
 	}
 	
 }

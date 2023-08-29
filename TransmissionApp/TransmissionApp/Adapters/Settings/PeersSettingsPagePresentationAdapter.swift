@@ -18,9 +18,28 @@ class PeersSettingsPagePresentationAdapter {
 	private var cancellables = Set<AnyCancellable>()
 	
 	func onBlocklistUpdate(_ url: String) {
+		peersSettingsViewModel.isUpdatingBlocklist = true
 		guard let server = UserDefaultsHandler.shared.currentServer else { return }
 		PeersSettingsPublishers.makeBlocklistUpdatePublisher(url: url, server: server)
-			.sink(receiveCompletion: receiveCompletionAndShowAlertErrorIfNeeded, receiveValue: loadData)
+			.sink(
+				receiveCompletion: { [weak self] completion in
+					Task {
+						await MainActor.run {
+							self?.peersSettingsViewModel.isUpdatingBlocklist = false
+							self?.peersSettingsViewModel.blocklistSize = PeersSettingsPagePresenter.mapBlocklistSize(0)
+							self?.receiveCompletionAndShowAlertErrorIfNeeded(completion)
+						}
+					}
+				},
+				receiveValue: { [weak self] blocklistSize in
+					Task {
+						await MainActor.run {
+							let _blocklistSize = blocklistSize ?? 0
+							self?.peersSettingsViewModel.blocklistSize = PeersSettingsPagePresenter.mapBlocklistSize(_blocklistSize)
+						}
+					}
+				}
+			)
 			.store(in: &cancellables)
 	}
 	

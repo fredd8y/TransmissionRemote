@@ -24,3 +24,5 @@
 "MUST_BE_AN_URL" = "Dev'essere una url";
 "UPDATE_BUTTON_TITLE" = "Aggiorna";
 "CONFIRM_BUTTON_TITLE" = "Conferma";
+"BLOCKLIST_RULES_NUMBER" = "Numero di regole da blocklist";
+"BLOCKLIST_URL_PLACEHOLDER" = "Blocklist URL";

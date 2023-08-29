@@ -40,6 +40,22 @@ final class PeersSettingsPresenterTests: XCTestCase {
 		XCTAssertEqual(PeersSettingsPagePresenter.blocklist, localized("BLOCKLIST_SECTION_HEADER", table: table))
 	}
 	
+	func test_blocklistRulesNumber_isLocalized() {
+		XCTAssertEqual(PeersSettingsPagePresenter.blocklistRulesNumber, localized("BLOCKLIST_RULES_NUMBER", table: table))
+	}
+	
+	func test_blocklistUrlPlaceholder_isLocalized() {
+		XCTAssertEqual(PeersSettingsPagePresenter.blocklistUrlPlaceholder, localized("BLOCKLIST_URL_PLACEHOLDER", table: table))
+	}
+	
+	func test_mapBlocklistSize() {
+		let size = 12345
+		
+		let sizeDescription = PeersSettingsPagePresenter.mapBlocklistSize(size)
+		
+		XCTAssertEqual("\(PeersSettingsPagePresenter.blocklistRulesNumber): \(size)", sizeDescription)
+	}
+	
 	func test_map_createsViewModel() {
 		let peerLimitGlobal = 500
 		let peerLimitPerTorrent = 25
@@ -69,7 +85,7 @@ final class PeersSettingsPresenterTests: XCTestCase {
 		XCTAssertEqual(dhtEnabled, viewModel.dhtEnabled)
 		XCTAssertEqual(lpdEnabled, viewModel.lpdEnabled)
 		XCTAssertEqual(blocklistEnabled, viewModel.blocklistEnabled)
-		XCTAssertEqual(blocklistSize.description, viewModel.blocklistSize)
+		XCTAssertEqual("\(PeersSettingsPagePresenter.blocklistRulesNumber): \(blocklistSize)", viewModel.blocklistSize)
 		XCTAssertEqual(blocklistUrl, viewModel.blocklistUrl)
 		XCTAssertEqual(PeersSettingsPageViewModel.Encryption.tolerated, viewModel.encryption)
 		

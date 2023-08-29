@@ -152,8 +152,25 @@ public class PeersSettingsPagePresenter {
 			comment: "Confirm button keyboard title")
 	}
 	
+	public static var blocklistRulesNumber: String {
+		NSLocalizedString(
+			"BLOCKLIST_RULES_NUMBER",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Number of blocklist rules")
+	}
+	
+	public static var blocklistUrlPlaceholder: String {
+		NSLocalizedString(
+			"BLOCKLIST_URL_PLACEHOLDER",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Blocklist url placeholder")
+	}
+	
 	public static func map(_ peersSettings: PeersSettings) -> PeersSettingsPageViewModel {
 		PeersSettingsPageViewModel(
+			isUpdatingBlocklist: false,
 			alertMessage: nil,
 			alertMessageVisible: false,
 			errorMessage: nil,
@@ -166,11 +183,15 @@ public class PeersSettingsPagePresenter {
 			dhtEnabled: peersSettings.dhtEnabled,
 			lpdEnabled: peersSettings.lpdEnabled,
 			blocklistEnabled: peersSettings.blocklistEnabled,
-			blocklistSize: peersSettings.blocklistSize.description,
+			blocklistSize: mapBlocklistSize(peersSettings.blocklistSize),
 			blocklistUrl: peersSettings.blocklistUrl,
 			blocklistUrlError: false,
 			encryption: peersSettings.encryption.viewModelEncryption
 		)
+	}
+	
+	public static func mapBlocklistSize(_ size: Int) -> String {
+		"\(blocklistRulesNumber): \(size)"
 	}
 }
 

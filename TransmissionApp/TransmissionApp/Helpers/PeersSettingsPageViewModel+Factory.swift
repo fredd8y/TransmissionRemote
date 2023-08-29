@@ -11,6 +11,7 @@ import Transmission
 extension PeersSettingsPageViewModel {
 	static func loading() -> PeersSettingsPageViewModel {
 		PeersSettingsPageViewModel(
+			isUpdatingBlocklist: false,
 			alertMessage: nil,
 			alertMessageVisible: false,
 			errorMessage: nil,
@@ -32,6 +33,7 @@ extension PeersSettingsPageViewModel {
 
 	static func error(_ errorMessage: String) -> PeersSettingsPageViewModel {
 		PeersSettingsPageViewModel(
+			isUpdatingBlocklist: false,
 			alertMessage: nil,
 			alertMessageVisible: false,
 			errorMessage: errorMessage,

@@ -131,7 +131,7 @@ public struct PeersSettingsPage: View {
 								}.onChange(of: viewModel.blocklistEnabled) { newValue in
 									onBlocklistEnabledChange?(newValue)
 								}
-								TextField(PeersSettingsPagePresenter.maxPeersOverall, text: $viewModel.blocklistUrl)
+								TextField(PeersSettingsPagePresenter.blocklistUrlPlaceholder, text: $viewModel.blocklistUrl)
 									.textFieldStyle(.roundedBorder)
 									.keyboardType(.numberPad)
 									.focused($blocklistUrlFocused)
@@ -144,14 +144,19 @@ public struct PeersSettingsPage: View {
 							}
 							VStack(alignment: .leading) {
 								Text(viewModel.blocklistSize)
-								Button {
-									onUpdateTapped?(viewModel.blocklistUrl)
-								} label: {
-									Text(PeersSettingsPagePresenter.update)
+								HStack(spacing: 8) {
+									Button {
+										onUpdateTapped?(viewModel.blocklistUrl)
+									} label: {
+										Text(PeersSettingsPagePresenter.update)
+									}
+									.buttonStyle(.bordered)
+									.foregroundColor(.primary)
+									.disabled(!viewModel.blocklistEnabled)
+									if viewModel.isUpdatingBlocklist {
+										ProgressView()
+									}
 								}
-								.buttonStyle(.bordered)
-								.foregroundColor(.primary)
-								.disabled(!viewModel.blocklistEnabled)
 							}
 						}
 					}
@@ -220,6 +225,7 @@ public struct PeersSettingsPage: View {
 struct PeersSettingsPage_Previews: PreviewProvider {
     static var previews: some View {
 		PeersSettingsPage(viewModel: PeersSettingsPageViewModel(
+			isUpdatingBlocklist: false,
 			alertMessage: nil,
 			alertMessageVisible: false,
 			errorMessage: nil,

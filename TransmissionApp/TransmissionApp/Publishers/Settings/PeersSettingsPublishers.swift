@@ -146,7 +146,7 @@ enum PeersSettingsPublishers {
 	static func makeBlocklistUpdatePublisher(
 		url: String,
 		server: Server
-	) -> AnyPublisher<Void, Error> {
+	) -> AnyPublisher<Int?, Error> {
 		return TransmissionHTTPClient.httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),

@@ -9,6 +9,7 @@ import Foundation
 
 public class PeersSettingsPageViewModel: ObservableObject {
 	public init(
+		isUpdatingBlocklist: Bool,
 		alertMessage: String?,
 		alertMessageVisible: Bool,
 		errorMessage: String?,
@@ -26,6 +27,7 @@ public class PeersSettingsPageViewModel: ObservableObject {
 		blocklistUrlError: Bool,
 		encryption: PeersSettingsPageViewModel.Encryption
 	) {
+		self.isUpdatingBlocklist = isUpdatingBlocklist
 		self.alertMessage = alertMessage
 		self.alertMessageVisible = alertMessageVisible
 		self.errorMessage = errorMessage
@@ -44,6 +46,7 @@ public class PeersSettingsPageViewModel: ObservableObject {
 		self.encryption = encryption
 	}
 	
+	@Published public var isUpdatingBlocklist: Bool
 	@Published public var alertMessage: String?
 	@Published public var alertMessageVisible: Bool
 	@Published public var errorMessage: String?
