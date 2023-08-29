@@ -110,6 +110,7 @@
 		7B4C6D1C2A9E4F8200EE1D91 /* PortTestMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C6D1B2A9E4F8200EE1D91 /* PortTestMapper.swift */; };
 		7B4C6D202A9E4FA500EE1D91 /* PortTestBodiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C6D1F2A9E4FA500EE1D91 /* PortTestBodiesTests.swift */; };
 		7B4C6D222A9E4FAD00EE1D91 /* PortTestMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C6D212A9E4FAD00EE1D91 /* PortTestMapperTests.swift */; };
+		7B4C6D242A9E564E00EE1D91 /* NetworkSettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C6D232A9E564E00EE1D91 /* NetworkSettingsPage.swift */; };
 		7B4DFB712A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DFB702A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift */; };
 		7B4DFB732A15394F007E9C63 /* Torrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DFB722A15394F007E9C63 /* Torrent.swift */; };
 		7B6587552A0D845000317EBE /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6587532A0D845000317EBE /* URLSessionHTTPClient.swift */; };
@@ -457,6 +458,7 @@
 		7B4C6D1B2A9E4F8200EE1D91 /* PortTestMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortTestMapper.swift; sourceTree = "<group>"; };
 		7B4C6D1F2A9E4FA500EE1D91 /* PortTestBodiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortTestBodiesTests.swift; sourceTree = "<group>"; };
 		7B4C6D212A9E4FAD00EE1D91 /* PortTestMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortTestMapperTests.swift; sourceTree = "<group>"; };
+		7B4C6D232A9E564E00EE1D91 /* NetworkSettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettingsPage.swift; sourceTree = "<group>"; };
 		7B4DFB702A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorrentGetMapperTests+Stub.swift"; sourceTree = "<group>"; };
 		7B4DFB722A15394F007E9C63 /* Torrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Torrent.swift; sourceTree = "<group>"; };
 		7B5036A42A862ADD0078480E /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
@@ -891,6 +893,7 @@
 				7B23F00F2A94EDBB008E00FF /* TorrentsSettingsPage.swift */,
 				7BA7E3492A98AA6B00406BBB /* SpeedSettingsPage.swift */,
 				7B8561222A9CAD5300724B8F /* PeersSettingsPage.swift */,
+				7B4C6D232A9E564E00EE1D91 /* NetworkSettingsPage.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -2440,6 +2443,7 @@
 				7BDF91FF2A9210440041E0CC /* TorrentPeersPage.swift in Sources */,
 				7B23250B2A7685F300836B02 /* ServerDetailPage.swift in Sources */,
 				7B8CB8432A66CAE2001A4D90 /* TorrentsPage.swift in Sources */,
+				7B4C6D242A9E564E00EE1D91 /* NetworkSettingsPage.swift in Sources */,
 				7B7871D32A8E62B1005A16D6 /* TorrentDetailPage.swift in Sources */,
 				7B8561232A9CAD5300724B8F /* PeersSettingsPage.swift in Sources */,
 				7B2324DA2A753D5400836B02 /* ServerPage.swift in Sources */,
