@@ -27,6 +27,8 @@ public struct SettingsPage: View {
 	
 	public var peersSettingsSelected: (() -> PeersSettingsPage)?
 	
+	public var networkSettingsSelected: (() -> NetworkSettingsPage)?
+	
 	public var pollingRateSelected: ((_ selectedPollingRate: String, _ pollingRateList: [String]) -> Void)?
 	
 	@State public var torrentsSettingsPresented: Bool = false
@@ -72,6 +74,12 @@ public struct SettingsPage: View {
 					peersSettingsSelected?()
 				} label: {
 					Text(SettingsPagePresenter.peersSettings)
+						.font(.subheadline)
+				}
+				NavigationLink {
+					networkSettingsSelected?()
+				} label: {
+					Text(SettingsPagePresenter.networkSettings)
 						.font(.subheadline)
 				}
 				NavigationLink {

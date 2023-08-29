@@ -80,6 +80,14 @@ public class SettingsPagePresenter {
 			comment: "Peers settings description")
 	}
 	
+	public static var networkSettings: String {
+		NSLocalizedString(
+			"NETWORK_SETTINGS",
+			tableName: "Settings",
+			bundle: Bundle(for: SettingsPagePresenter.self),
+			comment: "Network settings description")
+	}
+	
 	public static func map(
 		title: String,
 		pollingRateTitle: String,

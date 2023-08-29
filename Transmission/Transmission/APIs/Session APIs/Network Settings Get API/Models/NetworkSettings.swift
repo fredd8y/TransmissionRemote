@@ -20,8 +20,8 @@ public struct NetworkSettings: Equatable {
 		self.utpEnabled = utpEnabled
 	}
 	
-	let peerPort: Int
-	let peerPortRandomOnStart: Bool
-	let portForwardingEnabled: Bool
-	let utpEnabled: Bool
+	public let peerPort: Int
+	public let peerPortRandomOnStart: Bool
+	public let portForwardingEnabled: Bool
+	public let utpEnabled: Bool
 }

@@ -110,6 +110,7 @@ final class TransmissionComposer {
 		let torrentsSettingsPagePresentationAdapter = TorrentsSettingsPagePresentationAdapter()
 		let speedSettingsPagePresentationAdapter = SpeedSettingsPagePresentationAdapter()
 		let peersSettingsPagePresentationAdapter = PeersSettingsPagePresentationAdapter()
+		let networkSettingsPagePresentationAdapter = NetworkSettingsPagePresentationAdapter()
 		
 		var settingsPage = SettingsPage(viewModel: settingsPageViewModel, serverPage: serverPage)
 		settingsPage.loadData = settingsPagePresentationAdapter.loadData
@@ -164,6 +165,14 @@ final class TransmissionComposer {
 			peersSettingsPage.onPeerLimitPerTorrentChange = peersSettingsPagePresentationAdapter.onPeerLimitPerTorrentChange
 			peersSettingsPage.onBlocklistUrlChange = peersSettingsPagePresentationAdapter.onBlocklistUrlChange
 			return peersSettingsPage
+		}
+		
+		settingsPage.networkSettingsSelected = {
+			var networkSettingsPage = networkSettingsPagePresentationAdapter.showNetworkSettingsPage()
+			networkSettingsPage.onAppear = networkSettingsPagePresentationAdapter.loadData
+			networkSettingsPage.onRefresh = networkSettingsPagePresentationAdapter.loadData
+			networkSettingsPage.onDisappear = networkSettingsPagePresentationAdapter.stopLoadingData
+			return networkSettingsPage
 		}
 		
 		return settingsPage
