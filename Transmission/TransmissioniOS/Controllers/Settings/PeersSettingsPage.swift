@@ -185,13 +185,13 @@ public struct PeersSettingsPage: View {
 		.navigationBarTitleDisplayMode(.inline)
 		.toolbar(tabBarVisibility, for: .tabBar)
 		.alert(
-			"Error",
+			PeersSettingsPagePresenter.alertError,
 			isPresented: $viewModel.alertMessageVisible,
 			actions: {
 				Button(action: {
 					viewModel.alertMessage = nil
 				}, label: {
-					Text("Ok")
+					Text(PeersSettingsPagePresenter.ok)
 				})
 			},
 			message: {

@@ -48,6 +48,14 @@ final class PeersSettingsPresenterTests: XCTestCase {
 		XCTAssertEqual(PeersSettingsPagePresenter.blocklistUrlPlaceholder, localized("BLOCKLIST_URL_PLACEHOLDER", table: table))
 	}
 	
+	func test_alertError_isLocalized() {
+		XCTAssertEqual(PeersSettingsPagePresenter.alertError, localized("ALERT_ERROR", table: table))
+	}
+	
+	func test_ok_isLocalized() {
+		XCTAssertEqual(PeersSettingsPagePresenter.ok, localized("OK", table: table))
+	}
+	
 	func test_mapBlocklistSize() {
 		let size = 12345
 		

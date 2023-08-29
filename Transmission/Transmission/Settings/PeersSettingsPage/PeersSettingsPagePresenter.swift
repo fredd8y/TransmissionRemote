@@ -168,6 +168,22 @@ public class PeersSettingsPagePresenter {
 			comment: "Blocklist url placeholder")
 	}
 	
+	public static var alertError: String {
+		NSLocalizedString(
+			"ALERT_ERROR",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Alert error")
+	}
+	
+	public static var ok: String {
+		NSLocalizedString(
+			"OK",
+			tableName: "PeersSettings",
+			bundle: Bundle(for: TorrentsSettingsPagePresenter.self),
+			comment: "Ok")
+	}
+	
 	public static func map(_ peersSettings: PeersSettings) -> PeersSettingsPageViewModel {
 		PeersSettingsPageViewModel(
 			isUpdatingBlocklist: false,

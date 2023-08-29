@@ -26,3 +26,5 @@
 "CONFIRM_BUTTON_TITLE" = "Conferma";
 "BLOCKLIST_RULES_NUMBER" = "Numero di regole da blocklist";
 "BLOCKLIST_URL_PLACEHOLDER" = "Blocklist URL";
+"ALERT_ERROR" = "Errore";
+"OK" = "Ok";

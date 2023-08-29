@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import XCTest
 @testable import Transmission
 @testable import TransmissioniOS
