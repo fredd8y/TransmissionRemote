@@ -37,4 +37,18 @@ extension SessionField {
 		]
 	}
 	
+	static var peersSettings: [String] {
+		[
+			peerLimitGlobal,
+			peerLimitPerTorrent,
+			pexEnabled,
+			dhtEnabled,
+			lpdEnabled,
+			blocklistEnabled,
+			blocklistSize,
+			blocklistUrl,
+			encryption
+		]
+	}
+	
 }

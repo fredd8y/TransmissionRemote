@@ -102,6 +102,12 @@
 		7BC0D8522A6EAB3A00B36367 /* Transmission.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC0D8502A6EAB3A00B36367 /* Transmission.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7BC0D8552A6EAB3D00B36367 /* TransmissioniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC0D8542A6EAB3D00B36367 /* TransmissioniOS.framework */; };
 		7BC0D8562A6EAB3D00B36367 /* TransmissioniOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC0D8542A6EAB3D00B36367 /* TransmissioniOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7BC7264E2A9CF20600019EB8 /* PeersSettingsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC7264D2A9CF20600019EB8 /* PeersSettingsPagePresentationAdapter.swift */; };
+		7BC7264F2A9CF20600019EB8 /* PeersSettingsPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC7264D2A9CF20600019EB8 /* PeersSettingsPagePresentationAdapter.swift */; };
+		7BC726512A9CF2EA00019EB8 /* PeersSettingsPageViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC726502A9CF2EA00019EB8 /* PeersSettingsPageViewModel+Factory.swift */; };
+		7BC726522A9CF2EA00019EB8 /* PeersSettingsPageViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC726502A9CF2EA00019EB8 /* PeersSettingsPageViewModel+Factory.swift */; };
+		7BC726542A9CF46200019EB8 /* PeersSettingsPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC726532A9CF46200019EB8 /* PeersSettingsPublishers.swift */; };
+		7BC726552A9CF46200019EB8 /* PeersSettingsPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC726532A9CF46200019EB8 /* PeersSettingsPublishers.swift */; };
 		7BD2368D2A77BA8200AF75A9 /* ServerDetailPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD2368C2A77BA8200AF75A9 /* ServerDetailPagePresentationAdapter.swift */; };
 		7BD2368F2A77C9B900AF75A9 /* ServerDetailPageViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD2368E2A77C9B900AF75A9 /* ServerDetailPageViewModel+Factory.swift */; };
 		7BDF91E02A8E72AC0041E0CC /* TorrentDetailPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7871D42A8E6B37005A16D6 /* TorrentDetailPagePresentationAdapter.swift */; };
@@ -206,6 +212,9 @@
 		7BC0D84D2A6EA90000B36367 /* TransmissionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionHTTPClient.swift; sourceTree = "<group>"; };
 		7BC0D8502A6EAB3A00B36367 /* Transmission.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Transmission.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC0D8542A6EAB3D00B36367 /* TransmissioniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TransmissioniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC7264D2A9CF20600019EB8 /* PeersSettingsPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersSettingsPagePresentationAdapter.swift; sourceTree = "<group>"; };
+		7BC726502A9CF2EA00019EB8 /* PeersSettingsPageViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PeersSettingsPageViewModel+Factory.swift"; sourceTree = "<group>"; };
+		7BC726532A9CF46200019EB8 /* PeersSettingsPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersSettingsPublishers.swift; sourceTree = "<group>"; };
 		7BD2368C2A77BA8200AF75A9 /* ServerDetailPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDetailPagePresentationAdapter.swift; sourceTree = "<group>"; };
 		7BD2368E2A77C9B900AF75A9 /* ServerDetailPageViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerDetailPageViewModel+Factory.swift"; sourceTree = "<group>"; };
 		7BDF92092A93464A0041E0CC /* TorrentPeersPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentPeersPagePresentationAdapter.swift; sourceTree = "<group>"; };
@@ -260,6 +269,7 @@
 				7BBF3C4A2A729554001206A8 /* SettingsPagePresentationAdapter.swift */,
 				7B23F0142A94F324008E00FF /* TorrentsSettingsPagePresentationAdapter.swift */,
 				7BA7E34B2A98B72A00406BBB /* SpeedSettingsPagePresentationAdapter.swift */,
+				7BC7264D2A9CF20600019EB8 /* PeersSettingsPagePresentationAdapter.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -375,6 +385,7 @@
 			children = (
 				7B23F01E2A950471008E00FF /* TorrentsSettingsPublishers.swift */,
 				7BA7E3442A98A8C000406BBB /* SpeedSettingsPublishers.swift */,
+				7BC726532A9CF46200019EB8 /* PeersSettingsPublishers.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -452,6 +463,7 @@
 				7BDF92372A93827B0041E0CC /* TorrentTrackersPageViewModel+Factory.swift */,
 				7B23F0192A94F6B9008E00FF /* TorrentsSettingsPageViewModel+Factory.swift */,
 				7BA7E34E2A98B75300406BBB /* SpeedSettingsPageViewModel+Factory.swift */,
+				7BC726502A9CF2EA00019EB8 /* PeersSettingsPageViewModel+Factory.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -607,9 +619,11 @@
 			files = (
 				7B23F0182A94F5A7008E00FF /* SessionField+FieldGroups.swift in Sources */,
 				7BB229D42A81477700F2408F /* SettingsPageViewModel+Factory.swift in Sources */,
+				7BC7264F2A9CF20600019EB8 /* PeersSettingsPagePresentationAdapter.swift in Sources */,
 				7B23F01C2A94F87C008E00FF /* TorrentsSettingsPageViewModel+Factory.swift in Sources */,
 				7BDF92362A9381300041E0CC /* TorrentTrackersPagePresentationAdapter.swift in Sources */,
 				7B8075E52A94B5AF003F0B17 /* SessionSettingsPublishers.swift in Sources */,
+				7BC726552A9CF46200019EB8 /* PeersSettingsPublishers.swift in Sources */,
 				7BB229D52A81477700F2408F /* TransmissionHTTPClient.swift in Sources */,
 				7BB229D62A81477700F2408F /* Cipher.swift in Sources */,
 				7B8075DA2A94B575003F0B17 /* TorrentStartPublishers.swift in Sources */,
@@ -651,6 +665,7 @@
 				7BB229E62A81477700F2408F /* TorrentsPagePresentationAdapter.swift in Sources */,
 				7BB229E72A81477700F2408F /* ServerPageViewModel+Factory.swift in Sources */,
 				7B23F0202A9504A0008E00FF /* TorrentsSettingsPublishers.swift in Sources */,
+				7BC726522A9CF2EA00019EB8 /* PeersSettingsPageViewModel+Factory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,9 +675,11 @@
 			files = (
 				7BBF3C5C2A742B6E001206A8 /* SettingsPageViewModel+Factory.swift in Sources */,
 				7BDF92352A9381300041E0CC /* TorrentTrackersPagePresentationAdapter.swift in Sources */,
+				7BC7264E2A9CF20600019EB8 /* PeersSettingsPagePresentationAdapter.swift in Sources */,
 				7B23F01A2A94F6B9008E00FF /* TorrentsSettingsPageViewModel+Factory.swift in Sources */,
 				7B8075B72A94B11A003F0B17 /* TorrentDetailPublishers.swift in Sources */,
 				7B8075C12A94B20D003F0B17 /* TorrentRemovePublishers.swift in Sources */,
+				7BC726542A9CF46200019EB8 /* PeersSettingsPublishers.swift in Sources */,
 				7BC0D84E2A6EA90000B36367 /* TransmissionHTTPClient.swift in Sources */,
 				7B8075CE2A94B3B1003F0B17 /* ErrorHandler.swift in Sources */,
 				7BA01FDC2A7EB68A00FBB43D /* Cipher.swift in Sources */,
@@ -704,6 +721,7 @@
 				7B8075D12A94B4D6003F0B17 /* Server+Utils.swift in Sources */,
 				7B2325022A766DEC00836B02 /* ServerPageViewModel+Factory.swift in Sources */,
 				7B23F01F2A950471008E00FF /* TorrentsSettingsPublishers.swift in Sources */,
+				7BC726512A9CF2EA00019EB8 /* PeersSettingsPageViewModel+Factory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

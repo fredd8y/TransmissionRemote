@@ -77,6 +77,27 @@
 		7B4599D22A68170300189C16 /* View+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4599D12A68170300189C16 /* View+TestHelpers.swift */; };
 		7B4599D42A6817C700189C16 /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4599D32A6817C700189C16 /* XCTestCase+Snapshot.swift */; };
 		7B4599D62A68184100189C16 /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4599D52A68184100189C16 /* UIViewController+Snapshot.swift */; };
+		7B4C6CE92A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CD42A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_light_extraExtraExtraLarge.png */; };
+		7B4C6CEA2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CD52A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_light_extraExtraExtraLarge.png */; };
+		7B4C6CEB2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CD62A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_dark.png */; };
+		7B4C6CEC2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CD72A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_dark.png */; };
+		7B4C6CED2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CD82A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_light.png */; };
+		7B4C6CEE2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CD92A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light_extraExtraExtraLarge.png */; };
+		7B4C6CEF2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CDA2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_dark.png */; };
+		7B4C6CF02A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CDB2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_light.png */; };
+		7B4C6CF12A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CDC2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_dark.png */; };
+		7B4C6CF22A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CDD2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_light.png */; };
+		7B4C6CF32A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CDE2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_light.png */; };
+		7B4C6CF42A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CDF2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light_extraExtraExtraLarge.png */; };
+		7B4C6CF52A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CE02A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_light_extraExtraExtraLarge.png */; };
+		7B4C6CF62A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CE12A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light.png */; };
+		7B4C6CF72A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CE22A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_light_extraExtraExtraLarge.png */; };
+		7B4C6CF82A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CE32A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_light_extraExtraExtraLarge.png */; };
+		7B4C6CF92A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CE42A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_dark.png */; };
+		7B4C6CFA2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CE52A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_dark.png */; };
+		7B4C6CFB2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CE62A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_light.png */; };
+		7B4C6CFC2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CE72A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light.png */; };
+		7B4C6CFD2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4C6CE82A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_dark.png */; };
 		7B4DFB712A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DFB702A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift */; };
 		7B4DFB732A15394F007E9C63 /* Torrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DFB722A15394F007E9C63 /* Torrent.swift */; };
 		7B6587552A0D845000317EBE /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6587532A0D845000317EBE /* URLSessionHTTPClient.swift */; };
@@ -159,6 +180,15 @@
 		7B83383D2A1120B20052F7EC /* SessionGetMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B83383C2A1120B20052F7EC /* SessionGetMapperTests.swift */; };
 		7B8338402A1124780052F7EC /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B83383F2A1124780052F7EC /* HTTPURLResponse+StatusCode.swift */; };
 		7B8338432A1128A10052F7EC /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8338422A1128A10052F7EC /* Session.swift */; };
+		7B85610A2A9C8E3000724B8F /* PeersSettingsPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8561092A9C8E3000724B8F /* PeersSettingsPagePresenter.swift */; };
+		7B85610C2A9C8E3A00724B8F /* PeersSettingsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B85610B2A9C8E3A00724B8F /* PeersSettingsPageViewModel.swift */; };
+		7B85610F2A9C8E5F00724B8F /* PeersSettings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B8561112A9C8E5F00724B8F /* PeersSettings.strings */; };
+		7B8561142A9C8F0A00724B8F /* PeersSettingsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8561132A9C8F0A00724B8F /* PeersSettingsPresenterTests.swift */; };
+		7B8561162A9C8F1600724B8F /* PeersSettingsLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8561152A9C8F1600724B8F /* PeersSettingsLocalizationTests.swift */; };
+		7B8561192A9C90A300724B8F /* PeersSettingsGetMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8561182A9C90A300724B8F /* PeersSettingsGetMapper.swift */; };
+		7B85611C2A9C943600724B8F /* PeersSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B85611B2A9C943600724B8F /* PeersSettings.swift */; };
+		7B8561212A9C9CC400724B8F /* PeersSettingsGetMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8561202A9C9CC400724B8F /* PeersSettingsGetMapperTests.swift */; };
+		7B8561232A9CAD5300724B8F /* PeersSettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8561222A9CAD5300724B8F /* PeersSettingsPage.swift */; };
 		7B8CB8152A66A421001A4D90 /* HeaderUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8CB8142A66A421001A4D90 /* HeaderUtils.swift */; };
 		7B8CB81B2A66C111001A4D90 /* TorrentsPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8CB81A2A66C111001A4D90 /* TorrentsPagePresenter.swift */; };
 		7B8CB81F2A66C19E001A4D90 /* TorrentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8CB81E2A66C19E001A4D90 /* TorrentViewModel.swift */; };
@@ -200,6 +230,11 @@
 		7BC0D83E2A6C170A00B36367 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BC0D83D2A6C170A00B36367 /* Info.plist */; };
 		7BC3ABDB2A76C20F00B054DB /* ServerDetailPagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3ABDA2A76C20F00B054DB /* ServerDetailPagePresenterTests.swift */; };
 		7BC3ABDD2A76C2A500B054DB /* SharedServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3ABDC2A76C2A500B054DB /* SharedServerTests.swift */; };
+		7BC726592A9D47D900019EB8 /* BlocklistUpdateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC726582A9D47D900019EB8 /* BlocklistUpdateMapper.swift */; };
+		7BC7265B2A9D486600019EB8 /* BlocklistUpdateMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC7265A2A9D486600019EB8 /* BlocklistUpdateMapperTests.swift */; };
+		7BC7265E2A9D48F000019EB8 /* BlocklistBodiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC7265D2A9D48F000019EB8 /* BlocklistBodiesTests.swift */; };
+		7BC726612A9D490600019EB8 /* BlocklistBodies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC726602A9D490600019EB8 /* BlocklistBodies.swift */; };
+		7BC726632A9D573500019EB8 /* PeersSettingsPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC726622A9D573500019EB8 /* PeersSettingsPageTests.swift */; };
 		7BC960D42A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC960D32A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift */; };
 		7BC960DC2A12D1AF0030B5E0 /* TorrentBodiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC960DB2A12D1AF0030B5E0 /* TorrentBodiesTests.swift */; };
 		7BC960DF2A12D1BB0030B5E0 /* TorrentBodies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC960DE2A12D1BB0030B5E0 /* TorrentBodies.swift */; };
@@ -376,6 +411,27 @@
 		7B4599D32A6817C700189C16 /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Snapshot.swift"; sourceTree = "<group>"; };
 		7B4599D52A68184100189C16 /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
 		7B4907B62A6524CB00C75819 /* EndToEndTestConfigurations.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = EndToEndTestConfigurations.xcconfig; sourceTree = "<group>"; };
+		7B4C6CD42A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		7B4C6CD52A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ERROR_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		7B4C6CD62A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_LOADING_dark.png; sourceTree = "<group>"; };
+		7B4C6CD72A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_dark.png; sourceTree = "<group>"; };
+		7B4C6CD82A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ERROR_light.png; sourceTree = "<group>"; };
+		7B4C6CD92A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		7B4C6CDA2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_dark.png; sourceTree = "<group>"; };
+		7B4C6CDB2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_LOADING_light.png; sourceTree = "<group>"; };
+		7B4C6CDC2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ERROR_dark.png; sourceTree = "<group>"; };
+		7B4C6CDD2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_light.png; sourceTree = "<group>"; };
+		7B4C6CDE2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ALERT_MESSAGE_light.png; sourceTree = "<group>"; };
+		7B4C6CDF2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		7B4C6CE02A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_LOADING_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		7B4C6CE12A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light.png; sourceTree = "<group>"; };
+		7B4C6CE22A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ALERT_MESSAGE_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		7B4C6CE32A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		7B4C6CE42A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_dark.png; sourceTree = "<group>"; };
+		7B4C6CE52A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_dark.png; sourceTree = "<group>"; };
+		7B4C6CE62A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_light.png; sourceTree = "<group>"; };
+		7B4C6CE72A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light.png; sourceTree = "<group>"; };
+		7B4C6CE82A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEERS_SETTINGS_PAGE_ALERT_MESSAGE_dark.png; sourceTree = "<group>"; };
 		7B4DFB702A1538EB007E9C63 /* TorrentGetMapperTests+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorrentGetMapperTests+Stub.swift"; sourceTree = "<group>"; };
 		7B4DFB722A15394F007E9C63 /* Torrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Torrent.swift; sourceTree = "<group>"; };
 		7B5036A42A862ADD0078480E /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
@@ -461,6 +517,16 @@
 		7B83383C2A1120B20052F7EC /* SessionGetMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionGetMapperTests.swift; sourceTree = "<group>"; };
 		7B83383F2A1124780052F7EC /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
 		7B8338422A1128A10052F7EC /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		7B8561092A9C8E3000724B8F /* PeersSettingsPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersSettingsPagePresenter.swift; sourceTree = "<group>"; };
+		7B85610B2A9C8E3A00724B8F /* PeersSettingsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersSettingsPageViewModel.swift; sourceTree = "<group>"; };
+		7B8561102A9C8E5F00724B8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PeersSettings.strings; sourceTree = "<group>"; };
+		7B8561122A9C8E6200724B8F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/PeersSettings.strings; sourceTree = "<group>"; };
+		7B8561132A9C8F0A00724B8F /* PeersSettingsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersSettingsPresenterTests.swift; sourceTree = "<group>"; };
+		7B8561152A9C8F1600724B8F /* PeersSettingsLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersSettingsLocalizationTests.swift; sourceTree = "<group>"; };
+		7B8561182A9C90A300724B8F /* PeersSettingsGetMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersSettingsGetMapper.swift; sourceTree = "<group>"; };
+		7B85611B2A9C943600724B8F /* PeersSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersSettings.swift; sourceTree = "<group>"; };
+		7B8561202A9C9CC400724B8F /* PeersSettingsGetMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersSettingsGetMapperTests.swift; sourceTree = "<group>"; };
+		7B8561222A9CAD5300724B8F /* PeersSettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersSettingsPage.swift; sourceTree = "<group>"; };
 		7B8CB8142A66A421001A4D90 /* HeaderUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUtils.swift; sourceTree = "<group>"; };
 		7B8CB81A2A66C111001A4D90 /* TorrentsPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentsPagePresenter.swift; sourceTree = "<group>"; };
 		7B8CB81E2A66C19E001A4D90 /* TorrentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentViewModel.swift; sourceTree = "<group>"; };
@@ -505,6 +571,11 @@
 		7BC0D83D2A6C170A00B36367 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BC3ABDA2A76C20F00B054DB /* ServerDetailPagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDetailPagePresenterTests.swift; sourceTree = "<group>"; };
 		7BC3ABDC2A76C2A500B054DB /* SharedServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedServerTests.swift; sourceTree = "<group>"; };
+		7BC726582A9D47D900019EB8 /* BlocklistUpdateMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocklistUpdateMapper.swift; sourceTree = "<group>"; };
+		7BC7265A2A9D486600019EB8 /* BlocklistUpdateMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocklistUpdateMapperTests.swift; sourceTree = "<group>"; };
+		7BC7265D2A9D48F000019EB8 /* BlocklistBodiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocklistBodiesTests.swift; sourceTree = "<group>"; };
+		7BC726602A9D490600019EB8 /* BlocklistBodies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocklistBodies.swift; sourceTree = "<group>"; };
+		7BC726622A9D573500019EB8 /* PeersSettingsPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersSettingsPageTests.swift; sourceTree = "<group>"; };
 		7BC960D32A129A3E0030B5E0 /* SessionGetMapperTests+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionGetMapperTests+Stub.swift"; sourceTree = "<group>"; };
 		7BC960DB2A12D1AF0030B5E0 /* TorrentBodiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentBodiesTests.swift; sourceTree = "<group>"; };
 		7BC960DE2A12D1BB0030B5E0 /* TorrentBodies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentBodies.swift; sourceTree = "<group>"; };
@@ -715,6 +786,7 @@
 		7B2348EE2A94DC6500BD5834 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				7B8561072A9C8CAC00724B8F /* PeersSettingsPage */,
 				7B2348F22A94DC8800BD5834 /* TorrentsSettingsPage */,
 				7BA7E32D2A98934800406BBB /* SpeedSettingsPage */,
 				7B6CD5DE2A72528900E81983 /* SettingsPage */,
@@ -725,8 +797,9 @@
 		7B2348EF2A94DC6E00BD5834 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				7BA7E32E2A98935D00406BBB /* SpeedSettingsPage */,
+				7B8561082A9C8E1D00724B8F /* PeersSettingsPage */,
 				7B2348FD2A94DCC900BD5834 /* TorrentsSettingsPage */,
+				7BA7E32E2A98935D00406BBB /* SpeedSettingsPage */,
 				7BBF3C572A72B0BA001206A8 /* SettingsPage */,
 			);
 			path = Settings;
@@ -790,6 +863,7 @@
 				7B6CD5D92A724D5A00E81983 /* SettingsPage.swift */,
 				7B23F00F2A94EDBB008E00FF /* TorrentsSettingsPage.swift */,
 				7BA7E3492A98AA6B00406BBB /* SpeedSettingsPage.swift */,
+				7B8561222A9CAD5300724B8F /* PeersSettingsPage.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -853,6 +927,7 @@
 				7BDF923A2A93853C0041E0CC /* TorrentTrackersPageTests.swift */,
 				7B23F0212A969019008E00FF /* TorrentsSettingsPageTests.swift */,
 				7BA7E3582A99050E00406BBB /* SpeedSettingsPageTests.swift */,
+				7BC726622A9D573500019EB8 /* PeersSettingsPageTests.swift */,
 				7B4599D72A6819EC00189C16 /* snapshots */,
 			);
 			path = "Transmission UI";
@@ -877,6 +952,27 @@
 				7B80FC902A7262D600A6DAB6 /* SETTINGS_PAGE_dark.png */,
 				7B80FC912A7262D600A6DAB6 /* SETTINGS_PAGE_light.png */,
 				7B2325052A7681DF00836B02 /* SETTINGS_PAGE_light_extraExtraExtraLarge.png */,
+				7B4C6CE82A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_dark.png */,
+				7B4C6CDE2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_light.png */,
+				7B4C6CE22A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_light_extraExtraExtraLarge.png */,
+				7B4C6CDA2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_dark.png */,
+				7B4C6CE12A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light.png */,
+				7B4C6CD92A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light_extraExtraExtraLarge.png */,
+				7B4C6CE42A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_dark.png */,
+				7B4C6CE72A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light.png */,
+				7B4C6CDF2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light_extraExtraExtraLarge.png */,
+				7B4C6CD72A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_dark.png */,
+				7B4C6CE62A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_light.png */,
+				7B4C6CE32A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_light_extraExtraExtraLarge.png */,
+				7B4C6CDC2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_dark.png */,
+				7B4C6CD82A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_light.png */,
+				7B4C6CD52A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_light_extraExtraExtraLarge.png */,
+				7B4C6CD62A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_dark.png */,
+				7B4C6CDB2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_light.png */,
+				7B4C6CE02A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_light_extraExtraExtraLarge.png */,
+				7B4C6CE52A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_dark.png */,
+				7B4C6CDD2A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_light.png */,
+				7B4C6CD42A9E3EC700EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_light_extraExtraExtraLarge.png */,
 				7BDF92142A93591B0041E0CC /* TORRENT_PEERS_PAGE_dark.png */,
 				7BDF92132A93591B0041E0CC /* TORRENT_PEERS_PAGE_light.png */,
 				7BDF92152A93591B0041E0CC /* TORRENT_PEERS_PAGE_light_extraExtraExtraLarge.png */,
@@ -1026,6 +1122,7 @@
 		7B6CD5E02A72529E00E81983 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				7BC726572A9D47B000019EB8 /* Blocklist APIs */,
 				7B8CB8212A66C2C0001A4D90 /* Torrents APIs */,
 				7BC960D52A12D0EF0030B5E0 /* Session APIs */,
 				7B9B8F6F2A74508E00A30771 /* Server APIs */,
@@ -1202,6 +1299,50 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		7B8561072A9C8CAC00724B8F /* PeersSettingsPage */ = {
+			isa = PBXGroup;
+			children = (
+				7B8561092A9C8E3000724B8F /* PeersSettingsPagePresenter.swift */,
+				7B85610B2A9C8E3A00724B8F /* PeersSettingsPageViewModel.swift */,
+				7B8561112A9C8E5F00724B8F /* PeersSettings.strings */,
+			);
+			path = PeersSettingsPage;
+			sourceTree = "<group>";
+		};
+		7B8561082A9C8E1D00724B8F /* PeersSettingsPage */ = {
+			isa = PBXGroup;
+			children = (
+				7B8561132A9C8F0A00724B8F /* PeersSettingsPresenterTests.swift */,
+				7B8561152A9C8F1600724B8F /* PeersSettingsLocalizationTests.swift */,
+			);
+			path = PeersSettingsPage;
+			sourceTree = "<group>";
+		};
+		7B8561172A9C901400724B8F /* Peers Settings Get API */ = {
+			isa = PBXGroup;
+			children = (
+				7B85611A2A9C942C00724B8F /* Models */,
+				7B8561182A9C90A300724B8F /* PeersSettingsGetMapper.swift */,
+			);
+			path = "Peers Settings Get API";
+			sourceTree = "<group>";
+		};
+		7B85611A2A9C942C00724B8F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7B85611B2A9C943600724B8F /* PeersSettings.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7B85611F2A9C948A00724B8F /* Peers Settings Get API */ = {
+			isa = PBXGroup;
+			children = (
+				7B8561202A9C9CC400724B8F /* PeersSettingsGetMapperTests.swift */,
+			);
+			path = "Peers Settings Get API";
+			sourceTree = "<group>";
+		};
 		7B8CB8202A66C298001A4D90 /* Shared API */ = {
 			isa = PBXGroup;
 			children = (
@@ -1275,6 +1416,7 @@
 		7B9305B12A0F99A4005EBE56 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				7BC726562A9D479B00019EB8 /* Blocklist APIs */,
 				7BC960D92A12D1820030B5E0 /* Torrent APIs */,
 				7BC960D62A12D1230030B5E0 /* Session APIs */,
 				7BBF3C542A72B016001206A8 /* Shared API */,
@@ -1485,6 +1627,40 @@
 			path = SettingsPage;
 			sourceTree = "<group>";
 		};
+		7BC726562A9D479B00019EB8 /* Blocklist APIs */ = {
+			isa = PBXGroup;
+			children = (
+				7BC7265C2A9D48DD00019EB8 /* Blocklist Bodies */,
+				7BC7265A2A9D486600019EB8 /* BlocklistUpdateMapperTests.swift */,
+			);
+			path = "Blocklist APIs";
+			sourceTree = "<group>";
+		};
+		7BC726572A9D47B000019EB8 /* Blocklist APIs */ = {
+			isa = PBXGroup;
+			children = (
+				7BC7265F2A9D48FC00019EB8 /* Blocklist Bodies */,
+				7BC726582A9D47D900019EB8 /* BlocklistUpdateMapper.swift */,
+			);
+			path = "Blocklist APIs";
+			sourceTree = "<group>";
+		};
+		7BC7265C2A9D48DD00019EB8 /* Blocklist Bodies */ = {
+			isa = PBXGroup;
+			children = (
+				7BC7265D2A9D48F000019EB8 /* BlocklistBodiesTests.swift */,
+			);
+			path = "Blocklist Bodies";
+			sourceTree = "<group>";
+		};
+		7BC7265F2A9D48FC00019EB8 /* Blocklist Bodies */ = {
+			isa = PBXGroup;
+			children = (
+				7BC726602A9D490600019EB8 /* BlocklistBodies.swift */,
+			);
+			path = "Blocklist Bodies";
+			sourceTree = "<group>";
+		};
 		7BC960D22A129A2A0030B5E0 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1498,9 +1674,10 @@
 			children = (
 				7B2349082A94E21D00BD5834 /* Session Fields */,
 				7B83381D2A0F9E110052F7EC /* Session Bodies */,
-				7BFEB63F2A8CFC9D003D8985 /* SessionSetMapper */,
+				7BFEB63F2A8CFC9D003D8985 /* Session Set API */,
 				7B8338382A1016B20052F7EC /* Session Get API */,
 				7BD9A1F22A630D3300B6380A /* Session Stats API */,
+				7B8561172A9C901400724B8F /* Peers Settings Get API */,
 				7B2349022A94E18200BD5834 /* Torrents Settings Get API */,
 				7BA7E32F2A9895D600406BBB /* Speed Settings Get API */,
 			);
@@ -1514,6 +1691,7 @@
 				7B83383B2A1120A40052F7EC /* Session Get API */,
 				7BFEB6422A8CFD5F003D8985 /* Session Set API */,
 				7BD9A1EE2A630C6900B6380A /* Session Stats API */,
+				7B85611F2A9C948A00724B8F /* Peers Settings Get API */,
 				7B23490C2A94E59200BD5834 /* Torrents Settings Get API */,
 				7BA7E3512A98EE8500406BBB /* Speed Settings Get API */,
 			);
@@ -1782,12 +1960,12 @@
 			path = "Torrent Trackers API";
 			sourceTree = "<group>";
 		};
-		7BFEB63F2A8CFC9D003D8985 /* SessionSetMapper */ = {
+		7BFEB63F2A8CFC9D003D8985 /* Session Set API */ = {
 			isa = PBXGroup;
 			children = (
 				7BFEB6402A8CFD11003D8985 /* SessionSetMapper.swift */,
 			);
-			path = SessionSetMapper;
+			path = "Session Set API";
 			sourceTree = "<group>";
 		};
 		7BFEB6422A8CFD5F003D8985 /* Session Set API */ = {
@@ -1994,41 +2172,56 @@
 				7B23F03A2A9694FD008E00FF /* TORRENTS_SETTINGS_PAGE_LOADING_light_extraExtraExtraLarge.png in Resources */,
 				7BD81BA12A7B03640039877F /* SERVER_DETAIL_PAGE_PORT_ERROR_light.png in Resources */,
 				7BA7E35D2A9905C600406BBB /* SPEED_SETTINGS_PAGE_ALL_TOGGLE_ON_light.png in Resources */,
+				7B4C6CF62A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light.png in Resources */,
 				7B705FE62A992D1E00992A38 /* SPEED_SETTINGS_PAGE_LOADING_light_extraExtraExtraLarge.png in Resources */,
+				7B4C6CE92A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_light_extraExtraExtraLarge.png in Resources */,
+				7B4C6CEF2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_dark.png in Resources */,
 				7B7871842A8D0C3A005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light.png in Resources */,
 				7B8075A72A93ADB0003F0B17 /* TORRENT_DETAIL_PAGE_WITH_ERROR_MESSAGE_light_extraExtraExtraLarge.png in Resources */,
 				7B705FDF2A992C0800992A38 /* SPEED_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_dark.png in Resources */,
 				7B23F0332A96947E008E00FF /* TORRENTS_SETTINGS_PAGE_TEXT_FIELD_ERRORS_light.png in Resources */,
 				7B2324FA2A76630D00836B02 /* SERVER_PAGE_LIST_WITH_CONTENT_light.png in Resources */,
+				7B4C6CF32A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_light.png in Resources */,
+				7B4C6CF52A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_light_extraExtraExtraLarge.png in Resources */,
 				7B80FC822A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_light.png in Resources */,
+				7B4C6CED2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_light.png in Resources */,
 				7BDF92162A93591B0041E0CC /* TORRENT_PEERS_PAGE_light.png in Resources */,
 				7BDF91E82A8FB7310041E0CC /* TORRENT_DETAIL_PAGE_dark.png in Resources */,
 				7BD2368B2A77BA0300AF75A9 /* SERVER_DETAIL_PAGE_light.png in Resources */,
 				7B2325062A7681DF00836B02 /* SETTINGS_PAGE_light_extraExtraExtraLarge.png in Resources */,
+				7B4C6CF02A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_light.png in Resources */,
 				7BDF91E92A8FB7310041E0CC /* TORRENT_DETAIL_PAGE_light_extraExtraExtraLarge.png in Resources */,
 				7B2324F12A76614200836B02 /* SERVER_PAGE_EMPTY_LIST_light_extraExtraExtraLarge.png in Resources */,
 				7BD2368A2A77BA0300AF75A9 /* SERVER_DETAIL_PAGE_dark.png in Resources */,
 				7BDF923F2A9385E00041E0CC /* TORRENT_TRACKERS_PAGE_light.png in Resources */,
 				7B80FC852A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_dark.png in Resources */,
+				7B4C6CEC2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_dark.png in Resources */,
 				7B23F0342A96947E008E00FF /* TORRENTS_SETTINGS_PAGE_TEXT_FIELD_ERRORS_dark.png in Resources */,
+				7B4C6CF72A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_light_extraExtraExtraLarge.png in Resources */,
 				7B2324D62A750DD700836B02 /* TORRENTS_PAGE_EMPTY_MESSAGE_light_extraExtraExtraLarge.png in Resources */,
 				7BD81B9C2A7B03640039877F /* SERVER_DETAIL_PAGE_PASSWORD_ERROR_light_extraExtraExtraLarge.png in Resources */,
 				7B23F0282A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_dark.png in Resources */,
 				7BD236832A77B6D100AF75A9 /* SERVER_DETAIL_PAGE_EMPTY_light_extraExtraExtraLarge.png in Resources */,
+				7B4C6CFB2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_light.png in Resources */,
 				7B7871862A8D0C3A005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_light_extraExtraExtraLarge.png in Resources */,
 				7BD81B9A2A7B03640039877F /* SERVER_DETAIL_PAGE_IP_ERROR_light.png in Resources */,
 				7B705FDA2A99297400992A38 /* SPEED_SETTINGS_PAGE_ALL_TOGGLE_OFF_light.png in Resources */,
 				7B705FD82A99297400992A38 /* SPEED_SETTINGS_PAGE_ALL_TOGGLE_OFF_light_extraExtraExtraLarge.png in Resources */,
 				7B23F02D2A9691B9008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light_extraExtraExtraLarge.png in Resources */,
 				7BD236892A77BA0300AF75A9 /* SERVER_DETAIL_PAGE_light_extraExtraExtraLarge.png in Resources */,
+				7B4C6CFD2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALERT_MESSAGE_dark.png in Resources */,
 				7B80FC8B2A72613400A6DAB6 /* TORRENTS_PAGE_LIST_WITH_ITEM_ERROR_dark.png in Resources */,
 				7BDF91E72A8FB7310041E0CC /* TORRENT_DETAIL_PAGE_light.png in Resources */,
+				7B4C6CF82A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_ON_light_extraExtraExtraLarge.png in Resources */,
 				7BD81B9F2A7B03640039877F /* SERVER_DETAIL_PAGE_PORT_ERROR_light_extraExtraExtraLarge.png in Resources */,
 				7B23F03E2A97A03A008E00FF /* TORRENTS_SETTINGS_PAGE_DOWNLOAD_DIR_ERROR_dark.png in Resources */,
 				7B705FE02A992C0800992A38 /* SPEED_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light_extraExtraExtraLarge.png in Resources */,
+				7B4C6CF12A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_dark.png in Resources */,
+				7B4C6CEB2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_LOADING_dark.png in Resources */,
 				7B2325002A7663E000836B02 /* SERVER_PAGE_LIST_WITH_CONTENT_WITH_SELECTION_light_extraExtraExtraLarge.png in Resources */,
 				7B7871AE2A8D7E4B005A16D6 /* CREDITS_PAGE_dark.png in Resources */,
 				7B8075AD2A93B0D3003F0B17 /* TORRENT_TRACKERS_PAGE_WITH_ERROR_MESSAGE_light.png in Resources */,
+				7B4C6CEE2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light_extraExtraExtraLarge.png in Resources */,
 				7BD81B972A7B03640039877F /* SERVER_DETAIL_PAGE_IP_ERROR_light_extraExtraExtraLarge.png in Resources */,
 				7BD81BA22A7B03640039877F /* SERVER_DETAIL_PAGE_PASSWORD_ERROR_light.png in Resources */,
 				7B2324FE2A7663E000836B02 /* SERVER_PAGE_LIST_WITH_CONTENT_WITH_SELECTION_dark.png in Resources */,
@@ -2048,16 +2241,21 @@
 				7BD81BA02A7B03640039877F /* SERVER_DETAIL_PAGE_IP_ERROR_dark.png in Resources */,
 				7BD81BA32A7B03640039877F /* SERVER_DETAIL_PAGE_SERVER_NAME_ERROR_light.png in Resources */,
 				7BA7E35E2A9905C600406BBB /* SPEED_SETTINGS_PAGE_ALL_TOGGLE_ON_dark.png in Resources */,
+				7B4C6CF22A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_light.png in Resources */,
 				7B23F0382A9694FD008E00FF /* TORRENTS_SETTINGS_PAGE_LOADING_light.png in Resources */,
+				7B4C6CF42A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light_extraExtraExtraLarge.png in Resources */,
 				7B80FC812A72613400A6DAB6 /* TORRENTS_PAGE_EMPTY_LIST_dark.png in Resources */,
 				7B7871AD2A8D7E4B005A16D6 /* CREDITS_PAGE_light_extraExtraExtraLarge.png in Resources */,
 				7BDF92402A9385E00041E0CC /* TORRENT_TRACKERS_PAGE_dark.png in Resources */,
 				7B705FDE2A992C0800992A38 /* SPEED_SETTINGS_PAGE_ALL_TEXTFIELD_ERROR_SHOW_light.png in Resources */,
+				7B4C6CFC2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_light.png in Resources */,
 				7B7871852A8D0C3A005A16D6 /* TORRENTS_PAGE_LIST_WITH_CONTENT_AND_SPEED_LIMIT_dark.png in Resources */,
+				7B4C6CEA2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ERROR_light_extraExtraExtraLarge.png in Resources */,
 				7BF3BB4D2A82256100D46AF0 /* TORRENTS_PAGE_EMPTY_LIST_LOADING_light.png in Resources */,
 				7B80FC932A7262D600A6DAB6 /* SETTINGS_PAGE_light.png in Resources */,
 				7B705FE42A992D1E00992A38 /* SPEED_SETTINGS_PAGE_LOADING_light.png in Resources */,
 				7BDF92182A93591B0041E0CC /* TORRENT_PEERS_PAGE_light_extraExtraExtraLarge.png in Resources */,
+				7B4C6CF92A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_ALL_TOGGLE_OFF_dark.png in Resources */,
 				7B705FE52A992D1E00992A38 /* SPEED_SETTINGS_PAGE_LOADING_dark.png in Resources */,
 				7B23F0392A9694FD008E00FF /* TORRENTS_SETTINGS_PAGE_LOADING_dark.png in Resources */,
 				7BD81B9D2A7B03640039877F /* SERVER_DETAIL_PAGE_USERNAME_ERROR_light_extraExtraExtraLarge.png in Resources */,
@@ -2067,6 +2265,7 @@
 				7BDF92412A9385E00041E0CC /* TORRENT_TRACKERS_PAGE_light_extraExtraExtraLarge.png in Resources */,
 				7B2324F82A7662F300836B02 /* SERVER_PAGE_LIST_WITH_CONTENT_light_extraExtraExtraLarge.png in Resources */,
 				7B2324F72A7662F300836B02 /* SERVER_PAGE_LIST_WITH_CONTENT_dark.png in Resources */,
+				7B4C6CFA2A9E3EC800EE1D91 /* PEERS_SETTINGS_PAGE_UPDATING_BLOCK_LIST_LOADING_dark.png in Resources */,
 				7B23F0262A969136008E00FF /* TORRENTS_SETTINGS_PAGE_ALL_TOGGLE_ON_light.png in Resources */,
 				7B80FC922A7262D600A6DAB6 /* SETTINGS_PAGE_dark.png in Resources */,
 				7B8075AC2A93B0D3003F0B17 /* TORRENT_TRACKERS_PAGE_WITH_ERROR_MESSAGE_dark.png in Resources */,
@@ -2084,6 +2283,7 @@
 				7BA7E3362A98974A00406BBB /* SpeedSettings.strings in Resources */,
 				7B7871C82A8E30B0005A16D6 /* TorrentDetail.strings in Resources */,
 				7BA01FCB2A7D549B00FBB43D /* TabContainer.strings in Resources */,
+				7B85610F2A9C8E5F00724B8F /* PeersSettings.strings in Resources */,
 				7B2348F92A94DCBE00BD5834 /* TorrentsSettings.strings in Resources */,
 				7B7871A32A8D7C48005A16D6 /* CreditsPage.strings in Resources */,
 				7B2324E92A753F2000836B02 /* Servers.strings in Resources */,
@@ -2131,6 +2331,7 @@
 				7B23250B2A7685F300836B02 /* ServerDetailPage.swift in Sources */,
 				7B8CB8432A66CAE2001A4D90 /* TorrentsPage.swift in Sources */,
 				7B7871D32A8E62B1005A16D6 /* TorrentDetailPage.swift in Sources */,
+				7B8561232A9CAD5300724B8F /* PeersSettingsPage.swift in Sources */,
 				7B2324DA2A753D5400836B02 /* ServerPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2152,6 +2353,7 @@
 				7B4599CF2A68109900189C16 /* TorrentsPageTests.swift in Sources */,
 				7B78719D2A8D7BEE005A16D6 /* CreditsPageTests.swift in Sources */,
 				7BDF91E32A8FB5E40041E0CC /* TorrentDetailPageTests.swift in Sources */,
+				7BC726632A9D573500019EB8 /* PeersSettingsPageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2160,12 +2362,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BD236932A7820D000AF75A9 /* HTTPProtocol.swift in Sources */,
+				7BC726612A9D490600019EB8 /* BlocklistBodies.swift in Sources */,
 				7B6CD5D02A715AF300E81983 /* TorrentField.swift in Sources */,
 				7B23250F2A7688EB00836B02 /* ServerDetailPagePresenter.swift in Sources */,
 				7B2349042A94E1AA00BD5834 /* TorrentsSettingsGetMapper.swift in Sources */,
 				7B3690F42A69DC0C000E130B /* TorrentsPageViewModel.swift in Sources */,
 				7B7871C52A8E309D005A16D6 /* TorrentDetailPageViewModel.swift in Sources */,
 				7BC960E32A135E6D0030B5E0 /* TorrentGetMapper.swift in Sources */,
+				7B85611C2A9C943600724B8F /* PeersSettings.swift in Sources */,
 				7BA01FE82A80AD9400FBB43D /* UserDefaultsHandler.swift in Sources */,
 				7B9B8F7A2A74556E00A30771 /* ServerSetMapper.swift in Sources */,
 				7BA7E3332A98967900406BBB /* SpeedSettingsPageViewModel.swift in Sources */,
@@ -2192,6 +2396,8 @@
 				7B8338292A0FA19F0052F7EC /* SessionBodies.swift in Sources */,
 				7B2325172A76891A00836B02 /* ServerDetailPageViewModel.swift in Sources */,
 				7BDF921D2A935F4F0041E0CC /* TorrentTrackersPageViewModel.swift in Sources */,
+				7B85610C2A9C8E3A00724B8F /* PeersSettingsPageViewModel.swift in Sources */,
+				7B8561192A9C90A300724B8F /* PeersSettingsGetMapper.swift in Sources */,
 				7B6CD5EC2A72539B00E81983 /* Server.swift in Sources */,
 				7B4599C62A67E92E00189C16 /* TorrentPresenter.swift in Sources */,
 				7BDF92082A9214D50041E0CC /* TorrentPeer.swift in Sources */,
@@ -2209,6 +2415,7 @@
 				7B2324E22A753EB000836B02 /* ServerPresenter.swift in Sources */,
 				7B7871B52A8E0D51005A16D6 /* TorrentDetail.swift in Sources */,
 				7B8CB8152A66A421001A4D90 /* HeaderUtils.swift in Sources */,
+				7BC726592A9D47D900019EB8 /* BlocklistUpdateMapper.swift in Sources */,
 				7B9B8F762A74554300A30771 /* RemoteServer.swift in Sources */,
 				7BA7E3312A98967000406BBB /* SpeedSettingsPagePresenter.swift in Sources */,
 				7B2324E62A753EBC00836B02 /* ServerViewModel.swift in Sources */,
@@ -2223,6 +2430,7 @@
 				7B6CD5E42A72532400E81983 /* SettingsPageViewModel.swift in Sources */,
 				7BDF92032A9212EE0041E0CC /* TorrentPeersMapper.swift in Sources */,
 				7B6CD5D42A716D7400E81983 /* Int+Byte.swift in Sources */,
+				7B85610A2A9C8E3000724B8F /* PeersSettingsPagePresenter.swift in Sources */,
 				7BD236912A780AD400AF75A9 /* ServerDetailPageDataModel.swift in Sources */,
 				7BA7E33F2A989C1B00406BBB /* SpeedSettingsGetMapper.swift in Sources */,
 				7B6CD5E22A72531800E81983 /* SettingsPagePresenter.swift in Sources */,
@@ -2244,6 +2452,7 @@
 				7B65875D2A0D846500317EBE /* SharedTestHelpers.swift in Sources */,
 				7BDF92312A9362EB0041E0CC /* TorrentTrackersMapperTests.swift in Sources */,
 				7B1E4B482A7C0541002CA270 /* TorrentRemoveMapperTests.swift in Sources */,
+				7BC7265E2A9D48F000019EB8 /* BlocklistBodiesTests.swift in Sources */,
 				7BC960DC2A12D1AF0030B5E0 /* TorrentBodiesTests.swift in Sources */,
 				7B2349012A94DCE500BD5834 /* TorrentsSettingsLocalizationTests.swift in Sources */,
 				7B23490E2A94E5A800BD5834 /* TorrentsSettingsGetMapperTests.swift in Sources */,
@@ -2253,6 +2462,7 @@
 				7BA7E33D2A989A8A00406BBB /* SpeedSettingsLocalizationTests.swift in Sources */,
 				7B6CD5F12A7253F100E81983 /* SettingsLocalizationTests.swift in Sources */,
 				7B65875E2A0D846500317EBE /* URLProtocolStub.swift in Sources */,
+				7B8561212A9C9CC400724B8F /* PeersSettingsGetMapperTests.swift in Sources */,
 				7BDF91FD2A920F300041E0CC /* TorrentPeersLocalizationTests.swift in Sources */,
 				7B7871CF2A8E311C005A16D6 /* TorrentDetailLocalizationTests.swift in Sources */,
 				7B7871B12A8D8132005A16D6 /* CreditsPageLocalizationTests.swift in Sources */,
@@ -2262,6 +2472,7 @@
 				7BDF92062A92143F0041E0CC /* TorrentPeersMapperTests.swift in Sources */,
 				7B7871A92A8D7D54005A16D6 /* CreditsPagePresenterTests.swift in Sources */,
 				7B6587612A0D846500317EBE /* URLSessionHTTPClientTests.swift in Sources */,
+				7B8561142A9C8F0A00724B8F /* PeersSettingsPresenterTests.swift in Sources */,
 				7B65875F2A0D846500317EBE /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				7BDF92262A9360010041E0CC /* TorrentTrackersPagePresenterTests.swift in Sources */,
 				7B4599CA2A67E9A600189C16 /* SharedPresentationHelpers.swift in Sources */,
@@ -2280,7 +2491,9 @@
 				7BC3ABDB2A76C20F00B054DB /* ServerDetailPagePresenterTests.swift in Sources */,
 				7B2325202A7689D300836B02 /* ServerPresenterTests.swift in Sources */,
 				7B6587602A0D846500317EBE /* URLRequest+BodyStream.swift in Sources */,
+				7B8561162A9C8F1600724B8F /* PeersSettingsLocalizationTests.swift in Sources */,
 				7B2348FF2A94DCD900BD5834 /* TorrentsSettingsPresenterTests.swift in Sources */,
+				7BC7265B2A9D486600019EB8 /* BlocklistUpdateMapperTests.swift in Sources */,
 				7BB10EA72A7D06EB00F275EF /* TorrentStopMapperTests.swift in Sources */,
 				7BA7E3532A98EEA300406BBB /* SpeedSettingsGetMapperTests.swift in Sources */,
 				7BA7E33B2A989A7F00406BBB /* SpeedSettingsPresenterTests.swift in Sources */,
@@ -2382,6 +2595,15 @@
 				7B7871CB2A8E30B2005A16D6 /* it */,
 			);
 			name = TorrentDetail.strings;
+			sourceTree = "<group>";
+		};
+		7B8561112A9C8E5F00724B8F /* PeersSettings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B8561102A9C8E5F00724B8F /* en */,
+				7B8561122A9C8E6200724B8F /* it */,
+			);
+			name = PeersSettings.strings;
 			sourceTree = "<group>";
 		};
 		7BA01FCD2A7D549B00FBB43D /* TabContainer.strings */ = {

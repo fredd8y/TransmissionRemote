@@ -1,0 +1,30 @@
+/* 
+  PeersSettings.strings
+  Transmission
+
+  Created by Federico Arvat on 28/08/23.
+  
+*/
+
+"PEERS_SETTINGS_PAGE_TITLE" = "Peers settings";
+"REQUIRED_ENCRYPTION_DESCRIPTION" = "Required";
+"PREFERRED_ENCRYPTION_DESCRIPTION" = "Preferred";
+"TOLERATED_ENCRYPTION_DESCRIPTION" = "Allowed";
+"CONNECTIONS_SECTION_HEADER" = "Connections";
+"OPTIONS_SECTION_HEADER" = "Options";
+"BLOCKLIST_SECTION_HEADER" = "Blocklist";
+"MAX_PEERS_PER_TORRENT" = "Max peers per torrent";
+"MAX_PEERS_OVERALL" = "Max peers overall";
+"MUST_BE_A_NUMBER" = "Must be a number";
+"ENCRYPTION_MODE" = "Encryption mode";
+"PEX_DESCRIPTION" = "Use PEX to find more peers";
+"DHT_DESCRIPTION" = "Use DHT to find more peers";
+"LPD_DESCRIPTION" = "Use LPD to find more peers";
+"ENABLE_BLOCKLIST" = "Enable blocklist";
+"MUST_BE_AN_URL" = "Must be an url";
+"UPDATE_BUTTON_TITLE" = "Update";
+"CONFIRM_BUTTON_TITLE" = "Confirm";
+"BLOCKLIST_RULES_NUMBER" = "Number of blocklist rules";
+"BLOCKLIST_URL_PLACEHOLDER" = "Blocklist URL";
+"ALERT_ERROR" = "Error";
+"OK" = "Ok";

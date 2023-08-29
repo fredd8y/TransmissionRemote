@@ -22,7 +22,7 @@ extension XCTestCase {
 			return
 		}
 		
-		if !match(snapshotData, storedSnapshotData, tolerance: 0.05) {
+		if !match(snapshotData, storedSnapshotData, tolerance: 0) {
 			let temporarySnapshotURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
 				.appendingPathComponent(snapshotURL.lastPathComponent)
 			
@@ -65,7 +65,7 @@ extension XCTestCase {
 		return data
 	}
 	
-	private func match(_ oldData: Data, _ newData: Data, tolerance: Float = 0) -> Bool {
+	private func match(_ oldData: Data, _ newData: Data, tolerance: Float = 0.02) -> Bool {
 		if oldData == newData { return true }
 		
 		guard let oldImage = UIImage(data: oldData)?.cgImage, let newImage = UIImage(data: newData)?.cgImage else {

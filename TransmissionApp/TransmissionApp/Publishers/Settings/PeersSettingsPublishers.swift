@@ -1,8 +1,8 @@
 //
-//  SpeedSettingsPublishers.swift
+//  PeersSettingsPublishers.swift
 //  TransmissionApp
 //
-//  Created by Federico Arvat on 25/08/23.
+//  Created by Federico Arvat on 28/08/23.
 //
 
 import OSLog
@@ -10,27 +10,27 @@ import Combine
 import Foundation
 import Transmission
 
-enum SpeedSettingsPublishers {
-	static func makeSpeedSettingsGetPublisher(server: Server) -> AnyPublisher<SpeedSettings, Error> {
+enum PeersSettingsPublishers {
+	static func makePeersSettingsGetPublisher(server: Server) -> AnyPublisher<PeersSettings, Error> {
 		return TransmissionHTTPClient.httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: SessionBodies.get(fields: SessionField.speedSettings),
+				body: SessionBodies.get(fields: SessionField.peersSettings),
 				additionalHeader: Headers.headers(server.credentials)
 			)
 			.tryMap(Logger.log)
-			.tryMap(SpeedSettingsGetMapper.map)
+			.tryMap(PeersSettingsGetMapper.map)
 			.eraseToAnyPublisher()
 	}
 	
-	static func makeAlternativeSpeedTimeBeginChangePublisher(
-		hour: Int,
+	static func makeEncryptionSetPublisher(
+		value: String,
 		server: Server
 	) -> AnyPublisher<Void, Error> {
 		return TransmissionHTTPClient.httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: SessionBodies.setAlternativeSpeedTimeBegin(hour: hour),
+				body: SessionBodies.setPeersEncryption(value: value),
 				additionalHeader: Headers.headers(server.credentials)
 			)
 			.tryMap(Logger.log)
@@ -38,44 +38,14 @@ enum SpeedSettingsPublishers {
 			.eraseToAnyPublisher()
 	}
 	
-	static func makeAlternativeSpeedTimeEndChangePublisher(
-		hour: Int,
-		server: Server
-	) -> AnyPublisher<Void, Error> {
-		return TransmissionHTTPClient.httpClient
-			.postPublisher(
-				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: SessionBodies.setAlternativeSpeedTimeEnd(hour: hour),
-				additionalHeader: Headers.headers(server.credentials)
-			)
-			.tryMap(Logger.log)
-			.tryMap(SessionSetMapper.map)
-			.eraseToAnyPublisher()
-	}
-	
-	static func makeAlternativeSpeedTimeDayChangePublisher(
-		day: Int,
-		server: Server
-	) -> AnyPublisher<Void, Error> {
-		return TransmissionHTTPClient.httpClient
-			.postPublisher(
-				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: SessionBodies.setAlternativeSpeedTimeDay(day: day),
-				additionalHeader: Headers.headers(server.credentials)
-			)
-			.tryMap(Logger.log)
-			.tryMap(SessionSetMapper.map)
-			.eraseToAnyPublisher()
-	}
-	
-	static func makeUploadLimitEnabledPublisher(
+	static func makePexEnabledSetPublisher(
 		enabled: Bool,
 		server: Server
 	) -> AnyPublisher<Void, Error> {
 		return TransmissionHTTPClient.httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: SessionBodies.setUploadLimitEnabled(enabled: enabled),
+				body: SessionBodies.setPexEnabled(enabled: enabled),
 				additionalHeader: Headers.headers(server.credentials)
 			)
 			.tryMap(Logger.log)
@@ -83,14 +53,14 @@ enum SpeedSettingsPublishers {
 			.eraseToAnyPublisher()
 	}
 	
-	static func makeDownloadLimitEnabledPublisher(
+	static func makeDhtEnabledSetPublisher(
 		enabled: Bool,
 		server: Server
 	) -> AnyPublisher<Void, Error> {
 		return TransmissionHTTPClient.httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: SessionBodies.setDownloadLimitEnabled(enabled: enabled),
+				body: SessionBodies.setDhtEnabled(enabled: enabled),
 				additionalHeader: Headers.headers(server.credentials)
 			)
 			.tryMap(Logger.log)
@@ -98,14 +68,14 @@ enum SpeedSettingsPublishers {
 			.eraseToAnyPublisher()
 	}
 	
-	static func makeScheduledTimesEnabledPublisher(
+	static func makeLpdEnabledSetPublisher(
 		enabled: Bool,
 		server: Server
 	) -> AnyPublisher<Void, Error> {
 		return TransmissionHTTPClient.httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: SessionBodies.setAltSpeedTimeEnabled(enabled: enabled),
+				body: SessionBodies.setLpdEnabled(enabled: enabled),
 				additionalHeader: Headers.headers(server.credentials)
 			)
 			.tryMap(Logger.log)
@@ -113,14 +83,14 @@ enum SpeedSettingsPublishers {
 			.eraseToAnyPublisher()
 	}
 	
-	static func makeUploadLimitPublisher(
-		limit: Int,
+	static func makeBlocklistEnabledSetPublisher(
+		enabled: Bool,
 		server: Server
 	) -> AnyPublisher<Void, Error> {
 		return TransmissionHTTPClient.httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: SessionBodies.setSpeedLimitUp(limit: limit),
+				body: SessionBodies.setBlocklistEnabled(enabled: enabled),
 				additionalHeader: Headers.headers(server.credentials)
 			)
 			.tryMap(Logger.log)
@@ -128,14 +98,14 @@ enum SpeedSettingsPublishers {
 			.eraseToAnyPublisher()
 	}
 	
-	static func makeDownloadLimitPublisher(
+	static func makeGlobalPeerLimitSetPublisher(
 		limit: Int,
 		server: Server
 	) -> AnyPublisher<Void, Error> {
 		return TransmissionHTTPClient.httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: SessionBodies.setSpeedLimitDown(limit: limit),
+				body: SessionBodies.setGlobalPeerLimit(limit: limit),
 				additionalHeader: Headers.headers(server.credentials)
 			)
 			.tryMap(Logger.log)
@@ -143,14 +113,14 @@ enum SpeedSettingsPublishers {
 			.eraseToAnyPublisher()
 	}
 	
-	static func makeAlternativeUploadLimitPublisher(
+	static func makePeerLimitPerTorrentSetPublisher(
 		limit: Int,
 		server: Server
 	) -> AnyPublisher<Void, Error> {
 		return TransmissionHTTPClient.httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: SessionBodies.setAltSpeedUp(limit: limit),
+				body: SessionBodies.setPeerLimitPerTorrent(limit: limit),
 				additionalHeader: Headers.headers(server.credentials)
 			)
 			.tryMap(Logger.log)
@@ -158,18 +128,33 @@ enum SpeedSettingsPublishers {
 			.eraseToAnyPublisher()
 	}
 	
-	static func makeAlternativeDownloadLimitPublisher(
-		limit: Int,
+	static func makeBlocklistUrlSetPublisher(
+		url: String,
 		server: Server
 	) -> AnyPublisher<Void, Error> {
 		return TransmissionHTTPClient.httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: SessionBodies.setAltSpeedDown(limit: limit),
+				body: SessionBodies.setBlocklistUrl(url: url),
 				additionalHeader: Headers.headers(server.credentials)
 			)
 			.tryMap(Logger.log)
 			.tryMap(SessionSetMapper.map)
+			.eraseToAnyPublisher()
+	}
+	
+	static func makeBlocklistUpdatePublisher(
+		url: String,
+		server: Server
+	) -> AnyPublisher<Int?, Error> {
+		return TransmissionHTTPClient.httpClient
+			.postPublisher(
+				url: APIsEndpoint.post.url(baseURL: server.baseURL),
+				body: BlocklistBodies.update,
+				additionalHeader: Headers.headers(server.credentials)
+			)
+			.tryMap(Logger.log)
+			.tryMap(BlocklistUpdateMapper.map)
 			.eraseToAnyPublisher()
 	}
 }

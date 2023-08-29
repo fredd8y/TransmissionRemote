@@ -117,7 +117,17 @@ class TorrentsSettingsPagePresentationAdapter {
 		switch completion {
 		case .finished: break
 		case .failure(let error):
-			torrentsSettingsViewModel.newValues(.error(error.localizedDescription))
+			var errorDescription: String = ""
+			guard let _error = error as? SessionSetMapper.Error, case let SessionSetMapper.Error.failed(explanation) = _error else {
+				errorDescription = error.localizedDescription
+				return
+			}
+			errorDescription = explanation
+			Task {
+				await MainActor.run {
+					torrentsSettingsViewModel.errorMessage = errorDescription
+				}
+			}
 		}
 	}
 	

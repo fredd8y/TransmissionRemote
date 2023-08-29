@@ -109,6 +109,7 @@ final class TransmissionComposer {
 				
 		let torrentsSettingsPagePresentationAdapter = TorrentsSettingsPagePresentationAdapter()
 		let speedSettingsPagePresentationAdapter = SpeedSettingsPagePresentationAdapter()
+		let peersSettingsPagePresentationAdapter = PeersSettingsPagePresentationAdapter()
 		
 		var settingsPage = SettingsPage(viewModel: settingsPageViewModel, serverPage: serverPage)
 		settingsPage.loadData = settingsPagePresentationAdapter.loadData
@@ -146,6 +147,25 @@ final class TransmissionComposer {
 			speedSettingsPage.onAlternativeSpeedTimeDayChange = speedSettingsPagePresentationAdapter.alternativeSpeedTimeDayChange
 			return speedSettingsPage
 		}
+		
+		settingsPage.peersSettingsSelected = {
+			var peersSettingsPage = peersSettingsPagePresentationAdapter.showPeersSettingsPage()
+			peersSettingsPage.onAppear = peersSettingsPagePresentationAdapter.loadData
+			peersSettingsPage.onRefresh = peersSettingsPagePresentationAdapter.loadData
+			peersSettingsPage.onDisappear = peersSettingsPagePresentationAdapter.stopLoadingData
+			peersSettingsPage.encryptionDescription = peersSettingsPagePresentationAdapter.encryptionDescription
+			peersSettingsPage.onEncryptionChange = peersSettingsPagePresentationAdapter.onEncryptionChange
+			peersSettingsPage.onPexEnabledChange = peersSettingsPagePresentationAdapter.onPexEnabledChange
+			peersSettingsPage.onDhtEnabledChange = peersSettingsPagePresentationAdapter.onDhtEnabledChange
+			peersSettingsPage.onLpdEnabledChange = peersSettingsPagePresentationAdapter.onLpdEnabledChange
+			peersSettingsPage.onBlocklistEnabledChange = peersSettingsPagePresentationAdapter.onBlocklistEnabledChange
+			peersSettingsPage.onUpdateTapped = peersSettingsPagePresentationAdapter.onBlocklistUpdate
+			peersSettingsPage.onPeerLimitGlobalChange = peersSettingsPagePresentationAdapter.onPeerLimitGlobalChange
+			peersSettingsPage.onPeerLimitPerTorrentChange = peersSettingsPagePresentationAdapter.onPeerLimitPerTorrentChange
+			peersSettingsPage.onBlocklistUrlChange = peersSettingsPagePresentationAdapter.onBlocklistUrlChange
+			return peersSettingsPage
+		}
+		
 		return settingsPage
 	}
 	

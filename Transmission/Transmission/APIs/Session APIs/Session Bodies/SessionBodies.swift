@@ -14,6 +14,206 @@ public class SessionBodies {
 
 extension SessionBodies {
 	
+	private struct SetBlocklistUrlBody: Encodable {
+		init(_ blocklistUrl: String) {
+			arguments = Arguments(blocklistUrl: blocklistUrl)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let blocklistUrl: String
+			
+			enum CodingKeys: String, CodingKey {
+				case blocklistUrl = "blocklist-url"
+			}
+		}
+	}
+	
+	public static func setBlocklistUrl(url: String) -> Data {
+		try! JSONEncoder().encode(SetBlocklistUrlBody(url))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetPeerLimitPerTorrentBody: Encodable {
+		init(_ peerLimitPerTorrent: Int) {
+			arguments = Arguments(peerLimitPerTorrent: peerLimitPerTorrent)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let peerLimitPerTorrent: Int
+			
+			enum CodingKeys: String, CodingKey {
+				case peerLimitPerTorrent = "peer-limit-per-torrent"
+			}
+		}
+	}
+	
+	public static func setPeerLimitPerTorrent(limit: Int) -> Data {
+		try! JSONEncoder().encode(SetPeerLimitPerTorrentBody(limit))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetGlobalPeerLimitBody: Encodable {
+		init(_ peerLimitGlobal: Int) {
+			arguments = Arguments(peerLimitGlobal: peerLimitGlobal)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let peerLimitGlobal: Int
+			
+			enum CodingKeys: String, CodingKey {
+				case peerLimitGlobal = "peer-limit-global"
+			}
+		}
+	}
+	
+	public static func setGlobalPeerLimit(limit: Int) -> Data {
+		try! JSONEncoder().encode(SetGlobalPeerLimitBody(limit))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetBlocklistEnabledBody: Encodable {
+		init(_ blocklistEnabled: Bool) {
+			arguments = Arguments(blocklistEnabled: blocklistEnabled)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let blocklistEnabled: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case blocklistEnabled = "blocklist-enabled"
+			}
+		}
+	}
+	
+	public static func setBlocklistEnabled(enabled: Bool) -> Data {
+		try! JSONEncoder().encode(SetBlocklistEnabledBody(enabled))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetLpdEnabledBody: Encodable {
+		init(_ lpdEnabled: Bool) {
+			arguments = Arguments(lpdEnabled: lpdEnabled)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let lpdEnabled: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case lpdEnabled = "lpd-enabled"
+			}
+		}
+	}
+	
+	public static func setLpdEnabled(enabled: Bool) -> Data {
+		try! JSONEncoder().encode(SetLpdEnabledBody(enabled))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetDhtEnabledBody: Encodable {
+		init(_ dhtEnabled: Bool) {
+			arguments = Arguments(dhtEnabled: dhtEnabled)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let dhtEnabled: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case dhtEnabled = "dht-enabled"
+			}
+		}
+	}
+	
+	public static func setDhtEnabled(enabled: Bool) -> Data {
+		try! JSONEncoder().encode(SetDhtEnabledBody(enabled))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetPexEnabledBody: Encodable {
+		init(_ pexEnabled: Bool) {
+			arguments = Arguments(pexEnabled: pexEnabled)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let pexEnabled: Bool
+			
+			enum CodingKeys: String, CodingKey {
+				case pexEnabled = "pex-enabled"
+			}
+		}
+	}
+	
+	public static func setPexEnabled(enabled: Bool) -> Data {
+		try! JSONEncoder().encode(SetPexEnabledBody(enabled))
+	}
+	
+}
+
+extension SessionBodies {
+	
+	private struct SetPeersEncryptionBody: Encodable {
+		init(_ encryption: String) {
+			arguments = Arguments(encryption: encryption)
+		}
+		
+		let method: String = "session-set"
+		let arguments: Arguments
+		
+		struct Arguments: Encodable {
+			let encryption: String
+			
+			enum CodingKeys: String, CodingKey {
+				case encryption = "encryption"
+			}
+		}
+	}
+	
+	public static func setPeersEncryption(value: String) -> Data {
+		try! JSONEncoder().encode(SetPeersEncryptionBody(value))
+	}
+	
+}
+
+extension SessionBodies {
+	
 	private struct SetAlternativeSpeedTimeEndBody: Encodable {
 		init(_ altSpeedTimeEnd: Int) {
 			arguments = Arguments(altSpeedTimeEnd: altSpeedTimeEnd)
@@ -36,6 +236,7 @@ extension SessionBodies {
 	}
 	
 }
+
 extension SessionBodies {
 	
 	private struct SetAlternativeSpeedTimeBeginBody: Encodable {
