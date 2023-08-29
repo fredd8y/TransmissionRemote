@@ -48,6 +48,10 @@ final class SettingsPresenterTests: XCTestCase {
 		XCTAssertEqual(SettingsPagePresenter.peersSettings, localized("PEERS_SETTINGS", table: table))
 	}
 	
+	func test_networkSettings_isLocalized() {
+		XCTAssertEqual(SettingsPagePresenter.networkSettings, localized("NETWORK_SETTINGS", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Settings"
 		let pollingRateTitle = "Update interval"

@@ -1,0 +1,11 @@
+/* 
+  NetworkSettings.strings
+  Transmission
+
+  Created by Federico Arvat on 29/08/23.
+  
+*/
+
+"NETWORK_SETTINGS_PAGE_TITLE" = "Network settings";
+"PORT_OPEN" = "Port open";
+"PORT_CLOSED" = "Port closed";

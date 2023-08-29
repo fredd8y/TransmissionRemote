@@ -51,4 +51,13 @@ extension SessionField {
 		]
 	}
 	
+	static var networkSettings: [String] {
+		[
+			peerPort,
+			peerPortRandomOnStart,
+			portForwardingEnabled,
+			utpEnabled
+		]
+	}
+	
 }

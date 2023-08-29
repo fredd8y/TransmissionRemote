@@ -27,6 +27,8 @@ public struct SettingsPage: View {
 	
 	public var peersSettingsSelected: (() -> PeersSettingsPage)?
 	
+	public var networkSettingsSelected: (() -> NetworkSettingsPage)?
+	
 	public var pollingRateSelected: ((_ selectedPollingRate: String, _ pollingRateList: [String]) -> Void)?
 	
 	@State public var torrentsSettingsPresented: Bool = false
@@ -34,51 +36,65 @@ public struct SettingsPage: View {
     public var body: some View {
 		NavigationStack {
 			List {
-				VStack(alignment: .leading) {
-					Text(viewModel.pollingRateTitle)
-						.font(.subheadline)
-					Picker(viewModel.pollingRateTitle, selection: $viewModel.currentSelectedPollingRate) {
-						ForEach(viewModel.pollingRateList, id: \.self) { Text($0) }
-					}
-					.pickerStyle(.segmented)
-					.onChange(of: viewModel.currentSelectedPollingRate) { newValue in
-						pollingRateSelected?(newValue, viewModel.pollingRateList)
-					}
-				}
-				NavigationLink {
-					serverPage
-				} label: {
+				Section {
 					VStack(alignment: .leading) {
-						Text(viewModel.serversTitle)
+						Text(viewModel.pollingRateTitle)
 							.font(.subheadline)
-							.padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
-						Text(viewModel.currentServerName)
-							.font(.caption2)
+						Picker(viewModel.pollingRateTitle, selection: $viewModel.currentSelectedPollingRate) {
+							ForEach(viewModel.pollingRateList, id: \.self) { Text($0) }
+						}
+						.pickerStyle(.segmented)
+						.onChange(of: viewModel.currentSelectedPollingRate) { newValue in
+							pollingRateSelected?(newValue, viewModel.pollingRateList)
+						}
 					}
 				}
-				NavigationLink {
-					torrentsSettingsSelected?()
-				} label: {
-					Text(SettingsPagePresenter.torrentsSettings)
-						.font(.subheadline)
+				Section {
+					NavigationLink {
+						serverPage
+					} label: {
+						VStack(alignment: .leading) {
+							Text(viewModel.serversTitle)
+								.font(.subheadline)
+								.padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
+							Text(viewModel.currentServerName)
+								.font(.caption2)
+						}
+					}
 				}
-				NavigationLink {
-					speedSettingsSelected?()
-				} label: {
-					Text(SettingsPagePresenter.speedSettings)
-						.font(.subheadline)
+				Section {
+					NavigationLink {
+						torrentsSettingsSelected?()
+					} label: {
+						Text(SettingsPagePresenter.torrentsSettings)
+							.font(.subheadline)
+					}
+					NavigationLink {
+						speedSettingsSelected?()
+					} label: {
+						Text(SettingsPagePresenter.speedSettings)
+							.font(.subheadline)
+					}
+					NavigationLink {
+						peersSettingsSelected?()
+					} label: {
+						Text(SettingsPagePresenter.peersSettings)
+							.font(.subheadline)
+					}
+					NavigationLink {
+						networkSettingsSelected?()
+					} label: {
+						Text(SettingsPagePresenter.networkSettings)
+							.font(.subheadline)
+					}
 				}
-				NavigationLink {
-					peersSettingsSelected?()
-				} label: {
-					Text(SettingsPagePresenter.peersSettings)
-						.font(.subheadline)
-				}
-				NavigationLink {
-					CreditsPage()
-				} label: {
-					Text(SettingsPagePresenter.credits)
-						.font(.subheadline)
+				Section {
+					NavigationLink {
+						CreditsPage()
+					} label: {
+						Text(SettingsPagePresenter.credits)
+							.font(.subheadline)
+					}
 				}
 			}
 			.listStyle(.insetGrouped)
