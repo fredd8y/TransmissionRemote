@@ -184,7 +184,7 @@ public class PeersSettingsPagePresenter {
 			comment: "Ok")
 	}
 	
-	public static func map(_ peersSettings: PeersSettings) -> PeersSettingsPageViewModel {
+	public static func map(_ peersSettings: PeersSettings, groupingSeparator: String? = nil) -> PeersSettingsPageViewModel {
 		PeersSettingsPageViewModel(
 			isUpdatingBlocklist: false,
 			alertMessage: nil,
@@ -199,15 +199,23 @@ public class PeersSettingsPagePresenter {
 			dhtEnabled: peersSettings.dhtEnabled,
 			lpdEnabled: peersSettings.lpdEnabled,
 			blocklistEnabled: peersSettings.blocklistEnabled,
-			blocklistSize: mapBlocklistSize(peersSettings.blocklistSize),
+			blocklistSize: mapBlocklistSize(peersSettings.blocklistSize, groupingSeparator: groupingSeparator),
 			blocklistUrl: peersSettings.blocklistUrl,
 			blocklistUrlError: false,
 			encryption: peersSettings.encryption.viewModelEncryption
 		)
 	}
 	
-	public static func mapBlocklistSize(_ size: Int) -> String {
-		"\(blocklistRulesNumber): \(size)"
+	public static func mapBlocklistSize(_ size: Int, groupingSeparator: String? = nil) -> String {
+		"\(blocklistRulesNumber): \(formattedNumber(size, groupingSeparator: groupingSeparator) ?? "0")"
+	}
+	
+	static func formattedNumber(_ value: Int, groupingSeparator: String? = nil) -> String? {
+		let numberFormatter = NumberFormatter()
+		numberFormatter.usesGroupingSeparator = true
+		numberFormatter.groupingSeparator = groupingSeparator
+		numberFormatter.groupingSize = 3
+		return numberFormatter.string(from: value as NSNumber)
 	}
 }
 

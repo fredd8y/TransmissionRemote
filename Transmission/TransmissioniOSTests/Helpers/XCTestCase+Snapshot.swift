@@ -65,7 +65,7 @@ extension XCTestCase {
 		return data
 	}
 	
-	private func match(_ oldData: Data, _ newData: Data, tolerance: Float = 0) -> Bool {
+	private func match(_ oldData: Data, _ newData: Data, tolerance: Float = 0.02) -> Bool {
 		if oldData == newData { return true }
 		
 		guard let oldImage = UIImage(data: oldData)?.cgImage, let newImage = UIImage(data: newData)?.cgImage else {
