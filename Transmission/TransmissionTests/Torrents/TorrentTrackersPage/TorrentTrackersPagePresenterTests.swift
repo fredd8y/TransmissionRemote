@@ -16,6 +16,14 @@ final class TorrentTrackersPagePresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentTrackersPagePresenter.title, localized("TITLE", table: table))
 	}
 	
+	func test_relativeEta() {
+		let oneHour = 3600
+		
+		let receivedEta = TorrentTrackersPagePresenter.relativeEta(oneHour, locale: Locale(identifier: "en_US_POSIX"), calendar: Calendar(identifier: .gregorian))
+		
+		XCTAssertEqual(receivedEta, "in 1 hour")
+	}
+	
 	func test_map_createsViewModel() {
 		let id = 1
 		let host = "host"
