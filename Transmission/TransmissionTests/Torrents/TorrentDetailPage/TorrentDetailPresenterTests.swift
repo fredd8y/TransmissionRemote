@@ -128,6 +128,14 @@ final class TorrentDetailPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentDetailPresenter.none, localized("NONE", table: table))
 	}
 	
+	func test_relativeEta() {
+		let oneHour = 3600
+		
+		let receivedEta = TorrentDetailPresenter.relativeEta(oneHour, locale: Locale(identifier: "en_US_POSIX"), calendar: Calendar(identifier: .gregorian))
+		
+		XCTAssertEqual(receivedEta, "in 1 hour")
+	}
+	
 	func test_map_createsViewModel() {
 		let name = "a name"
 		let percentageAvailability = 0.97

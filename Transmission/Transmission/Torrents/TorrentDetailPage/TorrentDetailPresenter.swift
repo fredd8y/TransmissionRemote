@@ -261,10 +261,10 @@ public class TorrentDetailPresenter {
 		)
 	}
 	
-	private static func relativeEta(_ value: Int) -> String {
+	static func relativeEta(_ value: Int, locale: Locale = .current, calendar: Calendar = .current) -> String {
 		let relativeDateFormatter = RelativeDateTimeFormatter()
-		relativeDateFormatter.locale = .current
-		relativeDateFormatter.calendar = .current
+		relativeDateFormatter.locale = locale
+		relativeDateFormatter.calendar = calendar
 
 		return relativeDateFormatter.localizedString(fromTimeInterval: Double(value))
 	}
