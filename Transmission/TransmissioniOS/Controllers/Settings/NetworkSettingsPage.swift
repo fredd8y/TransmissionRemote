@@ -55,16 +55,16 @@ public struct NetworkSettingsPage: View {
 					Spacer()
 				} else {
 					List {
-						Section("Listening port") {
+						Section(NetworkSettingsPagePresenter.listeningPort) {
 							VStack(alignment: .leading, spacing: 8) {
-								Text("Peer listening port")
+								Text(NetworkSettingsPagePresenter.peerListeningPort)
 									.font(.subheadline)
-								TextField("Peer listening port", text: $viewModel.peerPort)
+								TextField(NetworkSettingsPagePresenter.peerListeningPort, text: $viewModel.peerPort)
 									.textFieldStyle(.roundedBorder)
 									.keyboardType(.numberPad)
 									.focused($listeningPortFocused)
 								if viewModel.peerPortError {
-									Text("Must be a number")
+									Text(NetworkSettingsPagePresenter.mustBeANumberError)
 										.font(.caption2)
 										.foregroundColor(.red)
 								}
@@ -73,19 +73,19 @@ public struct NetworkSettingsPage: View {
 									.font(.subheadline)
 							}
 							Toggle(isOn: $viewModel.peerPortRandomOnStart) {
-								Text("Randomize port on launch")
+								Text(NetworkSettingsPagePresenter.randomizePortOnLaunch)
 							}.onChange(of: viewModel.peerPortRandomOnStart) { newValue in
 								onPeerPortRandomOnStartChange?(newValue)
 							}
 							Toggle(isOn: $viewModel.portForwardingEnabled) {
-								Text("Use port forwarding from my router")
+								Text(NetworkSettingsPagePresenter.portForwardingFromRouter)
 							}.onChange(of: viewModel.portForwardingEnabled) { newValue in
 								onPortForwardingEnabledChange?(newValue)
 							}
 						}
 						Section("Options") {
 							Toggle(isOn: $viewModel.utpEnabled) {
-								Text("Enable UTP for peer communication")
+								Text(NetworkSettingsPagePresenter.enableUtpForCommunication)
 							}.onChange(of: viewModel.utpEnabled) { newValue in
 								onUtpEnabledChange?(newValue)
 							}
@@ -95,7 +95,7 @@ public struct NetworkSettingsPage: View {
 					.toolbar {
 						ToolbarItemGroup(placement: .keyboard) {
 							Spacer()
-							Button("Confirm") {
+							Button(NetworkSettingsPagePresenter.confirm) {
 								listeningPortFocused.toggle()
 								onListeningPortChange?(viewModel.peerPort)
 							}

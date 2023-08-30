@@ -9,3 +9,10 @@
 "NETWORK_SETTINGS_PAGE_TITLE" = "Network settings";
 "PORT_OPEN" = "Port open";
 "PORT_CLOSED" = "Port closed";
+"LISTENING_PORT" = "Listening port";
+"PEER_LISTENING_PORT" = "Peer listening port";
+"MUST_BE_A_NUMBER_ERROR" = "Must be a number";
+"RANDOMIZE_PORT_ON_LAUNCH" = "Randomize port on launch";
+"PORT_FORWARDING_FROM_ROUTER" = "Use port forwarding from my router";
+"ENABLE_UTP_FOR_COMMUNICATION" = "Enable UTP for peer communication";
+"CONFIRM" = "Confirm";
