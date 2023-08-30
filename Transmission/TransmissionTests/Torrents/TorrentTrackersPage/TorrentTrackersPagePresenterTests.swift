@@ -16,6 +16,30 @@ final class TorrentTrackersPagePresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentTrackersPagePresenter.title, localized("TITLE", table: table))
 	}
 	
+	func test_lastAnnounce_isLocalized() {
+		XCTAssertEqual(TorrentTrackersPagePresenter.lastAnnounce, localized("LAST_ANNOUNCE", table: table))
+	}
+	
+	func test_nextAnnounce_isLocalized() {
+		XCTAssertEqual(TorrentTrackersPagePresenter.nextAnnounce, localized("NEXT_ANNOUNCE", table: table))
+	}
+	
+	func test_lastScrape_isLocalized() {
+		XCTAssertEqual(TorrentTrackersPagePresenter.lastScrape, localized("LAST_SCRAPE", table: table))
+	}
+	
+	func test_seeders_isLocalized() {
+		XCTAssertEqual(TorrentTrackersPagePresenter.seeders, localized("SEEDERS", table: table))
+	}
+	
+	func test_leechers_isLocalized() {
+		XCTAssertEqual(TorrentTrackersPagePresenter.leechers, localized("LEECHERS", table: table))
+	}
+	
+	func test_downloads_isLocalized() {
+		XCTAssertEqual(TorrentTrackersPagePresenter.downloads, localized("DOWNLOADS", table: table))
+	}
+	
 	func test_relativeEta() {
 		let oneHour = 3600
 		
