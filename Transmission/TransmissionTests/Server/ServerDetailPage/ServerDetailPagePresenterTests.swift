@@ -80,6 +80,10 @@ final class ServerDetailPagePresenterTests: XCServerTestCase {
 		XCTAssertEqual(ServerDetailPagePresenter.alertErrorTitle, localized("ALERT_ERROR_TITLE", table: table))
 	}
 	
+	func test_undefinedError_isLocalized() {
+		XCTAssertEqual(ServerDetailPagePresenter.undefinedError, localized("UNDEFINED_ERROR", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Server detail"
 		let server = server()
