@@ -52,6 +52,15 @@ final class TorrentPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentPresenter.unknownDownloadTime, localized("UNKNOWN_DOWNLOAD_TIME", table: table))
 	}
 	
+	func test_percentageString() {
+		let testValue = [0.1, 0.5, 1, 1.5, 5]
+		let expectedValues = ["10,00%", "50,00%", "100,00%", "150,00%", "500,00%", ]
+		
+		for index in 0..<5 {
+			XCTAssertEqual(TorrentPresenter.percentageString(testValue[index], decimalSeparator: ","), expectedValues[index])
+		}
+	}
+	
 	func test_map_createsViewModelWithNilError() {
 		let torrent = anyTorrentWithoutError()
 		

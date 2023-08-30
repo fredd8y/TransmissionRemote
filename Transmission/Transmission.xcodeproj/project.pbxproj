@@ -1266,8 +1266,8 @@
 			isa = PBXGroup;
 			children = (
 				7B3690F52A69E091000E130B /* Helpers */,
-				7B4599C52A67E92E00189C16 /* TorrentPresenter.swift */,
 				7B8CB81A2A66C111001A4D90 /* TorrentsPagePresenter.swift */,
+				7B4599C52A67E92E00189C16 /* TorrentPresenter.swift */,
 				7B8CB81E2A66C19E001A4D90 /* TorrentViewModel.swift */,
 				7B3690F32A69DC0C000E130B /* TorrentsPageViewModel.swift */,
 				7B4599C12A67CC2400189C16 /* Torrents.strings */,
