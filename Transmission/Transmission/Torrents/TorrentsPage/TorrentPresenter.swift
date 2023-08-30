@@ -92,11 +92,11 @@ public final class TorrentPresenter {
 		((value * 100).round(decimalSeparator: decimalSeparator) ?? "-") + "%"
 	}
 	
-	static func relativeEta(_ value: Int) -> String {
+	static func relativeEta(_ value: Int, locale: Locale = .current, calendar: Calendar = .current) -> String {
 		guard value > 0 else { return TorrentPresenter.unknownDownloadTime }
 		let relativeDateFormatter = RelativeDateTimeFormatter()
-		relativeDateFormatter.locale = .current
-		relativeDateFormatter.calendar = .current
+		relativeDateFormatter.locale = locale
+		relativeDateFormatter.calendar = calendar
 		
 		return relativeDateFormatter.localizedString(fromTimeInterval: Double(value))
 	}
