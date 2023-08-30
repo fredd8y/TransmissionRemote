@@ -69,6 +69,14 @@ final class TorrentPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(receivedEta, "in 1 hour")
 	}
 	
+	func test_relativeEta_futureError() {
+		let oneHourAgo = -3600
+		
+		let receivedEta = TorrentPresenter.relativeEta(oneHourAgo, locale: Locale(identifier: "en_US_POSIX"), calendar: Calendar(identifier: .gregorian))
+		
+		XCTAssertEqual(receivedEta, TorrentPresenter.unknownDownloadTime)
+	}
+	
 	func test_map_createsViewModelWithNilError() {
 		let torrent = anyTorrentWithoutError()
 		
