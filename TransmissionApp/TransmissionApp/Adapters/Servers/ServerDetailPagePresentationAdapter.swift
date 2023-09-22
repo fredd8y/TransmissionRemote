@@ -20,7 +20,23 @@ class ServerDetailPagePresentationAdapter {
 			guard let server = try ServerGetMapper.map(try Data(contentsOf: url)).first(where: { $0.id == id }) else {
 				return nil
 			}
-			return serverDetailPage(viewModel: ServerDetailPageViewModel(server: server))
+			var password: String?
+			if let encryptedPassword = server.password {
+				if let passwordKey = try? Keychain.getPasswordKey(), let symmetricKey = try? Cipher.generateSymmetricKey(withPassword: passwordKey) {
+					password = try? Cipher.decryptPassword(encryptedPassword, withKey: symmetricKey)
+				}
+			}
+			return serverDetailPage(
+				viewModel: ServerDetailPageViewModel(server: Server(
+					name: server.name,
+					httpProtocol: server.httpProtocol,
+					ip: server.ip,
+					port: server.port,
+					username: server.username,
+					password: password,
+					id: server.id
+				))
+			)
 		} catch {
 			return nil
 		}
