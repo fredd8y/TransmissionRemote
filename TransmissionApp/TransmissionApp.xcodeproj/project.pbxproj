@@ -166,6 +166,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B0C1F222ABDDB3C00839715 /* TransmissionAppDev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TransmissionAppDev-Info.plist"; sourceTree = "<group>"; };
 		7B2325012A766DEC00836B02 /* ServerPageViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerPageViewModel+Factory.swift"; sourceTree = "<group>"; };
 		7B2325032A766E6800836B02 /* ServerPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPagePresentationAdapter.swift; sourceTree = "<group>"; };
 		7B2348E92A94B9AA00BD5834 /* TorrentField+FieldGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorrentField+FieldGroups.swift"; sourceTree = "<group>"; };
@@ -404,6 +405,7 @@
 		7BC0D8072A6C158100B36367 = {
 			isa = PBXGroup;
 			children = (
+				7B0C1F222ABDDB3C00839715 /* TransmissionAppDev-Info.plist */,
 				7BC0D8122A6C158100B36367 /* TransmissionApp */,
 				7BC0D8232A6C158300B36367 /* TransmissionAppTests */,
 				7BC0D8112A6C158100B36367 /* Products */,
@@ -775,6 +777,7 @@
 				DEVELOPMENT_TEAM = UYXPW2Z6TM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TransmissionAppDev-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = TransmissionDev;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -809,6 +812,7 @@
 				DEVELOPMENT_TEAM = UYXPW2Z6TM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TransmissionAppDev-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = TransmissionDev;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
