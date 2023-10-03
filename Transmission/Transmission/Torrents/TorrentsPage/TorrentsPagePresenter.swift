@@ -288,6 +288,14 @@ public final class TorrentsPagePresenter {
 			comment: "Button description to remove all torrent")
 	}
 	
+	public static var closeTorrentDetail: String {
+		NSLocalizedString(
+			"CLOSE_TORRENT_DETAIL",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Button description to close torrent detail")
+	}
+	
 	public static func map(
 		title: String,
 		isLoading: Bool,

@@ -53,3 +53,4 @@
 "STOP_ALL" = "Stop all";
 "START_ALL" = "Start all";
 "REMOVE_ALL" = "Remove all";
+"CLOSE_TORRENT_DETAIL" = "Close";

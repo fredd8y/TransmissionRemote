@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Transmission
 
 public struct TorrentDetailTabContainer: View {
 	public init(torrentDetailPage: TorrentDetailPage, torrentPeersPage: TorrentPeersPage, torrentTrackersPage: TorrentTrackersPage) {
@@ -19,30 +20,28 @@ public struct TorrentDetailTabContainer: View {
 	private var torrentDetailPage: TorrentDetailPage
 	private var torrentPeersPage: TorrentPeersPage
 	private var torrentTrackersPage: TorrentTrackersPage
-	
-	@Environment(\.isPresented) var isPresented
-	
-	@State private var tabBarVisibility: Visibility = .visible
-	
+		
+	@Environment(\.dismiss) var dismiss
+			
 	@State var selectedTab = 0
 	
 	public var body: some View {
-		TabView(selection: $selectedTab) {
-			torrentDetailPage.tag(0)
-			torrentPeersPage.tag(1)
-			torrentTrackersPage.tag(2)
-		}
-		.background(Color(uiColor: .systemGroupedBackground))
-		.tabViewStyle(.page)
-		.toolbar(tabBarVisibility, for: .tabBar)
-		.onLoad {
-			withAnimation {
-				tabBarVisibility = .hidden
+		NavigationStack {
+			TabView(selection: $selectedTab) {
+				torrentDetailPage.tag(0)
+				torrentPeersPage.tag(1)
+				torrentTrackersPage.tag(2)
 			}
-		}
-		.onChange(of: isPresented) { _ in
-			withAnimation {
-				tabBarVisibility = .visible
+			.background(Color(uiColor: .systemGroupedBackground))
+			.tabViewStyle(.page)
+			.toolbar {
+				ToolbarItemGroup(placement: .navigationBarLeading) {
+					Button {
+						dismiss()
+					} label: {
+						Text(TorrentsPagePresenter.closeTorrentDetail)
+					}
+				}
 			}
 		}
 	}

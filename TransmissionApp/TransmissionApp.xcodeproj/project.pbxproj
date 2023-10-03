@@ -194,6 +194,7 @@
 		7B8075CA2A94B344003F0B17 /* SessionSettingsPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSettingsPublishers.swift; sourceTree = "<group>"; };
 		7B8075CD2A94B3B1003F0B17 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		7B8075D02A94B4D6003F0B17 /* Server+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server+Utils.swift"; sourceTree = "<group>"; };
+		7B93992B2ACB67BC00A0314E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7BA01FD72A7E9A8700FBB43D /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		7BA01FD92A7EA0D500FBB43D /* KeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
 		7BA01FDB2A7EB68A00FBB43D /* Cipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cipher.swift; sourceTree = "<group>"; };
@@ -426,6 +427,7 @@
 		7BC0D8122A6C158100B36367 /* TransmissionApp */ = {
 			isa = PBXGroup;
 			children = (
+				7B93992B2ACB67BC00A0314E /* Info.plist */,
 				7B8075CC2A94B3A4003F0B17 /* Network Utils */,
 				7BA01FD62A7E9A5600FBB43D /* Password */,
 				7B4BB74D2A7A77DC00A68EF5 /* Server File */,
@@ -962,6 +964,7 @@
 				DEVELOPMENT_TEAM = UYXPW2Z6TM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TransmissionApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Transmission Client";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -998,6 +1001,7 @@
 				DEVELOPMENT_TEAM = UYXPW2Z6TM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TransmissionApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Transmission Client";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

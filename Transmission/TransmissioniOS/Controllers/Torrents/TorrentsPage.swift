@@ -33,6 +33,8 @@ public struct TorrentsPage: View {
 	
 	@State private var link: String = ""
 	
+	@State var torrentDetailToShow: TorrentViewModel?
+	
 	public var stop: ((Int) -> Void)?
 	
 	public var stopAll: (() -> Void)?
@@ -61,10 +63,8 @@ public struct TorrentsPage: View {
 	
 	public var delete: ((_ id: Int, _ deleteLocalData: Bool) -> Void)?
 	
-	@State var path = [Int]()
-	
     public var body: some View {
-		NavigationStack(path: $path) {
+		NavigationStack {
 			VStack {
 				if let error = viewModel.error {
 					HStack {
@@ -96,7 +96,7 @@ public struct TorrentsPage: View {
 							ForEach(viewModel.torrents) { torrent in
 								Button {
 									onOpenDetail?()
-									path = [torrent.id]
+									torrentDetailToShow = torrent
 								} label: {
 									torrentItem(torrent)
 								}
@@ -108,9 +108,15 @@ public struct TorrentsPage: View {
 			}
 			.navigationTitle(viewModel.title)
 			.navigationBarTitleDisplayMode(.inline)
-			.navigationDestination(for: Int.self) { id in
-				selectedTorrent?(id)
-			}
+			.sheet(
+				item: $torrentDetailToShow,
+				onDismiss: {
+					torrentDetailToShow = nil
+				},
+				content: { torrentDetailToShow in
+					selectedTorrent?(torrentDetailToShow.id)
+				}
+			)
 			.onAppear {
 				onAppear?()
 			}
