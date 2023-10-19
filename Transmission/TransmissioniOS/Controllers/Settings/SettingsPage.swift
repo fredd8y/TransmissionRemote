@@ -124,7 +124,9 @@ struct SettingsPage_Previews: PreviewProvider {
 					editItemActionTitle: "Edit",
 					deleteItemActionTitle: "Delete",
 					currentSelectedServerId: nil,
-					emptyMessage: "Test"
+					emptyMessage: "Test",
+					alertMessage: nil,
+					alertMessageVisible: false
 				)
 			)
 		)

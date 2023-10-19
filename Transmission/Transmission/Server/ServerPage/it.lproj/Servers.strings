@@ -10,3 +10,7 @@
 "SERVER_PAGE_ITEM_EDIT_ACTION" = "Modifica";
 "SERVER_PAGE_ITEM_DELETE_ACTION" = "Elimina";
 "SERVER_PAGE_EMPTY_MESSAGE" = "Nessun server trovato, per aggiungere un server premi il pulsante '+' in alto";
+"SERVER_PAGE_ALERT_ERROR_TITLE" = "Errore";
+"SERVER_PAGE_OK" = "Ok";
+"SERVER_PAGE_DELETE_SERVER_ERROR" = "Errore durante la cancellazione del server";
+"SERVER_PAGE_LOADING_DATA_ERROR" = "Errore durante il caricamento dei server";

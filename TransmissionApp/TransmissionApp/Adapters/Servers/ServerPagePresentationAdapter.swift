@@ -25,8 +25,6 @@ class ServerPagePresentationAdapter {
 	private var serverCancellable: Cancellable?
 	private var deleteCancellable: Cancellable?
 	private var selectionCancellable: Cancellable?
-	
-	private let serverFileName = "servers.json"
 		
 	func delete(_ id: UUID) {
 		guard let url = ServerFile.url else { return }
@@ -45,7 +43,8 @@ class ServerPagePresentationAdapter {
 						}
 						self?.loadData()
 					} catch {
-						// TODO: show error alert
+						self?.serversViewModel.alertMessage = ServerPagePresenter.deleteServerError
+						self?.serversViewModel.alertMessageVisible = true
 					}
 				}
 			)
@@ -71,7 +70,8 @@ class ServerPagePresentationAdapter {
 			.sink(
 				receiveCompletion: { [weak self] completion in
 					switch completion {
-					case .finished: break
+					case .finished:
+						break
 					case .failure(let error):
 						// The only error that we can receive here is on file opening,
 						// that means the the file does not exist
@@ -83,10 +83,10 @@ class ServerPagePresentationAdapter {
 								try ServerSetMapper.map([]).write(to: url)
 								self?.loadData()
 							} catch {
-								// TODO: Handle error on SettingsPage
+								self?.serversViewModel.alertMessage = ServerPagePresenter.loadingDataError
+								self?.serversViewModel.alertMessageVisible = true
 							}
 						}
-						break
 					}
 				},
 				receiveValue: { [weak self] servers in

@@ -90,6 +90,20 @@ public struct ServerPage: View {
 				selectServer?(newValue)
 			}
 		}
+		.alert(
+			ServerPagePresenter.alertErrorTitle,
+			isPresented: $viewModel.alertMessageVisible,
+			actions: {
+				Button(action: {
+					viewModel.alertMessage = nil
+				}, label: {
+					Text(ServerPagePresenter.ok)
+				})
+			},
+			message: {
+				Text(viewModel.alertMessage ?? "")
+			}
+		)
 		.onLoad {
 			loadData?()
 			withAnimation {
@@ -125,7 +139,9 @@ struct ServerPage_Previews: PreviewProvider {
 				editItemActionTitle: "Edit",
 				deleteItemActionTitle: "Delete",
 				currentSelectedServerId: selectedId,
-				emptyMessage: nil
+				emptyMessage: nil,
+				alertMessage: nil,
+				alertMessageVisible: false
 			)
 		)
     }

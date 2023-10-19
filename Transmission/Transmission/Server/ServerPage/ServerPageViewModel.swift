@@ -15,7 +15,9 @@ public class ServerPageViewModel: ObservableObject, Equatable {
 		editItemActionTitle: String,
 		deleteItemActionTitle: String,
 		currentSelectedServerId: UUID?,
-		emptyMessage: String?
+		emptyMessage: String?,
+		alertMessage: String?,
+		alertMessageVisible: Bool
 	) {
 		self.title = title
 		self.servers = servers
@@ -23,6 +25,8 @@ public class ServerPageViewModel: ObservableObject, Equatable {
 		self.deleteItemActionTitle = deleteItemActionTitle
 		self.currentSelectedServerId = currentSelectedServerId
 		self.emptyMessage = emptyMessage
+		self.alertMessage = alertMessage
+		self.alertMessageVisible = alertMessageVisible
 	}
 	
 	@Published public var title: String
@@ -31,6 +35,8 @@ public class ServerPageViewModel: ObservableObject, Equatable {
 	public var deleteItemActionTitle: String
 	@Published public var currentSelectedServerId: UUID?
 	@Published public var emptyMessage: String?
+	@Published public var alertMessage: String?
+	@Published public var alertMessageVisible: Bool
 	
 	public static func == (lhs: ServerPageViewModel, rhs: ServerPageViewModel) -> Bool {
 		lhs.title == rhs.title &&
@@ -39,7 +45,6 @@ public class ServerPageViewModel: ObservableObject, Equatable {
 		lhs.deleteItemActionTitle == rhs.deleteItemActionTitle &&
 		lhs.currentSelectedServerId == rhs.currentSelectedServerId &&
 		lhs.emptyMessage == rhs.emptyMessage
-		
 	}
 	
 }

@@ -28,6 +28,22 @@ final class ServerPagePresenterTests: XCServerTestCase {
 		XCTAssertEqual(ServerPagePresenter.serverPageEmptyMessage, localized("SERVER_PAGE_EMPTY_MESSAGE", table: table))
 	}
 	
+	func test_alertErrorTitle_isLocalized() {
+		XCTAssertEqual(ServerPagePresenter.alertErrorTitle, localized("SERVER_PAGE_ALERT_ERROR_TITLE", table: table))
+	}
+	
+	func test_ok_isLocalized() {
+		XCTAssertEqual(ServerPagePresenter.ok, localized("SERVER_PAGE_OK", table: table))
+	}
+	
+	func test_deleteServerError_isLocalized() {
+		XCTAssertEqual(ServerPagePresenter.ok, localized("SERVER_PAGE_DELETE_SERVER_ERROR", table: table))
+	}
+	
+	func test_loadingDataError_isLocalized() {
+		XCTAssertEqual(ServerPagePresenter.ok, localized("SERVER_PAGE_LOADING_DATA_ERROR", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let currentSelectedServerId = UUID()
 		let title = "Servers"
