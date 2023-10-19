@@ -49,7 +49,7 @@ class ServerDetailPagePresentationAdapter {
 		}
 		// IP check
 		guard model.ip != "" else {
-			return ServerDetailPageError.name
+			return ServerDetailPageError.ip
 		}
 		let ipComponents = model.ip.components(separatedBy: ".")
 		guard ipComponents.count == 4 else {
