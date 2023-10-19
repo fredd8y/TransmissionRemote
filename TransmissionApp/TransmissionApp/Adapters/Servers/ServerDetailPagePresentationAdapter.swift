@@ -57,7 +57,7 @@ class ServerDetailPagePresentationAdapter {
 		}
 		let wrongComponents = ipComponents.filter {
 			guard let number = Int($0) else { return true }
-			return number < 0 && number > 255
+			return number < 0 || number > 255
 		}
 		if wrongComponents.count > 0 {
 			return ServerDetailPageError.ip
