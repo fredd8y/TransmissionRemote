@@ -40,7 +40,8 @@ class ServerPagePresentationAdapter {
 						_servers.removeAll(where: { $0.id == id })
 						try ServerSetMapper.map(_servers).write(to: url)
 						if UserDefaultsHandler.shared.currentServer?.id == id {
-							UserDefaultsHandler.shared.currentServer = nil
+							self?.serversViewModel.currentSelectedServerId = _servers.first?.id
+							UserDefaultsHandler.shared.currentServer = _servers.first
 						}
 						self?.loadData()
 					} catch {
