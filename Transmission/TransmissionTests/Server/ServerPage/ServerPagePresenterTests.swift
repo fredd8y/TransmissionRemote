@@ -37,11 +37,11 @@ final class ServerPagePresenterTests: XCServerTestCase {
 	}
 	
 	func test_deleteServerError_isLocalized() {
-		XCTAssertEqual(ServerPagePresenter.ok, localized("SERVER_PAGE_DELETE_SERVER_ERROR", table: table))
+		XCTAssertEqual(ServerPagePresenter.deleteServerError, localized("SERVER_PAGE_DELETE_SERVER_ERROR", table: table))
 	}
 	
 	func test_loadingDataError_isLocalized() {
-		XCTAssertEqual(ServerPagePresenter.ok, localized("SERVER_PAGE_LOADING_DATA_ERROR", table: table))
+		XCTAssertEqual(ServerPagePresenter.loadingDataError, localized("SERVER_PAGE_LOADING_DATA_ERROR", table: table))
 	}
 	
 	func test_map_createsViewModel() {

@@ -73,6 +73,7 @@ final class TorrentTrackersPagePresenterTests: XCTorrentTestCase {
 					downloadCount: downloadCount
 				)
 			],
+            locale: Locale(identifier: "en_US_POSIX"),
 			referenceDate: Date(timeIntervalSince1970: 1692367725)
 		)
 

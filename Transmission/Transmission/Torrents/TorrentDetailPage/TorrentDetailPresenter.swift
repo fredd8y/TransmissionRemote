@@ -241,7 +241,7 @@ public class TorrentDetailPresenter {
 			comment: "None description")
 	}
 	
-	public static func map(_ torrentDetail: TorrentDetail, referenceDate: Date = Date(), decimalSeparator: String? = nil) -> TorrentDetailPageViewModel {
+	public static func map(_ torrentDetail: TorrentDetail, locale: Locale = .current, referenceDate: Date = Date(), decimalSeparator: String? = nil) -> TorrentDetailPageViewModel {
 		return TorrentDetailPageViewModel(
 			name: torrentDetail.name,
 			errorMessage: nil,
@@ -250,9 +250,9 @@ public class TorrentDetailPresenter {
 			ratio: torrentDetail.ratio.round(decimalSeparator: decimalSeparator) ?? "-",
 			downloaded: torrentDetail.downloaded.byteSize(decimalSeparator: decimalSeparator),
 			state: torrentDetail.state.value,
-			runningTime: relativeEta(torrentDetail.startDate - Int(referenceDate.timeIntervalSince1970)),
-			remainingTime: torrentDetail.eta > 0 ? relativeEta(torrentDetail.eta) : completed,
-			lastActivity: relativeEta(torrentDetail.lastActivity - Int(referenceDate.timeIntervalSince1970)),
+			runningTime: relativeEta(torrentDetail.startDate - Int(referenceDate.timeIntervalSince1970), locale: locale),
+			remainingTime: torrentDetail.eta > 0 ? relativeEta(torrentDetail.eta, locale: locale) : completed,
+			lastActivity: relativeEta(torrentDetail.lastActivity - Int(referenceDate.timeIntervalSince1970), locale: locale),
 			error: torrentDetail.error.isEmpty ? none : torrentDetail.error,
 			size: torrentDetail.size.byteSize(decimalSeparator: decimalSeparator),
 			location: torrentDetail.location,

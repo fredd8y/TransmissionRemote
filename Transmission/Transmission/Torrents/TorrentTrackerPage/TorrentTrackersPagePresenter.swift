@@ -65,16 +65,16 @@ public class TorrentTrackersPagePresenter {
 			comment: "Downloads description")
 	}
 	
-	public static func map(_ torrentTrackers: [TorrentTracker], referenceDate: Date = Date()) -> TorrentTrackersPageViewModel {
+	public static func map(_ torrentTrackers: [TorrentTracker], locale: Locale = .current, referenceDate: Date = Date()) -> TorrentTrackersPageViewModel {
 		TorrentTrackersPageViewModel(
 			trackers: torrentTrackers.map { tracker in
 				TorrentTrackersPageViewModel.Tracker(
 					id: tracker.id,
 					host: tracker.host,
-					lastAnnounceTime: relativeEta(tracker.lastAnnounceTime - Int(referenceDate.timeIntervalSince1970)),
-					lastAnnouncePeerCount: relativeEta(tracker.lastAnnouncePeerCount - Int(referenceDate.timeIntervalSince1970)),
-					nextAnnounceTime: relativeEta(tracker.nextAnnounceTime - Int(referenceDate.timeIntervalSince1970)),
-					lastScrapeTime: relativeEta(tracker.lastScrapeTime - Int(referenceDate.timeIntervalSince1970)),
+                    lastAnnounceTime: relativeEta(tracker.lastAnnounceTime - Int(referenceDate.timeIntervalSince1970), locale: locale),
+                    lastAnnouncePeerCount: relativeEta(tracker.lastAnnouncePeerCount - Int(referenceDate.timeIntervalSince1970), locale: locale),
+                    nextAnnounceTime: relativeEta(tracker.nextAnnounceTime - Int(referenceDate.timeIntervalSince1970), locale: locale),
+                    lastScrapeTime: relativeEta(tracker.lastScrapeTime - Int(referenceDate.timeIntervalSince1970), locale: locale),
 					seederCount: tracker.seederCount.description,
 					leecherCount: tracker.leecherCount.description,
 					downloadCount: tracker.downloadCount.description
