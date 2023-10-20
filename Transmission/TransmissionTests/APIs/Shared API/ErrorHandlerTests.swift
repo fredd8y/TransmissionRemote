@@ -6,8 +6,7 @@
 //
 
 import XCTest
-@testable import Transmission
-@testable import TransmissionApp
+import Transmission
 
 final class ErrorHandlerTests: XCTestCase {
 
@@ -16,7 +15,7 @@ final class ErrorHandlerTests: XCTestCase {
         
         let retrievedError = ErrorHandler.handleError(error)
         
-        XCTAssertTrue((retrievedError as? SessionGetMapper.Error) == SessionGetMapper.Error.serverTimeout, "Expected serverTimeoutError, got \(retrievedError) instead")
+        XCTAssertTrue((retrievedError as? NetworkError) == NetworkError.serverTimeout, "Expected serverTimeoutError, got \(retrievedError) instead")
     }
 
     func test_handleError_1009() {
@@ -24,7 +23,7 @@ final class ErrorHandlerTests: XCTestCase {
         
         let retrievedError = ErrorHandler.handleError(error)
         
-        XCTAssertTrue((retrievedError as? SessionGetMapper.Error) == SessionGetMapper.Error.connectionUnavailable, "Expected authenticationFailed, got \(retrievedError) instead")
+        XCTAssertTrue((retrievedError as? NetworkError) == NetworkError.connectionUnavailable, "Expected authenticationFailed, got \(retrievedError) instead")
     }
     
     func test_handleError_default() {
@@ -33,7 +32,7 @@ final class ErrorHandlerTests: XCTestCase {
             
             let retrievedError = ErrorHandler.handleError(error)
             
-            XCTAssertTrue((retrievedError as? SessionGetMapper.Error) == SessionGetMapper.Error.invalidData, "Expected invalidData, got \(retrievedError) instead")
+            XCTAssertTrue((retrievedError as? NetworkError) == NetworkError.unknownError, "Expected invalidData, got \(retrievedError) instead")
         }
     }
 

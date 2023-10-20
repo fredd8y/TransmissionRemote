@@ -376,11 +376,6 @@ final class TorrentsPagePresentationAdapter {
 							self?.loadData()
 						case .invalidData:
 							self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.error())
-						case .serverTimeout:
-							self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.serverTimeout())
-                        case .connectionUnavailable:
-                            // TODO: - FIXME
-                            self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.error())
                         }
 					}
 				}

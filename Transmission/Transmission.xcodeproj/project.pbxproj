@@ -339,6 +339,8 @@
 		7BFEB63E2A8CB838003D8985 /* ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEB63D2A8CB838003D8985 /* ConditionalModifier.swift */; };
 		7BFEB6412A8CFD11003D8985 /* SessionSetMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEB6402A8CFD11003D8985 /* SessionSetMapper.swift */; };
 		7BFEB6442A8CFD73003D8985 /* SessionSetMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEB6432A8CFD73003D8985 /* SessionSetMapperTests.swift */; };
+		FA6E7D6E2AE28B2100664DD6 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E7D6D2AE28B2100664DD6 /* ErrorHandler.swift */; };
+		FA6E7D702AE28B3E00664DD6 /* ErrorHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E7D6F2AE28B3E00664DD6 /* ErrorHandlerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -711,6 +713,8 @@
 		7BFEB63D2A8CB838003D8985 /* ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalModifier.swift; sourceTree = "<group>"; };
 		7BFEB6402A8CFD11003D8985 /* SessionSetMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSetMapper.swift; sourceTree = "<group>"; };
 		7BFEB6432A8CFD73003D8985 /* SessionSetMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSetMapperTests.swift; sourceTree = "<group>"; };
+		FA6E7D6D2AE28B2100664DD6 /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		FA6E7D6F2AE28B3E00664DD6 /* ErrorHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1502,10 +1506,11 @@
 		7B8CB8202A66C298001A4D90 /* Shared API */ = {
 			isa = PBXGroup;
 			children = (
-				7BA01FC32A7D496C00FBB43D /* Constants */,
 				7B8CB8142A66A421001A4D90 /* HeaderUtils.swift */,
-				7B83383E2A1124600052F7EC /* Helpers */,
 				7B6D10482A0F9BF20077A40B /* APIs Endpoint */,
+				7BA01FC32A7D496C00FBB43D /* Constants */,
+				FA6E7D6C2AE28AF400664DD6 /* Errors */,
+				7B83383E2A1124600052F7EC /* Helpers */,
 			);
 			path = "Shared API";
 			sourceTree = "<group>";
@@ -1749,6 +1754,7 @@
 		7BBF3C542A72B016001206A8 /* Shared API */ = {
 			isa = PBXGroup;
 			children = (
+				FA6E7D6F2AE28B3E00664DD6 /* ErrorHandlerTests.swift */,
 				7BC0D8052A6C0AA000B36367 /* HeaderUtilsTests.swift */,
 				7B6D10492A0F9C010077A40B /* APIs Endpoint */,
 			);
@@ -2132,6 +2138,14 @@
 				7BFEB6432A8CFD73003D8985 /* SessionSetMapperTests.swift */,
 			);
 			path = "Session Set API";
+			sourceTree = "<group>";
+		};
+		FA6E7D6C2AE28AF400664DD6 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				FA6E7D6D2AE28B2100664DD6 /* ErrorHandler.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2574,6 +2588,7 @@
 				7BDF921B2A935F450041E0CC /* TorrentTrackersPagePresenter.swift in Sources */,
 				7B8CB81F2A66C19E001A4D90 /* TorrentViewModel.swift in Sources */,
 				7B8338292A0FA19F0052F7EC /* SessionBodies.swift in Sources */,
+				FA6E7D6E2AE28B2100664DD6 /* ErrorHandler.swift in Sources */,
 				7B2325172A76891A00836B02 /* ServerDetailPageViewModel.swift in Sources */,
 				7BDF921D2A935F4F0041E0CC /* TorrentTrackersPageViewModel.swift in Sources */,
 				7B85610C2A9C8E3A00724B8F /* PeersSettingsPageViewModel.swift in Sources */,
@@ -2636,6 +2651,7 @@
 				7B1E4B482A7C0541002CA270 /* TorrentRemoveMapperTests.swift in Sources */,
 				7BC7265E2A9D48F000019EB8 /* BlocklistBodiesTests.swift in Sources */,
 				7BC960DC2A12D1AF0030B5E0 /* TorrentBodiesTests.swift in Sources */,
+				FA6E7D702AE28B3E00664DD6 /* ErrorHandlerTests.swift in Sources */,
 				7B2349012A94DCE500BD5834 /* TorrentsSettingsLocalizationTests.swift in Sources */,
 				7B23490E2A94E5A800BD5834 /* TorrentsSettingsGetMapperTests.swift in Sources */,
 				7B23251D2A7689BF00836B02 /* ServerLocalizationTests.swift in Sources */,
