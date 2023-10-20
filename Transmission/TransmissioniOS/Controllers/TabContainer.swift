@@ -21,18 +21,16 @@ public struct TabContainer: View {
 	@State var selectedTab = 0
 	
     public var body: some View {
-		NavigationView {
-			TabView(selection: $selectedTab) {
-				torrentsPage
-					.tabItem {
-						Label(TabContainerPresenter.torrent, systemImage: "square.and.arrow.down")
-					}.tag(0)
-				settingsPage
-					.tabItem {
-						Label(TabContainerPresenter.settings, systemImage: "gear")
-					}.tag(1)
-			}
-		}
+        TabView(selection: $selectedTab) {
+            torrentsPage
+                .tabItem {
+                    Label(TabContainerPresenter.torrent, systemImage: "square.and.arrow.down")
+                }.tag(0)
+            settingsPage
+                .tabItem {
+                    Label(TabContainerPresenter.settings, systemImage: "gear")
+                }.tag(1)
+        }
     }
 	
 }
