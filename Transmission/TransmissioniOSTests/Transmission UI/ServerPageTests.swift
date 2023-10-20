@@ -50,7 +50,9 @@ class ServerPageTests: XCTestCase {
 			editItemActionTitle: "Edit",
 			deleteItemActionTitle: "Delete",
 			currentSelectedServerId: currentSelectedServerId,
-			emptyMessage: servers.count > 0 ? nil : "Empty message"
+			emptyMessage: servers.count > 0 ? nil : "Empty message",
+            alertMessage: nil,
+            alertMessageVisible: false
 		)
 	}
 	

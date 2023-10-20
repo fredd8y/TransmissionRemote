@@ -30,7 +30,9 @@ class SettingsPageTests: XCTestCase {
 					editItemActionTitle: "Edit",
 					deleteItemActionTitle: "Delete",
 					currentSelectedServerId: nil,
-					emptyMessage: nil
+					emptyMessage: nil,
+                    alertMessage: nil,
+                    alertMessageVisible: false
 				)
 			)
 		)
