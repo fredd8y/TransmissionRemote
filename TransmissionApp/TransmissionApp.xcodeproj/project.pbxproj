@@ -126,6 +126,7 @@
 		7BDF92362A9381300041E0CC /* TorrentTrackersPagePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF92342A9381300041E0CC /* TorrentTrackersPagePresentationAdapter.swift */; };
 		7BDF92382A93827B0041E0CC /* TorrentTrackersPageViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF92372A93827B0041E0CC /* TorrentTrackersPageViewModel+Factory.swift */; };
 		7BDF92392A93827B0041E0CC /* TorrentTrackersPageViewModel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF92372A93827B0041E0CC /* TorrentTrackersPageViewModel+Factory.swift */; };
+		FA921D752AE27BB700B8B9D1 /* ErrorHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA921D742AE27BB700B8B9D1 /* ErrorHandlerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +233,7 @@
 		7BDF920C2A934C3F0041E0CC /* TorrentPeersPageViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorrentPeersPageViewModel+Factory.swift"; sourceTree = "<group>"; };
 		7BDF92342A9381300041E0CC /* TorrentTrackersPagePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentTrackersPagePresentationAdapter.swift; sourceTree = "<group>"; };
 		7BDF92372A93827B0041E0CC /* TorrentTrackersPageViewModel+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TorrentTrackersPageViewModel+Factory.swift"; sourceTree = "<group>"; };
+		FA921D742AE27BB700B8B9D1 /* ErrorHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -459,6 +461,7 @@
 				7BA01FD92A7EA0D500FBB43D /* KeychainTests.swift */,
 				7BA01FDD2A7EBA4E00FBB43D /* CipherTests.swift */,
 				7BA01FDF2A7FEF1A00FBB43D /* Base16Tests.swift */,
+				FA921D742AE27BB700B8B9D1 /* ErrorHandlerTests.swift */,
 			);
 			path = TransmissionAppTests;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA01FDE2A7EBA4E00FBB43D /* CipherTests.swift in Sources */,
+				FA921D752AE27BB700B8B9D1 /* ErrorHandlerTests.swift in Sources */,
 				7BA01FE02A7FEF1A00FBB43D /* Base16Tests.swift in Sources */,
 				7BA01FDA2A7EA0D500FBB43D /* KeychainTests.swift in Sources */,
 			);

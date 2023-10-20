@@ -16,7 +16,8 @@ public final class SessionGetMapper {
 	public enum Error: Swift.Error, Equatable {
 		case invalidData
 		case serverTimeout
-		case authenticationFailed
+        case authenticationFailed
+        case connectionUnavailable
 		case failed(explanation: String)
 		case missingSessionId(sessionIdValue: Any?)
 		
@@ -28,10 +29,12 @@ public final class SessionGetMapper {
 				return true
 			case (.authenticationFailed, .authenticationFailed):
 				return true
-			case (.missingSessionId, .missingSessionId):
-				return true
-			case (.failed, .failed):
-				return true
+            case (.connectionUnavailable, .connectionUnavailable):
+                return true
+            case (.missingSessionId, .missingSessionId):
+                return true
+            case (.failed, .failed):
+                return true
 			default:
 				return false
 			}
