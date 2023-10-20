@@ -311,12 +311,9 @@ public struct TorrentsPage: View {
 					Text(TorrentsPagePresenter.deleteAllTorrentAlertMessage)
 				}
 			)
-		}
-		.if(viewModel.error != nil) { navigationStack in
-			navigationStack.refreshable {
-				onRefresh?()
-			}
-		}
+        }.refreshable {
+            onRefresh?()
+        }
 	}
 	
 	private func progressBarColor(_ torrent: TorrentViewModel) -> Color {
