@@ -22,7 +22,7 @@ public struct PeersSettingsPage: View {
 	
 	@Environment(\.isPresented) var isPresented
 	
-	@State private var tabBarVisibility: Visibility = .visible
+	@State private var tabBarVisibility: Visibility = .hidden
 	
 	@ObservedObject private var viewModel: PeersSettingsPageViewModel
 	
@@ -203,11 +203,6 @@ public struct PeersSettingsPage: View {
 		}
 		.onDisappear {
 			onDisappear?()
-		}
-		.onLoad {
-			withAnimation {
-				tabBarVisibility = .hidden
-			}
 		}
 		.onChange(of: isPresented) { _ in
 			withAnimation {

@@ -19,7 +19,7 @@ public struct NetworkSettingsPage: View {
 	
 	@Environment(\.isPresented) var isPresented
 	
-	@State private var tabBarVisibility: Visibility = .visible
+	@State private var tabBarVisibility: Visibility = .hidden
 	
 	@ObservedObject private var viewModel: NetworkSettingsPageViewModel
 	
@@ -112,11 +112,6 @@ public struct NetworkSettingsPage: View {
 		}
 		.onDisappear {
 			onDisappear?()
-		}
-		.onLoad {
-			withAnimation {
-				tabBarVisibility = .hidden
-			}
 		}
 		.onChange(of: isPresented) { _ in
 			withAnimation {

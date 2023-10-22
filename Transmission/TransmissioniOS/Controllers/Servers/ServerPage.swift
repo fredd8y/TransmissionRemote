@@ -18,7 +18,10 @@ public struct ServerPage: View {
 	
 	@ObservedObject private var viewModel: ServerPageViewModel
 	
-	@State private var tabBarVisibility: Visibility = .visible
+	@State private var tabBarVisibility: Visibility = .hidden
+    
+    @AppStorage(ServerConstants.kLocalNetworkPermissionAlreadyAsked)
+    private var localNetworkPermissionAlreadyAsked: Bool = false
 	
 	public var loadData: (() -> Void)?
 	
@@ -105,16 +108,20 @@ public struct ServerPage: View {
 			}
 		)
 		.onLoad {
-			loadData?()
-			withAnimation {
-				tabBarVisibility = .hidden
-			}
-		}
-		.onChange(of: isPresented) { _ in
-			withAnimation {
-				tabBarVisibility = .visible
-			}
-		}
+            if !localNetworkPermissionAlreadyAsked {
+                localNetworkPermissionAlreadyAsked = true
+                // This is done to trigger the OS to ask the local network
+                // connectivity permission, this is done to avoid the user being
+                // asked on the home page as the permission alert cause some weird lag
+                _ = ProcessInfo.processInfo.hostName
+            }
+            loadData?()
+        }
+        .onChange(of: isPresented) { _ in
+            withAnimation {
+                tabBarVisibility = .visible
+            }
+        }
     }
 }
 

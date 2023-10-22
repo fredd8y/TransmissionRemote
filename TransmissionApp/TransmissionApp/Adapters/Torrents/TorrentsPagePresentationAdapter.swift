@@ -360,24 +360,36 @@ final class TorrentsPagePresentationAdapter {
 				switch completion {
 				case .finished: break
 				case let .failure(error):
-					if let _error = error as? SessionGetMapper.Error {
-						switch _error {
-						case .failed(let explanation):
-							self?.torrentsPageViewModel.alertMessage = explanation
-							self?.torrentsPageViewModel.alertMessageVisible = true
-						case .authenticationFailed:
-							self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.credentialRequired())
-						case .missingSessionId(let sessionId):
-							guard let _sessionId = sessionId as? String else {
-								// TODO: Handle error
-								break
-							}
-							self?.sessionIdHandler(_sessionId)
-							self?.loadData()
-						case .invalidData:
-							self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.error())
+                    switch error {
+                    case let error as SessionGetMapper.Error:
+                        switch error {
+                        case .failed(let explanation):
+                            self?.torrentsPageViewModel.alertMessage = explanation
+                            self?.torrentsPageViewModel.alertMessageVisible = true
+                        case .authenticationFailed:
+                            self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.credentialRequired())
+                        case .missingSessionId(let sessionId):
+                            guard let _sessionId = sessionId as? String else {
+                                // TODO: Handle error
+                                break
+                            }
+                            self?.sessionIdHandler(_sessionId)
+                            self?.loadData()
+                        case .invalidData:
+                            self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.error())
                         }
-					}
+                    case let error as NetworkError:
+                        switch error {
+                        case .unknownError:
+                            self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.error())
+                        case .serverTimeout:
+                            self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.serverTimeout())
+                        case .connectionUnavailable:
+                            self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.connectionUnavailable())
+                        }
+                    default:
+                        break
+                    }
 				}
 			},
 			receiveValue: { [weak self] (session, torrents) in

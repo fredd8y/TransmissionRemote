@@ -140,8 +140,12 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentsPagePresenter.removeAll, localized("REMOVE_ALL", table: table))
 	}
 	
-	func test_closeTorrentDetail_isLocalized() {
-		XCTAssertEqual(TorrentsPagePresenter.closeTorrentDetail, localized("CLOSE_TORRENT_DETAIL", table: table))
+    func test_closeTorrentDetail_isLocalized() {
+        XCTAssertEqual(TorrentsPagePresenter.closeTorrentDetail, localized("CLOSE_TORRENT_DETAIL", table: table))
+    }
+    
+	func test_connectionUnavailable_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.connectionUnavailable, localized("CONNECTION_UNAVAILABLE", table: table))
 	}
 	
 	func test_map_createsViewModel() {

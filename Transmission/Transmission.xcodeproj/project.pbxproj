@@ -341,6 +341,7 @@
 		7BFEB6442A8CFD73003D8985 /* SessionSetMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEB6432A8CFD73003D8985 /* SessionSetMapperTests.swift */; };
 		FA6E7D6E2AE28B2100664DD6 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E7D6D2AE28B2100664DD6 /* ErrorHandler.swift */; };
 		FA6E7D702AE28B3E00664DD6 /* ErrorHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E7D6F2AE28B3E00664DD6 /* ErrorHandlerTests.swift */; };
+		FA6E7D742AE58BA700664DD6 /* ServerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E7D732AE58BA700664DD6 /* ServerConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -715,6 +716,7 @@
 		7BFEB6432A8CFD73003D8985 /* SessionSetMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSetMapperTests.swift; sourceTree = "<group>"; };
 		FA6E7D6D2AE28B2100664DD6 /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		FA6E7D6F2AE28B3E00664DD6 /* ErrorHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlerTests.swift; sourceTree = "<group>"; };
+		FA6E7D732AE58BA700664DD6 /* ServerConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -950,6 +952,7 @@
 			children = (
 				7B23250A2A7685F300836B02 /* ServerDetailPage.swift */,
 				7B2324D92A753D5400836B02 /* ServerPage.swift */,
+				FA6E7D732AE58BA700664DD6 /* ServerConstants.swift */,
 			);
 			path = Servers;
 			sourceTree = "<group>";
@@ -2507,6 +2510,7 @@
 				7B6CD5DA2A724D5A00E81983 /* SettingsPage.swift in Sources */,
 				7BA7E34A2A98AA6B00406BBB /* SpeedSettingsPage.swift in Sources */,
 				7BDF91ED2A8FBC430041E0CC /* TorrentDetailTabContainer.swift in Sources */,
+				FA6E7D742AE58BA700664DD6 /* ServerConstants.swift in Sources */,
 				7B23F0102A94EDBB008E00FF /* TorrentsSettingsPage.swift in Sources */,
 				7BDF92102A9350800041E0CC /* AssetColor.swift in Sources */,
 				7B6CD5D82A724CD200E81983 /* TabContainer.swift in Sources */,

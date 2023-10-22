@@ -40,9 +40,17 @@ public final class TorrentsPagePresenter {
 			comment: "Title when credential are required")
 	}
 	
-	public static var serverTimeout: String {
+    public static var serverTimeout: String {
+        NSLocalizedString(
+            "SERVER_TIMEOUT",
+            tableName: "Torrents",
+            bundle: Bundle(for: TorrentsPagePresenter.self),
+            comment: "Title when server time out")
+    }
+    
+	public static var connectionUnavailable: String {
 		NSLocalizedString(
-			"SERVER_TIMEOUT",
+			"CONNECTION_UNAVAILABLE",
 			tableName: "Torrents",
 			bundle: Bundle(for: TorrentsPagePresenter.self),
 			comment: "Title when server time out")
