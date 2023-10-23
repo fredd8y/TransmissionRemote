@@ -55,3 +55,4 @@
 "REMOVE_ALL" = "Remove all";
 "CLOSE_TORRENT_DETAIL" = "Close";
 "CONNECTION_UNAVAILABLE" = "Connection unavailable, if your server is on a local network, check if you have enabled permissions to access to local network devices by going to Settings -> Privacy and Security -> Local Network";
+"SERVER_UNREACHABLE" = "Server unreachable";

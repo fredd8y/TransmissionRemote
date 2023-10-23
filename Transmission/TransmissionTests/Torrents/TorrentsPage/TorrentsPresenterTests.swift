@@ -148,6 +148,10 @@ final class TorrentsPresenterTests: XCTorrentTestCase {
 		XCTAssertEqual(TorrentsPagePresenter.connectionUnavailable, localized("CONNECTION_UNAVAILABLE", table: table))
 	}
 	
+	func test_serverUnreachable_isLocalized() {
+		XCTAssertEqual(TorrentsPagePresenter.serverUnreachable, localized("SERVER_UNREACHABLE", table: table))
+	}
+	
 	func test_map_createsViewModel() {
 		let title = "Title"
 		let isLoading = false

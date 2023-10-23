@@ -34,7 +34,7 @@ enum TorrentsSettingsPublishers {
 				body: SessionBodies.setDownloadDir(downloadDir: downloadDir),
 				additionalHeader: Headers.headers(server.credentials)
 			)
-			.mapError(ErrorHandler.handleError)
+			.mapError(NetworkErrorHandler.handleError)
 			.tryMap(Logger.log)
 			.tryMap(SessionSetMapper.map)
 			.eraseToAnyPublisher()
@@ -50,7 +50,7 @@ enum TorrentsSettingsPublishers {
 				body: SessionBodies.setStartAddedTorrents(enabled: enabled),
 				additionalHeader: Headers.headers(server.credentials)
 			)
-			.mapError(ErrorHandler.handleError)
+			.mapError(NetworkErrorHandler.handleError)
 			.tryMap(Logger.log)
 			.tryMap(SessionSetMapper.map)
 			.eraseToAnyPublisher()
@@ -66,7 +66,7 @@ enum TorrentsSettingsPublishers {
 				body: SessionBodies.setRenamePartialFiles(enabled: enabled),
 				additionalHeader: Headers.headers(server.credentials)
 			)
-			.mapError(ErrorHandler.handleError)
+			.mapError(NetworkErrorHandler.handleError)
 			.tryMap(Logger.log)
 			.tryMap(SessionSetMapper.map)
 			.eraseToAnyPublisher()
@@ -82,7 +82,7 @@ enum TorrentsSettingsPublishers {
 				body: SessionBodies.setSeedRatioLimited(enabled: enabled),
 				additionalHeader: Headers.headers(server.credentials)
 			)
-			.mapError(ErrorHandler.handleError)
+			.mapError(NetworkErrorHandler.handleError)
 			.tryMap(Logger.log)
 			.tryMap(SessionSetMapper.map)
 			.eraseToAnyPublisher()
@@ -98,7 +98,7 @@ enum TorrentsSettingsPublishers {
 				body: SessionBodies.setSeedRatioLimit(limit: limit),
 				additionalHeader: Headers.headers(server.credentials)
 			)
-			.mapError(ErrorHandler.handleError)
+			.mapError(NetworkErrorHandler.handleError)
 			.tryMap(Logger.log)
 			.tryMap(SessionSetMapper.map)
 			.eraseToAnyPublisher()
@@ -114,7 +114,7 @@ enum TorrentsSettingsPublishers {
 				body: SessionBodies.setIdleSeedingLimitEnabled(enabled: enabled),
 				additionalHeader: Headers.headers(server.credentials)
 			)
-			.mapError(ErrorHandler.handleError)
+			.mapError(NetworkErrorHandler.handleError)
 			.tryMap(Logger.log)
 			.tryMap(SessionSetMapper.map)
 			.eraseToAnyPublisher()
@@ -130,7 +130,7 @@ enum TorrentsSettingsPublishers {
 				body: SessionBodies.setIdleSeedingLimit(limit: limit),
 				additionalHeader: Headers.headers(server.credentials)
 			)
-			.mapError(ErrorHandler.handleError)
+			.mapError(NetworkErrorHandler.handleError)
 			.tryMap(Logger.log)
 			.tryMap(SessionSetMapper.map)
 			.eraseToAnyPublisher()

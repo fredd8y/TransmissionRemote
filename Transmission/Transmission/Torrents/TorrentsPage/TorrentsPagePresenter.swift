@@ -56,6 +56,14 @@ public final class TorrentsPagePresenter {
 			comment: "Title when server time out")
 	}
 	
+	public static var serverUnreachable: String {
+		NSLocalizedString(
+			"SERVER_UNREACHABLE",
+			tableName: "Torrents",
+			bundle: Bundle(for: TorrentsPagePresenter.self),
+			comment: "Title when server is unreachable")
+	}
+	
 	public static var ok: String {
 		NSLocalizedString(
 			"OK",

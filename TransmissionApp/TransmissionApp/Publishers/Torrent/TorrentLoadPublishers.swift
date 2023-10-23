@@ -20,7 +20,7 @@ enum TorrentLoadPublishers {
 				body: SessionBodies.get.data(using: .utf8)!,
 				additionalHeader: Headers.headers(server.credentials)
 			)
-			.mapError(ErrorHandler.handleError)
+			.mapError(NetworkErrorHandler.handleError)
 			.tryMap(Logger.log)
 			.tryMap(SessionGetMapper.map)
 			.flatMap { session in

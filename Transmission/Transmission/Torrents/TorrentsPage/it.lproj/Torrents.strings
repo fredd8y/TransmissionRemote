@@ -55,3 +55,4 @@
 "REMOVE_ALL" = "Rimuovi tutti";
 "CLOSE_TORRENT_DETAIL" = "Chiudi";
 "CONNECTION_UNAVAILABLE" = "Connessione non disponibile, se il tuo server si trova su una rete locale, controlla di aver abilitato i permessi ad accedere ai dispositivi sulla rete locale andando in Impostazioni -> Privacy e Sicurezza -> Rete Locale";
+"SERVER_UNREACHABLE" = "Impossibile connettersi al server";

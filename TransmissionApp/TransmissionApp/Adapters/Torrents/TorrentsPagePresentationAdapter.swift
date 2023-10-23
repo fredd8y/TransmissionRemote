@@ -384,6 +384,8 @@ final class TorrentsPagePresentationAdapter {
                             self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.error())
                         case .serverTimeout:
                             self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.serverTimeout())
+						case .serverUnreachable:
+							self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.serverUnreachable())
                         case .connectionUnavailable:
                             self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.connectionUnavailable())
                         }

@@ -122,4 +122,23 @@ extension TorrentsPageViewModel {
 		)
 	}
 	
+	static func serverUnreachable() -> TorrentsPageViewModel {
+		TorrentsPagePresenter.map(
+			title: TorrentsPagePresenter.title,
+			isLoading: false,
+			error: TorrentsPagePresenter.serverUnreachable,
+			uploadSpeed: 0,
+			downloadSpeed: 0,
+			temporaryUploadSpeed: 0,
+			temporaryDownloadSpeed: 0,
+			temporarySpeedEnabled: false,
+			torrents: [],
+			freeDiskSpace: nil,
+			emptyMessage: nil,
+			canAddTorrent: false,
+			alertMessage: nil,
+			alertMessageVisible: false
+		)
+	}
+	
 }

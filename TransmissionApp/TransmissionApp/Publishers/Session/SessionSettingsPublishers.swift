@@ -22,7 +22,7 @@ enum SessionSettingsPublishers {
 				body: SessionBodies.setDownloadLimit(enabled: enabled),
 				additionalHeader: Headers.headers(server.credentials)
 			)
-			.mapError(ErrorHandler.handleError)
+			.mapError(NetworkErrorHandler.handleError)
 			.tryMap(Logger.log)
 			.tryMap(SessionSetMapper.map)
 			.eraseToAnyPublisher()
