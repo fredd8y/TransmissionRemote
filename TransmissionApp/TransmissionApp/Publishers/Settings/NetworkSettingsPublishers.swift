@@ -12,27 +12,37 @@ import Transmission
 
 enum NetworkSettingsPublishers {
 	
-	static func makeNetworkSettingsGetPublisher(server: Server) -> AnyPublisher<NetworkSettings, Error> {
+	static func makeNetworkSettingsGetPublisher(server: Server) -> AnyPublisher<(NetworkSettings, Bool), Error> {
+		var receivedNetworkSettings: NetworkSettings?
 		return TransmissionHTTPClient.httpClient
 			.postPublisher(
 				url: APIsEndpoint.post.url(baseURL: server.baseURL),
 				body: SessionBodies.get(fields: SessionField.networkSettings),
 				additionalHeader: Headers.headers(server.credentials)
 			)
+			.mapError(NetworkErrorHandler.handleError)
+			.tryMap(Logger.log)
+			.tryMap(AuthenticationMapper.map)
 			.tryMap(Logger.log)
 			.tryMap(NetworkSettingsGetMapper.map)
-			.eraseToAnyPublisher()
-	}
-	
-	static func makePortTestPublisher(server: Server) -> AnyPublisher<Bool, Error> {
-		return TransmissionHTTPClient.httpClient
-			.postPublisher(
-				url: APIsEndpoint.post.url(baseURL: server.baseURL),
-				body: PortTestBodies.test,
-				additionalHeader: Headers.headers(server.credentials)
-			)
+			.flatMap { networkSettings in
+				Future { promise in
+					receivedNetworkSettings = networkSettings
+					TransmissionHTTPClient.httpClient.post(
+						APIsEndpoint.post.url(baseURL: server.baseURL),
+						body: PortTestBodies.test,
+						additionalHeader: Headers.headers(server.credentials)
+					) { result in
+						promise(result)
+					}
+				}
+			}
 			.tryMap(Logger.log)
 			.tryMap(PortTestMapper.map)
+			.tryMap { portStatus in
+				guard let receivedNetworkSettings else { throw PortTestMapper.Error.invalidData }
+				return (receivedNetworkSettings, portStatus)
+			}
 			.eraseToAnyPublisher()
 	}
 	

@@ -18,6 +18,9 @@ enum SpeedSettingsPublishers {
 				body: SessionBodies.get(fields: SessionField.speedSettings),
 				additionalHeader: Headers.headers(server.credentials)
 			)
+			.mapError(NetworkErrorHandler.handleError)
+			.tryMap(Logger.log)
+			.tryMap(AuthenticationMapper.map)
 			.tryMap(Logger.log)
 			.tryMap(SpeedSettingsGetMapper.map)
 			.eraseToAnyPublisher()

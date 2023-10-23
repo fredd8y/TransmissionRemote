@@ -19,6 +19,9 @@ enum TorrentsSettingsPublishers {
 				body: SessionBodies.get(fields: SessionField.torrentsSettings),
 				additionalHeader: Headers.headers(server.credentials)
 			)
+			.mapError(NetworkErrorHandler.handleError)
+			.tryMap(Logger.log)
+			.tryMap(AuthenticationMapper.map)
 			.tryMap(Logger.log)
 			.tryMap(TorrentsSettingsGetMapper.map)
 			.eraseToAnyPublisher()

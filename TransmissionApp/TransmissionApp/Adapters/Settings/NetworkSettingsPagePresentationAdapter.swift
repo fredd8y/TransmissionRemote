@@ -53,10 +53,7 @@ class NetworkSettingsPagePresentationAdapter {
 	func loadData() {
 		cancelCurrentLoadingTasks()
 		guard let server = UserDefaultsHandler.shared.currentServer else { return }
-		Publishers.Zip(
-			NetworkSettingsPublishers.makeNetworkSettingsGetPublisher(server: server),
-			NetworkSettingsPublishers.makePortTestPublisher(server: server)
-		)
+		NetworkSettingsPublishers.makeNetworkSettingsGetPublisher(server: server)
 			.dispatchOnMainQueue()
 			.sink(
 				receiveCompletion: { [weak self] completion in

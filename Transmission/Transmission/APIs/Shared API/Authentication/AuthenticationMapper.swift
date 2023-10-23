@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class AuthenticationMapper {
+public enum AuthenticationMapper {
 	public static func map(_ data: Data, from response: HTTPURLResponse) throws -> (Data, HTTPURLResponse) {
 		if response.isMissingSessionId {
 			throw AuthenticationError.missingSessionId(sessionIdValue: response.allHeaderFields[AuthenticationConstants.sessionIdKey] as? String)

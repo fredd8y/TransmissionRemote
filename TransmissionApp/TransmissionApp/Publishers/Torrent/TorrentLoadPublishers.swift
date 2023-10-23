@@ -22,6 +22,8 @@ enum TorrentLoadPublishers {
 			)
 			.mapError(NetworkErrorHandler.handleError)
 			.tryMap(Logger.log)
+			.tryMap(AuthenticationMapper.map)
+			.tryMap(Logger.log)
 			.tryMap(SessionGetMapper.map)
 			.flatMap { session in
 				Future { promise in

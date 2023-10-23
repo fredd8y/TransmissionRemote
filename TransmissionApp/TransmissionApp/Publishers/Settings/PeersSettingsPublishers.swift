@@ -18,6 +18,9 @@ enum PeersSettingsPublishers {
 				body: SessionBodies.get(fields: SessionField.peersSettings),
 				additionalHeader: Headers.headers(server.credentials)
 			)
+			.mapError(NetworkErrorHandler.handleError)
+			.tryMap(Logger.log)
+			.tryMap(AuthenticationMapper.map)
 			.tryMap(Logger.log)
 			.tryMap(PeersSettingsGetMapper.map)
 			.eraseToAnyPublisher()

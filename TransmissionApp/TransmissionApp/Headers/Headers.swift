@@ -16,7 +16,7 @@ enum Headers {
 			headers[HeaderUtils.AUTHORIZATION_KEY] = HeaderUtils.basicAuthCredentialsString(username: credentials.username, password: credentials.password)
 		}
 		if let sessionId = TransmissionHTTPClient.sessionId {
-			headers[SessionGetMapper.sessionIdKey] = sessionId
+			headers[AuthenticationConstants.sessionIdKey] = sessionId
 		}
 		return headers
 	}
