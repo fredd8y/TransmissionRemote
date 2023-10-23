@@ -366,18 +366,18 @@ final class TorrentsPagePresentationAdapter {
                         case .failed(let explanation):
                             self?.torrentsPageViewModel.alertMessage = explanation
                             self?.torrentsPageViewModel.alertMessageVisible = true
-                        case .authenticationFailed:
-                            self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.credentialRequired())
-                        case .missingSessionId(let sessionId):
-                            guard let _sessionId = sessionId as? String else {
-                                // TODO: Handle error
-                                break
-                            }
-                            self?.sessionIdHandler(_sessionId)
-                            self?.loadData()
                         case .invalidData:
                             self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.error())
                         }
+					case let error as AuthenticationError:
+						switch error {
+						case .authenticationFailed:
+							self?.torrentsPageViewModel.newValues(TorrentsPageViewModel.credentialRequired())
+						case .missingSessionId(let sessionId):
+							guard let _sessionId = sessionId else { break }
+							self?.sessionIdHandler(_sessionId)
+							self?.loadData()
+						}
                     case let error as NetworkError:
                         switch error {
                         case .unknownError:
