@@ -33,7 +33,6 @@ extension TorrentBodiesTests {
 		assertEqual(expectedBody, httpBody)
 	}
 	
-	
 	func test_torrentGet_httpBodyWithFields() {
 		let expectedBody = #"{"arguments":{"fields":["field1","field2","field3"]},"method":"torrent-get"}"#.data(using: .utf8)!
 		
