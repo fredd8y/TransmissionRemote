@@ -7,7 +7,13 @@
 
 import Foundation
 
-public enum TorrentBodies {}
+public enum TorrentBodies {
+	static var encoder: JSONEncoder {
+		let encoder = JSONEncoder()
+		encoder.outputFormatting = .sortedKeys
+		return encoder
+	}
+}
 
 extension TorrentBodies {
 	
@@ -30,7 +36,7 @@ extension TorrentBodies {
 	}
 	
 	public static func get(id: Int?, fields: [String]) -> Data {
-		try! JSONEncoder().encode(TorrentGetBody(id, fields))
+		try! encoder.encode(TorrentGetBody(id, fields))
 	}
 	
 }
@@ -70,7 +76,7 @@ extension TorrentBodies {
 	}
 	
 	public static func add(startWhenAdded: Bool, downloadDir: String, torrentFilePath: String?, filename: String?) throws -> Data {
-		try JSONEncoder().encode(TorrentAddBody(startWhenAdded, downloadDir, torrentFilePath, filename))
+		try encoder.encode(TorrentAddBody(startWhenAdded, downloadDir, torrentFilePath, filename))
 	}
 	
 }
@@ -96,7 +102,7 @@ extension TorrentBodies {
 	}
 	
 	public static func remove(id: Int, deleteLocalData: Bool) -> Data {
-		try! JSONEncoder().encode(TorrentRemoveBody(id: id, deleteLocalData: deleteLocalData))
+		try! encoder.encode(TorrentRemoveBody(id: id, deleteLocalData: deleteLocalData))
 	}
 }
 
@@ -119,7 +125,7 @@ extension TorrentBodies {
 	}
 	
 	public static func removeAll(deleteLocalData: Bool) -> Data {
-		try! JSONEncoder().encode(TorrentRemoveAllBody(deleteLocalData: deleteLocalData))
+		try! encoder.encode(TorrentRemoveAllBody(deleteLocalData: deleteLocalData))
 	}
 }
 
@@ -138,7 +144,7 @@ extension TorrentBodies {
 	}
 	
 	public static func stop(id: Int) -> Data {
-		try! JSONEncoder().encode(TorrentStopBody(id: id))
+		try! encoder.encode(TorrentStopBody(id: id))
 	}
 }
 
@@ -148,7 +154,7 @@ extension TorrentBodies {
 	}
 	
 	public static func stopAll() -> Data {
-		try! JSONEncoder().encode(TorrentStopAllBody())
+		try! encoder.encode(TorrentStopAllBody())
 	}
 }
 
@@ -167,7 +173,7 @@ extension TorrentBodies {
 	}
 	
 	public static func start(id: Int) -> Data {
-		try! JSONEncoder().encode(TorrentStartBody(id: id))
+		try! encoder.encode(TorrentStartBody(id: id))
 	}
 }
 
@@ -177,6 +183,6 @@ extension TorrentBodies {
 	}
 	
 	public static func startAll() -> Data {
-		try! JSONEncoder().encode(TorrentStartAllBody())
+		try! encoder.encode(TorrentStartAllBody())
 	}
 }

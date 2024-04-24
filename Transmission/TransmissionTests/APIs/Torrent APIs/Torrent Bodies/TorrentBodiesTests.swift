@@ -8,33 +8,46 @@
 import XCTest
 import Transmission
 
-final class TorrentBodiesTests: XCTestCase {}
+final class TorrentBodiesTests: XCTestCase {
+	func assertEqual(
+		_ arg0: Data,
+		_ arg1: Data,
+		file: StaticString = #filePath,
+		line: UInt = #line
+	) {
+		XCTAssertEqual(
+			arg0,
+			arg1,
+			"Expected \(String(data: arg0, encoding: .utf8)!) and \(String(data: arg1, encoding: .utf8)!) to be equal"
+		)
+	}
+}
 
 extension TorrentBodiesTests {
 	
 	func test_torrentGet_httpBodyWithEmptyFields() {
-		let expectedBody = #"{"method":"torrent-get","arguments":{"fields":[]}}"#.data(using: .utf8)
+		let expectedBody = #"{"arguments":{"fields":[]},"method":"torrent-get"}"#.data(using: .utf8)!
 		
 		let httpBody = TorrentBodies.get(id: nil, fields: [])
 		
-		XCTAssertEqual(expectedBody, httpBody)
+		assertEqual(expectedBody, httpBody)
 	}
 	
 	
 	func test_torrentGet_httpBodyWithFields() {
-		let expectedBody = #"{"method":"torrent-get","arguments":{"fields":["field1","field2","field3"]}}"#.data(using: .utf8)
+		let expectedBody = #"{"arguments":{"fields":["field1","field2","field3"]},"method":"torrent-get"}"#.data(using: .utf8)!
 		
 		let httpBody = TorrentBodies.get(id: nil, fields: ["field1", "field2", "field3"])
 		
-		XCTAssertEqual(expectedBody, httpBody)
+		assertEqual(expectedBody, httpBody)
 	}
 	
 	func test_torrentGet_httpBodyWithFieldsAndId() {
-		let expectedBody = #"{"method":"torrent-get","arguments":{"ids":[1],"fields":["field1","field2","field3"]}}"#.data(using: .utf8)
+		let expectedBody = #"{"arguments":{"fields":["field1","field2","field3"],"ids":[1]},"method":"torrent-get"}"#.data(using: .utf8)!
 		
 		let httpBody = TorrentBodies.get(id: 1, fields: ["field1", "field2", "field3"])
 		
-		XCTAssertEqual(expectedBody, httpBody)
+		assertEqual(expectedBody, httpBody)
 	}
 	
 }
@@ -64,11 +77,11 @@ extension TorrentBodiesTests {
 		
 		let downloadUrl = anyDownloadDir()
 		
-		let expectedBody = #"{"method":"torrent-add","arguments":{"paused":false,"download-dir":"\#(downloadUrl)","metainfo":"\#(base64EncodedContent)"}}"#.data(using: .utf8)
+		let expectedBody = #"{"arguments":{"download-dir":"\#(downloadUrl)","metainfo":"\#(base64EncodedContent)","paused":false},"method":"torrent-add"}"#.data(using: .utf8)!
 		
 		let httpBody = try! TorrentBodies.add(startWhenAdded: true, downloadDir: anyDownloadDir(), torrentFilePath: fileUrl, filename: nil)
 		
-		XCTAssertEqual(expectedBody, httpBody)
+		assertEqual(expectedBody, httpBody)
 	}
 	
 	func test_torrentAddLink_httpBody() {
@@ -76,11 +89,11 @@ extension TorrentBodiesTests {
 		
 		let fileName = "a file name"
 				
-		let expectedBody = #"{"method":"torrent-add","arguments":{"paused":false,"download-dir":"\#(downloadUrl)","filename":"\#(fileName)"}}"#.data(using: .utf8)
+		let expectedBody = #"{"arguments":{"download-dir":"\#(downloadUrl)","filename":"\#(fileName)","paused":false},"method":"torrent-add"}"#.data(using: .utf8)!
 		
 		let httpBody = try! TorrentBodies.add(startWhenAdded: true, downloadDir: anyDownloadDir(), torrentFilePath: nil, filename: fileName)
 		
-		XCTAssertEqual(expectedBody, httpBody)
+		assertEqual(expectedBody, httpBody)
 	}
 	
 	// MARK: - Helpers
@@ -102,76 +115,76 @@ extension TorrentBodiesTests {
 
 extension TorrentBodiesTests {
 	func test_torrentRemove_httpBodyDeletingLocalData() {
-		let expectedBody = #"{"method":"torrent-remove","arguments":{"ids":[1],"delete-local-data":true}}"#.data(using: .utf8)
+		let expectedBody = #"{"arguments":{"delete-local-data":true,"ids":[1]},"method":"torrent-remove"}"#.data(using: .utf8)!
 		
 		let httpBody = TorrentBodies.remove(id: 1, deleteLocalData: true)
 		
-		XCTAssertEqual(expectedBody, httpBody)
+		assertEqual(expectedBody, httpBody)
 	}
 	
 	func test_torrentRemove_httpBodyPreservingLocalData() {
-		let expectedBody = #"{"method":"torrent-remove","arguments":{"ids":[1],"delete-local-data":false}}"#.data(using: .utf8)
+		let expectedBody = #"{"arguments":{"delete-local-data":false,"ids":[1]},"method":"torrent-remove"}"#.data(using: .utf8)!
 		
 		let httpBody = TorrentBodies.remove(id: 1, deleteLocalData: false)
 		
-		XCTAssertEqual(expectedBody, httpBody)
+		assertEqual(expectedBody, httpBody)
 	}
 }
 
 extension TorrentBodiesTests {
 	func test_torrentRemoveAll_httpBodyDeletingLocalData() {
-		let expectedBody = #"{"method":"torrent-remove","arguments":{"delete-local-data":true}}"#.data(using: .utf8)
+		let expectedBody = #"{"arguments":{"delete-local-data":true},"method":"torrent-remove"}"#.data(using: .utf8)!
 		
 		let httpBody = TorrentBodies.removeAll(deleteLocalData: true)
 		
-		XCTAssertEqual(expectedBody, httpBody)
+		assertEqual(expectedBody, httpBody)
 	}
 	
 	func test_torrentRemoveAll_httpBodyPreservingLocalData() {
-		let expectedBody = #"{"method":"torrent-remove","arguments":{"delete-local-data":false}}"#.data(using: .utf8)
+		let expectedBody = #"{"arguments":{"delete-local-data":false},"method":"torrent-remove"}"#.data(using: .utf8)!
 		
 		let httpBody = TorrentBodies.removeAll(deleteLocalData: false)
 		
-		XCTAssertEqual(expectedBody, httpBody)
+		assertEqual(expectedBody, httpBody)
 	}
 }
 
 extension TorrentBodiesTests {
 	func test_torrentStop_httpBody() {
-		let expectedBody = #"{"method":"torrent-stop","arguments":{"ids":[1]}}"#.data(using: .utf8)
+		let expectedBody = #"{"arguments":{"ids":[1]},"method":"torrent-stop"}"#.data(using: .utf8)!
 		
 		let httpBody = TorrentBodies.stop(id: 1)
 		
-		XCTAssertEqual(expectedBody, httpBody)
+		assertEqual(expectedBody, httpBody)
 	}
 }
 
 extension TorrentBodiesTests {
 	func test_torrentStopAll_httpBody() {
-		let expectedBody = #"{"method":"torrent-stop"}"#.data(using: .utf8)
+		let expectedBody = #"{"method":"torrent-stop"}"#.data(using: .utf8)!
 		
 		let httpBody = TorrentBodies.stopAll()
 		
-		XCTAssertEqual(expectedBody, httpBody)
+		assertEqual(expectedBody, httpBody)
 	}
 }
 
 extension TorrentBodiesTests {
 	func test_torrentStart_httpBody() {
-		let expectedBody = #"{"method":"torrent-start","arguments":{"ids":[1]}}"#.data(using: .utf8)
+		let expectedBody = #"{"arguments":{"ids":[1]},"method":"torrent-start"}"#.data(using: .utf8)!
 		
 		let httpBody = TorrentBodies.start(id: 1)
 		
-		XCTAssertEqual(expectedBody, httpBody)
+		assertEqual(expectedBody, httpBody)
 	}
 }
 
 extension TorrentBodiesTests {
 	func test_torrentStartAll_httpBody() {
-		let expectedBody = #"{"method":"torrent-start"}"#.data(using: .utf8)
+		let expectedBody = #"{"method":"torrent-start"}"#.data(using: .utf8)!
 		
 		let httpBody = TorrentBodies.startAll()
 		
-		XCTAssertEqual(expectedBody, httpBody)
+		assertEqual(expectedBody, httpBody)
 	}
 }

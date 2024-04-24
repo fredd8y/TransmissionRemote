@@ -10,6 +10,11 @@ import Foundation
 public class SessionBodies {
 	public static let get = #"{"method": "session-get"}"#
 	public static let stats = #"{"method": "session-stats"}"#
+	static var encoder: JSONEncoder {
+		let encoder = JSONEncoder()
+		encoder.outputFormatting = .sortedKeys
+		return encoder
+	}
 }
 
 extension SessionBodies {
@@ -32,7 +37,7 @@ extension SessionBodies {
 	}
 	
 	public static func setListeningPort(port: Int) -> Data {
-		try! JSONEncoder().encode(SetListeningPortBody(port))
+		try! encoder.encode(SetListeningPortBody(port))
 	}
 	
 }
@@ -57,7 +62,7 @@ extension SessionBodies {
 	}
 	
 	public static func setUtpEnabled(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetUtpEnabledBody(enabled))
+		try! encoder.encode(SetUtpEnabledBody(enabled))
 	}
 	
 }
@@ -82,7 +87,7 @@ extension SessionBodies {
 	}
 	
 	public static func setPortRandomOnStart(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetPortRandomOnStartBody(enabled))
+		try! encoder.encode(SetPortRandomOnStartBody(enabled))
 	}
 	
 }
@@ -107,7 +112,7 @@ extension SessionBodies {
 	}
 	
 	public static func setPortForwarding(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetPortForwardingBody(enabled))
+		try! encoder.encode(SetPortForwardingBody(enabled))
 	}
 	
 }
@@ -132,7 +137,7 @@ extension SessionBodies {
 	}
 	
 	public static func setBlocklistUrl(url: String) -> Data {
-		try! JSONEncoder().encode(SetBlocklistUrlBody(url))
+		try! encoder.encode(SetBlocklistUrlBody(url))
 	}
 	
 }
@@ -157,7 +162,7 @@ extension SessionBodies {
 	}
 	
 	public static func setPeerLimitPerTorrent(limit: Int) -> Data {
-		try! JSONEncoder().encode(SetPeerLimitPerTorrentBody(limit))
+		try! encoder.encode(SetPeerLimitPerTorrentBody(limit))
 	}
 	
 }
@@ -182,7 +187,7 @@ extension SessionBodies {
 	}
 	
 	public static func setGlobalPeerLimit(limit: Int) -> Data {
-		try! JSONEncoder().encode(SetGlobalPeerLimitBody(limit))
+		try! encoder.encode(SetGlobalPeerLimitBody(limit))
 	}
 	
 }
@@ -207,7 +212,7 @@ extension SessionBodies {
 	}
 	
 	public static func setBlocklistEnabled(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetBlocklistEnabledBody(enabled))
+		try! encoder.encode(SetBlocklistEnabledBody(enabled))
 	}
 	
 }
@@ -232,7 +237,7 @@ extension SessionBodies {
 	}
 	
 	public static func setLpdEnabled(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetLpdEnabledBody(enabled))
+		try! encoder.encode(SetLpdEnabledBody(enabled))
 	}
 	
 }
@@ -257,7 +262,7 @@ extension SessionBodies {
 	}
 	
 	public static func setDhtEnabled(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetDhtEnabledBody(enabled))
+		try! encoder.encode(SetDhtEnabledBody(enabled))
 	}
 	
 }
@@ -282,7 +287,7 @@ extension SessionBodies {
 	}
 	
 	public static func setPexEnabled(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetPexEnabledBody(enabled))
+		try! encoder.encode(SetPexEnabledBody(enabled))
 	}
 	
 }
@@ -307,7 +312,7 @@ extension SessionBodies {
 	}
 	
 	public static func setPeersEncryption(value: String) -> Data {
-		try! JSONEncoder().encode(SetPeersEncryptionBody(value))
+		try! encoder.encode(SetPeersEncryptionBody(value))
 	}
 	
 }
@@ -332,7 +337,7 @@ extension SessionBodies {
 	}
 	
 	public static func setAlternativeSpeedTimeEnd(hour: Int) -> Data {
-		try! JSONEncoder().encode(SetAlternativeSpeedTimeEndBody(hour))
+		try! encoder.encode(SetAlternativeSpeedTimeEndBody(hour))
 	}
 	
 }
@@ -357,7 +362,7 @@ extension SessionBodies {
 	}
 	
 	public static func setAlternativeSpeedTimeBegin(hour: Int) -> Data {
-		try! JSONEncoder().encode(SetAlternativeSpeedTimeBeginBody(hour))
+		try! encoder.encode(SetAlternativeSpeedTimeBeginBody(hour))
 	}
 	
 }
@@ -381,7 +386,7 @@ extension SessionBodies {
 	}
 	
 	public static func setAlternativeSpeedTimeDay(day: Int) -> Data {
-		try! JSONEncoder().encode(SetAlternativeSpeedTimeDayBody(day))
+		try! encoder.encode(SetAlternativeSpeedTimeDayBody(day))
 	}
 	
 }
@@ -406,7 +411,7 @@ extension SessionBodies {
 	}
 	
 	public static func setAltSpeedDown(limit: Int) -> Data {
-		try! JSONEncoder().encode(SetAlternativeSpeedDownBody(limit))
+		try! encoder.encode(SetAlternativeSpeedDownBody(limit))
 	}
 	
 }
@@ -431,7 +436,7 @@ extension SessionBodies {
 	}
 	
 	public static func setAltSpeedUp(limit: Int) -> Data {
-		try! JSONEncoder().encode(SetAlternativeSpeedUpBody(limit))
+		try! encoder.encode(SetAlternativeSpeedUpBody(limit))
 	}
 	
 }
@@ -456,7 +461,7 @@ extension SessionBodies {
 	}
 	
 	public static func setSpeedLimitDown(limit: Int) -> Data {
-		try! JSONEncoder().encode(SetSpeedLimitDownBody(limit))
+		try! encoder.encode(SetSpeedLimitDownBody(limit))
 	}
 	
 }
@@ -481,7 +486,7 @@ extension SessionBodies {
 	}
 	
 	public static func setSpeedLimitUp(limit: Int) -> Data {
-		try! JSONEncoder().encode(SetSpeedLimitUpBody(limit))
+		try! encoder.encode(SetSpeedLimitUpBody(limit))
 	}
 	
 }
@@ -506,7 +511,7 @@ extension SessionBodies {
 	}
 	
 	public static func setAltSpeedTimeEnabled(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetAltSpeedTimeEnabledBody(enabled))
+		try! encoder.encode(SetAltSpeedTimeEnabledBody(enabled))
 	}
 	
 }
@@ -531,7 +536,7 @@ extension SessionBodies {
 	}
 	
 	public static func setDownloadLimitEnabled(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetDownloadLimitEnabledBody(enabled))
+		try! encoder.encode(SetDownloadLimitEnabledBody(enabled))
 	}
 	
 }
@@ -556,7 +561,7 @@ extension SessionBodies {
 	}
 	
 	public static func setUploadLimitEnabled(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetUploadLimitEnabledBody(enabled))
+		try! encoder.encode(SetUploadLimitEnabledBody(enabled))
 	}
 	
 }
@@ -581,7 +586,7 @@ extension SessionBodies {
 	}
 	
 	public static func setDownloadDir(downloadDir: String) -> Data {
-		try! JSONEncoder().encode(SetDownloadDirBody(downloadDir))
+		try! encoder.encode(SetDownloadDirBody(downloadDir))
 	}
 	
 }
@@ -606,7 +611,7 @@ extension SessionBodies {
 	}
 	
 	public static func setSeedRatioLimited(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetSeedRatioLimitedBody(enabled))
+		try! encoder.encode(SetSeedRatioLimitedBody(enabled))
 	}
 	
 }
@@ -631,7 +636,7 @@ extension SessionBodies {
 	}
 	
 	public static func setSeedRatioLimit(limit: Int) -> Data {
-		try! JSONEncoder().encode(SetSeedRatioLimitBody(limit))
+		try! encoder.encode(SetSeedRatioLimitBody(limit))
 	}
 	
 }
@@ -656,7 +661,7 @@ extension SessionBodies {
 	}
 	
 	public static func setIdleSeedingLimitEnabled(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetIdleSeedingLimitEnabledBody(enabled))
+		try! encoder.encode(SetIdleSeedingLimitEnabledBody(enabled))
 	}
 	
 }
@@ -681,7 +686,7 @@ extension SessionBodies {
 	}
 	
 	public static func setIdleSeedingLimit(limit: Int) -> Data {
-		try! JSONEncoder().encode(SetIdleSeedingLimitBody(limit))
+		try! encoder.encode(SetIdleSeedingLimitBody(limit))
 	}
 	
 }
@@ -706,7 +711,7 @@ extension SessionBodies {
 	}
 	
 	public static func setRenamePartialFiles(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetRenamePartialFileBody(enabled))
+		try! encoder.encode(SetRenamePartialFileBody(enabled))
 	}
 	
 }
@@ -731,7 +736,7 @@ extension SessionBodies {
 	}
 	
 	public static func setStartAddedTorrents(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetStartAddedTorrentsBody(enabled))
+		try! encoder.encode(SetStartAddedTorrentsBody(enabled))
 	}
 	
 }
@@ -752,7 +757,7 @@ extension SessionBodies {
 	}
 	
 	public static func get(fields: [String]) -> Data {
-		try! JSONEncoder().encode(SessionGetBody(fields))
+		try! encoder.encode(SessionGetBody(fields))
 	}
 	
 }
@@ -776,6 +781,6 @@ extension SessionBodies {
 	}
 	
 	public static func setDownloadLimit(enabled: Bool) -> Data {
-		try! JSONEncoder().encode(SetDownloadLimit(enabled: enabled))
+		try! encoder.encode(SetDownloadLimit(enabled: enabled))
 	}
 }
