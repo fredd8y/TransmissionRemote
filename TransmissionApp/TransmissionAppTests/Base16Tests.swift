@@ -100,21 +100,21 @@ class Base16Test: XCTestCase {
 	
 	func test_fromDataToString() {
 		guard let data = "0123456789ABCDEF".data(using: .utf8) else { return }
-		XCTassert(data.base16EncodedString() == "30313233343536373839414243444546")
+		XCTAssertTrue(data.base16EncodedString() == "30313233343536373839414243444546")
 	}
 	
 	func test_fromStringToData() {
 		guard let data = "0123456789ABCDEF".data(using: .utf8) else { return }
-		XCTassert(Data(base16Encoded: "30313233343536373839414243444546") == data)
+		XCTAssertTrue(Data(base16Encoded: "30313233343536373839414243444546") == data)
 	}
 	
 	func test_fromDataToStringBackToData() {
 		guard let data = "0123456789ABCDEF".data(using: .utf8) else { return }
-		XCTassert(Data(base16Encoded: data.base16EncodedString()) == "0123456789ABCDEF".data(using: .utf8))
+		XCTAssertTrue(Data(base16Encoded: data.base16EncodedString()) == "0123456789ABCDEF".data(using: .utf8))
 	}
 	
 	func test_fromStringToDataBackToString() {
 		let data = Data(base16Encoded: "30313233343536373839414243444546")
-		XCTassert("30313233343536373839414243444546" == data.base16EncodedString())
+		XCTAssertTrue("30313233343536373839414243444546" == data.base16EncodedString())
 	}
 }
